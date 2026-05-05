@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chat</title>
+<style>
+  body {
+    font-family: Georgia, serif;
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 8px;
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 18px;
+    margin: 4px 0 10px 0;
+    border-bottom: 2px solid #000;
+    padding-bottom: 4px;
+  }
+  #setup {
+    border: 1px solid #000;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  #setup label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  #apikey {
+    width: 100%;
+    font-size: 13px;
+    padding: 4px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+  }
+  #key-status {
+    font-size: 12px;
+    margin-top: 4px;
+    font-style: italic;
+  }
+  #chat {
+    border: 1px solid #000;
+    height: 320px;
+    overflow-y: scroll;
+    padding: 8px;
+    margin-bottom: 8px;
+    background: #f9f9f9;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .msg-user {
+    margin-bottom: 8px;
+    padding: 6px;
+    border-left: 3px solid #000;
+    background: #eee;
+  }
+  .msg-ai {
+    margin-bottom: 8px;
+    padding: 6px;
+    border-left: 3px solid #555;
+    background: #fff;
+  }
+  .msg-label {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  #input-area {
+    margin-bottom: 8px;
+  }
+  #userinput {
+    width: 100%;
+    height: 80px;
+    font-size: 15px;
+    font-family: Georgia, serif;
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    resize: none;
+  }
+  #btn-row { display: block; }
+  button {
+    font-size: 15px;
+    padding: 10px 18px;
+    margin-right: 8px;
+    margin-bottom: 6px;
+    border: 2px solid #000;
+    background: #fff;
+    cursor: pointer;
+    font-family: Georgia, serif;
+  }
+  .small-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  #status {
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 6px;
+    min-height: 18px;
+  }
+</style>
+</head>
+<body>
+
+<h2>AI Chat (Kindle)</h2>
+
+<div id="setup">
+  <label for="apikey">Anthropic API Key:</label>
+  <input type="password" id="apikey" placeholder="sk-ant-..." />
+  <div id="key-status"></div>
+  <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
+  <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
+</div>
+
+<div id="chat"><div style="color:#777;font-size:13px;">Messages will appear here.</div></div>
+
+<div id="input-area">
+  <textarea id="userinput" placeholder="Type your message here..."></textarea>
+</div>
+
+<div id="btn-row">
+  <button onclick="sendMessage()">Send</button>
+  <button onclick="clearChat()">Clear</button>
+</div>
+<div id="status"></div>
+
+<script>
+var history = [];
+
+window.onload = function() {
+  try {
+    var saved = localStorage.getItem("anthropic_key");
+    if (saved) {
+      document.getElementById("apikey").value = saved;
+      document.getElementById("key-status").innerHTML = "Key loaded automatically.";
+    } else {
+      document.getElementById("key-status").innerHTML = "No key saved yet. Enter one and tap Save Key.";
+    }
+  } catch(e) {
+    document.getElementById("key-status").innerHTML = "Note: storage unavailable on this browser.";
+  }
+};
+
+function saveKey() {
+  var key = document.getElementById("apikey").value.trim();
+  if (!key) { document.getElementById("key-status").innerHTML = "Enter a key first."; return; }
+  try {
+    localStorage.setItem("anthropic_key", key);
+    document.getElementById("key-status").innerHTML = "Saved. You will not need to enter it again.";
+  } catch(e) {
+    document.getElementById("key-status").innerHTML = "Could not save: " + e.message;
+  }
+}
+
+function forgetKey() {
+  try {
+    localStorage.removeItem("anthropic_key");
+    document.getElementById("apikey").value = "";
+    document.getElementById("key-status").innerHTML = "Key removed from memory.";
+  } catch(e) {
+    document.getElementById("key-status").innerHTML = "Error: " + e.message;
+  }
+}
+
+function setStatus(msg) {
+  document.getElementById("status").innerHTML = msg;
+}
+
+function appendMessage(role, text) {
+  var chat = document.getElementById("chat");
+  var div = document.createElement("div");
+  div.className = role === "user" ? "msg-user" : "msg-ai";
+  var label = document.createElement("div");
+  label.className = "msg-label";
+  label.innerHTML = role === "user" ? "You" : "AI";
+  var content = document.createElement("div");
+  content.innerHTML = escapeHtml(text).replace(/\n/g, "<br>");
+  div.appendChild(label);
+  div.appendChild(content);
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function sendMessage() {
+  var key = document.getElementById("apikey").value.trim();
+  var text = document.getElementById("userinput").value.trim();
+  if (!key) { setStatus("Please enter your API key above."); return; }
+  if (!text) { setStatus("Please type a message."); return; }
+
+  history.push({ role: "user", content: text });
+  appendMessage("user", text);
+  document.getElementById("userinput").value = "";
+  setStatus("Thinking...");
+
+  var payload = JSON.stringify({
+    model: "claude-haiku-4-5-20251001",
+    max_tokens: 1024,
+    messages: history
+  });
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://api.anthropic.com/v1/messages", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("x-api-key", key);
+  xhr.setRequestHeader("anthropic-version", "2023-06-01");
+  xhr.setRequestHeader("anthropic-dangerous-direct-browser-access", "true");
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== 4) return;
+    if (xhr.status === 200) {
+      try {
+        var resp = JSON.parse(xhr.responseText);
+        var reply = resp.content[0].text;
+        history.push({ role: "assistant", content: reply });
+        appendMessage("ai", reply);
+        setStatus("");
+      } catch(e) {
+        setStatus("Parse error: " + e.message);
+      }
+    } else {
+      setStatus("Error " + xhr.status + ": " + xhr.responseText);
+    }
+  };
+
+  xhr.send(payload);
+}
+
+function clearChat() {
+  history = [];
+  var chat = document.getElementById("chat");
+  chat.innerHTML = '<div style="color:#777;font-size:13px;">Messages will appear here.</div>';
+  setStatus("Chat cleared.");
+}
+</script>
+
+</body>
+</html>
