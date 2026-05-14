@@ -107,11 +107,11 @@
 </head>
 <body>
 
-<h2>Gemini Chat (Kindle)</h2>
+<h2>AI Chat (Kindle)</h2>
 
 <div id="setup">
-  <label for="apikey">Gemini API Key:</label>
-  <input type="password" id="apikey" placeholder="AIza..." />
+  <label for="apikey">Groq API Key:</label>
+  <input type="password" id="apikey" placeholder="gsk_..." />
   <div id="key-status"></div>
   <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
   <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
@@ -134,7 +134,7 @@ var chatHistory = [];
 
 window.onload = function() {
   try {
-    var saved = localStorage.getItem("gemini_key");
+    var saved = localStorage.getItem("groq_key");
     if (saved) {
       document.getElementById("apikey").value = saved;
       document.getElementById("key-status").innerHTML = "Key loaded automatically.";
@@ -150,7 +150,7 @@ function saveKey() {
   var key = document.getElementById("apikey").value.trim();
   if (!key) { document.getElementById("key-status").innerHTML = "Enter a key first."; return; }
   try {
-    localStorage.setItem("gemini_key", key);
+    localStorage.setItem("groq_key", key);
     document.getElementById("key-status").innerHTML = "Saved. You will not need to enter it again.";
   } catch(e) {
     document.getElementById("key-status").innerHTML = "Could not save: " + e.message;
@@ -159,7 +159,7 @@ function saveKey() {
 
 function forgetKey() {
   try {
-    localStorage.removeItem("gemini_key");
+    localStorage.removeItem("groq_key");
     document.getElementById("apikey").value = "";
     document.getElementById("key-status").innerHTML = "Key removed from memory.";
   } catch(e) {
@@ -177,7 +177,7 @@ function appendMessage(role, text) {
   div.className = role === "user" ? "msg-user" : "msg-ai";
   var label = document.createElement("div");
   label.className = "msg-label";
-  label.innerHTML = role === "user" ? "You" : "Gemini";
+  label.innerHTML = role === "user" ? "You" : "AI";
   var content = document.createElement("div");
   content.innerHTML = escapeHtml(text).replace(/\n/g, "<br>");
   div.appendChild(label);
@@ -199,34 +199,31 @@ function sendMessage() {
   if (!key) { setStatus("Please enter your API key above."); return; }
   if (!text) { setStatus("Please type a message."); return; }
 
-  chatHistory.push({ role: "user", parts: [{ text: text }] });
+  chatHistory[chatHistory.length] = { role: "user", content: text };
   appendMessage("user", text);
   document.getElementById("userinput").value = "";
   setStatus("Thinking...");
 
   var payload = JSON.stringify({
-    contents: chatHistory
+    model: "llama3-8b-8192",
+    max_tokens: 1024,
+    messages: chatHistory
   });
 
-  var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + encodeURIComponent(key);
-
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
+  xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
   xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Authorization", "Bearer " + key);
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
     if (xhr.status === 200) {
       try {
         var resp = JSON.parse(xhr.responseText);
-        if (resp.candidates && resp.candidates[0] && resp.candidates[0].content && resp.candidates[0].content.parts && resp.candidates[0].content.parts[0]) {
-          var reply = resp.candidates[0].content.parts[0].text;
-          chatHistory.push({ role: "model", parts: [{ text: reply }] });
-          appendMessage("ai", reply);
-          setStatus("");
-        } else {
-          setStatus("Unexpected response format.");
-        }
+        var reply = resp.choices[0].message.content;
+        chatHistory[chatHistory.length] = { role: "assistant", content: reply };
+        appendMessage("ai", reply);
+        setStatus("");
       } catch(e) {
         setStatus("Parse error: " + e.message);
       }
