@@ -5,25 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Chat</title>
 <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
   body {
     font-family: Georgia, serif;
     background: #fff;
     color: #000;
-    margin: 0;
-    padding: 8px;
-    padding-bottom: 180px;
     font-size: 16px;
+  }
+  #wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    display: flex;
+    flex-direction: column;
+  }
+  #top {
+    padding: 8px;
+    border-bottom: 2px solid #000;
   }
   h2 {
     font-size: 18px;
-    margin: 4px 0 10px 0;
-    border-bottom: 2px solid #000;
-    padding-bottom: 4px;
-  }
-  #setup {
-    border: 1px solid #000;
-    padding: 8px;
-    margin-bottom: 10px;
+    margin: 0 0 6px 0;
   }
   #setup label {
     display: block;
@@ -43,7 +56,13 @@
     font-style: italic;
   }
   #chat {
-    padding-bottom: 8px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px;
+    background: #f9f9f9;
   }
   .msg-user {
     margin-bottom: 8px;
@@ -64,13 +83,9 @@
     margin-bottom: 3px;
   }
   #bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-top: 2px solid #000;
     padding: 6px 8px;
+    border-top: 2px solid #000;
+    background: #fff;
   }
   #userinput {
     width: 100%;
@@ -96,7 +111,7 @@
   }
   .small-btn {
     font-size: 12px;
-    padding: 5px 10px;
+    padding: 4px 8px;
   }
   #status {
     font-size: 13px;
@@ -107,28 +122,31 @@
 </style>
 </head>
 <body>
+<div id="wrapper">
 
-<h2>AI Chat (Kindle)</h2>
-
-<div id="setup">
-  <label for="apikey">Groq API Key:</label>
-  <input type="password" id="apikey" placeholder="gsk_..." />
-  <div id="key-status"></div>
-  <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
-  <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
-</div>
-
-<div id="chat"><div style="color:#777;font-size:13px;">Messages will appear here.</div></div>
-
-<div id="bottom-bar">
-  <textarea id="userinput" placeholder="Type your message here..."></textarea>
-  <div id="btn-row">
-    <button onclick="sendMessage()">Send</button>
-    <button onclick="clearChat()">Clear</button>
+  <div id="top">
+    <h2>AI Chat (Kindle)</h2>
+    <div id="setup">
+      <label for="apikey">Groq API Key:</label>
+      <input type="password" id="apikey" placeholder="gsk_..." />
+      <div id="key-status"></div>
+      <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
+      <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
+    </div>
   </div>
-  <div id="status"></div>
-</div>
 
+  <div id="chat"><div style="color:#777;font-size:13px;">Messages will appear here.</div></div>
+
+  <div id="bottom-bar">
+    <textarea id="userinput" placeholder="Type your message here..."></textarea>
+    <div id="btn-row">
+      <button onclick="sendMessage()">Send</button>
+      <button onclick="clearChat()">Clear</button>
+    </div>
+    <div id="status"></div>
+  </div>
+
+</div>
 <script>
 var chatHistory = [];
 
@@ -142,7 +160,7 @@ window.onload = function() {
       document.getElementById("key-status").innerHTML = "No key saved yet. Enter one and tap Save Key.";
     }
   } catch(e) {
-    document.getElementById("key-status").innerHTML = "Note: storage unavailable on this browser.";
+    document.getElementById("key-status").innerHTML = "Note: storage unavailable.";
   }
 };
 
@@ -151,7 +169,7 @@ function saveKey() {
   if (!key) { document.getElementById("key-status").innerHTML = "Enter a key first."; return; }
   try {
     localStorage.setItem("groq_key", key);
-    document.getElementById("key-status").innerHTML = "Saved. You will not need to enter it again.";
+    document.getElementById("key-status").innerHTML = "Saved. Won't need to enter again.";
   } catch(e) {
     document.getElementById("key-status").innerHTML = "Could not save: " + e.message;
   }
@@ -161,7 +179,7 @@ function forgetKey() {
   try {
     localStorage.removeItem("groq_key");
     document.getElementById("apikey").value = "";
-    document.getElementById("key-status").innerHTML = "Key removed from memory.";
+    document.getElementById("key-status").innerHTML = "Key removed.";
   } catch(e) {
     document.getElementById("key-status").innerHTML = "Error: " + e.message;
   }
@@ -173,8 +191,8 @@ function setStatus(msg) {
 
 function appendMessage(role, text) {
   var chat = document.getElementById("chat");
-  var first = chat.querySelector("div[style]");
-  if (first) { chat.removeChild(first); }
+  var placeholder = chat.querySelector("div[style]");
+  if (placeholder) { chat.removeChild(placeholder); }
   var div = document.createElement("div");
   div.className = role === "user" ? "msg-user" : "msg-ai";
   var label = document.createElement("div");
@@ -185,7 +203,7 @@ function appendMessage(role, text) {
   div.appendChild(label);
   div.appendChild(content);
   chat.appendChild(div);
-  window.scrollTo(0, document.body.scrollHeight);
+  chat.scrollTop = chat.scrollHeight;
 }
 
 function escapeHtml(str) {
@@ -249,6 +267,5 @@ function clearChat() {
   setStatus("Chat cleared.");
 }
 </script>
-
 </body>
 </html>
