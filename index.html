@@ -5,40 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Chat</title>
 <style>
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
   body {
     font-family: Georgia, serif;
     background: #fff;
     color: #000;
+    margin: 0;
+    padding: 8px;
+    padding-right: 48px;
     font-size: 16px;
-  }
-  #layout {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-  }
-  #top-cell {
-    padding: 8px;
-    border-bottom: 2px solid #000;
-    vertical-align: top;
-    background: #fff;
-  }
-  #chat-cell {
-    padding: 8px;
-    vertical-align: top;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    height: 100%;
   }
   h2 {
     font-size: 18px;
-    margin: 0 0 6px 0;
-    border-bottom: 1px solid #ccc;
+    margin: 4px 0 10px 0;
+    border-bottom: 2px solid #000;
     padding-bottom: 4px;
+  }
+  #setup {
+    border: 1px solid #000;
+    padding: 8px;
+    margin-bottom: 10px;
   }
   #setup label {
     display: block;
@@ -57,16 +42,20 @@
     margin-top: 4px;
     font-style: italic;
   }
+  #input-area {
+    border: 1px solid #000;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
   #userinput {
     width: 100%;
-    height: 55px;
+    height: 60px;
     font-size: 15px;
     font-family: Georgia, serif;
     padding: 6px;
     box-sizing: border-box;
     border: 1px solid #000;
     resize: none;
-    margin-top: 6px;
   }
   #btn-row {
     margin-top: 4px;
@@ -75,6 +64,7 @@
     font-size: 15px;
     padding: 8px 16px;
     margin-right: 6px;
+    margin-bottom: 4px;
     border: 2px solid #000;
     background: #fff;
     cursor: pointer;
@@ -108,34 +98,59 @@
     text-transform: uppercase;
     margin-bottom: 3px;
   }
+  #nav-buttons {
+    position: fixed;
+    right: 4px;
+    top: 50%;
+    z-index: 999;
+  }
+  .nav-btn {
+    display: block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border: 2px solid #000;
+    background: #fff;
+    font-size: 18px;
+    font-family: Georgia, serif;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 6px;
+    box-sizing: border-box;
+  }
 </style>
 </head>
 <body>
-<table id="layout">
-  <tr>
-    <td id="top-cell">
-      <h2>AI Chat (Kindle)</h2>
-      <div id="setup">
-        <label for="apikey">Groq API Key:</label>
-        <input type="password" id="apikey" placeholder="gsk_..." />
-        <div id="key-status"></div>
-        <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
-        <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
-      </div>
-      <textarea id="userinput" placeholder="Type your message here..."></textarea>
-      <div id="btn-row">
-        <button onclick="sendMessage()">Send</button>
-        <button onclick="clearChat()">Clear</button>
-      </div>
-      <div id="status"></div>
-    </td>
-  </tr>
-  <tr style="height: 100%;">
-    <td id="chat-cell">
-      <div id="chat"><span style="color:#777;font-size:13px;">Messages will appear here.</span></div>
-    </td>
-  </tr>
-</table>
+
+<div id="nav-buttons">
+  <a class="nav-btn" href="#input">↑</a>
+  <a class="nav-btn" href="#bottom">↓</a>
+</div>
+
+<a name="top"></a>
+<h2>AI Chat (Kindle)</h2>
+
+<div id="setup">
+  <label for="apikey">Groq API Key:</label>
+  <input type="password" id="apikey" placeholder="gsk_..." />
+  <div id="key-status"></div>
+  <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
+  <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
+</div>
+
+<div id="input-area">
+  <a name="input"></a>
+  <textarea id="userinput" placeholder="Type your message here..."></textarea>
+  <div id="btn-row">
+    <button onclick="sendMessage()">Send</button>
+    <button onclick="clearChat()">Clear</button>
+  </div>
+  <div id="status"></div>
+</div>
+
+<div id="chat"><span style="color:#777;font-size:13px;">Messages will appear here.</span></div>
+<a name="bottom"></a>
 
 <script>
 var chatHistory = [];
@@ -179,6 +194,14 @@ function setStatus(msg) {
   document.getElementById("status").innerHTML = msg;
 }
 
+function moveBottomAnchor() {
+  var bottom = document.getElementsByName("bottom")[0];
+  var chat = document.getElementById("chat");
+  if (bottom && chat.lastChild) {
+    chat.appendChild(bottom);
+  }
+}
+
 function appendMessage(role, text) {
   var chat = document.getElementById("chat");
   var placeholder = chat.querySelector("span");
@@ -193,8 +216,7 @@ function appendMessage(role, text) {
   div.appendChild(label);
   div.appendChild(content);
   chat.appendChild(div);
-  var cell = document.getElementById("chat-cell");
-  cell.scrollTop = cell.scrollHeight;
+  moveBottomAnchor();
 }
 
 function escapeHtml(str) {
