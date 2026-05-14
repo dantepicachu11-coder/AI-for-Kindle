@@ -82,9 +82,7 @@
     border: 1px solid #000;
     resize: none;
   }
-  #btn-row {
-    display: block;
-  }
+  #btn-row { display: block; }
   button {
     font-size: 15px;
     padding: 10px 18px;
@@ -109,11 +107,11 @@
 </head>
 <body>
 
-<h2>AI Chat (Kindle)</h2>
+<h2>Gemini Chat (Kindle)</h2>
 
 <div id="setup">
-  <label for="apikey">Anthropic API Key:</label>
-  <input type="password" id="apikey" placeholder="sk-ant-..." />
+  <label for="apikey">Gemini API Key:</label>
+  <input type="password" id="apikey" placeholder="AIza..." />
   <div id="key-status"></div>
   <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
   <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
@@ -132,32 +130,28 @@
 <div id="status"></div>
 
 <script>
-var history = [];
+var chatHistory = [];
 
-// Load saved key on startup
 window.onload = function() {
   try {
-    var saved = localStorage.getItem("anthropic_key");
+    var saved = localStorage.getItem("gemini_key");
     if (saved) {
       document.getElementById("apikey").value = saved;
-      document.getElementById("key-status").innerHTML = "Key loaded from memory.";
+      document.getElementById("key-status").innerHTML = "Key loaded automatically.";
     } else {
-      document.getElementById("key-status").innerHTML = "No key saved yet.";
+      document.getElementById("key-status").innerHTML = "No key saved yet. Enter one and tap Save Key.";
     }
   } catch(e) {
-    document.getElementById("key-status").innerHTML = "Storage not available.";
+    document.getElementById("key-status").innerHTML = "Note: storage unavailable on this browser.";
   }
 };
 
 function saveKey() {
   var key = document.getElementById("apikey").value.trim();
-  if (!key) {
-    document.getElementById("key-status").innerHTML = "Enter a key first.";
-    return;
-  }
+  if (!key) { document.getElementById("key-status").innerHTML = "Enter a key first."; return; }
   try {
-    localStorage.setItem("anthropic_key", key);
-    document.getElementById("key-status").innerHTML = "Key saved. Won't need to re-enter.";
+    localStorage.setItem("gemini_key", key);
+    document.getElementById("key-status").innerHTML = "Saved. You will not need to enter it again.";
   } catch(e) {
     document.getElementById("key-status").innerHTML = "Could not save: " + e.message;
   }
@@ -165,7 +159,7 @@ function saveKey() {
 
 function forgetKey() {
   try {
-    localStorage.removeItem("anthropic_key");
+    localStorage.removeItem("gemini_key");
     document.getElementById("apikey").value = "";
     document.getElementById("key-status").innerHTML = "Key removed from memory.";
   } catch(e) {
@@ -183,7 +177,7 @@ function appendMessage(role, text) {
   div.className = role === "user" ? "msg-user" : "msg-ai";
   var label = document.createElement("div");
   label.className = "msg-label";
-  label.innerHTML = role === "user" ? "You" : "AI";
+  label.innerHTML = role === "user" ? "You" : "Gemini";
   var content = document.createElement("div");
   content.innerHTML = escapeHtml(text).replace(/\n/g, "<br>");
   div.appendChild(label);
@@ -202,42 +196,47 @@ function escapeHtml(str) {
 function sendMessage() {
   var key = document.getElementById("apikey").value.trim();
   var text = document.getElementById("userinput").value.trim();
-
   if (!key) { setStatus("Please enter your API key above."); return; }
   if (!text) { setStatus("Please type a message."); return; }
 
-  history.push({ role: "user", content: text });
+  chatHistory.push({ role: "user", parts: [{ text: text }] });
   appendMessage("user", text);
   document.getElementById("userinput").value = "";
   setStatus("Thinking...");
 
   var payload = JSON.stringify({
-    model: "claude-haiku-4-5-20251001",
-    max_tokens: 1024,
-    messages: history
+    contents: chatHistory
   });
 
+  var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + encodeURIComponent(key);
+
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://api.anthropic.com/v1/messages", true);
+  xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("x-api-key", key);
-  xhr.setRequestHeader("anthropic-version", "2023-06-01");
-  xhr.setRequestHeader("anthropic-dangerous-direct-browser-access", "true");
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
     if (xhr.status === 200) {
       try {
         var resp = JSON.parse(xhr.responseText);
-        var reply = resp.content[0].text;
-        history.push({ role: "assistant", content: reply });
-        appendMessage("ai", reply);
-        setStatus("");
+        if (resp.candidates && resp.candidates[0] && resp.candidates[0].content && resp.candidates[0].content.parts && resp.candidates[0].content.parts[0]) {
+          var reply = resp.candidates[0].content.parts[0].text;
+          chatHistory.push({ role: "model", parts: [{ text: reply }] });
+          appendMessage("ai", reply);
+          setStatus("");
+        } else {
+          setStatus("Unexpected response format.");
+        }
       } catch(e) {
         setStatus("Parse error: " + e.message);
       }
     } else {
-      setStatus("Error " + xhr.status + ": " + xhr.responseText);
+      try {
+        var err = JSON.parse(xhr.responseText);
+        setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText));
+      } catch(e) {
+        setStatus("Error " + xhr.status);
+      }
     }
   };
 
@@ -245,7 +244,7 @@ function sendMessage() {
 }
 
 function clearChat() {
-  history = [];
+  chatHistory = [];
   var chat = document.getElementById("chat");
   chat.innerHTML = '<div style="color:#777;font-size:13px;">Messages will appear here.</div>';
   setStatus("Chat cleared.");
