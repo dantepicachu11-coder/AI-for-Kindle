@@ -41,6 +41,31 @@
     margin-top: 4px;
     font-style: italic;
   }
+  #instructions-area {
+    border: 1px solid #000;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  #instructions-area label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  #instructions {
+    width: 100%;
+    height: 70px;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    resize: none;
+  }
+  #instr-status {
+    font-size: 12px;
+    margin-top: 4px;
+    font-style: italic;
+  }
   #input-area {
     border: 2px solid #000;
     padding: 8px;
@@ -73,6 +98,10 @@
   .small-btn {
     font-size: 12px;
     padding: 4px 8px;
+  }
+  .toggle-on {
+    background: #000;
+    color: #fff;
   }
   #status {
     font-size: 13px;
@@ -132,6 +161,15 @@
   <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
 </div>
 
+<div id="instructions-area">
+  <label for="instructions">Instructions for the AI:</label>
+  <textarea id="instructions"></textarea>
+  <div id="instr-status"></div>
+  <button class="small-btn" onclick="saveInstructions()" style="margin-top:6px;">Save Instructions</button>
+  <button class="small-btn" id="toggle-btn" onclick="toggleInstructions()" style="margin-top:6px;">Instructions: OFF</button>
+  <button class="small-btn" onclick="resetInstructions()" style="margin-top:6px;">Reset to Default</button>
+</div>
+
 <div id="input-area">
   <a name="input"></a>
   <textarea id="userinput" placeholder="Type your message here..."></textarea>
@@ -147,6 +185,9 @@
 
 <script>
 var chatHistory = [];
+var instructionsOn = false;
+
+var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas matematicas: verifica todos los calculos paso a paso antes de dar el resultado final, y asegurate de que las operaciones sean correctas. Si un problema admite varios metodos, usa el mas confiable. Nunca des un numero sin haberlo comprobado. Para preguntas teoricas o conceptuales: responde como en un examen evaluativo, con informacion correcta, clara y bien estructurada. Da definiciones precisas y, cuando sea util, un ejemplo breve. Longitud de las respuestas: apunta a unas 4 oraciones en promedio. No respondas con frases demasiado cortas que omitan informacion importante, ni te extiendas innecesariamente. Prioriza la exactitud y la claridad sobre la cantidad. Si no estas seguro de un dato, indicalo honestamente en lugar de inventar.";
 
 window.onload = function() {
   try {
@@ -160,6 +201,26 @@ window.onload = function() {
   } catch(e) {
     document.getElementById("key-status").innerHTML = "Note: storage unavailable.";
   }
+
+  // Load instructions text: saved version, or the default if none saved.
+  var instr = null;
+  try {
+    instr = localStorage.getItem("groq_instructions");
+  } catch(e) {}
+  document.getElementById("instructions").value = (instr !== null) ? instr : DEFAULT_INSTRUCTIONS;
+
+  // Load toggle state: default ON if never set before.
+  try {
+    var state = localStorage.getItem("groq_instructions_on");
+    if (state === null) {
+      instructionsOn = true;
+    } else {
+      instructionsOn = (state === "1");
+    }
+  } catch(e) {
+    instructionsOn = true;
+  }
+  updateToggleButton();
 };
 
 function saveKey() {
@@ -181,6 +242,44 @@ function forgetKey() {
   } catch(e) {
     document.getElementById("key-status").innerHTML = "Error: " + e.message;
   }
+}
+
+function saveInstructions() {
+  var instr = document.getElementById("instructions").value;
+  try {
+    localStorage.setItem("groq_instructions", instr);
+    document.getElementById("instr-status").innerHTML = "Instructions saved.";
+  } catch(e) {
+    document.getElementById("instr-status").innerHTML = "Could not save: " + e.message;
+  }
+}
+
+function resetInstructions() {
+  document.getElementById("instructions").value = DEFAULT_INSTRUCTIONS;
+  try {
+    localStorage.setItem("groq_instructions", DEFAULT_INSTRUCTIONS);
+  } catch(e) {}
+  document.getElementById("instr-status").innerHTML = "Reset to default instructions.";
+}
+
+function updateToggleButton() {
+  var btn = document.getElementById("toggle-btn");
+  if (instructionsOn) {
+    btn.innerHTML = "Instructions: ON";
+    btn.className = "small-btn toggle-on";
+  } else {
+    btn.innerHTML = "Instructions: OFF";
+    btn.className = "small-btn";
+  }
+}
+
+function toggleInstructions() {
+  instructionsOn = !instructionsOn;
+  try {
+    localStorage.setItem("groq_instructions_on", instructionsOn ? "1" : "0");
+  } catch(e) {}
+  updateToggleButton();
+  document.getElementById("instr-status").innerHTML = instructionsOn ? "Instructions are now active." : "Instructions are now off.";
 }
 
 function setStatus(msg) {
@@ -238,10 +337,21 @@ function sendMessage() {
   document.getElementById("userinput").value = "";
   setStatus("Thinking...");
 
+  var messagesToSend = [];
+  if (instructionsOn) {
+    var instr = document.getElementById("instructions").value.trim();
+    if (instr) {
+      messagesToSend[0] = { role: "system", content: instr };
+    }
+  }
+  for (var i = 0; i < chatHistory.length; i++) {
+    messagesToSend[messagesToSend.length] = chatHistory[i];
+  }
+
   var payload = JSON.stringify({
     model: "llama-3.1-8b-instant",
     max_tokens: 1024,
-    messages: chatHistory
+    messages: messagesToSend
   });
 
   var xhr = new XMLHttpRequest();
