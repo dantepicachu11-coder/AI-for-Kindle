@@ -19,37 +19,28 @@
     border-bottom: 2px solid #000;
     padding-bottom: 4px;
   }
-  #setup {
+  .section {
     border: 1px solid #000;
     padding: 8px;
     margin-bottom: 10px;
   }
-  #setup label {
+  .section label {
     display: block;
     font-size: 13px;
     margin-bottom: 4px;
+    font-weight: bold;
   }
-  #apikey {
+  input[type=password], input[type=text] {
     width: 100%;
     font-size: 13px;
     padding: 4px;
     box-sizing: border-box;
     border: 1px solid #000;
   }
-  #key-status {
+  .section-status {
     font-size: 12px;
     margin-top: 4px;
     font-style: italic;
-  }
-  #instructions-area {
-    border: 1px solid #000;
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-  #instructions-area label {
-    display: block;
-    font-size: 13px;
-    margin-bottom: 4px;
   }
   #instructions {
     width: 100%;
@@ -61,7 +52,27 @@
     border: 1px solid #000;
     resize: none;
   }
-  #instr-status {
+  #file-list {
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    padding: 4px;
+    min-height: 30px;
+    font-size: 13px;
+    background: #f9f9f9;
+  }
+  .file-item {
+    padding: 6px 4px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+  .file-item.selected {
+    background: #000;
+    color: #fff;
+  }
+  .file-item:last-child {
+    border-bottom: none;
+  }
+  #loaded-files {
     font-size: 12px;
     margin-top: 4px;
     font-style: italic;
@@ -153,29 +164,50 @@
 <a name="top"></a>
 <h2>AI Chat (Kindle)</h2>
 
-<div id="setup">
-  <label for="apikey">Groq API Key:</label>
+<!-- GROQ API KEY -->
+<div class="section">
+  <label>Groq API Key:</label>
   <input type="password" id="apikey" placeholder="gsk_..." />
-  <div id="key-status"></div>
+  <div class="section-status" id="key-status"></div>
   <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
   <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
 </div>
 
-<div id="instructions-area">
-  <label for="instructions">Instructions for the AI:</label>
+<!-- GITHUB TOKEN -->
+<div class="section">
+  <label>GitHub Token:</label>
+  <input type="password" id="ghtoken" placeholder="ghp_..." />
+  <div class="section-status" id="gh-status"></div>
+  <button class="small-btn" onclick="saveGHToken()" style="margin-top:6px;">Save Token</button>
+  <button class="small-btn" onclick="forgetGHToken()" style="margin-top:6px;">Forget Token</button>
+</div>
+
+<!-- FILE LOADER -->
+<div class="section">
+  <label>Files from GitHub (docs/ folder):</label>
+  <button class="small-btn" onclick="loadFileList()">Refresh file list</button>
+  <div id="file-list"><span style="color:#777;">Tap Refresh to load files.</span></div>
+  <div id="loaded-files"></div>
+  <button class="small-btn" onclick="clearFiles()" style="margin-top:6px;">Clear selected files</button>
+</div>
+
+<!-- INSTRUCTIONS -->
+<div class="section">
+  <label>Instructions for the AI:</label>
   <textarea id="instructions"></textarea>
-  <div id="instr-status"></div>
+  <div class="section-status" id="instr-status"></div>
   <button class="small-btn" onclick="saveInstructions()" style="margin-top:6px;">Save Instructions</button>
-  <button class="small-btn" id="toggle-btn" onclick="toggleInstructions()" style="margin-top:6px;">Instructions: OFF</button>
+  <button class="small-btn toggle-on" id="toggle-btn" onclick="toggleInstructions()" style="margin-top:6px;">Instructions: ON</button>
   <button class="small-btn" onclick="resetInstructions()" style="margin-top:6px;">Reset to Default</button>
 </div>
 
+<!-- MESSAGE INPUT -->
 <div id="input-area">
   <a name="input"></a>
   <textarea id="userinput" placeholder="Type your message here..."></textarea>
   <div id="btn-row">
     <button onclick="sendMessage()">Send</button>
-    <button onclick="clearChat()">Clear</button>
+    <button onclick="clearChat()">Clear chat</button>
   </div>
   <div id="status"></div>
 </div>
@@ -185,7 +217,13 @@
 
 <script>
 var chatHistory = [];
-var instructionsOn = false;
+var instructionsOn = true;
+var loadedFiles = {};
+var selectedFiles = [];
+
+var GITHUB_USER = "dantepicachu11-coder";
+var GITHUB_REPO = "AI-for-Kindle";
+var GITHUB_FOLDER = "docs";
 
 var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas matematicas: verifica todos los calculos paso a paso antes de dar el resultado final, y asegurate de que las operaciones sean correctas. Si un problema admite varios metodos, usa el mas confiable. Nunca des un numero sin haberlo comprobado. Para preguntas teoricas o conceptuales: responde como en un examen evaluativo, con informacion correcta, clara y bien estructurada. Da definiciones precisas y, cuando sea util, un ejemplo breve. Longitud de las respuestas: apunta a unas 4 oraciones en promedio. No respondas con frases demasiado cortas que omitan informacion importante, ni te extiendas innecesariamente. Prioriza la exactitud y la claridad sobre la cantidad. Si no estas seguro de un dato, indicalo honestamente en lugar de inventar.";
 
@@ -196,30 +234,28 @@ window.onload = function() {
       document.getElementById("apikey").value = saved;
       document.getElementById("key-status").innerHTML = "Key loaded automatically.";
     } else {
-      document.getElementById("key-status").innerHTML = "No key saved yet. Enter one and tap Save Key.";
+      document.getElementById("key-status").innerHTML = "No key saved yet.";
     }
-  } catch(e) {
-    document.getElementById("key-status").innerHTML = "Note: storage unavailable.";
-  }
-
-  // Load instructions text: saved version, or the default if none saved.
-  var instr = null;
-  try {
-    instr = localStorage.getItem("groq_instructions");
   } catch(e) {}
+
+  try {
+    var ghsaved = localStorage.getItem("gh_token");
+    if (ghsaved) {
+      document.getElementById("ghtoken").value = ghsaved;
+      document.getElementById("gh-status").innerHTML = "Token loaded automatically.";
+    } else {
+      document.getElementById("gh-status").innerHTML = "No token saved yet.";
+    }
+  } catch(e) {}
+
+  var instr = null;
+  try { instr = localStorage.getItem("groq_instructions"); } catch(e) {}
   document.getElementById("instructions").value = (instr !== null) ? instr : DEFAULT_INSTRUCTIONS;
 
-  // Load toggle state: default ON if never set before.
   try {
     var state = localStorage.getItem("groq_instructions_on");
-    if (state === null) {
-      instructionsOn = true;
-    } else {
-      instructionsOn = (state === "1");
-    }
-  } catch(e) {
-    instructionsOn = true;
-  }
+    instructionsOn = (state === null) ? true : (state === "1");
+  } catch(e) { instructionsOn = true; }
   updateToggleButton();
 };
 
@@ -228,19 +264,127 @@ function saveKey() {
   if (!key) { document.getElementById("key-status").innerHTML = "Enter a key first."; return; }
   try {
     localStorage.setItem("groq_key", key);
-    document.getElementById("key-status").innerHTML = "Saved. Won't need to enter again.";
-  } catch(e) {
-    document.getElementById("key-status").innerHTML = "Could not save: " + e.message;
-  }
+    document.getElementById("key-status").innerHTML = "Saved.";
+  } catch(e) { document.getElementById("key-status").innerHTML = "Could not save: " + e.message; }
 }
-
 function forgetKey() {
   try {
     localStorage.removeItem("groq_key");
     document.getElementById("apikey").value = "";
     document.getElementById("key-status").innerHTML = "Key removed.";
-  } catch(e) {
-    document.getElementById("key-status").innerHTML = "Error: " + e.message;
+  } catch(e) {}
+}
+
+function saveGHToken() {
+  var token = document.getElementById("ghtoken").value.trim();
+  if (!token) { document.getElementById("gh-status").innerHTML = "Enter a token first."; return; }
+  try {
+    localStorage.setItem("gh_token", token);
+    document.getElementById("gh-status").innerHTML = "Saved.";
+  } catch(e) { document.getElementById("gh-status").innerHTML = "Could not save: " + e.message; }
+}
+function forgetGHToken() {
+  try {
+    localStorage.removeItem("gh_token");
+    document.getElementById("ghtoken").value = "";
+    document.getElementById("gh-status").innerHTML = "Token removed.";
+  } catch(e) {}
+}
+
+function loadFileList() {
+  var token = document.getElementById("ghtoken").value.trim();
+  var listDiv = document.getElementById("file-list");
+  listDiv.innerHTML = "Loading...";
+
+  var url = "https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FOLDER;
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+  xhr.setRequestHeader("Accept", "application/vnd.github.v3+json");
+  if (token) { xhr.setRequestHeader("Authorization", "token " + token); }
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== 4) return;
+    if (xhr.status === 200) {
+      try {
+        var files = JSON.parse(xhr.responseText);
+        listDiv.innerHTML = "";
+        var count = 0;
+        for (var i = 0; i < files.length; i++) {
+          if (files[i].type === "file") {
+            count++;
+            (function(file) {
+              var item = document.createElement("div");
+              item.className = "file-item";
+              item.innerHTML = file.name;
+              item.setAttribute("data-name", file.name);
+              item.setAttribute("data-url", file.download_url);
+              item.onclick = function() { toggleFileSelection(item, file.name, file.download_url); };
+              listDiv.appendChild(item);
+            })(files[i]);
+          }
+        }
+        if (count === 0) {
+          listDiv.innerHTML = "<span style='color:#777;'>No files found in docs/ folder.</span>";
+        }
+      } catch(e) {
+        listDiv.innerHTML = "Parse error: " + e.message;
+      }
+    } else if (xhr.status === 404) {
+      listDiv.innerHTML = "docs/ folder not found. Create it in your GitHub repo first.";
+    } else {
+      listDiv.innerHTML = "Error " + xhr.status + ". Check your token.";
+    }
+  };
+  xhr.send();
+}
+
+function toggleFileSelection(item, name, url) {
+  var idx = selectedFiles.indexOf(name);
+  if (idx === -1) {
+    item.innerHTML = name + " (loading...)";
+    var token = document.getElementById("ghtoken").value.trim();
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    if (token) { xhr.setRequestHeader("Authorization", "token " + token); }
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status === 200) {
+        loadedFiles[name] = xhr.responseText;
+        selectedFiles[selectedFiles.length] = name;
+        item.className = "file-item selected";
+        item.innerHTML = name + " (loaded)";
+        updateLoadedFilesLabel();
+      } else {
+        item.innerHTML = name + " (error loading)";
+      }
+    };
+    xhr.send();
+  } else {
+    selectedFiles.splice(idx, 1);
+    delete loadedFiles[name];
+    item.className = "file-item";
+    item.innerHTML = name;
+    updateLoadedFilesLabel();
+  }
+}
+
+function updateLoadedFilesLabel() {
+  var div = document.getElementById("loaded-files");
+  if (selectedFiles.length === 0) {
+    div.innerHTML = "";
+  } else {
+    div.innerHTML = "Active files: " + selectedFiles.join(", ");
+  }
+}
+
+function clearFiles() {
+  selectedFiles = [];
+  loadedFiles = {};
+  updateLoadedFilesLabel();
+  var items = document.getElementsByClassName("file-item");
+  for (var i = 0; i < items.length; i++) {
+    items[i].className = "file-item";
+    var name = items[i].getAttribute("data-name");
+    if (name) { items[i].innerHTML = name; }
   }
 }
 
@@ -249,19 +393,13 @@ function saveInstructions() {
   try {
     localStorage.setItem("groq_instructions", instr);
     document.getElementById("instr-status").innerHTML = "Instructions saved.";
-  } catch(e) {
-    document.getElementById("instr-status").innerHTML = "Could not save: " + e.message;
-  }
+  } catch(e) { document.getElementById("instr-status").innerHTML = "Could not save: " + e.message; }
 }
-
 function resetInstructions() {
   document.getElementById("instructions").value = DEFAULT_INSTRUCTIONS;
-  try {
-    localStorage.setItem("groq_instructions", DEFAULT_INSTRUCTIONS);
-  } catch(e) {}
-  document.getElementById("instr-status").innerHTML = "Reset to default instructions.";
+  try { localStorage.setItem("groq_instructions", DEFAULT_INSTRUCTIONS); } catch(e) {}
+  document.getElementById("instr-status").innerHTML = "Reset to default.";
 }
-
 function updateToggleButton() {
   var btn = document.getElementById("toggle-btn");
   if (instructionsOn) {
@@ -272,20 +410,16 @@ function updateToggleButton() {
     btn.className = "small-btn";
   }
 }
-
 function toggleInstructions() {
   instructionsOn = !instructionsOn;
-  try {
-    localStorage.setItem("groq_instructions_on", instructionsOn ? "1" : "0");
-  } catch(e) {}
+  try { localStorage.setItem("groq_instructions_on", instructionsOn ? "1" : "0"); } catch(e) {}
   updateToggleButton();
-  document.getElementById("instr-status").innerHTML = instructionsOn ? "Instructions are now active." : "Instructions are now off.";
+  document.getElementById("instr-status").innerHTML = instructionsOn ? "Instructions active." : "Instructions off.";
 }
 
 function setStatus(msg) {
   document.getElementById("status").innerHTML = msg;
 }
-
 function moveBottomAnchor() {
   var bottom = document.getElementsByName("bottom")[0];
   if (bottom) {
@@ -293,14 +427,12 @@ function moveBottomAnchor() {
     document.body.appendChild(bottom);
   }
 }
-
 function makeNavRow() {
   var nav = document.createElement("div");
   nav.className = "nav-row";
   nav.innerHTML = '<a href="#input">&uarr; Write</a> <a href="#bottom">&darr; Latest</a>';
   return nav;
 }
-
 function appendMessage(role, text) {
   var chat = document.getElementById("chat");
   var placeholder = chat.querySelector("span");
@@ -318,21 +450,27 @@ function appendMessage(role, text) {
   chat.appendChild(makeNavRow());
   moveBottomAnchor();
 }
-
 function escapeHtml(str) {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 function sendMessage() {
   var key = document.getElementById("apikey").value.trim();
   var text = document.getElementById("userinput").value.trim();
-  if (!key) { setStatus("Please enter your API key above."); return; }
+  if (!key) { setStatus("Please enter your Groq API key."); return; }
   if (!text) { setStatus("Please type a message."); return; }
 
-  chatHistory[chatHistory.length] = { role: "user", content: text };
+  var fullText = text;
+  if (selectedFiles.length > 0) {
+    var fileContext = "";
+    for (var i = 0; i < selectedFiles.length; i++) {
+      var fname = selectedFiles[i];
+      fileContext += "--- File: " + fname + " ---\n" + loadedFiles[fname] + "\n\n";
+    }
+    fullText = "The user has attached the following files as context:\n\n" + fileContext + "User message: " + text;
+  }
+
+  chatHistory[chatHistory.length] = { role: "user", content: fullText };
   appendMessage("user", text);
   document.getElementById("userinput").value = "";
   setStatus("Thinking...");
@@ -340,9 +478,7 @@ function sendMessage() {
   var messagesToSend = [];
   if (instructionsOn) {
     var instr = document.getElementById("instructions").value.trim();
-    if (instr) {
-      messagesToSend[0] = { role: "system", content: instr };
-    }
+    if (instr) { messagesToSend[0] = { role: "system", content: instr }; }
   }
   for (var i = 0; i < chatHistory.length; i++) {
     messagesToSend[messagesToSend.length] = chatHistory[i];
@@ -358,7 +494,6 @@ function sendMessage() {
   xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Authorization", "Bearer " + key);
-
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
     if (xhr.status === 200) {
@@ -368,19 +503,14 @@ function sendMessage() {
         chatHistory[chatHistory.length] = { role: "assistant", content: reply };
         appendMessage("ai", reply);
         setStatus("");
-      } catch(e) {
-        setStatus("Parse error: " + e.message);
-      }
+      } catch(e) { setStatus("Parse error: " + e.message); }
     } else {
       try {
         var err = JSON.parse(xhr.responseText);
         setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText));
-      } catch(e) {
-        setStatus("Error " + xhr.status);
-      }
+      } catch(e) { setStatus("Error " + xhr.status); }
     }
   };
-
   xhr.send(payload);
 }
 
