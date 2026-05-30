@@ -1,0 +1,3763 @@
+SOMOS
+
+BUSCAMOS TU ROSTRO
+
+En la siguiente Figura 771.3.A se muestra el esquema TT, con e! recorrido de una corriente de defecto a tierra a
+través del lazo de falla (ver simbologia en Anexo 771-K):
+
+Alimentacién | Utilizacién Id
+a ee -
+pocccsssrasss Va 4
+i tot A+!
+| ‘
+. ile
+I i H f
+(| tq 8
+ae \ | 1 i
+TRANSFORMADOR OF | _?- iM Sf ! PN
+LA DISTRIBUIDORA 7 1 a] 7
+Pej. 3x13200V/ 2400-231 7 PE KL 'yid N PE
+i / f
+Id tL ae re a ‘ PEN N
+1 =
+~] Ey BUESTA A 1" BUESTA A ' carcat |] CARGA2
+1 ol TERRADE = | / TiesRaDEtA 1} LY
+' !] | INSTALACION H I
+ALIMENTACION (DE PROTECCION) 1 — ot 4 MASA
+1 Rb Ra id
+1
+\ Id
+bo. STBSooTL
+
+Carga 1; carga 2: Dilerenles cargas o consumos dentro del mismo inmweble.
+PE: Conductor de proteccion de la instalacidn consumidora del! inmueble, conectade a la puesta a tierra de proteccion, independiente de la
+puesta a terra de servicio de la empresa distripuidora de energia elactrica.
+Id: Intensidad de corlente de defecto o de falla, en este ejemplo entre la fase L1 y masa, que Cierra el lazo de falla por el suelo o tierra,
+Ra; Resistencia de la puesta a tierra de proteceién de la instalaci6n consumidora.
+Rb: Resistencia de la puesta a tierra de servicio de la red de alimentacion.
+
+Figura 771.3.A - Esquema TT
+Neutro de la alimentaci6én a (T)ierra — Masas de la instalacién de utilizacién a una (T)ierra indepen-
+
+diente
+
+Para conformar un esquema TT, la toma de tierra de la instalacién interna debera tener caracterfsticas de ‘lierra
+lejana o tierra independiente” frente a la toma de tierra de servicio de la red de alimentaci6n.
+
+Nota 3: Definicidn VEt 195-02-02. Tama de tiera independiente: “Toma de tierra suficienternante alejacia de otras tomas de tierra, de forma tal
+que su potencial eléctrico no sea sensiblemente afectado par las corientes elécticas entre fa Tierra y Jos otros electrodos de tierra’.
+VEL Vocabulario Electrotécnico Intemacional segin EC 60050 “international Electrotechnical Vocabulary"
+
+Tratandose de jabalinas cilindricas IRAM 2309 y 2310, para cumplir con la caracteristica de “tierra lejana’, la toma
+de tierra de la instalacion deberé situarse a una distancia, medida en cualquier direccién, mayor a diez (10) veces
+él radio equivalente de la jabalina de mayor longitud. La Tabla 771.31] establece radios equivalentes para dife-
+rentes electrodos o jabalinas cilindricas.
+
+Tabla 771.3.ll - Radios equivalentes para electrodos IRAM 2309 y 2310
+
+Designacién comercial Diaémetro exterior (ram) Longitud (rm) 10 Re (m)
+1,5 32
+2,0 40
+1/2" 127.6 3,0 5.4
+45 7.6
+6,0 9,8
+1,5 3,2
+_ 2,0 __ 40
+5/8" 14.6 30 5,6
+4,5 78
+| 6,0 10,0
+15 34
+2,0 4,2
+3/4" 16,2 3,0 58
+4,5. 8,0
+6,0. 10,2
+
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+Alimentacin r,s Utilizacién
+tt Ltt =
+
+|
+a Ute =
+i
+on Lt =
+I
+ia LN N
+H é
+bpe OK “SN PE
+PUESTA A TIERRA if
+DELAREDDE PUESTA A TIERRA Nee N “4 Ne N L2
+ALIMENTACION DE LA INSTALACION PE
+{DE SERVICIO) (DE PROTECCION) CARGA 1 CARGA2
+Conductor de puesta | MASA MASA
+Conductor de puesta @ tierra desnuda
+a terra aislada o dentra
+de cafleria aisiante sbyte Jatsalinay
+act
+
+Jabalina
+
+Figura 771.5.B - Separacién entre sistemas de puesta a tierra (esquema 2)
+
+7715.2: Centro de transformacion de la empresa distribuidora dentro del inmueble
+
+Debido ala demanda maxima de potencia simultanea a contratar, o por necesidades de la red de distribucion, en
+ciertos edificios de viviendas, oficinas o locales (unitarios) puede existir dentro del inmueble un centro de-trans-
+formacién de fa distribuidora.
+
+En ese caso la empresa distribuidora y el instalador, de comtin acuerdo tomaran las medidas necesarias para
+que el esquema de conexidn a tierra de la instalacién del inmueble contintie sienda TT por alejamiento de la toma
+de tierra de servicio de la toma de tierra de proteccién.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+7714.2: Naturaleza de la corriente
+
+a) alterna,o
+b) continua.
+
+771.4.3: Naturaleza de los conductores.
+
+a) Para corriente alterna:  conductor(es) de linea (L1, L2, L3, ...)
+conductor neutro (N)
+
+conductor de proteccion (PE) .
+
+b) Para corriente continua: conductor{es) de linea (conductor o polo positiva L+ y conductor o polo
+negativo L-)
+conductor medio (M)
+
+conductor de proteccion (PE)
+
+771.4.4: Valores caracteristicos
+a) Tensiones y tolerancias: 220/380 Vea (230/400 Vea); (ver Nota)
+
+Siendo 220 Vca la tensién entre un conductor de linea (fase) y neutro; y 380 Vca la tensién entre con-
+ductores de linea (fase).
+
+Nota: Los valores de 230 y 400 Vea corresponden a los establecidos por la norma IRAM 2001 en su Tabla Ii y estan comprendidas
+dentro de los valores aceptados por la norma IEC 60038, la que en su Nota 1a la Tabla! dice: "La tensién nominal de los
+sistemas existentes de 220/380 V y 240/415 V evolucionara hacia los valores recomendades de 230/400 V. El periods de tran-
+sicion sera lo mas corto posible y no deberia exceder los 20 afios a partir de la publicacién de la presente Norma IEC. Durante
+este perlode y came primer paso, las autoridades de los paises con tensiones de 220/380 V deberan suministrar tensiones en el
+fango 230/400 V +6 %- 10% y los palses con tensiones de 240/415 V deberan suministrar tensiones en el rango 220/400 V + 10
+%- 6%. Al final de este periodo de transicién, sera alcanzada una tolerancia de 230/400 V + 10 %. Una vez alcanzado este punto
+una ulterior reduccion de la tolerancia sera estudiada internacianalmente”.
+
+b) Frecuencias y tolerancia:
+
+Corriente alterna: 50 Hz+ 71 Hz.
+c) Intensidad de corriente maxima admisible:
+
+et) Enel origen de la instalacién (Imo):
+
+Es el valor de corriente asignada del dispositive de proteccién del aparato de maniobra ubi-
+cado en la cabecera del tablero principal.
+
+Este valor debera estar relacionado con la carga total del inmueble (ver 771,9.3).
+e2)) En cada circuito (Imei):
+i= 1;2;3;...
+
+Es la intensidad de corriente maxima permanente del circuito considerado, estando ésta determinada
+por el material de menor intensidad de corriente admisible.
+
+d) Intensidades de corriente presunta de cortocircuito en el origen de la instalacidn:
+
+El instalador debera solicitar a la empresa distribuidora de energia eléctrica el valor de la maxima co-
+Triente presunta de cortocircuito en e! punto origen de la instalacion.
+SOMOS
+eTURANSGy Lay “Salle
+
+BUSCAMOS TU ROSTRO FLORIDA
+
+771.6: Esquemas de distribucion eléctrica en inmuebles
+
+En la siguiente Figura 771.6.A, se indican algunos esquemas tipicos de distribucién de energia eléctrica en
+inmuebles.
+
+ESQUEMAS TIPICOS DE DISTRIBUCION DE ENERGIA ELECTRICA EN INMUEBLES
+
+1 2 3 4 5 6 7
+ROD +
+LAD LAD LAD LAD LAD LAD LAD
+DPLA opt [|] peta [I] DPLA orta [I] orta []] opt [[]
+LAD LAD LAD LAD LAD LAD
+LAD
+RESPONSABILIDAD .
+DELA M nf M Mf M M M
+DISTRIBUIDORA
+LP LP LP LP LP LP LP
+APLICACION cs cs es
+DE LA .
+REGLAMENTACION Tsc TSG Tse cs cs cs cs
+cs cs] Cs
+TS TSi TS TSi Ts TS
+cT] |ctjct ct] |ctjcr ct cT et] cr) fet ctjct) fcr ctjct| ct jer crict ctict ct) \cr
+CONSUMOS CONSUMOS CONSUMOS CONSUMOS CONSUMOS CONSUMOS CONSUMOS
+
+Las abreviaturas tienen los siquientes significados:
+
+RODD:
+LAD:
+DPLA:
+LAD:
+M:
+
+LP:
+TP:
+cs:
+TSG:
+
+TS 6 TSi:
+
+cT:
+
+Red de Distribucion de la Distribuidora
+Linea de Alimentacion de la Distribuidora
+Dispositivo de Proteccién de La Alimentacién de la distribuidora
+Linea de Alimentacién de la Distribuidora
+Medidor de energia
+
+Linea Principal de la distribuidora
+
+Tablero Principal
+
+Circuito Seccional o de distribucién
+Tablero Seccional General
+
+Tablero Seccional o Tablero Seccional N° i
+Circuito Terminal
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.7: Clasificacién de las lineas y de los circuitos
+
+771.71: Cantidad minima de conductores
+Los circuitos o lineas deberan ser por lo menos bifilares.
+771.7.2: Linea de.alimentacién
+
+Es la que vincula la red de la empresa de distribucién de energia, con los bornes de entrada del medidor de
+energia o, en el caso de medicién indirecta de corriente, es la que vincula la red de la empresa distribuidora con el
+primario (o entrada de barra pasante) de los transformadores de corriente para medicidn.
+
+771.7.3: Linea principal
+
+Es la que vincula los bornes de salida del medidor de energia o, en el caso de medicién indirecta de corriente, es
+la que vincula la salida de barra pasante de los transformadores de corriente para medicién, con los bornes o
+
+barras de entrada del tablero principal. Estes bornes o barras constituyen el punto origen de la instalacidn de la
+vivienda, oficina o local (unitario).
+
+Nota: En el caso que no existan bornes o barras de entrada, se entendera por éstes a los bomes de alimentacién del interruptor
+automatico principal,
+
+771.7.4: Circuito seccional o de distribucién
+
+Es el que vincula los bornes de salida de un dispositive de maniobra y proteccién de un tablero con los barnes de
+entrada de! siguiente tablero.
+
+771,7.5: Circuito terminal
+
+Es el que vincula los bornes de salida de un dispositive de maniobra y prateccién con los puntos de utilizacion.
+
+71.7.6: Clasificacién de los circuitos terminales
+
+Nota 1; Se considera boca al punto de un circuito terminal, donde se conecta el aparato ublizador por medio de tomacorrientes o por medio de
+
+conexiones fijas (uniones o borneras),
+
+No se consideran bocas a las cajas de paso, a las cajas de derivacion, a las cajas de paso y derivacion ni 2 las cajas que con-
+
+tienen exclusivamente elementos de maniobra o proteccion (interruptores de efecto, atenuadares, étr.),
+
+Se considera caja de paso a aquella caja a la que ingresan y egresan el mismo niémero de circuitos, sin que ninguno de ellos
+
+tenga derivacion alguna.
+
+Se considera caja de paso y derivacion a aquella caja a la que ingresan y egresan el mismo numere de circultos, pudiende tener
+
+alguno de elios derivaciones.
+
+Se considera caja de derivaciin a aquella caja a la que ingresan y egresan el mismo nomero de circuitos, teniendo todos por lo
+
+menos una derivacion.
+Una boca puede Ser al mismo tiempo;
+
+3) Una caja de paso o una caja de derivacién con un unico circuita 6;
+
+b) Una caja de paso con mas de un circuito, o una caja de derivacién con mas de un circuito o una caja de paso y
+
+dervacion, sl estan ubicadas a una altura no inferior a 1,80 m.
+
+Para cajas de paso, de derivacion o de paso y derivacidn en losas, ver subclausula 771.8.5.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+Los circuitos pueden ser:
+a) Circuitos para usos generales
+
+Son circuitos monofasicos que alimentan bocas de salida para iluminacién y bocas de salida para tomacorrientes.
+Se utilizan esencialmente en el interior de las superficies cubiertas, aunque pueden incorporar bocas en el exte-
+rior de éstas, siempre y cuando estén ubicadas en espacios semicubiertos.
+
+Para este caso, bocas en espacios semicubiertos (porches, galerias, balcones, etc.), se deberan instalar
+artefactos con grado de prateccion como minimo IP 44; si la instalacién se entrega sin los artefactos montadaos,
+entonces se debera dejar indicado en la memoria técnica, y haciendo la referencia numérica correspondiente,
+que dichas bocas seran sdlo para instalacion de artefactos con grado de proteccion IP44 como minima.
+
+|.  Circuitos de iluminacién para uso general (sigla |UG), en cuyas bocas de salida podran conectarse
+artefactos de iluminacidn, de ventilacion, combinaciones entre ellos, u otras cargas unitarias, cuya
+corriente de funcionamiento permanente no sea mayor qué 10 A, sea por medio de conexiones fijas
+{uniones o borneras) o de tomacorrientes tipo 2P+T de 10 A, conformes ala Norma IRAM 2071 o de
+16 A segtn la Norma IRAM-IEC 60309 o IEC 60309. Estos circuitos contaran con protecciones en
+ambos polos para una corriente no mayor de 16 Ay el numero maximo de bocas de salida sera de
+quince (15). _
+
+ll. Circuitos de tomacorrientes para uso general (sigla TUG), en cuyas bocas de salida podran co-
+nectarse cargas unitarias de no mas de 10 A, por medio de tomacorrientes tipo 2P+T de 10 A,
+conformes con la Norma IRAM 2071 0 no mas de 16 A con tomacorrientes que cumplan con la
+Norma IRAM-IEC 60309 o IEC 60309, Estos circuitos contaran con protecciones en ambas polos
+para una corriente no mayor de 20 A y el numero maximo de bocas de salida sera de quince (15).
+
+b) _—«Circultos para usos especiales
+
+Son circuitos monofasicos que alimentan cargas que no se pueden manejar por medio de circuitos de uso
+general, sea porque se trata de consumos unitarios mayores que los admitidos, o de consumos a la intemperie
+(por ejemplo: parques, jardines, patios, terrazas, etc.). Véase también la definicidn de circuitos para usos
+especificos en el [tem “c" de esta subclausula.
+
+Los circuitos para usos especiales contaran con protecciones en ambos polos para una corriente no mayor de
+32 Ay el nimero maximo de bocas de salida es de doce (12).
+
+Los circuitos para uso especial pueden ser.
+
+|. Circuitos de iluminacién de uso especial (sigla UE), en cuyas bocas deben conectarse exclusivamente
+artefactos de iluminacién, sea por medio de conexiones fijas (uniones o borneras) o por medio de to-
+macorrientes tipo 2P+T de 10 Ao de 20 A, conformes ala Norma IRAM 2071, o de 16 A, conforme ala
+Norma IRAM-IEC 60309 0 IEC 60309. Este tipo de circuitos debe ser empleado para la iluminacion de
+lugares a la intemperie, aunque pueden incorporar bocas de iluminacién de uso especial en espacios
+semicubiertos 0 en el interior del inmueble. Se recomienda, por razones funcionales, que los circuitos
+para la electrificacién de lugares a la intemperie sean independientes.
+
+Nota: Por razones de proyecto se podra optar por la ejecucién de circuites de iluminacién de usos especiales en reemplazo de Ins
+circultos de iluminacién de usos generales, manteniéndose la exigencia de cumplimiento de !ng requisites establecides para los
+puntos minimos de utilizacion que se indican en 77.8.4, (71.8.2, 7718.3 y P84.
+
+I. Circuitos de tomacorrientes de uso especial (sigla TUE), en cuyas bocas de salida pueden conec-
+larse cargas unitarias, de hasta 20 A por medio de tomacorrientes tipo 2P+T de 20 A, conformes a la
+Norma IRAM 2071 o de hasta 16 A, por medio de tomacorriéntes que cumplan con la Norma
+IRAM-IEC 60309 o IEC 60309. En cada boca de salida con tomacorrientes de 20 A, se podran ins-
+talar tomacorrientes adicionales de 10 A tipo 2P+T, conforme a la Norma IRAM 2071. Este tipo de
+circuitos debe ser empleado para la electrificacién de lugares a la intemperie, aunque pueden in-
+corporar bocas de tomas de usos especiales en espacios semicubiertos o en el interior del inmueble.
+Se recomienda, por razones funcionales, que los circuitos para la electrificacion de lugares a la in-
+temperie sean independientes. :
+SOMOS
+ermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+ct) Circuitos para usos especificos
+
+Son circuitos monofasicos o trifasicos que alimentan cargas no comprendidas en las definiciones anteriores
+(ejemplos: circuitos de alimentacién de fuentes de muy baja tensién, tales coma las de comunicaciones in-
+ternas del inmueble; circuitos de alimentacién de unidades condensadoras de un sistema de climatizacion
+central; circuitos para cargas unitarias tales como bombas elevadoras de agua; circuitos de tensidn estabili-
+
+zada; etc.), sea por medio de conexiones fijas (uniones o borneras) o por medio de tomacorrientes previstos
+para esa Unica funcidn.
+
+La utilizacién de estos circuitas en viviendas, oficinas y locales (unitarios) es suplementaria y no exime del
+cumplimiento del ndmero minimo de circuitos (771.8.1.2) y de los puntos minimos de utilizacion (771.8.1.3)
+para cada grado de electrificacién.
+
+Los circuitos para uso especifico se dividen en dos grupos:
+
+c1) Circuitos para uso especifico que alimentan cargas cuya tensién de funcionamiento NO es directamente
+la de la red de alimentacion,
+
+L Circuitos de muy baja tensién sin puesta a tierra con tensién maxima de 24 V (sigla MBTS), en cuyas
+bocas de salida pueden conectarse cargas predeterminadas, sea por medio de conexiones fijas
+({uniones o borneras) o de fichas y tomacorrientes para las tensiones respectivas, conforme a la
+norma IRAM-IEC 60309 o IEC 60309 utilizando el color y el cédiga horario correspondiente a la
+tension de funcionamiento. La alimentacién de la fuente de MBTS se realizara por medio de un
+circuito de alimentacién de carga Gnica ACU con sus correspondientes protecciones (ver
+771.18.3.5). Los circuitos MBTS no tienen limitaciones de nimero de bocas, potencia de salida de
+cada una, tipo de alimentaci6n, ubicacién, conexionado o dispositivos a la salida, ni de potencia total
+del circuito o de valor de la proteccién. Es responsabilidad del proyectista determinar esas caracte-
+tisticas, cumpliendo lo establecido con caracter general en esta Reglamentacién y en particular las
+prescripciones de la subclausula 771.18.2.
+
+\l. Circuitos de alimentacién de tensién estabilizada (sigla ATE), destinados a equipos o redes que re-
+quieran para su funcionamiento, ya sea por prescripciones de disefio o necesidades del usuario, ten-
+sién estabilizada o sistemas de energia ininterrumpible (UPS). Los dispositivos de maniobra y protec-
+cién del o de los circuitos ATE, interruptores automaticos e interruptores diferenciales, se colocaran a
+partir de la o las salidas de la fuente en un tablero destinado para tal fin (en locales con presencia
+Permanente de personal BA4 o BAS, podran emplearse interruptores manuales y fusibles o interrup-
+tores automaticos e interruptores diferenciales). En las bocas de salida pueden conectarse cargas
+monofasicas predeterminadas, sea por medio de conexiones fijas (uniones o bormeras) o de tomaco-
+rrientes tipo 2P+T de 10 Ao de 20 A, conformes a la Norma IRAM 2071, o de 16 A, conforme a Norma |
+IRAM-IEC 60309 o IEC 60309.
+
+Con el objeto de diferenciar los tomacorrientes de circuitos ATE y evitar errores operativos, se procedera a inetaler
+los tomacorrientes de la siguiente manera:
+
+1) Tomacorrientes segiin Norma IRAM 2071: se instalaran tomacorrientes de color rojo. Ademas podran
+utilizarse tomacorrientes para esta funcién de un color distinto al rojo, que deberan llevar el logotipo que
+5é indica en el itern siguiente (el trianqulo debera ser de color rojo).
+
+2) Tomacorrientes IRAM-IEC 60309 o IEC 60309: se respetara el color y el codigo horario segun su ten-
+sién nominal (por ejemplo para 230 Vca Azul-6h) y debera colocarse un autoadhesivo indeleble con la
+siguiente simbologia y leyenda:
+
+USO EQUIPAMIENTO
+INFORMATICO
+
+TOMACORRIENTE CON TENSION
+FSTARI ADA J ININTFRRIIMPINA
+SOMOS
+ermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+Los circuitos ATE deberan tener como maximo quince (15) bocas, sin limitacién de potencia de salida
+de cada una, tipo de alimentaci6n, ubicacién, conexionado o dispositivos a la salida, ni de potencia total
+del circuito o de valor de la proteccion. Es responsabilidad del proyectista determinar esas caracteris-
+ticas, cumpliendo lo establecido con caracter general en esta Reglamentacidn.
+
+La alimentacion a la fuente de tensién estabilizada o UPS se realizara por medio de un circuito de ali-
+mentaci6n de carga unica ACU con sus correspondientes protecciones (ver 771.18.3.5).
+
+c2) Circuitos para uso especifico que alimentan cargas cuya tensién de funcionamiento es la correspon-
+
+diente a la red de alimentacién (220 — 380 V).
+
+Nota: Para iluminacion de emergencia, en caso de edificios para viviendas, oficinas o locales, ver secciones 772 y 718, ambas en es-
+tudic, Hasta tanio dichas secciones no se encuentren editadas, ver la Ley 19587, Decreto Reglamentario 351/79 y exigencias de
+la autoridad de aplicacidn con competencia en el tema.
+
+!. Circuitos de alimentacion monofasica de pequefios motores (sigla APM), en cuyas bocas de salida
+pueden conectarse cargas destinadas a ventilacién, conveccion forzada, accionamientos para puertas,
+portones, cortinas, heladeras comerciales, géndolas refrigeradas, lavarropas comerciales, fotocopia-
+doras, etc., u otras cargas unitarias de caracteristicas similares, sea por medio de conexiones fijas
+(uniones o borneras) o de tomacorrientes tipa 2P+T de 10 A, conforme a Norma IRAM 2071, o de 16 A,
+conforme a Norma IRAM-IEC. 60309 o IEC 60309. El ntiimero maximo de bocas sera de 15, la carga
+maxima por boca de 10 A y la proteccién del circuito no puede ser mayor que 25 A.
+
+li. Circuitos de alimentaci6n monofasica o trifasica de carga unica (sigla ACU), alimentan una carga uni-
+taria que asi lo requiere a partir de cualquier tipo de tablero, sin derivaciOn alguna de la linea. No tiene
+limitaciones de potencia de carga, tipo de alimentacion, ubicacién, conexionado o dispositivas a la sa-
+lida, o de valor de la proteccién. Es responsabilidad del proyectista determinar esas caracteristicas,
+cumpliendo lo establecido con caracter general en esta Reglamentacion (ver 771.18.3.5).
+
+Ill. Circuitos de alimentacién monofasica de fuentes para consumos con muy baja tensién funcional (sigla
+MBTF). El numero maximo de bocas (en 220 V) sera de 15, la carga maxima por boca de 10 A y la
+proteccién del circuito no puede ser mayor que 20 A. Las conexiones podran ser efectuadas por medio
+de tomacorrientes tipo 2P+T de 10 A, conformes a la Norma IRAM 2071, a de 16 A, conforme a Norma
+IRAM-IEC 60309 o IEC 60309 o por medio de conexiones fijas (uniones o borneras).
+
+Nota: Los consumes que funcionan con MBTF pueden ser sistemas da portero eléctrico, cantrales telefdnicas, sistamas de se-
+guidad, OCTY, etc., u otras cargas. unitarias de caracteristicas. similares.
+
+Circuitos de iluminacién trifasica especifica (sigla ITE). En oficinas y locales con presencia permanente
+de personal de mantenimiento u operacién BA4 o BAS, se podran emplear ademas de los |UG a los
+IUE, circuitos trifasicos especificos, de donde se deriven sistemas de iluminacién. En las bocas de
+estos circuitos de iluminacidn trifasica especifica (ITE), deben conectarse exclusivamente artefactos de
+iluminacidn, sea por medio de conexiones fijas (uniones o borneras) 0 por medio de tomacorrientes tipo
+2P+T de 10.4 0 de 20 A, conformes ala Norma |RAM 2071, 0 de 16 A, conforme a la Norma IRAM-IEC
+60309 o IEC 60309. Este tipo de circuitos puede ser empleado para la iluminacidn de lugares a la in-
+temperie, en espacios semicubiertos o en el interior del inmueble. Cuando se emplean estos circuitos
+para la iluminacién exterior sus protecciones deben ser exclusivas € independientes de cualquier otro
+circuito interior. El nimero maximo de bocas por fase o linea sera de 12, la carga maxima por boca de
+10 Ay el dimensionamiento del circuito sera responsabilidad del proyectista.
+
+Cada uno de estos circuitos trifasicos para sistemas de iluminacién debera ser protegido por disposi-
+tivos omnipolares, con todos sus polos protegidas contra sobrecargas y cortocircuitos (si existe distri-
+bucién de conductor neutro, el dispositive de proteccién sera tetrapolar con el neutro protegido). Para el
+dimensionamiento de los conductores de linea y neutro se debera tener en cuenta el contenido armo-,,
+nico de la carga. Asimismo debe realizarse una adecuada distribucion de luminarias entre cada con-
+ductor de linea y neutro para lograr el mayor equilibrio de cargas sin perder de vista el efecto estro-
+boscépico (ver lo indicado en el Anexo 771-A), siendo recomendable alternar las lineas o fases sobre la
+qué sé conectan las sucesivas cajas o luminarias. Cuando ademas del interrupter automatico tetrapolar
+como dispositive de proteccién de! circuito, un circuito trifasico tetrapolar para iluminaci6n disponga de
+interruptores unipolares de comando funcional, es recomendable sefializar en forma visible en el lugar
+donde cata uno de dichos dispositivos esté instalado, que la alimentacion proviene de un circuito trifasica.
+
+Otros circuitos especificos monofasicos o trifasicos (sigla OCE), alimentan cargas no comprendidas en
+ias descripciones anteriores. Estos circuitos no tienen limitaciones de nimero de bocas, potencia de
+salida de cada una, tipo de alimentacién, ubicacion, conexionado o disposilivos a la salida, ni de po-
+tencia total del circuito o de valor de la proteccién. Es responsabilidad del proyectista determinar esas
+caracter(sticas, cumpliendo lo establecido con caracter general en esta Reglamentacion.
+SOMOS
+ermanosy
+ermanas
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.7.1- Resumen de tipos de circuitos
+
+Tipo de ; Maxima canti- Maximo calibre de
+circuito Designacion . Sigla dad de bocas la proteccién
+Uso lluminacién use general UG 15 16.4
+General Tomacorriente uso general TUG 15 20A
+Uso lluminacién uso especial IWE 12 32.4
+Especial Tomacorriante uso especial TUE 12 a2 A
+Alimentacién a fuentes de
+MBTF 15 204
+muy baja tension funcional
+Salidas de fuentes de Responsabilidad del
+—_ Sin limite
+muy baja tensién funcional proyectista
+Alimentaclin pequefios motores APM 15 254
+: . Responsabilidad de!
+Alimentacién tensidn estabilizada ATE 15
+proyectista
+Uso
+ircul ; Responsabilidad del
+especifico Circuito de muy baja tensién sin puesta a MBTS Sin limite pa
+tierra proyectista
+. . a Responsabilidad del
+Alimentacion carga unica ACU | No corresponde .
+proyectista
+. Responsabilidad del
+llurninacion trifasica especifica ITE 12 por fase
+proyectista
+a Responsabilidad del
+‘Otros circuitos especificos OCE Sin limite
+Proyectista
+
+771.8: Grados de electrificacién, nimero minimo de circuitos y nimero minimo de
+puntos de utilizacion
+
+771.8.1: Definiciones
+
+771.8.1.1: Grados de electrificacion
+
+Se establece el grado de electrificacién de un inmueble a los efectos de determinar, en la instalacion, el nimero
+de cireuites y los puntos de utilizacién que deberan considerarse como minimo para usos no especificos, es decir,
+para usos generales o para usos especiales, donde su utilizacién no se encuentra definida “a priori" sino que
+surge de estimaciones estadisticas generales.
+
+A. ese efecto se define como demanda de potencia maxima simultanea calculada (sdlo aplicable para determinar
+el grado de electrificacian) a la determinada conforme al procedimiento indicado en 771.9.1 y con excepcidn de
+los circuitos para usos especificos, que se tratan por separada.
+
+Alos efectos de esta Reglamentacion la superficie a considerar, también denominada limite de aplicacién, sera la
+superficie cubierta del inmueble mas el cincuenta por cienta (50 %) de la superficie semicubierta.
+
+La potencia a contratar debe ser acordada entre el usuario y la empresa distribuidora de energia eléctrica (ver
+771.9.3.2).
+
+771.8.1.2: Ndmero minimo de circuitos
+
+Corresponde al numero minimo de circuitos compatibles con una instalacién segura y con condiciones acepta-
+bles de funcionelidad y canfort.
+771.8.1.3: Numero minimo de puntos de utilizacién
+
+Corresponde al nimero minimo de bocas compatibles con una instalacién segura y con condiciones aceptables
+de funcionalidad y confort,
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO FLORIDA
+
+Tabla 771.8.1] - Resumen de los nimeros minimos de circultos de las viviendas
+
+Tipo de circultes
+Cantidad
+Grado de minima liuminacién | Tomacorriente | iluminacién | Tomacorriente
+j de ; uso uso uso uso Circulte de
+electrificacion circuitos. Vi te general general especial especial libre eleccién
+(luc) (TUG) (WE) (TUE)
+Minimo 2 Unica 1 1 ~ - _
+a) 1 1 1 — —_
+b) 1 1 _ 41 —
+Media a
+c} 2 1 _ - _
+d) 1 2 - ~ _
+Elewado 5 Unica 2 2 - 1 _
+Superior” 6 Unica 2 2 — 1 1
+
+“Nota: Se debera adicionar el circuito de libre eleccidn para completar el numero minimo requerido per el grado de electrificacion
+determinado. La denominacion de libre eleccidn se refiere a la posibilidad del empleo de cualquiera de los circuitos tipificados en
+771.7.6 a), b)y c) (UG, TUG, IUE, TUE, MBTF, APM, ATE, MBTS, ACU, ITE y OCE).
+
+771.8.1.5: Determinacion de los grados de electrificacién en los inmuebles
+El grado de electrificacidn se determina seatin los pasos siguientes:
+
+a) con la superficie del inmueble (cubierta mas el 50 % de la semicubierta), se predetermina e el grado de
+electrificacién segun la tabla correspondiente.
+
+b) se identifican los puntos de utilizacion minimos;
+
+¢) se asignan dichos puntos al tipo y numero de circuitos que corresponda, segun el grado de electrifica-
+cién predeterminada; y
+
+d) se calcula la demanda de potencia maxima simultanea, segtin se indica en 771.9.
+
+Si ef resultado es igual o menor que el limite de potencia indicado en la tabla de grados de electrificacién para el
+tipo de inmueble considerado, el proceso ha finalizado. En caso contrario se itera el procedimiento anterior,
+predeterminando en a) el grado de electrificacidn inmediato superior.
+
+771.8.2: Viviendas
+771.8.2.1: Grado de electrificacion de las viviendas
+
+771.8.2.1.1: Grado de electrificacién “Minimo”
+
+Corresponde a viviendas cuya superficie no es mayor que 60 m?, en las que la demanda de potencia maxima
+simultanea calculada es de hasta 3,7 kVA.
+
+771.8,2.1.2: Grado de electrificacién “Medio”
+
+Corresponde a viviendas cuya superficie es mayor a 60 m? y hasta 130 m?, en las que la demanda de potencia
+
+maxima simultanea calculada es de hasta 7 kVA. i
+
+771.8.2.1.3: Grado de electrificacion “Elevado”
+
+Corresponde a viviendas cuya superficie es mayor a 130 m? y hasta 200 m?, en las quela demanda de potencia
+maxima simultanea calculada es de hasta 11 kVA.
+
+771.8.2.1.4; Grado de electrificacion “Superior”
+
+Corresponde a viviendas cuya superficie es mayor que 200 m®, en las que la demanda de potencia maxima
+simultanea calculada es mayor que 11 KVA.
+
+Tabla 771.8.1— Resumen de los grados de electrificacion de las viviendas
+
+Grado de elec- Superficie Demanda de potencia maxima simultanea calculada
+trificacién (limite de aplicacién) (s6lo para determinar el grado de electrificacién)
+Minimo hasta 60 m? hasta 3,7 kVA .
+Medio mas de 60 m?* hasta 130 m? hasta 7 kVA
+Elevado mas de 130 m? hasta 200 m? hasta 17 kVA
+|___ Superior mas de 200 m? mas de 17 kVA
+
+fermanes La) <Salle
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.8.lll— Resumen de los puntos minimos de utilizacién en viviendas y en locales u oficinas
+proyectados originalmente para vivienda (ver texto en 771.8.2.3.1, 771.8.2.3.2 y 771.8.2.3.3)
+
+. Grado de Puntos minimos de utilizacién
+biente
+Ambien electrificacién 1uG TUG TUE
+Minimo =
+Sala de estar y cor Medio Una boca cada Una boca cada 6 -—
+estudio, biblioteca o Elevado _| 18 ™*de superficie | m*de superficie [Una boca sila
+similares, en vivien- 9 fraccién 0 fraccién superficie de los
+das Superior (minimo una} (minimo dos) ambientes supera
+los 36 m#
+Minima
+Dormitorio (Superficie Medio .
+menor a 10 m?) Elevado Una boca Dos bocas _
+Superior
+Dormitorio (Superticie ene
+igual o mayor a 10 m? Una boca Tres bocas _
+hasta 26 m?) Elevado
+Superior
+itari : Elevado
+moore smn Dos bocas Tres bocas Una boca
+Superior
+‘ Tres bocas mas
+Minimo Una boca dos tomacorrientes ~~
+Tres bocas mas
+Cocina Medio dos tomacorrientes ~~
+Elevado Dos bocas Tres bocas mas
+tres tomacorrientes Una boca
+Superior Cuatro bocas mas .
+p tres tomacorrientes
+Minima
+Bano (para toilette ver Medio
+Superior
+Vestibulo, garaje, hall, Minimo Una boca
+galeria, vestidor, co- Medio Una b Una boca cada 12
+medor diario o simi- Elevado na boca m? de superficie _
+lares t———_ o fraccién
+Superior (minimo una boca)
+Minimo —-
+Pasillo, balcones Medio Lae boca por cada |'Una boca por cada
+ios o similares m de longitu 5 m de longitud _
+atrios o similares Elevado 0 fraccién o fraccién (para
+Superior pasillos de L > 2m)
+Minima Una boca =
+Medio _
+Lavad
+ero Elevado Una boca Dos bocas Una boca
+Superior
+
+Nota: Cuando se exige en forma adicional la instalacian de tomacorrientes, debe interpretarse come la colocacién del elemento tormace-
+fiente, pudiendo estar éste ubicado en las bocas de tomacorientes contempladas en los puntos minimos de utilizacidn. Si los to-
+macomentes adicionales se instalan en cajas separadas, alos efectos computar la maxima cantidad de bocas que permite el cireuito,
+se los considerard como una boca de tomacorriente que se sumara al resto de las boras del circuito.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.83: Oficinas y locales
+
+Nota: Los numeros de bocas de iluminacion mencionados en esta subclausula son minimos, por Jo tanto, en todos estos casos se
+debera efectuar un proyecto de iluminacién previo que respete las condiciones, las valores minimos de iluminacion (en lux) y los
+niveles de uniformidad requeridos por la Ley N° 19587? de Higiene y Seguridad en el Trabajo y sus decretos reglamentarios o por
+la autoridad de aplicaciin correspondiente.
+
+Todos los tipas de oficinas y locales deberan cumplir. con los grados de electrificacion, nUmera minimo de
+circuitos y puntos minimos de utilizacién descriptos en las subclausulas siguientes, Los locales, de acuerdo
+con su clasificacion frente a determinadas influencias externas, por ejemplo su condicion de evacuacién,
+pueden requerir prescripciones adicionales, entre otras, én las canalizaciones, en el cableado y sistemas de
+emergencia especificos, estas reglas de ejecucion se detallan en AEA 90364-7-718 Locales y Lugares de
+Publica Concurrencia (actualmente en estudio).
+
+Todos aquellos locales no contemplados en las descripciones de las siguientes subclausulas, como por
+ejemplo las iglesias, los templos, los museos, los gimnasios, etc., en los cuales pueden no ser exigibles los
+puntos minimas de utilizacién, deberan cumplir indefectiblemente con las restantes prescripciones indicadas
+en esta Reglamentacion (ver 771.8.3.6).
+
+Tabla 771.8.1V —- Resumen de los grados de electrificacién de oficinas y locales comerciales proyectados
+originalmente para tal fin
+
+Grado de Superficie Demanda de potencia maxima simultanea calculada
+electrificacién (limite de aplicacién) (sdlo para determinar el grado de electrificacién)
+Minima hasta 30 m? hasta 4,5 kVA
+Medio mas de 30 m? hasta 75 m? hasta 7,8 kVA
+Elevado mas de 75 m? hasta 150 m? hasta 12,2 kVA
+Superior mas de 150 rm? mas de 12,2 kVA
+
+771.8.3.2.2: Ndmero minimo de circuitos en las oficinas y locales comerciales construidos original-
+mente para tal fin
+
+Nota: Para la clasificacion de las lineas y de los. circuitos, véase 771.7.
+
+La instalacion eléctrica del inmueble tendra el tipo y numero minimo de circuitos de acuerdo con el! grado de
+electrificacién determinado, segun se indica a continuacién:
+
+a) Para el grado de electrificacién "Minimo": como minimo dos circuitos, siendo uno de iluminacién para
+uso general y el otro de tomacorrientes para uso general.
+
+b
+
+Para el grado de electrificacién “Medio”: como minimo tres circuitos, donde por lo menos uno sera de
+iluminacién y uno de tomacorrientes, ambos de uso general, y el tercero sera un circuito de ilumi-
+nacion o de tomacorrientes, de uso general o especial indistintamente.
+
+Cc
+
+aed
+
+Para el grado de electrificacion “Elevado": como minimo cinco circuitos, dos de iluminacién para uso
+general, dos de tomacorrientes para uso general y uno de tomacorrientes para uso especial.
+
+d
+
+Para el grado de electrificacién “Superior": como minimo seis circuitos, siendo cuatro para uso ge-
+neral, (donde habra dos de iluminacién y dos de tomacorrientes) y uno de tomacorriantes para uso
+especial; el sexto circuito es de libre eleccion.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.8.V — Resumen de los nimeros minimos de circuitos de las oficinas y locales comerciales
+construidos originalmente para tal fin
+
+Tipo de circuitos
+Cantidad
+Grado de minima lluminacién | Tomacorriente | Huminacién | Tomacorriente
+electrificacion de use uso uso uso Circuito de
+ial
+circuites Varlante general general especial espec libre eleccion
+(luc) (TUG) (UE) (TUE)
+Minimo 2 Unica 1 1 - _- --
+a) 1 1 1 — _
+b) 1 1 --- 1 —
+Medio 3
+Cc) 2 1 ao = -
+d) 1 2 = —- o--
+Elevado 5 Unica 2 2 — 1 _
+Superior" 6 Unica 2 2 = 1 4
+“Nota: Se debera adicionar el circuito de libre eleccién para completar el ndmero minima requerido por el grado de electrificacian
+
+déterminade, La denominacion de libre eleccidn se refiere a la posibilidad del empleo de cualquiera de los circuitas tipificados
+en 7777.6 3), b) yc) (IUG, TUG, IUE, TUE, MBTF, APM, ATE, MBTS, ACU, ITE y OCE).
+SOMOS
+ermanosy
+ermanas
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.8.V1 — Resumen de los puntos minimos de utilizacién en oficinas y locales comerciales
+proyectados originalmente para tal fin (ver texto en 771.8,3.2.3.1 y 771,8.3.2.3.2)
+
+Puntos minimos de utilizacién
+
+Elevado y Superior
+
+o fraccion (minima
+una boca)
+
+o fraccion, para
+pasillos de L > 2m
+
+Ambiente el ccirticacién
+UG TUG TUE
+Mininno
+Una bocacada9 | Unabocacada9 ~
+Media m? de superficie o | m? de superficie o
+Salon general fraccién (minima fraccién (minima
+una boca) dos bocas) Una boca cada 18
+Elevade y Superior mi de perimetro o
+fraccion
+Sala de reuniones, Minimo y Medio Una boca cada 9 Una boca cada 9 a
+conferencias, mi- m? de superficie 0 | m? de superficie o
+crocines o usos fraccién (minimo fraccién (minimo
+similares Elevado y Superior una boca} dos bocas) Una boca
+Minimo y Medio
+Despacho privado Una boca Das bocas —
+Elevado y Superior
+Minimo y Medio Una boca Dos bocas ve
+‘ Tres bocas mas un
+Cc
+Elevado y Superior Das bocas cada electrodo- a
+méstico de ubica- electrodoméstico
+cién fia de ubicacidn fija)
+Minimo y Medio Una boca Una boca
+Baro (para toilette
+ver 71.8.5 n)} Una boca cada 18 ~
+Elevado y Superior | m* de superficie o Dos pocas (una de
+fraceién ellas libre)
+Minimo yMedio | Unabocacada | Una boca cada —
+Vestibulo 9m? de superficie | 48 m? de superficie _.
+o recepcion __ | ofraccion (minimo | © fraccion (minimo
+Elevado y Superior una boca) una boca) Una boca
+Minimo y Medio Una boca cada Una boca cada
+Pasillo 5m de longitud 5m de longitud _
+
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.8.3.3: Locales dedicados a depdsito, transformacién o elaboracion de sustancias no inflamables
+
+Nata: Los conceptes vinculados con los riasgos de incendio, combustion, deflagracian, etc. estan tratades en el Capitulo 42 de AEA
+90394. La clasificacién de que un local esta expuesto a riesgas de incendio debera ser determinada el responsable de Higiene y
+Seguridad en el Trabajo del establecimiento.
+
+Esta cl4usula se refiere exclusivamente al limite de aplicacién de las zonas del inmueble destinadas a depo-
+sito, transformacidn o elaboracién de sustancias no inflamables. En las subclausulas siguientes se indican los
+valores de superficie que deben ser utilizados por el proyectista para efectuar los calculos de iluminacién
+correspondientes, a fin de cumplimentar los valores minimos de los niveles de iluminacion para cada tipo de
+establecimiento y los niveles de uniformidad, establecidos por los decretos reglamentarios N° 357/79 y 911/96
+de la Ley N° 19587 de Higiene y Seguridad en el Trabajo, respetando ademas la maxima cantidad de bocas por
+circuito y la minima cantidad de circuitos prescriptos en esta clausula.
+
+Para el tratamiento de las zonas del inmueble destinadas a oficinas y locales de venta se debera referir a
+771.8.3.2; para aquellas zonas del inmueble destinadas eventualmente a vivienda (encargados, caseros, etc.)
+se debera referir a 771.8.2. Los bafios deberan responder a la sefialado en AEA 90364-7-701.
+
+Tabla 771.8.VIl —- Resumen de los grados de electrificacién de inmuebles destinados a depdsito,
+transformacion o elaboracién de sustancias no inflamables
+
+Grado de Superficie
+electrificacién (limite de aplicacidn)
+Minimo hasta 300 m?
+Medio mas de 300 m* hasta 2000 m?
+Elevado mas de 2000 m? hasta 5000 m?
+Superior mas de 5000 m?
+
+771.8,.3.3.2; Ndmero minimo de circuitos en inmuebles destinados a deposito, transformacion o ela-
+boracidn de sustancias no inflamables
+
+Nota: Para la clasificacién de las lineas y de los cirouitos, vase 771.7.
+
+La instalacion eléctrica del inmueble tendra el tipo y namero minimo de circuitos de acuerdo con el grado de
+electrificacién determinado, segun se indica a continuacién:
+
+a) Para el grado de electrificacin “Minimo”: coma minimo tres circuitos, siendo uno de iluminacion para
+uso general, otro de tomacorrientes para uso general y para el tercero puede optarse por un circuito
+de iluminacién o tomacorrientes, de uso general o especial.
+
+b) Para el grado de electrificacién “Media": como minimo cinco circultos, siendo dos de iluminacién de
+uso general, dos de tomacorrientes de uso general y el quinto sera un circuito de iluminacién o de
+tomacorrientes de uso especial.
+
+c) Para el grado de electrificacién “Elevado": como minimo siete circuitos, siendo seis de uso general
+(como minimo tres UG y dos TUG) y uno de tomacorrientes para uso especial.
+
+d} Para el grado de electrificacién “Superior”: como minimo once circuitos, siendo por lo menos diez
+para uso general (camo minimo seis IUG y tres TUG) y uno de tomacorrientes para uso especial.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+. Tipo de circuitos
+Grado de Cantidad Huminacion Tomacorriente Hluminacion Tomacorriente
+I ificaci d
+\@ setrificacion circuitos Variante general general especial especial
+{lUG) (TUG) (IUE) (TUE)
+aj 1 1 4
+b} 1 1 = 1
+Minima 3
+c) 2 4 _- oe
+d) 1 2 -- -
+a) 2 2 1 _
+Medio 5
+b) 2 2 Sd 1
+a) 4 2 _ 1
+Elevado 7
+b) 3 3 -~ 1
+a) 7 3 _ 4
+Superior 11
+b)} 6 4 — 1
+
+771.8,.3.6: Locales de otras caracteristicas
+
+A los efectos de esta Reglamentacion la clasificacion de locales de otras caracteristicas se refiere a aquellos
+inmuebles en los que no resulta de aplicacién establecer una cantidad minima de puntos de utilizaci6n, la que
+es prerrogativa de los proyectistas eléctricos, en funcién del uso previsto, destacandose que la cantidad de
+dichos puntos minimos de utilizacién deberan ser la suficiente para alcanzar el nivel minimo de iluminacidn,
+
+requerido por los decretos reglamentarios de la Ley N° 19587 de Higiene y Seguridad en el Trabajo. Es apli-
+cable a los siguientes establecimientos:
+
+Locales destinados a templos, auditorios, salas de conferencias y congresos, teatros, cinematégrafos, mi-
+crocines, salones para fiestas, locales bailables, discotecas, boliches, salas de exposicidn fijas, museos,
+casinos, pensiones, gimnasios, cuarteles, piscinas cubiertas, pistas de patinaje, salas para velatorios y lacales
+con similares destinos, tanto solos, como dentro de inmuebles para otro destino principal.
+
+Esta clausula se refiere a las instalaciones de iluminacién de uso general y especial y tornacorrientes de uso
+general y especial y no incluye las instalaciones propias de iluminaci6n artistica, sistemas acUsticos u otros de
+efectos especiales, tanta fijos como temporarios.
+
+Si a estos locales les correspondiesen, por la cantidad de personas y condiciones de evacuacion (clasificacion
+BD), ser considerados como locales o lugares de ptiblica concurrencia, las canalizaciones, cables y conduc-
+
+tores y los sistemas de emergencia deberan cumplir con los requisitos establecidos en la Seccién 718 (en
+estudio) de esta Reglamentacion.
+
+Nota: Esta clausula se refiere exclusivamente ala zona de! inmueble con los destinos mencionados; el tratamiento de las zonas del
+
+inmueble eventualmente destinadas a oficinas y locales de venta se debera referir a 771.8.3.2 y para aquellas zonas del in-
+mueble destinadas eventualmente a vivienda (encargados, caseros, etc.) se debera referir a 771.8.2.
+
+Tabla 771.8.IX — Resumen de los grados de electrificacién de locales de otras caracteristicas
+
+Grado de Superticie Demanda de potencia maxima simultanea calculada
+electrificacién (limite de aplicacién) (sdélo para determinar el grado de electrificacién)
+Minimo hasta 300 m? hasta 6,7 kVA -
+Medio ; ma s de 300 m? hasta 2000 m? hasta 10 kVA
+Elevado mas de 2000 m? hasta 5000 m? hasta 14,5 kVA
+Superior mas de 5000 m? mas de 14,5 kVA
+
+SOMOS
+ermanosy
+ermanas
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.8.X — Resumen de los niimeros minimos de circultos en locales de otras caracteristicas
+
+Tipo de circuitos
+Cantidad
+Grado de minima uminacién | Tomacorriente | lluminacién | Tomacorriente
+electrificacién de Variant uso uso uso uso
+circuitos ariante general general especial especial
+(IUG) {TUG) (IUE) (TUE)
+Minima 3 Unica 2 1 an ok
+a) 2 1 1 —
+b) 2 1 -_ 1
+Medio 4
+c} 3 1 - _
+d) 2 2 _ --
+Elevado 6 Unica 3 2 -— 1
+Superior” 8 Unica 4 2 _ 1
+
+“Nota; Se debera edicionar el circuito de libre eleccién para completar el nimera minimo requerido por el grado de electrificacién
+determinado. La denominacién de libre eleccién se refiere a la posibilidad del empleo de cualquiera de los circuites tipificades en
+7717.6 a), b) yc) (IUG, TUG, IUE, TUE, MBTF, APM, ATE, MBTS, ACU, ITE y OCE),
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.8.5: Criterios generales
+
+a) Las bocas de tomacorrientes de uso general o especial pueden contener un maximo de dos tomacorientes
+para cajas rectangulares (50 mm x 100 mm), o de cuatro tomacorrientes para cajas cuadradas (100 mm x
+100 mm). Pueden utilizarse otros tipos de cajas, pero el nimero maximo de tomacorrientes por boca es de
+cuatro (4), superada esta cantidad, el numero de bocas a computar a los efectos del grado de electrifica-
+cidén, sera el nimero de tomacorrientes dividido cuatro. La fraccién sera considerada como una boca.
+
+b
+
+—
+
+Los artefactos de iluminacién pueden ser |uminarias, con una o mas lamparas, conectadas a una boca. Sila
+carga fuese superior alos 10 A, podra optarse por un circuito de iluminacién de uso especial (IUE) hasta un
+consumo de 20 A. Si fuese superior se debera utilizar un circuito de carga tinica (ACU) u otros circuitos
+especificos (OCE).
+
+Los ventiladores de techo o extractores de aire podran cargarse a los circuitos de iluminacién para uso
+general o especial, ya sea conectados en forma fija o por medio de tomacorrientes. Alos efectos del calculo
+de la demanda, ver 771.9, cualquiera de ellos se computara como una boca de iluminacion.
+
+Los ambientes del tipo escritorio, estudio, biblioteca, o similares, en viviendas, tendran el mismo trata-
+miento que las salas de estar y comedor,
+
+Los ambientes dedicados a garaje de vivienda u oficina (con capacidad para tres vehiculos cama maxima),
+“nall" de distribucion o de recepcion, galeria, balcon - terraza semicubierto, vestidor, o donde se realicen
+actividades similares, tendran el mismo tratamiento que el vestibulo.
+
+2
+
+d
+
+—
+
+J
+
+—
+
+f} Los ambientes dedicados a comedor-diario, o donde se realicen actividades similares, tendran e! mismo
+tratamiento que las salas de estar y comedor.
+
+2.
+
+Las escaleras y rarmpas deberan tener como minimo una boca de iluminacién para uso general cada 5 m de
+longitud, o fraccién, o bien en cada descanso.
+
+h
+
+a
+
+Los balcones, atrios (“porches”), o pasillos externos, que sdlo requieran iluminacién y donde la(s) boca(s)
+no estén a la intemperie, podran asimilarse ai pasillo tal como se lo trata para el grado de electrificacién
+minima,
+
+i) Los requisites de instalacién en cuartos de bafio, cocinas, lavaderos o similares estan establecidos en la
+Parte 7, Seccién 701.
+
+j) La alimentacién de las fuentes de circuitos de comunicaciéon, porteria, timbres, o similares, podra realizarse
+a través de circuitos de iluminacién de uso general o especial, en funcidén de la dermanda de potencia co-
+Ttrespondiente; en este caso, a los efectos del cdélculo de la demanda, se le asignara !a potencia corres-
+pondiente a una boca de iluminacion por cada fuente alimentada y cada uno de estos puntos se considerara
+como una boca, a efectos de la cantidad total que posee el circuito. Si se optara por manejarlos como
+circuito para uso especifico, se admitira que el mismo circuito alimente a todas las fuentes de este tipo en
+tanto la suma de sus potencias nominales no sea mayor que 2200 VA.
+
+Toda parte metalica de timbres, porteros eléctricos, alarmas, etc., alimentados por MBTF, debera estar
+conectada a tierra. El conductor de proteccién acompafara a los circuitos de MBTF. En cambio cuando
+dichos circuitos estén alimentados en MBTS por transformadores de seguridad certificados, que cumplan
+con !EC 61558-2-6, las masas de los circuitos asi alimentados NO deberan conectarse a tierra.
+
+k) Cuando las fuentes sean de muy baja tensién, hasta 24 V, deberAn tener un transformador con primario y
+secundario independientes. No se permitiré el usa de autotransformadores. Asi implementados estos cir-
+cuitos se consideraraén como de muy baja tensién funcional (MBTF) o de muy baja tensién sin puesta a
+tierra (MBTS), sequin se ajusten a las prescripciones de uno u otro tipo de circuito (ver 771.18.2).
+
+1) Los circuitos dé comando (interruptores accionados a flotante, sefializaciones, alarmas, etc.) en ambientes
+mojados, incluyendo aquellos donde se encuentran los tanques cisterna y elevado, seran alimentados con
+muy baja tension sin puesta a tierra (MBTS).
+
+m) En el ambito de cocinas y lavaderos se consideran como electrodomésticos de ubicacidn fija a: heladeras,
+freezers, extractores de humo, lavavajillas, hornos a microondas, hornos eléctricos, cocinas eléctricas,
+
+cocinas, anafes y hornas a gas que requieran alimentacion eléctrica, maquinas lavarropas, secarropas,
+maquinas fijas para planchado, etc.
+
+n) Alos efectos de esta Reglamentacion se considera como toilette a un cuarto de bao que no posee bafera
+o receptaculo para ducha. En estos ambientes el tomacorriente requerido en los puntos minimos de utili-
+zacién podra cargarse al circuito de iluminacion. Ver requisitos de ejecucién en la Parte 7 Seccidn 701.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+o) Las cajas instaladas en losa, para él uso de paso, derivacioOn o paso y derivacion, seran consideradas como 4A
+bocas y contaran para el grado de electrificacioOn, si sus medidas alcanzan los 100 x 100 ~“m inclusive.
+Medidas superiores no se contaran como boca, y por ende, no sumaran en los circuitos cc~ -spondientes.
+
+p) Siluego de cumplimentado lo indicado para los puntos minimos de utilizacion en 71.8.1, 71.8.2, 771.8.3
+y 771.8.4, fuera necesario instalar bocas de salida mixtas {interruptor de efecto y un tc. nacorriente}, el
+tomacorriente de las mismas, debera estar conectado al circuita de iluminacién presente en la caja e
+identificado univocamente y en forma indeleble con el siguiente ideograma (N° 5012 de IEC 60417}. Este
+mismo criterio puede utilizarse, de ser necesario, para los circuitos IUE, en cuyo caso no se debera superar
+el numero maxima de bacas.
+
+Nota: A la fecha de la edicién de la presente Seccidn de la Reglamentacion se encuentra en estudio la incorporacién del mismo
+ideograma en la norma de producto IRAM 20714.
+Alas efectos del calculo de la demanda de potencia maxima simultanea debe asignarse el valor indicado en
+
+7719.1 y, a efectos de establecer la maxima cantidad de bocas por circuito, estas bocas de salida mixtas
+deberan computarse como una boca,
+
+No se permite la instalacién de bocas de tomacorrientes conectadas al circuito de iluminacion, situadas a
+menos de 0,90 m del nivel del solado terminado. Si hubiera necesidad de instalar bocas de tomacorrientes
+comandadas por interruptores de efecto a alturas inferiores a 0,90 m del nivel del solado terminado, éstas
+deberan pertenecer al circuito de tamacorrientes; en tal caso los interruptores de efecto para comando de
+tormacorrientes no podran compartir la caja con interruptores de efecto del circuito de iluminacion, debienda
+instalarse en cajas separadas o en la caja en que sé encuentra el tomacorriente comandado. Debera
+coordinarseé la capacidad de corte de los interruptores de efecto con la intensidad correspondiente a los
+tomacorrientes por ellos comandados.
+
+q) En las instalaciones trifasicas se procuraré mantener el sistema lo mas equilibrado posible, mediante una
+adecuada distribucion dé las cargas.
+
+r) Cuando la vivienda posea una kitchinette, ésta debera tener como minimo e independientemente de los
+puntos minimos de utilizacién del ambiente donde esta ubicada, una boca de iluminacién sobre la zona de
+
+la kitchinette (puede ser bajo la cenefa) y dos bocas para tomacorrientes de uso general mas un tomaco-
+rriente para artefactos de ubicacion fija.
+
+s) En los bafios o lugares similares donde existan bafieras de hidromasajes, éstas deberdn cumplir con IEC
+60335-2-60. La alimentacion a dichas bafieras debera realizarse en forma fija y permanente desde un
+circuito ACU empleandose para su proteccion un interrupter automatico termomagnético asociado a un
+interruptor diferencia! de I,,, = 30 mA, debiendo estar, este ID, afectado en forma exclusiva a la proteccion
+del circuito del hidromasaje. El volumen debajo de la bafiera se lo considera como Zona 1 y la alimentacion
+al equipo de hidromasaje sélo puede efectuarse en forma fija y permanente mediante cafieria aislante con
+conexién que ofrezca como minimo un grado de proteccidén IP X5. En Zona 1 sdélo pueden efectuarse
+
+alimentaciones en forma fija, no estando permitido el empleo de tomacorrientes para tensiones superiores
+a24V ca.
+
+t) Cuando en una instalacién exista cafieria que vincule el tablero principal con un primer tablero seccional,
+dicha caferia debera ser de diametro minimo R19 (3/4") incluyéndose en esta prescripcién también a las
+cafierias instaladas en columnas montantes. Se deberd tener en cuenta ademas la superficie interior de los
+cafos segun lo indicado en 771.12.3.3.4 e),
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.8.6: Ubicaciones para los tomacorrientes y para los interruptores de efecto
+
+Nota: Para garajes y establecimientos escolares se establecen ubicaciones diferentes.
+
+771,8.6.1: Altura y ubicacion de los interruptores de efecto
+
+Los interruptores de efecto adyacentes a las puertas de acceso a los diferentes ambientes, se deberan instalar
+en cajas, cuya arista mas cercana al marco debera estar ubicada a no mas de 0,15 m del borde exterior del
+marco que aloja el cerradero en el que penetra el pestillo y cuyo centro debera estar ubicado entre 0,9 y 1,3 m
+del nivel! del solado terminado, siendo recomendable la altura de 1,10 m, salvo en aquellos locales a los que
+acceden personas con capacidades diferentes, en cuyo caso dichas cotas se podran modificar (consultar el
+Cédigo de Edificacién del distrito o jurisdiccién). Es recomendable que en un mismo inmueble se adopte una
+unica altura para la ubicacién de los interruptores de efecta.
+
+Los interruptores de efecto se deberan montar de manera tal que cuando se instalan en pasicion horizontal, se
+actié sobre la cara mas cercana al marco para su conexion; cuanda se instalan én posicion vertical, se debe
+actuar sobre la Cara superior para su conexion. En cualquier caso se recomienda el empleo de interruptores
+que incorporen marcacién de conexidn.
+
+En el caso de los pasillos interiores de mas de 3 m de longitud, se deberan prever interruptores de efecto
+combinados situados en cada extremo, a no mas de 0,15 m del borde exterior del marco o acceso y en cada
+acceso intermedio de forma tal que la distancia entre interruptores sucesivos no exceda los 6 m.
+
+Cuando dentro del inmueble (vivienda, local u oficina) existan uno o mas ascensores, se debera situar el
+dispasitivo de comando de iluminacién a menos de 2 m de toda puerta de ascensor y ser visible desde el
+umbral de cualquiera de ellas. Se sugiere utilizar interruptores luminosos. Independientemente de su condicién
+de juminosos, se recomienda instalar los interruptores de forma que la tecla de accionamiento quede en
+posicién vertical, actuandose sobre la parte superior para efectuar la comexion.
+
+Es posible también efectuar el comando de Ia iluminacién por medio de sensores de presencia o movimiento,
+
+Los interruptores de efecto podran ser instalados en los tableros eléctricos como parte integrante de estos
+ultimos, pudiendo pertenecer a cualquier circulto de la instalacian.
+
+771.8.6.2: Altura y ubicacién de los tomacorrientes
+
+Las cajas que albergan los tomacorrientes instalados por encima de los zécalos deben ser ubicadas de forma
+tal que la arista inferior quede a no menos de 0,15 m del nivel del solado terminado.
+
+Las cajas que contienen los tomacorrientes instalados sobre las mesadas de bafos, cocinas y lavaderos o
+disposiciones similares, ademas de respetar las distancias respecto a las fuentes de agua (ver Seccidn 701),
+se deben ubicar por encima de las mesadas de tal forma que las aristas inferiores de las cajas queden ubi-
+cadas a no menos de 0,10 m del nivel de mesada.
+
+En los otros casos podran ubicarse en cajas adyacentes a las que contienen a los interruptores de efecto, o
+acompafando a éstos cuando las prescripciones de esta Seccion de la Reglamentacidn lo permitan, o en
+ubicaciones que respondan a necesidades especificas.
+
+Para las viviendas, donde esta Seccién de la Reglamentacién considera la presencia de nifios (Clasificacién
+BA2, ver nota en 771,11.2), los tomacorrientes instalados a nivel de zocalo o hasta una altura de 0,9 m del nivel
+del solado terminado deberan ser de 2x10+T construidos segun Norma IRAM 2071 y deberan llevar pantalla
+de proteccién a la insercion de cuerpos extranos (segun lo establecido para ese punto por IEC 60884-1).
+Nota: Ala fecha dela edici6n de la presente Seccidn de la Reglamentacion se encuentra en proceso de adopcidn la norma de producto
+IRAM NM 606841.
+
+En los ambientes donde sea prevea la limpieza por baldeado, los tomacorrientes se deberan ubicar de forma
+que las cajas que los alojen se sitden con su arista inferior a no menos de 0,20 m del nivel del solado termi-
+nado, pudiéndose emplear en ese caso tomacorrientes con un grado de proteccian minimo IP20. Si las bocas
+estuvieran por debajo de ese nivel, el grado de protecci6n minimo del conjunto (caja, tomacorriente y tapa)
+deberd ser IP54.
+
+Se recomienda no instalar los tomacorrientes sobre planos horizontales con sus orificios de conexién verti-
+
+cales y orientados hacia arriba, debido a que pueden perder propiedades dieléctricas por la acumulacion de
+material conductor producido en cada insercién o extraccion de la correspondiente ficha.
+
+Los tomacorrientes podran ser instalados en los tableros eléctricos como parte integrante de estos Ultimos,
+pudiendo pertenecer a cualquier circuito de la instalacién, Para el célculo de la cantidad de bocas total del
+
+circuito, ver 771.8.5.a).
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.9.1: Demanda de potencia maxima simultanea para la determinacién del grado de electrificacién
+
+Nota 1: Con el fin de delerminar e! grado de electrificacién del inmueble, la demanda aqui calculada lo es a los efectos del dimensia-
+namiento de los conductores y jos dispositives de proteccidn y conexionada cormespondientes, como asi tamblén del niimero
+minimo de circultos y de puntos de utilizacidn, compatibles con el uso previsto de las instalaciones.
+
+La demanda de potencia maxima simultanea, para el calcula del grado de electrificacion, se calculara sumando la
+
+potencia maxima simultanea de cada uno de los circuitos dé uso general y especial correspondientes, tomando
+
+como minimo para cada uno de ellos los valores siguientes:
+
+Tabla 771.9.1- Demanda maxima de potencia simultanea
+
+Valor minimo de la potencia maxima simultanea ‘
+i O
+Circuit Viviendas Oficinas y locales
+lluminacién para uso ge- 66 % de la que resulte al considerar 100 % de la que resulte al considerar
+néral sin tomacorrienles todos los puntos de utilizacién previs- todos los puntos de utilizacion previs-
+derivados tos, a razon de 150 VA cada uno. tos, a razon de 150 VA cada uno.
+lluminacién para uso ge-
+neral con tomacorrientes 2200 VA por cada circuito.
+derivados
+Tomacorrientes
+para uso general 2200 VA por cada circuito,
+lluminacién 66 % de la que resulte al considerar 100 % de la que resulte al considerar
+. todos los puntos de utilizacién previs- | todos los puntos de utilizacién previs-
+para uso especial tos, a razon de 500 VA cada uno. tos, a razon de 500 VA cada uno,
+Tomacorrientes |
+3300 VA por cada circuito,
+para uso especial
+
+Nota 2: Los valores indicados en la tabla precedente deben considerarse como minimos, debido a la situacion de incertidumbre en las cargas
+
+a conectar. No obstante, silos consumos fueran conocidas, y superasen estos minimos, la damanda de potencia maxima simultanea
+debera calcularse en funcidn de los mayores valores.
+
+Al resultado obtenido se podran aplicar los siguientes coeficientes de simultaneidad segtin el grado de electrifi-
+cacion que corresponda:
+
+Tabla 771.9.1l — Coeficientes de simultaneidad
+
+Grado de electrificacion Coeficiente de simultaneidad
+Minimo 1
+Medio 09
+Elevado 0,6
+Superior o7
+
+Si una vez aplicado el coeficiente de simultaneidad ocurriera que la potencia maxima simulténea asi calculada
+correspondiese a un grado de electrificacién inferior, a todos los efectas se mantendra el grado de electrificacién
+anterior a la aplicacién del coeficiente de simultaneidad.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.9.2: Demanda de potencia maxima simultanea de los circuitos dedicados a cargas especificas
+
+Para su determinacién se suman las potencias de los circuitos dedicados a cargas especificas, multiplicados por
+
+los coeficientes de simultaneidad que corresponden en funcién de las caracteristicas de las cargas y de la pro-
+babilidad de funcionamiento simultaneo.
+
+771.9.3: Determinacién de la carga total correspondiente a viviendas, oficinas o locales (unitarios)
+771,9.3.1: Método de calculo
+
+La carga total correspondiente a una vivienda, oficina o local (unitario) se calcula sumando los resultados de la
+demanda de potencia maxima simultanea correspondiente al grado de electrificacion, obtenida segdn 771,9.1,
+mas la demanda de potencia maxima simultanea de los circuilos dedicades a cargas especificas obtenida sequn
+7719.2.
+
+771.9.3.2: Contratacién del suministro
+
+La instalacién debera dimensionarse para las cargas aqui calculadas. No obstante, el propietario podra utilizar y
+contratar potencias inferiores sequin sus necesidades particulares.
+
+771,9.3.3: Suministro monofasico o trifasico
+
+Las empresas de distribucién de energia eléctrica pueden definir e! valor de potencia a partir del cual un surmi-
+nistro debe ser trifasico. No obstante, cuando la carga total calculada supere los 7 KVA o los 32 A, para una linea
+de alimentacién monofasica es recommendable solicitar un suministro trifasico para el inmueble.
+
+71.9.4: Determinacion de la carga total para inmuebles constituidos por viviendas, oficinas o locales
+(unitarios)
+
+771.9.4.1: Determinacion de la carga total para inmuebles constituidos por diferentes tipos de vivien-
+das, oficinas o locales (unitarios)
+
+Cuando un inmueble este constituido por diferentes tipos de viviendas, oficinas o locales (unitarios), la carga total
+del inmueble sera la suma de las cargas totales de cada uno de las viviendas, oficinas o locales (unitarios)
+constituyentes del misma. Por ejemplo: un local de venta de automdviles que posea ademas un garajé para 15
+clientes, un depdsito para piezas de repuesto y una vivienda para el casero se dividira en 4 tipos de inmuebles: a)
+Local comercial; b) garaje; c) depdsito; d) vivienda; aplicandose en cada caso el calculo correspondiente de
+acuerdo con 771.9.3. Para el calculo de la linea principal pueden utilizarse los factores de simultaneidad indi-
+cados en la Tabla 771.9.Ill.
+SOMOS
+ermanosy
+ermanas
+
+BUSCAMOS TU ROSTRO
+
+771.9.4.2:
+
+Hasta tanto estén vigentes las secciones correspondientes a edificios de propiedad horizontal, para e! calculo del
+ramal de alimentacion de los edificios destinados a viviendas o de viviendas que eventualmente posean algunos
+locales comerciales, podran adoptarse los siguientes coeficientes de simultaneidad para el conjunto de viviendas
+y locales (unitarios}:
+
+Determinacion de la carga total para conjuntos de viviendas y locales (unitarios)
+
+Tabla 771.9.ill — Coeficientes de simultaneidad para conjuntos de viviendas y locales (unitarios)
+
+Cantidad de viviendas Coeficiente de simultaneidad
+Ginitaries) Grados de electrificacién Grados de electrificacion
+Minimo y Medio Elevado y Superior
+2a4 0,9 0,7
+5a15 0.8 o |
+15a25 0.6 05 7
+> 25 0,5 0,4
+
+Cabe destacar que la carga total de un edificio de propiedad horizontal es la suma de las cargas totales del
+conjunto de viviendas y locales (unitarios) y los servicios comunes y no comunes que posea el inmueble.
+
+Para el caso de edificios de locales y de oficinas proyectacos originalmente para tal fin, los factores de simulta-
+neidad pueden ser cercanos a la unidad, debido a cargas puntuales tales como equipos de aire acondicionado,
+centros de computos, etc. Las secciones de esta Reglamentacién que contemplan esos tipos de inmuebles, se
+encuentran actualmente en estudio.
+
+Nota: La instalacion debera dimensionarse para las cargas aqui calculadas. No obstante, el propiatario podra utilizar y contratar potencias
+inferiores Seguin sus necesidades particutares.
+
+771.11: Condiciones ambientales y condiciones de utilizacion
+
+771.11.1: Condiciones ambientales.
+
+Para los propdsitos de la presente Reglamentacion, las clases de influencias externas indicadas en la Tabla
+771,111 son consideradas convencionalmente como normales dentro de la mayor parte del territorio de la Re-
+publica Argentina. No obstante, para aquellos locales especiales como los mojados, polvorientos, corrosivos, etc,
+o ubicados en zonas con climas extremos, efectos sismicos o situaciones geograficas particulares, se deberan
+utilizar las condiciones particulares segwin las tablas que figuran en los capitulos 32 y 51 de esta Reglamentacion,
+ya sean establecidas por la Autoridad de Aplicacion o consideradas por el proyectista.
+
+Tabla 771.11.1 — Condiciones ambientales
+
+Utilizacion Cédigo Descripcion
+Temperatura ambiente AAA -5a+40°C (Normal)
+Humedad atmosférica AB4 5 % a 95 % (Normal)
+Altitued AC Menor o igual a 2000 m
+Presencia de agua AD1 Despreciable
+Presencia de cuerpos solidos extrafios AEW Despreciable
+Presencia de sustancias corrosivas o contaminantes AF1 Normal
+Impacto AGI Baja severidad
+Vibracion AH1 Baja severidad
+Presencia de flora. o moho AKA Sin riesgo (Normal)
+Presencia de fauna AL Sin riesgo (Normal)
+Influencia electromagnética, electrostatica o ionizante AM Despreciable
+Radiacién solar ANI Despreciable
+Efectos sismicos AP4 Despreciable
+Descargas atmosfericas AQ2 Exposicién indirecta
+
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.11.2: Condiciones de utilizacién
+
+Las condiciones de utilizacion indicadas a continuacion en la Tabla 771.11.1l son generales, los casas particulares
+se establecen explicitamente. -
+
+Tabla 771.11. — Condiciones de utilizaci6n
+
+Utilizacion Cédigo Descripcian
+BAI Normal u ordinaria
+BA2 Nifios
+Capacidad de las personas BAZ Personas con capacidades diferentes
+BA4 Instruidos en seguridad eléctrica
+BAS Calificados en seguridad eléctrica
+Resistencia eléctrica del cuerpo humano BBi Normal
+. ; BCc2 Bajo
+Contacto con personas al potencial de la tierra BC3 Frecuente
+BDI Baja densidad ocupacional y condiciones
+faciles de evacuacién
+BD? sila Gensidad ocupacional y condiciones
+a - _ ificiles de evacuacion
+Condiciones de evacuacién ante un siniestro BDa Alta densidad ocupacional y condiciones
+
+faciles de evacuacian
+Alta densidad ocupacional y condiciones
+
+BD4 dificiles de evacuacion
+BE1 Riesgos insignificantes (Normal)
+Naturaleza de los materiales procesados o al- BE2 Riesgo de incendio
+macenados BE3 Riesgo de explosién
+BE4 Riesgo de contaminacion
+. - CAI No combustibles (Normal)
+Materiales de construccidn CA Combustibles
+CBi Riesgo despreciable
+es CB2 Riesgo de propagacion del incendio
+Pi —S
+| rayecto de edificios CB3 Riesgo de movimiento
+H CB4 Estructuras flexibles o inestables
+Nota: BAT Son personas comunes o nommales, no instruidas en temas electricas.
+
+BAZ son nifos en viviendas (esta Reglamentacién considera las viviendas habitadas por nifios) y nifios en locales proyectados.
+para nifios: quarderias, jardines de infantes o matemales, etc., aplicandose también a las viviendas.
+
+8A3 son personas con capacidades diferentes, enfermas, invalidas, lisiadas, ancianas o personas que no disponen de todas sus
+capacidades fisicas y/o intelectuales. Se consideran en hospitales, asilos, hospicios o lugares similares, Por extension, se aplica la
+clasificacién BA3 a las personas privadas de la libertad,
+
+B44 son personas instruidas en temas eléctricos: personal de aperacién y mantenimiento. Se consideran como las areas ope-
+rativas eléctricas o locales de servicio eléctrico en las que pueden actuar personas adecuadamente entrenadas o supervisadas por
+personal calificado, de forma que les permita evitar los peligros que la electricidad pueda crear,
+
+BAS  s$0n personas calificadas en temas eléctrions: ingenieros y tecnicos de la especialidad. Se consideran como las areas
+operativas eléctricas cerradas en las que puedan actuar personas con conecimiento tecnico o suficiente experiencia come para evitar
+por si mismmoas los peligros que la electricidad pueda crear.
+
+771.12: Tipos de canalizaciones, conductores, cables y formas de instalacién
+
+Nota 1:
+
+Nota 2:
+
+En esta Reglamentacién se entiende por conductor al conductor aislado con aislacion basica y se entiende por cable al conductor
+aislade y con una cubierta aisiante. Este tipo de cable pueda ser unipolar (un solo conductor alslada y con cublerta aislante) o
+multipolar (varios conductores aislados bajo una misma cubierta aislante). Cuando se trate de conductor desnude se indicara
+expresamente.
+
+Alos efectos de esta Reglamentacién se entiende que un conductor aislado o un cable no es propagante de la llama, cuando ha sido
+ensayada en forma individual y cumple con los requisites de las normas IRAM NM IEC 60332-1 0 IEC 60332-1-1, Se entiende que un
+conductor alsiade o un cable no es propagante del incendio, cuando un conjunto de ellos ha sido ensayado en forma de haz y cumple
+con los requisitos de jas normas IRAM NM IEC 60332-22, 60332-24 y 60342-24 o IEC 60332-3-22, 60332-3-23 y 60342-2-24.
+fermanes La) <Salle
+
+BUSCAMOS TU ROSTRO
+
+771.12.2: Canalizaciones, conductores y cables permitidos
+Nota 1: Los cables y conductores a utilizar en funcidn de las influencias externas BA y BD se indican en 771,.12.2.1 y 77142.2.2.
+
+Nota 2: Para los locales especiales: bafios, saunas, piscinas, etc. remitirse a tas seccianes correspondientes de la Parte 7 de esta Regla-
+mentacion
+
+Nota 3: A los efectos de asta Reglamentacidn se considera “peril registrabla" aquella canalizacidn cuyas dimensiones interiores no superen
+jos 50 mm de ancho por 50 mm de altura. Las canalizaciones de dimensiones mayores a las lndicadas deberan ser consideradas
+como bandejas portacablas de fondo sdlida.
+
+Conductores aislados segiin normas IRAM NM 247-3 (IRAM 2183 [ver nota 2 de 771.12.1]) o IRAM
+62267 colocados en conductos no registrables (por ejemplo los denominados “conductos bajo piso") o
+en cafierias, embutidos o a la vista; colocados en sistemas de cablecanales o en perfiles registrables
+con tapa removible por el uso de herramientas (por ejemplo los denominados tipo “C”), a la vista.
+
+b) Conductores aislados segtin normas IRAM NM 247-3 (IRAM 2183 [ver nota 2 de 771.12.1]) o IRAM
+
+62267, color verde-amarillo, o desnudos, de acuerdo con la Norma IRAM 2004 o IRAM NM 280 Clase 2,
+en bandejas portacables con la unica funcién de conductor de proteccién.
+
+a
+
+—
+
+c) Blindobarras o canalizaciones eléctricas prefabricadas normalizadas (ver subclausulas 771.12.6 y
+77112,7).
+d) Cables preensamblados en lineas aéreas exteriores segtin normas IRAM 2164 e IRAM 2263, con
+
+neutro concéntrico de acuerdo con la Norma IRAM 63001 y cables unipolares aislados en polietileno
+reticulado que cumplan con la Norma [RAM 63002.
+
+e) Cables segiin normas IRAM 2178, IRAM 2268 o IRAM 62266:
+e1)  colocados en cafierias, conductas o sistemas de cablecanales: embutidos o a la vista.
+e2) en bandejas portacables a una altura superior a 2,2 m (ver 771.12.3.9).
+63) en bandejas portacables por el interior de plenos.
+
+Nota: (En muchos proyectos del ambito de la arquitectura se destina habitualmente un conducto vertical de mam-
+posteria o camara de aire para albergar a las canalizaciones de la columna montante, Ese espacio se lo Hama
+generalmente “plano” (ver 771.42.3.12.1).
+
+e4) en bandejas portacables sobre cielorrasos suspendidos.
+
+65) en bandejas portacables en montantes cerradas, accesibles solamente mediante el desmontaje
+de tapas o paneles por medio de herramientas.
+
+e6) bajo pisos elevados (pisos técnicos) o en canales de cables.
+
+e7) subterraneos: enterrados directamente o en conductos.
+
+68) dentro de perfiles tipo “C" con tapa o sin ella.
+
+e9)  fijados a mas de 2,5 m de altura sobre paredes de materiales no combustibles.
+
+e10) en forma aérea en exteriores con soporte quia o fiador, de acuerdo con las prescripciones de
+la Tabla 777.12.XV. .
+
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.12.3: Canalizaciones embutidas, ocultas y a la vista y sus accesorios .
+
+Nota: Las canalizaciones subterraneas son tratadas en 77 1.12.4, las aéreas 771.12.5, los rieles electrificados y canalizacionas pre-
+fabricadas en 7771.12.68, las bandejas poriacables en 771.12.3.9, los perfiles registrables en 771.12.3.10 y canales de cables en
+
+TT1.42.3.11.
+771.12.3.1: Generalidades
+
+Las canalizaciones aptas para las instalaciones eléctricas en inmuebles, fueron detalladas en 771.12.2, ad-
+mitiéndose su montaje si se cumplen las prescripciones que se indican en las subclausulas siguientes. Los
+sistemas de canalizaciones no permitidos, fueron descriptos en 771.12.1. Con respecto a los sistemas de
+cafierias aislantes, en 771.12.1 n), se ha establecido que no se permite el empleo de canalizaciones propa-
+gantes de la llama. Esta restriccién alcanza también a productos que, independientemente del color fijado por
+IEC 61386 (“naranja” o “anaranjado") y siendo de cualquier otro color, no cumplen con la caracteristica re-
+querida de no propagante de la lama.
+
+Nota: Se recomienda que las canalizaciones para otros servicios (por ejemplo television, telefonia, transmision de datos) sean ejecutas
+
+con materiales no propagantes de la llama.
+
+El recorrido de las canalizaciones debera respetar la ortogonalidad de los ambientes, siguiendo lineas verti-
+cales y horizontales o paralelas a las aristas de las paredes que limitan el local donde se efectta la instalacién.
+
+En particular, el borde de la caja mas cercano a marcos, soladas y techos, se ubicara a no mas de 0,25 m de
+la arista externa de cada marco de aberturas colocadas en obra, a no mas de 0,30 m de los cielorrasas o
+techos y no mas de 0,20 m de los soladas.
+
+No se permiten los tendidos en diagonal.
+
+Los tendidos estarén formados por lineas rectas unidas por curvas de radio de curvatura adecuado al tipo de
+canalizaci6n y conductores, no debiendo superar excesivamente estos radios, es decir no se permite un
+tendido formado solamente por curvas, curvas y contracurvas, festones, etc.
+
+En todos los casos se respetara la cantidad maxima de tres curvas entre bocas, cajas o gabinetes.
+Las cafierias, conductos, cablecanales, bandejas, etc. y sus accesorios perteneceran al mismo sistema.
+
+Se admitira cambio de sistema entre los ubicados en paredes o tabiques con respecto a los pisos y techos. En
+este caso la transicién debera hacerse siempre en una caja.
+
+Las uniones de las cafierias, conductos o cablecanales entre si y a las cajas u otros accesorios seran reali-
+zadas por métodos adecuados previstos en el sistema; no se admitira la existencia de canalizaciones que
+ingresen a las cajas y queden “sueltas” (ver subclausula 771.12.3.8).
+
+Toda cafieria, conducto o cablecanal terminara en una boca, caja, gabinete o elemento de transicion o ter-
+minacion.
+
+En el caso de los circuitos de conexién fija se admitira que la canalizacion continue hasta la caja de conexién
+
+del equipo alimentado. Los elementos de maniobra (incluidos los interruptores de efecto), proteccién o co-
+nexién sé instalaran en cajas o gabinetes.
+
+Las caferias seran terminadas por un elemento de bordes redondeados en su conexién con los accesorios.
+771.12.3.2: Caferias incorporadas a sistemas de construccion que incluyan materiales inflamables
+
+Las cafterias y los accesorios (curvas y cuplas) deberan ser de acero de los tipos pesado (Norma IRAM-IAS U
+500 2100) 0 semipesado (Norma IRAM-IAS U 500 2005). Las cajas del tipo semipesado respanderan a la
+Norma IRAM 62005.
+
+En la colocacién de cafios y cajas se respetaran estrictamente los requisitos de la subclausula 771,12.3.8.
+Las uniones de las cafierfas entre si deberan realizarse por medio de cuplas roscadas entre tramos de cafos
+rectos y/o curvos.
+
+Los sistemas de conductos y cablecanales deberan ser metalicos.
+
+No se permite el empleo de canalizaciones metalicas camo sustituto del conductor de proteccién. Los cafios,
+
+conductos, cablecanales, cajas y gabinetes metalicos deberan estar efectivamente puestos a tierra (ver sub-
+clausula 771.18.5.7).
+
+La continuidad eléctrica debera ser asegurada por construccion y verificada por medicion, en caso necesario
+se efectuaran puentes conductores entre los tramos de las cafierlas o entre ellas y sus accesorios.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771,12.3.3: Prescripciones particulares para caherias embutidas y caferias ocultas
+
+Las canalizaciones embutidas con cafierias metalicas tipo liviano o de material aislante deberan ser protegidas
+de las agresiones mecanicas mediante alguno de los procedimientos detallados en a, b yc:
+
+a) Ermbutidas de manera que su parte mas externa quede a no menos de 50 mm de las superficies
+terminadas del tabique o pared; o,
+
+6) protegidas por una barrera de acero, de espesor no menor a 1,4 mm, interpuesta en todas las partes
+que tengan una distancia de la superficie terminada del tabique menor que 50 mm y con.un ancho que
+exceda el del cafio en no menos que 5 mm por cada lado; esta barrera sera continua y estara fijada de
+manera de asegurar las condiciones de proteccién en forma permanente; o,
+
+c) protegidas por una mezcla de concreto (relacién minima 1:3, una parte de cemento por cada tres
+partes de arena, sin cal ni yeso) interpuesta en todas las partes que tengan una distancia de la su-
+perficie terminada del tabique menor que 50 mm y con un ancho que exceda el del cafio en no menos
+que 10 mm; esta barrera sera continua, tendra un espesoar no menor que 10 mm y asegurara las
+condiciones de proteccién en forma permanente en toda su longitud. Esta condicién se considera
+cumplida automaticamente en las cafierias instaladas en losas.
+
+En el caso de las paredes o tabiques, quedan exceptuadas de cumplir con los puntos anteriores las cafierlas
+
+ubicadas én una franja de hasta 100 mm, tormnada a partir de las aristas externas de puertas y ventanas y hasta
+100 mmm en el entorno de las cajas.
+
+Cuando se trate de canalizaciones ocultas en paredes o tabiques huecos construidos en materiales no in-
+flamables, de optar por el empleo de caferias metdlicas livianas o de material aislante, se deberan curmplir
+algunas de las condiciones citadas en a), b) oc). Las cafierias se sujetaran a las paredes o tabiques mediante
+anclajés apropiados; debera prestarse especial atenci6n a las fijaciones de las cafierias flexibles, con el fin que
+éstas no modifiquen sus radios de curvatura.
+
+Para caferias en forma de “U", ver subclausula 771.12.3.8.4.
+
+771.12.3.3.4: Prescripciones adicionales para caferias curvables y curvables autorrecuperables
+
+Nota: A efectos de esta Reglamentacldn, la designacién coloquial de caferia enrollable es equivalente a las denominaciones técnicas
+de cafierias curvables y curvables autorrecuperables.
+
+Las caferias curvables y curvables autorrecuperables (corrugadas o lisas) presentan la particularidad, frente a
+otros tipos de canalizaciones rigidas, ya sean de material aislante o metalico, de su facilidad para formar
+curvas, razon por la cual se requiere el cumplimiento de las presentes prescripciones adicionales. Indepen-
+dientemente de los requisitos sefalados previamente en 771.12.3.3.1 y 771.12.3.3,2, sdlo se permitira el
+empleo de cafierias curvables y curvables autorrecuperables (corrugadas o lisas), embutidas en paredes,
+techos (no apoyadas sobre cielorrasos suspendidos) y bajo pisos técnicas, si curnplen estrictamente con la
+solicitud de inspeccion indicada en 71.2.2 y con las siguientes reglas de ejecucion de montaje o instalacion
+sefialadas de a) a e@) inclusive,
+
+a) El recorrido de las canalizaciones debera respetar la ortogonalidad de los ambientes, siguiendo lineas
+verticales y horizontales o paralelas a las aristas de las paredes que limitan el local donde se efectua la
+instalacidn. Los tendidos estaran formados por lineas rectas unidas por curvas de radio de curvatura
+adecuado al tipo de canalizacion y conductores, no debiendo superar excesivamente estos radios, es
+decir no se permite un tendido formado solamente por curvas, curvas y contracurvas, festones, etc, En
+todos los casos se respetara la cantidad maxima de tres curvas entre bocas, cajas 0 gabinetes.
+
+b) En ningtin caso podré superarse las distancias maximas entre cajas establecidas en 771.12.3.8.3. Las
+cafierias deberan sujetarse a intervalos regulares que no superen el metro de distancia entre ellos me-
+diante precintos, grapas o ataduras adecuadas. Por ejemplo, las canerias instaladas en losas se sujetaran
+alas armaduras metalicas, las ocultas en cielorrasos suspendidas a la losa correspondiente, etc.
+
+c) Deberd prestarse especial atencidn a las reglas sefialadas en 771.12.3.8.5. La curvatura debera ser tal
+que no origine reducciones en la seccién interna del cafio y el radio minimo podra extraerse de la Tabla
+771.12.VI, 0 por las indicaciones de las respectivas normas de producto.
+
+d) Las cafierias deberan unirse entre si mediante accesorios correspondientes al mismo sistema y que
+aseguren la continuidad de la proteccién mecaénica que proporcionan a los conductores.
+
+e) Luego de colocadas y fijadas las caferias y sus accesorios, sera posible la facil introduccidn y retiro de los
+conductores en las mismas. Este cometida se considera cumplido si:
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+1. se utiliza, para una determinada cantidad y seccidn de conductores, las dimensiones minimas de cane-
+rias indicadas en la Tabla 771.12.1X, aplicable exclusivamente a cafios de pared interna lisa o uniforme; o
+
+2. sila canalizacion no és lisa interiarmente, debera seleccionarse el diametro de cafio inmediatamente
+superior al establecido por la Tabla 771.12.1X z
+
+771.12.3.4: Prescripciones particulares para canalizaciones Interiores a la vista
+
+Podran emplearse las canalizaciones del mismo tipo que las que se utilizan embutidas.,
+
+Los accesorios normalizados para estas canalizaciones seran aptos para instalacion a la vista, es decir, seran
+construidos en acero cincada, aluminio, latén, acero inoxidable o material aislante,
+
+Los accesos para los cafios en las cajas de paso, de derivacién, en las cajas para instalacion de dispositivos o en
+los gabinetes para tableros de apoyar, podran ser roscados o sin rosca pero en ningun caso se permitira emplear
+cajas 0 envolturas con agujeros iroquelados, cuyos tapones puedan removerse sin ayuda de herramientas. No se
+
+permite el empleo de las cajas de chapa de hiero con agujeros troquelados, construidas segin Norma IRAM
+62005, Norma IRAM 62224 y Norma IRAM 2346 (en estudio}.
+
+En el caso de emplear cajas con agujeros roscados, los agujeros no utilizados para instalar cafierias deberan ser
+cubiertos con un tapon roscado que solo pueda ser removido con herramientas.
+
+En estos casos los cafios podran ser roscados en forma directa a las cajas o se podran roscar a las cajas co-
+nectores adecuados con rosca, a los cuales se fijaran los cafios, que seran ajustados con tornillos de rosca
+
+métrica y punta cdnica (tipo prisionero). Las roscas realizadas en el conector, donde se enrosca el tornillo de
+ajuste deben tener como minimo cuatro filetes.
+
+En el caso de emplear cajas o gabinetes con agujeros no roscados, los agujeros no utilizados para instalar ca-
+fierias deberan ser cubiertos con un tapon de goma a presién o con una tapa abulonada, que requieran para su
+remocién el empleo de herramientas. En estos casos la unién cafio-caja debera efectuarse con tuerca y boquilla,
+o conector con rosca macho, mas tuerca con tornillo de fijacian o con abrazadera, no permitiéndose el empleo de
+conectores de chapa de hierro formado por dos piezas que roscan entre si y donde una de las cuales actua camo
+boquilla construidos segun normas IRAM 62224 e IRAM 62005.
+
+Ademas podran emplearse las siguientes canalizaciones:
+a) Canerias de acero inoxidable.
+
+b) Cafieria de acero tipo liviano, sequin la Norma IRAM-IAS U 500 2224, cincadas o esmaltadas.
+
+¢) Sistema de cablecanales 0 conductos de metal, que cumplen con IEC 61084 y de acuerdo con la clasifica-
+cién dada en la Tabla 771.12.1V que se indica mas adelante.
+
+d) Cafios metalicos flexibles de acuerdo con IEC 61386 con caracteristicas no inferiores a la clasificacion:
+432141552310
+
+Nota 2: 432141552310-tiene al siguiente significado: Primer digite (4) = resistencia a la compresién = FUERTE; Segundo digite (3)
+
+= resistencia al impacto = MEDIA; Tercer digita (2) = Rango de temperatura minima -5°C; Cuarto digito (1) = Rango de
+temperatura maxima 60°C; Quinte digite (4) = Flexible; Sexto digito (1) = Con caracteristicas de continuidad eléctrica;
+Séptimo digito (5) = Protegida contra el palvo; Octavo digito (5) = Protegido contra los chorros de agua; Noveno digito (2) =
+proteceion contra la corrosion, interna y externa = MEDIA; Décimo digito (3) = Resistencia a la traccian = MEDIA; Undé-
+cine digito (1) = No propagante de la llama; Duodécimo digito (0) = Resistencia a la carga suspendida no declarada;
+Décimotercer digit (-) = Efectos del fuego en estudio.
+
+e) Cafios de material aislante, siempre que cumplan con [.:s prescripciones de la Tabla 7717.12.11, con excep-
+cién del primer digito, correspondiente a la “Resistencia a la compresién” que en lugar de ser clasificacién
+Media (3) correspondiente a 750 N, pasa a ser Fuerte (4) correspondiente a 1250 N y con excepcion del
+segundo digito, correspondiente a la “Resistencia al impacto” que en lugar de ser clasificacién Media (3)
+correspondiente a 2 kg / 0,1 m, pasa a ser Fuerte (4) correspondiente a 2 kg/ 0,3 m.
+
+Nota 3: Cuando se exija para el local la utilizacién de cables o conductores eléctricos con caracteristicas de no propagacidn del
+incendio, baja emisién de humos y ausencia de haldgenos (denominacién LSOH), las canalizaciones a la vista deberan
+cumplir con las mismas exigencias de las normas de los cables. Para la realizacidn de los ensayos se utilizaran sistemas
+de caférias aislantes conleniendo en su interior la cantidad maxima de cables de caracteristi¢as no propagantes del in-
+
+cendia y LSOH recomendada por la Tabla 7771.12.16. Para el calculo de los volimenes de material combustible, al volumen
+de los cables se sumara el de los cafios.
+
+f) Bandejas portacables con cables segun normas IRAM 2178, IRAM 2268 o IRAM 62266 y cumpliendo los
+requisitos de alejamiento dadas en la Tabla 771.12.V1 que se indica mas adelante.
+
+Nota 4: Sobre las bandejas portacables podran instalarse ademas, dispuestos dentro de sistemas de cafierias metalicas, aislantes
+
+9 conductos con cafios rigidos o curvables, que cumplan con las preseripciones indicadas en este punto ZF1712.3.4.
+‘conductores aislados segin normas IRAM NM 247-3 o IRAM 62267.
+
+Nota 5: La instalacion de bandejas portacables respondera a lo indicado en 771.12.3.9,
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+g) Sistemas de cablecanales o conductos de material aislante, que cumplen con IEC 61084, de acuerdo con
+la Tabla 771.12.V que se indica mas adelante.
+
+Nota 6: Cuando se exija para el local la utilizacién de cables o conductores eléctcicos con caracteristicas de no propagacidn del
+incendio, baja emisién de humos y ausencia de haldégenos (denominacién LSOH), las canalizaciones a la vista deberan
+cumplir con las mismas exigencias de las normas de los cables, Para la realizacitn de los ensayos se utilizaran sistemas
+de cablecanales o conductos aislantes conteniendo en su interior la cantidad maxima de cables de caracteristicas no
+propagantes del incendio y LSOH recomendada por la Tabla 771.12.1%. Para el calcule del volumen de material combus-
+tibla, al volumen de los cables se sumara el de los cablecanales o conductos aislantes.
+
+En la instalacion de cafierias metalicas, cafierias aislantes y todo otro tipo de conducto, se debera cumplir con
+las siguientes prescripciones:
+
+h) Toda caferia de largo igual o superior a 2 m debera ser fijada ala pared como minimo en tres puntos, por
+cada tramo de 3 m y mediante sujeciones adecuadas,
+
+i) Toda cafieria con curvas debe ser fijada, ala entrada y a la salida de dichas curvas, con elementos de
+sujecién adecuados a no mas de 0,2 m del vértice virtual.
+
+j) Toda caferia de largo inferior a 2 m debera ser fijada ala pared por lo menos en dos puntos por medio de
+grapas adecuadas.
+
+k} Toda caja debera ser fijada a la pared en por la menos dos puntos.
+) Toda caferia vinculada a una caja debera tener un punto de fijacién ala pared, ano mas de 0,5 m dela caja.
+
+m) Las caferias, cajas y gabinetes a instalar en ambientes hirnedos deberan separarse de la pared una
+distancia minima de 0,01 m.
+
+n} Toda canalizacién eléctrica debe ser instalada a mas de 0,2 m de conductos de escape de gases ca-
+lientes, chimeneas, conductos de calefaccién u otra fuente de calor. Si esta distancia no puede ser res-
+petada, a la canalizacién eléctrica se la debera revestir con aislante térmico en todo el recorrido que
+comparte con el conducto caliente.
+
+6) Las canalizaciones ala vista no deberan instalarse en huecos de ascensores ni en lugares donde queden
+expuestas a deterioros mecanicos o ataque quimico.
+
+771.12.3.5: Prescripciones particulares para instalaciones eléctricas ocultas sobre cielorrasos suspen-
+didos
+
+Podran emplearse las canalizaciones del mismo tipo que las que se utilizan embutidas y a la vista. Para con-
+diciones de instalacién, ver 771.12.3, 771.12.3.1, 771.12.3.3.4 y las prescripciones de la presente clausula.
+
+Las canalizaciones ocultas sobre cielorrasos suspendidos podran estar fijadas al techo o suspendidas del
+techo pero nunca apoyadas sobre el cielorraso suspendido de manera que su peso o esfuerzos de traccién o
+compresion no sean transmitidos a éste.
+
+Para el caso de canalizaciones fijadas al techo (por ejemplo, losa), pueden emplearse las canalizaciones
+deétalladas anteriormente, debiendo respetarse las indicaciones de fijacion de cajas, conductos y distancias
+dadas para las canalizaciones a la vista (ver 771,12.3.4).
+
+Cuando sé trate de canalizaciones suspendidas desde el techo, no podran emplearse los cafios curvables y
+curvables autorrecuperables. Las canalizaciones deberan ser realizadas de forma tal que formen una es-
+tructura rigida, que no registre movimientos en sentido horizontal ni vertical, para lo cual, los elementos me-
+canicos de soporte entre techo y conducto y entre paredes y conductos (por ejemplo varilla de hierro, plan-
+chuela rigida de hierro, hierro angulo, etc.) deben realizarse con sistemas que soporten tanto la accién de
+“traccion" (desconectar una ficha del tomacorriente instalado en la caja suspendida) como la accién de
+“compresién” producida al conectar la ficha al tomacarriente, sin que ninguna de estas acciones genere mo-
+vimientos en la instalacién.
+
+Las canalizaciones deberan ser soportadas siquiendo los lineamientos de la cafieria a la vista, es decir, para
+tramos de conducto de largo menores a 2 m los mismos deberan ser fijados en dos puntos ano mas de0,4m
+de cada caja de paso, caja con tomacorriente, caja de derivacién, etc, Para tramos de mayor longitud deberan
+efectuarse tres fijaciones, por cada trammo de 3m, dos de las cuales deberan estar a no mas de 0,5 m de cada
+caja o union y la tercera en el centro del tramo.
+
+Los accesorios normalizados para estas canalizaciones seran los indicados para las instalaciones ala vista, es
+decir, seran construidos en acero cincado, aluminio, laton o material sintético, sin troquelados, que puedan
+removerse sin uso de herramientas, para el acceso de las caferias. Asimismo podran emplearse en estas
+instalaciones “ocultas" las cajas de chapa de hierro esmaltadas construidas segtin las normas IRAM 62224,
+IRAM 62005 ¢ IRAM 2346 (en estudio), con troquelados que pueden retirarse sin el uso de herramientas.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.12.3.7: Conductos bajo piso
+
+Son conductos no registrables, de material sintético, metalico u otros, que retinen las siguientes condiciones:
+a) Serno higroscépicos,
+b) _poseer un grado de proteccion IP adecuado al uso (ver Norma IRAM 2444 o IEC 60529) y
+
+c) cumplir con IEC 61084 y responder a los ensayos relativos a los riesgos de! fuego (ver Norma IRAM
+2378 0 IEC 60695).
+
+El sistema debe instalarse de modo tal que sea accesible en todo su recorrido y deberan unirse a cajas de paso,
+tableros, u otras canalizaciones, sélo mediante dispositivos adecuadas.
+
+Debera manienerse una distancia Util minima de 0,20 m entre el borde externo del conducto y cualquier otro
+servicio (gas, agua, calefaccién, vapor, aire comprimido, etc.).
+
+Si esta distancia no puede ser mantenida se deben separar en forma efectiva las instalaciones a través de una
+hilera cerrada de ladrillos u otros materiales dieléctricos, resistentes al fuego y al arco eléctrico y malos. con-
+ductores del calor de por lo menos 50 mm de espesor.
+
+Las autoridades de aplicacién y/o las empresas prestatarias de otros servicios podran especificar distancias
+mayores a las aqui establecidas.
+
+La disposicion de los conductores dentro del conducto se hara de forma que conserven su posicion y adecuacién
+a@ lo largo de su recorrido, asegurando que se mantenga la separacidn de los circuitos segdn se prescribe en esta
+Secci6n de la Reglamentaci6n.
+
+Las uniones y derivaciones de los conductores seran siempre accesibles.
+
+Todas las masas, incluyendo las masas extrafias y las demas partes metadlicas se conectaran al conductor de
+proteccién. No se admite el empleo del conducto metalico como conductor de proteccién, El conductor de pro-
+teccién se ubicara dentro del conducto.
+
+No se admite la colocacién de canalizaciones o cables sobre el nivel del salado (suelo) terminado. Se entiende
+por “solado terminado” el que habitualmente es pisado por las personas como resultado de su actividad habitual.
+
+Como excepcién sdélo se permiten instalar apoyadas y fijadas sobre el solado las canalizaciones previstas para
+ese fin, como por ejemplo los cablecanales para piso que cumplan con IEC 61084.
+
+771.12.3.8: Montaje de canalizaciones
+
+771.12.3.8.1: Uniones entre conductos y vinculaciones entre conductos y cajas
+
+Los conductos se uniran entre sf mediante accesorios adecuados que no disminuyan su seccién interna, que no
+generen discantinuidad alguna que pueda dificultar la colocacin de los conductores y que aseguren su protec-
+cién mecdnica, Cuando se empleen conductos metalicos debera garantizarse la continuidad eléctrica entre sus :
+partes y el conductor de proteccion.
+
+Los medios de vinculacion entre conductos y cajas pueden estar incorporados por disefio y construcci6n a ellas,
+sea en forma permanente e inseparable (eventualmente con partes desfondables) o bien como partes moviles 0
+insertables adecuadas al formato o a las medidas del conducto. Esta prescripcidn se aplica especial, pero no
+excluyentemente, a las canalizaciones a la vista.
+
+771.12.3.8.2: Uniones entre cafierias y vinculaciones entre canerias y cajas
+
+Las vinculaciones de cafterias y cajas, salvo donde se indique lo contrario, deberan efectuarse mediante co-
+nectores o tuerca y boquilla, Estos accesorios deberan responder a las normas IRAM 2224/73 0 IRAM 2005/72.
+Los accesorios de vinculacion deberan ser metalicos si as/ lo fuese la canalizacién, mientras que en las canali-
+zaciones de material sintético deberan utilizarse dispositivos de vinculacién también sintéticos.
+
+Nota 1: Las instalaciones a la vista deberan ser ejecutadas con tuérca y boquilla o como se indica en 771.12.3.4.
+
+Nota 2: En zonas con efecto sismico superior a la categoria AP1 (despreciable), en losas y cielorrasos suspendides las uniones entre
+conductos y cajas deberan ser ejecutadas con tuerca, contratuerca y boquilla. .
+
+Los medios de vinculacién entre caferias y cajas pueden estar incorporados por disefio y construccidn a ellas,
+sea en forma permanente e inseparable (eventualmente con partes desfondables) o bien como partes maviles o
+insertables adecuadas al formato o a las medidas del conducto. Esta prescripcién se aplica especial, pero no
+excluyentemente, alas canalizaciones a la vista.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.12.3.8.3: Colocacién de cajas de paso, de derivacién y de paso y derivacién
+
+Para facilitar la colocacién y el reemplazo de conductores debera emplearse un ndmero suficiente de cajas de
+paso,
+
+En tramos rectos y horizontales sin derivacion se colocara coma minimo una caja cada 12 m y en tramas verti-
+cales un minimo de una caja cada 15m.
+
+Para las canalizaciones indicadas en 771.12.3.4 las funciones de caja de paso se consideran cumplidas por la
+existencia de tapas de registro que satisfagan las condiciones indicadas precedentemente.
+
+Las cajas de paso y de derivacién deberan instalarse de modo que sean siempre accesibles.
+
+Para las cafierias y conductos que atraviesan juntas de dilatacion se deberan prever cajas de paso o registro a
+
+cada lado de la junta, ejecutandose la uni6n entre ellas con cafio del tipo flexible de acero con vaina plastica y sus
+accesorios correspondientes.
+
+771.12.3.8.5: Curvas en las canalizaciones
+
+Nata: Se define como curva en una canalizacién a camblos de direccin que, respetando los radios minimos de curvatura de los cables y
+conductores, tengan dngulos interiores. comprendidos entre 90 y 135°.
+
+No se admitiran mas de tres curvas de la canalizacién entre dos cajas consecutivas.
+
+Las curvas realizadas en los cafios de seccidn circular no deberan terminar en angulos interiores menores que
+90°, debléndose tener en cuenta los radios minirnos de curvatura indicados en la Tabla 771.12. VIl.
+
+771.12.3.13: Instalacién de los conductores en las canalizaciones
+
+771.12.3.13.1: Reglas generales
+
+Antes de instalar los conductores se habra concluido con el mantaje de las canalizaciones (incluidas las cajas) y
+completado las trabajos de mamposteria y terminaciones superficiales que pudieran afectarlos.
+
+Debera dejarse una longitud minima de 150 mm de conductor aislado disponible en cada caja, al efecto de poder
+realizar las conexiones necesarias. Los conductores que pasen sin empalme a través de las cajas de conexio-
+nado deberan formar un bucle.
+
+Los conductores colocadas en cafierlas verticales deberan estar soportados mediante dispositivos colocados en
+cajas accesibles, en tramos no mayores de 15 m. Los elementos de soporte deberan estar instalados y tener
+formas tales que no dafien la envoltura o la aislacion de los conductores,
+
+No estan permitidas las uniones o derivaciones de conductores en el interior de los cafios.
+
+Durante el montaje de los conductores no se debera ejercer sobre ellos un esfuerzo superioralos 50N/mmdela = ©.
+seccién nominal del conductor. El esfuerzo maximo en servicio permanente no debera exceder de 15 N/mm?.
+
+No se podran realizar circuitos (principal, seccional y terminal) con conductores en paralela. No obstante, si la
+corriente a transportar supera las maximas admisibles de los conductores, se podran ejecutar ramales en pa-
+ralelo respetando las condiciones de proteccién indicadas en el Capitulo 43 y las condiciones de tendido esta- 4
+blecidas en el Capitulo 52 de esta Reglamentacidén. Si el tendido se efecttia por bandeja portacable, la disposicién
+
+fisica de los conductores debera ajustarse, por ejemplo para el caso de dos conductores por fase, a alguna de las
+siguientes configuraciones:
+
+OAINNGAD 6 NUR Q0N
+
+o para el caso de cuatro conductores por fase, a alguna de las siguientes configuraciones:
+
+NUADOAONNOADAOWN)
+
+Nota: Para determinar los factores de coreccidn de coriente admisible (factor de simetria) en estas disposiciones, ver 771,16,2,3.2.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.12.3.13.2: Agrupamiento de conductores en una misma canalizacién
+
+Deben cumplirse los requisitas siguientes:
+
+a) Todos los conductores pertenecientes a un mismo circuito, incluyendo el conductor de proteccidn, se
+instalaran dentro de la misma canalizaci6n.
+
+Nota: Se recomienda tener especial atencién en la instalaci6n del conductor de proteccién en salas de uso médica (ver Seccién
+710 de esta Reglamentacidn),
+
+b) Cada linea principal se alojara en una cafieria o conducto independiente.
+Nota: Si se opta por él empleo de bandejas portacables, las linéas principales podran alojarse en esta canalizacidn.
+
+c) Los circuitos seccionales formados par conductores aislados segiin las normas IRAM NM 247-3 o
+IRAM 62267 deberan alojarse en cafios o conductos independientes. No obstante, se admitiran en un
+mismo cafio 6 conducto hasta tres circuitos seccionales, siempre que estén formados por cables con
+aislacion mo menor a 1 kV y envoltura (segtin normas IRAM 2178, IRAM 2268 e IRAM 62266) y que
+correspondan a un mismo medidor,
+
+Nata: Sise opta por el empleo de bandejas portacables, los circuitos seccionales padran alojarse en esta canalizacidn, sin que
+resulie aplicable la restriccién de cantidad indicada en este inciso c).
+
+d) Los circuitos para usos generales, para usos especiales y los dedicados a consumos especificos de-
+
+e
+
+—
+
+f)
+
+g
+
+—
+
+=
+
+beran tener caferias o conductos independientes para cada uno de ellos. No obstante, como excep-
+cion, los circuitos para usos generales podran alojarse en una misma cafieria o conducto, en un
+maximo de tres, de acuerdo con lo indicado a continuacidn:
+
+1. que pertenezcan a una misma fase y a un mismo tablero;
+
+2. quelasuma de las corrientes asignadas de los dispositivas de proteccion de cada uno de los
+circuitos no sea mayor que 36 A, y
+
+3. que el ndmero total de bocas de salida alimentadas por estos circuitos en conjunto no sea
+mayor que 15 unidades.
+
+En todas las cajas donde converjan circuitos diferentes, en las condiciones del punto d), los conduc-
+tores deberan estar identificados de manera de evitar que, por error, pueda alterarse la correlacién o
+mezclarse conductores de diferentes circuitos. Esa identificacién podra hacerse por colores de los
+
+conductores, anillos numerados u otros medios adecuados de identificacién, indelebles y estables en el
+tiempo.
+
+Cada boca servira como tal a un solo circuito. Ademas podra servir como caja de paso pero no de de-
+rivacion de otros circuitos, en las condiciones especificadas en el punto d). Para cajas ubicadas a una
+altura no inferior a 1,80 m, ver 7717.6.
+
+Las canalizaciones multiconducto, tales como cablecanales multiples por ejemplo, se consideran ca-
+nalizaciones independientes, sdlo si cuentan con separadores, paredes o barreras, disefiados y dis-
+puestos de manera que sea imposible que un conductor alojado en una de las secciones pueda entrar
+en la otra y silos accesorios de unién, derivacion, pase, cruzamiento o bocas de salida, mantienen la
+separacién efectiva y permanente entre todas las secciones.
+
+En los inmuebles motivo de esta Reglamentacién, podran coexistir los siguientes sistemas, los que
+deberan estar separados en canalizaciones independientes:
+
+Sistema de 380/220 Vea.
+
+2. Sistema de MBTS (Muy Baja Tensién Sin puesta a tierra) o MBTF (Muy Baja Tension Fun-
+cional hasta 24 Vea o cc).
+
+3. Sistemas de sefiales débiles, video, televisidn, alarmas, etc.
+4. Sistemas de transmisién de datos para servicios tales como internet, intranet, etc.
+
+5, Sistemas analdgicos o digitales de contral, como par ejemplo sefales de termocuplas, sen-
+sores, etc.
+
+6. Sistemas de telefonia publica (las canalizaciones telefonicas deberan ajustarse al Regla-
+mento General de Instalacién de Telecomunicaciones en Inmuebles — Secretaria de Comu-
+nicaciones).
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.12.3.13.4; Medidas minimas de conductos y cajas
+
+Para cafios de seccion circular, el diametro interno minimo se determina en funcidn de la cantidad, seccidn y
+diametro (incluida la aislacién) de los conductores, de acuerdo con la Tabla 771.12.1X.
+
+Para los casos no previstos en la Tabla 771.12.1M% y para los conductos de seccidn no circular, el area total
+ocupada por los conductores, comprendida la aislacion, no sera mayor que el 35 % de la seccidn interna menor
+del conducto.
+
+Cuando se utilicen cafios no metalicos, en tramos rectos sin curvas, con un solo conductor o cable unipolar por
+cafio, como por ejemplo para cruces de paredes, losas, columnas, vigas, etc., el diametro interno del cafio
+sera como minimo 1,5 veces el diametra exterior maximo del conductor o cable alajado.
+
+Nota: Lo expresado anteriormente no considera las posibles aislacionas antifuego postariores al tencido.
+
+Para conductos que alojen circuitos principales o seccionales, el diametro interno minima de los cafios de
+seccion circular sera de 15 mm (RL 19 y RS 19} y la seccién minima para otras formas sera de 200 mm?.
+
+Para conductos que alojen circuitos terminales, de usos generales o especiales, el diametro interno minimo de
+
+los cafios de seccidn circular sera de 13 mm (RL 16 ¥ RS 16) y la secci6n minima para otras formas sera de
+150 mim,
+
+Las medidas minimas de las cajas por utilizar quedan fijadas por la cantidad y seccién de las conductores y
+dispositivos que van dentro de ellas, conforme se indica en las tablas 771.12.X, 771.12.X1 y 777,12. Xl.
+
+No esta permitida la instalacién de un solo conductor aislado o un cable unipolar por dentro de un cao me-
+talico.
+
+771,12.3.13.5: ldentificacidn de conductores
+
+a) Los conductores se identificaran de acuerdo con la siquiente tabla:
+
+Tabla 771.12.XIN - Identificacion
+
+Conductor Designacion alfanumérica Color
+Linea 1 (fase R} L1 Castafio (marron)
+Linea 2 (fase S) L2 Negro
+Linea 3 (fase T) L3 Rojo
+Neutra N Celeste (azul claro)
+Conductor de proteccion PE Verde-Amanrillo (bicolor)
+
+771.13: Seccién nominal de los conductores
+
+La seccién nominal de los conductores debera calcularse en funcion de su intensidad de corriente maxima ad-
+misible y caida de tension con la verificacion final de su solicitacién térmica al cortocircuito de acuerdo a los
+apartados a), b), c), d) y e) siguientes. Independientemente del resultado del calculo las secciones no podran ser 4
+menores a las siguientes, que se consideraran secciones minimas admisibles.
+SOMOS
+ermanosy
+ermanas
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.13.1 - Secciones minimas de conductores
+
+Lay “Salle
+
+Lineas principales 4,00 mm?
+Circuitos Seccionales 2,50 mim?
+Circuitos terminales para iluminacién de usos generales (can co- 4.50 mm?
+nexion fija o a través de tomacorrientes) '
+Circuitos terminales para tomacorrientes de usos generales 2,50 mmm?
+Circuitos terminales para iluminacién de usos generales que inclu- 2,50 mm?
+yen tomacorrientes de usos generales
+
+Lineas de circuito para usos especiales 2,50 mm?
+Lineas de circuito para uso especifico (excepto MBTF) 2,50 mm?
+Lineas de circuito para uso especifico (alimentaci6n a MBTF) 1,50 mimm*
+Alimentaciones a interruptores de efecto 1,50 mm?
+Retornos de los interruptores de efecto 1,50 mm*
+Conductor de proteccién 2,50 mm?
+
+La seccién nominal de los conductores se verifica ademas en funcién:
+
+a) de su temperatura maxima admisible
+Ver clausula 771.16 - Determinacidén de la seccidn.
+b) dela maxima caida de tensién admisible
+
+FLORIDA
+
+Circuitos seccionales y circuitos terminales: la caida de tensién entre los bornes de salida del tablero
+
+principal y cualquier punto de utilizacin no debe superar los valores siguientes:
+1. Circuitos terminales, de uso general o especial y especifico, para iluminacion: 3%.
+
+2, Circuitos de uso especificos que alimentan sélo motores: 5 % en régimen y 15 % durante el arran-
+
+que.
+
+Nota: No obstante los valores mencionados, en ningun caso la caida de tensian en los circuitos seccionales debera exceder de!
+1%; por lo tanto el valor de la maxima caida de tension en fos circuitos terminales que no alimentan molores sera del 2
+% yen los que alimentan motores del 4 %, tomado a partir del tablero seccional correspondiente. El valor de coriente a
+
+adoptar para este calculo debe ser el maximo simulianeo previste para esos circuitos,
+
+A los efectos del célculo de la caida de tensidn, los circuitos de iluminacién y tomacorrientes se conside-
+raran cargados con su demanda de potencia maxima simultanea en el extremo mas alejado del tablero
+
+seccional,
+
+Para el calculo de la corriente maxima simultanea de aquellos tableros seccionales en los que se previd el
+uso de un factor dé simultaneidad para el calculo de la demanda, se aplicara este mismo factor.
+
+Se debera evitar que consumos con picos de carga repetitivos produzcan oscilaciones perceptibles en la
+intensidad luminica,
+
+c) de las solicitaciones térmicas en relacién con las sobrecargas y los cortocircuitos.
+d) de los esfuerzos electrodinamicos susceptibles de aparecer en caso de un cortocircuito (ver IEC 60865).
+
+e) otras solicitaciones mecanicas a las que puedan estar sometidas los conductores.
+
+Neta: Los puntos enumeradas mas arriba se refieren fundamentalmente a la seguridad de las instalaciones eléctricas, no obstante,
+
+para una operacion mas econdémica, podrian adoplarse valores de seccion nominal mayores que los determinados por esas
+razones.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.16: Determinacién de la seccién
+
+771.16.1: Exigencias generales
+
+a)
+
+b)
+
+c)
+a)
+
+e)
+
+La intensidad de corriente no debera ocasionar un calentamiento sobre el conductor que eleve su
+temperatura por encima de la especificada para cada tipo de cable (subcla4usula 771.16.2.1.3).
+Los requerimientos de esta clausula estan destinados a lograr una expectativa de "vida" suficiente
+
+de las aislaciones’ y los conductores sometidos a los efectos térmicos de las corrientes admisibles
+transmitidas durante periodos prolongados en servicio normal.
+
+Esta clausula se refiere solamente a cables para tensiones que no excedan los 0,6/ 1,1 kV enca
+ohasta 1,5 kV ence,
+
+La intensidad de corriente no debera provocar caidas de tensidn superiores a las indicadas en el
+punto 771.13.b).
+
+Se deberan respetar las secciones minimas indicadas en la clausula 771.13.
+
+771,16.2: Intensidad de corriente admisible
+
+Las tablas de corrientes admisibles y los factores de correccion estan basados en el Capitulo 52 de esta Re-
+glamentacién, los que a su vez provienen del Capitulo 52 de la Norma IEC 60364 (1487CD). Dado que dicha
+norma, adopta diferentes temperaturas ambiente de referencia para el aire (30°C) y para el terreno (20°C), y
+diferentes resistividades térmicas para el suelo (2,5 K.m /\WV)}, que las adoptadas por esta Reglamentacion, las
+tablas de intensidades de corriente admisibles han sido corregidas utilizando los coeficientes de correccian
+previstos en la citada norma IEC, que se resumen como sigue:
+
+Para convertir intensidad de corriente admisible en conductores aislados con PVC, de aire a
+
+30°C a aire a 40°C x 0,87
+Para convertir intensidad de corriente admisible en conductores aislados con XLPE o EPR, de
+aire a 30°C a aire a 40°C x0,91
+Para convertir intensidad de corriente admisible en conductores aislados con PVC, de suelaa
+20°C asueloa 25°C x 0,95
+Para convertir intensidad de corriente admisible en conductores aislados con XLPE o EPR, de
+suelo a 20 °C a suelo a 25 OC x 0,98
+Para convertir intensidad de corriente admisible en conductores de cables enterrados o en
+conductos enterrados, de suelos de resistividad térmica 2,5 K.m/ Wa 1 K.m/\W-------—---—-- x 1,18
+771.16.2.2: Conductores aislados segdin normas IRAM NM 247-3 y 62267
+
+Para conductores dispuestos en cafierias embutidas en mamposteria, en cafierlas por dentro de vacios
+previstos en la mamposterla, en sistemas de cablecanales embutidos en el piso, en sistemas de cablecanales
+ala vista sobre paredes o suspendidos del cielorraso y en cafierias a la vista sobre paredes, la siguiente Tabla
+771,16.1 establece la intensidad de corriente admisible en ampere, para una temperatura ambiente de calculo
+
+de 40 °C.
+
+Asimismo se podran aplicar cuando corresponda, !os siguientes factores de correccion:
+
+a) Los factores de correccién por distinta temperatura ambiente se indican en la Tabla 771.16.ILa
+
+b) Los factores de reduccién para mas de un circuito monofasico o trifasico se indican en la Tabla
+
+fi
+
+1.16.ILb
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.16.1 - Intensidad de corriente admisible [A], para temperatura ambiente de calculo de 40 °C
+
+Nota 7:
+
+Nota 2:
+
+Nota 3:
+
+Termoplastico
+
+PVC / LSOH PVC / LSOH
+IRAM NM 247-3 / IRAM NM 247-3 /
+IRAM 62267 IRAM 62267
+B52-2 B1 B52-4 B41
+
+TT TT
+I
+rot
+r
+
+T
+
+LI
+I
+imi
+
+I
+it
+it
+
+Cobre [mm*}
+
+14 15
+2,5 21
+
+4 28
+
+6 36
+
+10 50
+
+16. 66 .
+25 88
+
+35 109
+
+50 134 117
+70 167 149
+95 202 180
+120 254 208
+150 261 228
+185 297 258
+240 348 301
+300 398 343
+
+En la tabla se deben considerar las siguientes referencias:
+2x = 2 conductores cargados + PE
+
+3x = 3 conductores cargados + N + PE (ver nota 3)
+
+Esta tabla esta basada én jas siguientes tablas del Capitulo 52 de esta Reglamentacion: Tabla 452-3, método de instalacion de
+referencia 81; conductores aisladas, dispuestos en caferias embutidas en mamposteria (item 59); en caferias por dentro de vacios
+previstos en la mamposteria donde la menor dimension del vacio es por lo menos 20 veces el diametro exterior de la cafleria (Item
+41), en sistemas de cablecanales embutidas en e! piso (item 50); en sistemas de cablecanales a la vista sobre paredes (items 6, 7 y
+13).0 suspendidos del cielorrasa (item 10) y en cafierias ala vista sobre paredes (item 4), donde para dos conductores cargadas (con
+aislacién de PVC o termoplastica) se aplica la Tabla B52-2 colurmna 4 y para tres conductores cargados (con aislacién de PVC o
+termoplastica), la Tabla 852-3 colurmna 4.
+
+Los conductores que cumplen con la norma IRAM NM 247-3 han reemplazado, en la practica, a aquellos que cumplen con {a norma
+IRAM 2183, alin cuando ambas normas no son estrictamente equivalentes.
+
+Para los circuitos polifasicos, esta tabla esta confecclanada considerande un circuito equilibrade, donde, por consiguiente por ef
+conductor neutro no circula comiente, no contribuyende éste a la generacién de calor. La tabla es tamblén aplicable a un circuito
+desequilibrado donde la corriente de desequilibrio que circula por el conductor neutro produce calor por efecto Joule, sin que esta
+conente aumente la cantidad de calor total generada, debide a que la misma es compensada por la disminucion de corriente en
+alguno o algunos de los conductores de linea . Cuando se requiera tener en cuenta el efecto de arménicas impares de orden superior
+se debe aplicar la coreccién establecida en la clausula 771.16.2.4.
+SOMOS
+ermanosy
+ermanas
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.16.ll.a - Factor de correccién por temperatura ambiente distinta de 40 °C
+
+ambiente PC] 10 | 15 | 20 | 25 | 30 | 35 | a0 | 45 | 50 | 55 | 60 | 65 | 70 | 75 | 80
+Pvc 4.4 | 1,34} 1,291 4,221 1,15] 1,08] 1 |0,91]0,62! 0,7 | 0,57
+
+XLPE/EPR | 1,26/4,23/1,19/ 4,14] 4,1 |1,05] 1 |0,98] 0,9 |0,84]0,78| 0,71 | 0,64] 0,55 | 0,45
+Nota: Esta tabla esta basada en la Tabla BS2-14 del Capitulo 52 de esta Reglamentacion.
+
+Tabla 771.16.|Lb - Factor de correccion por agrupamiento de circuitos en un mismo cano
+
+o numero de
+
+2 monofasicos Hasta 4 0,80 Columna 1
+3 monofasicos Hasta 6 0,70 Columna 4
+2 trifasicos. Hasta 6 0,80 Colurmna 2
+3 trifasicos Hasta 9 0,70 Columna 2
+
+Nota 1: Los conductores de proteccion PE no se contabllizan como conductores cargados. Los conductores neutros no se contabilizan como
+conductores cargados si el contenido armaénjeo (THD) es inferior al 15 %.
+
+Nota 2: Esta tabla esta basada en la Tabla 852-17, item 1, del Capitulo 62 de esta Reglamentacidn,
+
+771.46.2.3.1:
+
+Cables unipolares o multipolares con conductores de cobre o aluminio, con aislamiento de PVC o termoplas-
+tico.o XLPE / EPR, rellenos y envoltura de proteccién de material termoplastica.
+
+Para cables con conductores de cobre o aluminio, qué cumplen con las normas IRAM 2478 6 62266, un
+circulto de cables unipolares o un cable multipolar, dispuestos en cafieria, o sobre bandejas en aire libre, la
+siguiente Tabla 771.16.1H establece la intensidad de corriente admisible en ampere para una temperatura
+
+Cables en aire
+
+ambiente de calculo igual a 40 °C,
+
+Nota 1: 4 los fines de esta Reglamentacién, y con el objete de establecer métodes de referencia para determinar las corrientes admi-
+sibles de los conductores y los cables, se definen los tres tipos de bandeja portacables que se indican, sequin se establece en el
+
+Capitulo 52 de IEC 60364 (mientras no se indique lo contrario, 2 las bandejas se las considera sin tapa):
+
+a) bandejas tipo escalera o de malla de alambre son aquellas en las cuales el T soporte metalico dande apoyan los cables
+Oocupa no mas del 10 % de la superficie de la bandaja.
+
+6) bandejas perforadas son aquellas donde los aguijeros distribuidos siméticamente ocupan mas del 30 % de su su-
+
+perficie.
+
+¢) bandejas no perforadas o de fondo sdlido son aquellas donde los agujaros ocupan menos del 30 % de su superficie.
+
+Las tablas siguientes estan basadas en las tablas de! Capitulo 52 de asta Reglamentacion; Tabla 452-3, método de instalacidn
+de referencia F, cables unipolares en contacto en aire libre dispuestos sobre bandejas tipo escalera o de malla de alambre (item
+32 0 34), donde para 3 conductores se aplican las tablas 852-10 para cobre y 852-11 para aluminio, columna 6 para aislacién de
+PYC 0 termoplastica y B52-12 para cobre y B52-13 para aluminio, columna 6 para aislacién de XLPE / EPR o termoestable.
+Tabla AS2-3, mélode de referencia E, cables multipolares en aire libre dispuestos sobre bandejas tipa escalera o de malla de
+alambre (item 42 0 34), donde para 3 conductores $e aplican las tablas B52-10 para cobre y 852-11 para aluminio, columna 3
+
+para aislacion de PVC o termoplastico y B52-12 para cobre y B52-13 para aluminio, columna 3 para aislacion de XLPE/ EPR o
+fermoestable.
+
+Nota 2:
+SOMOS
+ermanosy
+ermanas
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.16,1I — Intensidades de corriente admisibles [A] para temperatura ambiente de 40 °C
+
+Método B2
+
+Cafio embutido en pared
+
+Método C
+Bandeja no perforada
+o de fondo solido
+
+Método E
+
+Bandeja perforada
+Bandeja tipo escalera
+
+Cajfio a la vista Un cable multipolar o :
+cables unipolares en contacto Un cable multipolar
+Aislacion | pisiacién Aislacién Aislacion Aislacion | _Aistacion
+PYC/LSOH | pyc LSOH PVC/LSOH PVC/LSOH | PVC/LSOH | PVC/LSOH
+Termoplasti- | Termoplastice | Termoplastico | Termoplastico | Termoplastico| Termoplistico
+IRAM IRAM IRAM
+2178 2178 2178
+IRAM IRAM IRAM
+62266 62266 62266
+B2 E
+
+[mm?]
+
+Cobre 2x 3x 2x0 2%1x 3x0 341% 2x 3x
+1,5 14 413 17 15 19 16
+25 20 17 23 21 26 22
+
+4 26 23 31 28 35 30
+6 33 30 40 36 44 a7
+10 45 40 55 50 61 52
+16 60 54 74 66 42° = 70
+25 78 70 oF a4 404 88
+35 o7 86 120 104 129 170
+50 116 103 146 125 157 133
+70 146 130 185 160 202 171
+95 175 156 224 194 245 207
+120 202 179 260 225 285. 240
+450 224 196 299 260 330 278
+185 256 222 344 297 378 317
+240 299 258 404 351 Aaj 374
+300 343 295, 461 404 516 432
+Aluminio
+2.5 15 i3 18 16 20 17
+4 21 18 24 22 27 23
+6 26 23 31 26 a4 25
+10 36 31 43 38 47 40
+16 47 42 57 51 64 53.
+25 62 5+ 72 64 vr 68
+35. 75 6F 90 78 oT 84
+50 90 80 109 96 117 102
+70 414 101 139 422 151 134
+95. 137 121 i170 148 183 159
+120 157 139 197 174 2i2 184
+150 175 153 227 197 245 213
+185 200 173 259 225 280 244
+240 234 202 306 265 331 287
+300 268 2a1 353 305 382 331
+
+SOMOS
+ermanosy
+ermanas
+
+BUSCAMOS TU ROSTRO
+
+Tabla 771.16.11 (continuacién)
+
+Método C
+Bandeja no perforada
+o de fondo solido
+Un cable multipolar o
+cables unipolares en contacto
+
+Método E
+Bandeja perforada
+Bandeja tipo escalera
+Un cable multipolar
+
+Método B2
+Cano embutido en pared
+Cano a la vista
+
+alee Aislacién Aislacién Aislacion Aislacién Aislacién
+Termoesta- XLPE / XLPE/ XLPE/ XLPE / XLPE/
+blo Termoestable Termoestable Termoestable | Termoestable | Termoestable
+IRAM IRAM IRAM IRAM IRAM
+2178 2178 2178 2178 2178
+IRAM IRAM IRAM IRAM
+62266 62266 62266 62266
+B2 c E E
+
+a Ft
+
+3x 2x 0 2K1K 2x 3x
+
+16 22 24 21
+
+24 30 33 29
+
+32 44 45 38
+
+40 53 57 49
+
+55 73 78 68
+
+73 oF 105 91
+96. 126 136 116
+116 156 168 144
+140 190 205 175
+77 245 263 224
+212 298 320 afi
+120 278 244 348 33 315
+150 304 273 401 430 363
+185 349 309 460 493 415
+240 418 362 545 583 490
+300 484 414 631 674 565
+
+SOMOS
+
+ermanos, La)Salle
+
+BUSCAMOS TU ROSTRO FLORIDA
+Alurninio
+2,5 21 19 24 22 25 22
+4 28 25 32 . 29 * 35 29
+6 36 32 44 37 45 38
+10 49 44 56 52 61 53
+16 66 58 76 69 83 70
+25 86 76 92 82 98 88
+35 105 94 115 102 123 109
+50 126 113 140 124° 149 133
+70 159 142 180 158 ; 192. 170
+95, 194 171 219 192 234 207
+120 220 197 255 223 273 239
+150 238 218 295 258 315 277
+185 273 248 338 294 361 316
+240 326 289 399 348 428 372
+300 37a 331 462 400 494 429
+
+Para correccion por distinta temperatura ambiente, utilizar la Tabla 771.16. Ila.
+
+Para el dimensionamiento de cables expuestos en forma directa a la radiacidn solar, sé debe considerar un factor
+de correccién adicional de 0,85 para el calculo de las corrientes admisibles.
+
+Para el calculo de la corriente admisible de varios cables en paralelo, sé deben considerar dos factores de co-
+reccion:
+
+El que surge de la Tabla 771.16.IV y un factor de simetria fs que tenga en cuenta el eventual reparto desiqual
+entre los conductores unipolares, lo que puede conducir a un calentamiento anormal. Se recomienda emplear la
+menor cantidad de cables en paralelo, siendo aconsejable no superar el numero de cuatro cables por fase.
+
+Para las configuraciones que se indican en 771,12.3.13.1 (2 y 4 cables en paralelo por fase) se considera un
+factor fs = 1,
+
+De no respetar las configuraciones indicadas para los casos de 2 64 cables por fase, o de emplear 3 cables por
+fase, el desiqual reparto de corrientes se tendra en cuenta aplicando un factor de correccion fs = 0,8.
+
+En el caso de emplear cables multipolares en paralelo, el factor de simetria sera fs = 0,8, cualquiera que sea el
+numero de cables en paralelo. :
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.16.2.3.7: Cables o cordones flexibles
+Nota 1: Estos cables responden a las normas IRAM NM 247-5 6 IRAM NM 287-4 (en estudio), por lo que no pueden ser empleados en
+instalaciones eléctricas fijas debido a que su tensidn de aislacién es de 300/500 V y para las instalaciones fijas se requiere como
+
+minimo 450/750 V y su comportamiente frente al fuego no cumple con lo exigido para los cables permitides en instalaciones fijas.
+Les valores de corlente admisible $e indican solamente para conexlén de equipos mdviles o portatiles.
+
+Nota 2: Los valores indicados en la tabla consideran que los cables multipolares con neutro alimentan cargas equilibradas.
+
+Tabla 771.16.Xl — Corrientes admisibles para cables flexibles
+
+Seccién Corriente admisible
+nominal en aire a 40°C
+[mm’] [A]
+3x25 16
+4x25 16
+5x 2,5 16
+3x4 22
+4x4 22
+5x4 22
+3x6 30
+4x6 30 °
+5x6 30
+3x10 40
+4x10 40
+5x10 40
+
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.17: Dispositivos de maniobra y proteccién
+Nota: Los terminos “dispositive” y “aparato” se usan indistintamenie.
+771.17.1; Generalidades
+Toda instalacion eléctrica debe ser objeto coma minimo de medidas de proteccion contra las siguientes fallas
+eléctricas:
+a) De cumplimiento obligatorio:
+
+« Proteccion contra fallas a tierra
+
+« Proteccién contra contactos directos
+
+*« Proteccién contra contactos indirectos
+
+*« Proteccién contra sobrecorrientes (sobrecargas y/o cortocircuitos)
+
+b) Altamente recomendables:
+
+« Proteccion contra sobretensiones transitorias (descargas atmosféricas, maniobras eléctricas, etc.)
+« Proateccion contra sobretensiones permanentes (interrupcion del conductor neutro, etc.)
+« Proteccién contra subtensiones.
+
+Lo considerado en esta Clausula 771.17 se refiere alas condiciones particulares para instalaciones en viviendas,
+
+Oficinas y locales (unitarios}. No obstante en la Parte 4 de esta Reglamentacion se desarrolla este tema con mas
+amoplitud.
+
+E! objeto de las protecciones eléctricas es el de salvaguardar la integridad de las personas, los animales do-
+
+meésticos y de cria, los bienes y las instalaciones propiamente dichas.
+
+Nota: En el caso de la proteccién de las instalaciones propiamente dichas, se hace referencia a la proteccién de los circuitos de la insta-
+lacion. No se pretende que estas protecciones protejan también a los equipos 0a las cargas, ya que estos iitimos deben cumplir con
+
+las normas de producto espaecificas. Para el caso particular de la alimentacifn a motores eléctriens ver 77 1.17.3 y para las luminarias
+ver Anexo 771-7.
+
+Se considera que en las viviendas no se encuentran normalmente personas de las categorias BA4 o BAS.
+
+En las oficinas y locales (unitarios) podran existir integrantes del personal pertenecientes a las categorias BA4 o
+BAS; los mismos deberan cumplir con las requisitos mencionados en la Ley 19587 y sus Decretos Reglamenta-
+rios N° 351/79 y 911/96 (ver también Anexo 771-J de esta Seccién 771).
+
+771,17.2: Definiciones
+
+Las definiciones correspondientes de los dispositivos de maniobra y proteccian se encuentran en el Anexo
+771-G.
+
+771.17.3: Dispositivos de maniobra y proteccién para motores eléctricos de instalacién fija
+
+771.17.3.1: Generalidades sobre maniobra y proteccién de los motores eléctricos
+
+Para la eleccién adecuada del método de arranque, se deberan estudiar en todos los casos, las perturbaciones
+que se puedan producir en la instalaci6n. Para una instalaci6n existente el sisterna de arranque a elegir sera
+aquel que asegure que la caida de tensién en la red no alcance valores inadecuados para otros equipos co-
+nectados en el circuito (ver #71.13.b). Cuando se trate de una instalacién nueva o de una ampliacién de una
+instalacién existente, éstas seran proyectadas de manera de limitar las perturbaciones eléctricas por medio de
+una adecuada eleccion de las secciones de conductor y los métodos de proteccién y arranque del motor.
+
+Toda alimentaci6én de motores eléctricos debera contar con dispositivos de maniobra y proteccion contra
+sobrecargas y contra cortocircuitos, especificas para dichos motores. Esta medida no es exigible, pero si
+recomendable, para motores con potencias inferiores a 0,75 kW, los cuales podran ser maniobrados por
+pequefios interruptores automaticos, interruptores-seccionadores o interruptores de efecto de corriente
+asignada y categoria de empleo adecuada. Se destaca que, en estos casos, el motor no se encuentra prate-
+gido por los dispasitivos destinados a la proteccién del circuito de alirnentacién.
+
+Cuando se utilicen circuilos de comando, éstos deberan poseer una proteccidén exclusiva contra cortocircuitos,
+independiente de la proteccion principal (ver 771.20.4).
+
+a
+
+atin
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.17.3.2: Maniobra y proteccién de los motores
+
+Los motores de corriente alterna deberan tener come minimo un dispositive de maniobra que permita el
+arranque y detencidn del motor mediante el cierre o apertura de fase y neutro si son monofasicos, o de todas
+las fases en forma simultanea si son polifasicos.
+
+En el caso de motores polifasicos debera utilizarse un dispositivo que detecte la falta de una fase y que inte-
+rrumpa el circuito de alimentacion frente a la ausencia de ésta.
+
+Los motores deberan contar con proteccién dedicada y especifica contra las sobrecargas y especifica o
+compartida contra cortocircuitos y fugas a tierra.
+
+Los fusibles y los interruptores automaticos no son aplicables a la proteccién contra sobrecarga de motores.
+
+Nota: Se podran utilizar interruptores automaticos que cumplan con IEC 60947-2 destinades exclusivamente a la proteccion de
+motores frelés segdn IEC 60547-4).
+
+Para la proteccian de motores se debera utilizar una adecuada combinacion de elementos, en forma separada
+
+ointegrada, que asegure la maniobra y la proteccidn contra sobrecargas, cortocircuitos, fugas a tierra y faltas
+de fase.
+
+771.18: Proteccion de las personas, animales domésticos y de cria contra los cho-
+ques eléctricos
+
+La “Regla fundamental de proteccion contra los choques eléctricos” de AEA 91140 establect:
+
+Las partes activas peligrosas no deberan ser accesibles y las masas eléctricas o partes conductoras ex-
+puestas o accesibles no deberan volverse activas peligrosas
+
+a) nien condiciones normales (funcionando en la forma prevista 0 en el uso proyectado y en ausencia
+de defecto) (ver Nota 3 “uso proyectado” y Nota 4 para “condician normal"),
+
+b) ni en las condiciones de defecto simple (ver Nota 5 “condicién de defecto simple").
+
+Nota 1: Las reglas de accesibilidad para las personas comunes pueden diferir de aquellas establecidas para las personas instruidas o
+capacitadas eléctricamente (BA4 y BAS) y también pueden variar para diferentes productos y lugares.
+
+Nota 2: Para las instalaciones, redes, materiales y equipos de alta tansién (tensiones superiores a 1 KV), al ingreso a la zona peligrosa
+es considerado como equivalente al contacto con partes activas peligrosas.
+
+Nota 3; La ISOMEC Guide 51 indica en 3.13 lo siguiente: “Uso proyectado, es el uso de un producto, un proceso oun servicio de acuerdo
+con la informachin proporcionada por al proveedor’,
+
+Nota 4: La IEC Guide 104 indica en 2,7 lo siguiente: “Condicién normal, es la condicidn en la cual todes los medios de proteccién estan
+intactos™,
+
+Nota 5: La lEC Guide 104 indica en 2.8 lo siguiente: “Condicién de defecto simple o de primer defecto, es la condicin en la cual un media
+de proteccién contra los riasgos o peligros esta defectuoso o se presenta un defecto que puede causar un riesgo 0 peligro”.
+
+La proteccién en las condiciones normales es proporcionada o asegurada por la proteccidn basica y la pro-
+teccion en las condiciones de defecto simple es proporcionada o asegurada por una proteccidn en caso de
+defecto, Las medidas de proteccién reforzadas aseguran la proteccién en ambos casos.
+
+Con el fin de satisfacer la regla fundamental de proteccién contra los choques eléctricos en las condi-
+clones normales, es necesaria una proteccién basica. Para las instalaciones, equipas y sistemas de baja
+
+tension, la proteccion basica corresponde generalmente a la proteccién contra los contactos directos em-
+pleada en esta Reglamentacidn.
+fermanos, La) <Salle
+
+BUSCAMOS TU ROSTRO
+
+Se deben considerar “Condiciones de defecto simple” si:
+
+a) una parte activa, accesible no peligrosa se vuelve una parte activa peligrosa (por ejemplo en razon de
+
+una falla en la limitacion de la corriente de contacto en régimen permanente y de la carga eléctrica), o
+Si
+
+b) una masa eléctrica que no esta activa en condiciones normales se vuelve (peligrosamente) activa (por
+ejemplo debido a una falla entre la aislacién basica y las masas), 0 si
+
+¢) una parte activa peligrosa se hace accesible, por ejemplo por falla mecanica de una envolvente. (Se
+reconoce que este aspecto no ha sido tratado hasta ahora. Seran necesarias prescripciones meca-
+
+nicas adecuadas y ensayos. Ellas no pueden ser reemplazadas por la especificacién de parametros
+eléctricos).
+
+Para satisfacer la regla fundamental en condiciones de defecto simple, es necesaria una protecci6n en
+caso de defecto. Esta proteccién puede ser realizada por
+
+d) una medida de proteccién adicional, independiente de la medida de protecci6n basica ¢
+
+e) una medida de proteccidn reforzada que proporciona a la vez proteccién basica yu proteccién en
+caso de defecta
+
+tomando en cuenta todas las influencias apropiadas.
+
+Para las instalaciones, redes, materiales y equipos de baja tensidn, la frase “proleccién en caso de defecto”
+corresponde generalmente para esta Reglamentacién a la proteccién contra los contactos indirectos, funda-
+mentalmente cuando se produce una falla de la aislacién basica.
+
+771.18.1: Generalidades
+
+La proteccién contra los contactos directos consiste en tomar todas las medidas destinadas a proteger las per-
+sonas y animales domésticos y de cria, contra un posible contacto con las partes normalmente bajo tensién o
+activas de la instalacion (sin que la instalacién o los equipos conectados a ella hayan fallada).
+
+Nota 1: La protecelén contra los contactos directos es la proteccién basica o en servicio normal, en ausencia de defecto.
+
+Todos los equipos, instalaciones y materiales eléctricos deben ser objeto, como minima, de una o mas de las
+medidas de proteccién contra los contactos directos.
+
+Para la proteccion contra los contactos directos existen cuatro medidas de proteccion, a saber:
+a) Proteccion por aislacion de las partes activas, .
+b} =Proteccién por medio de barreras o por medio de envolturas,
+¢) Proteccién parcial por medio de obstaculos,
+d) Proteccién parcial por puesta fuera de alcance por alejamiento,
+yuna medida adicional, por la cual se puede aumentar la proteccién por el uso de dispositivos diferenciales de
+I, =30 ma (aumento de la proteccién o proteccian complernentaria o adicional).
+El orden en el cual se describen las medidas de proteccidn, no implica importancia relativa entre ellas.
+
+La proteccién contra los contactos indirectos consiste en tomar todas las medidas destinadas a proteger las
+personas, animales domésticos y de cria, ¥ los bienes, contra los peligros provenientes de un contacto con masas
+eléctricas, (partes metalicas o conductoras accesibles), puestas bajo tension (o energizadas) accidentalmente a
+consecuencia de una falla de aislaci6n de la instalacion o de los equipos conectados a ella.
+
+Nota 2: La prateccion contra los cantactos indirectos es la proteccién contra los choques eléctricos en caso de defecto.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO FLORIDA
+
+La proteccién contra los contactos indirectos puede ser omitida en los siguientes casos.
+
+€) Soportes de pared de aisladores de lineas aéreas y partes metalicas conectadas a los mismos (ac-
+cesorios de lineas aéreas) si ellos no estan situados al alcance de la mano.
+
+f} Postes de hormigon armada, en los que la armadura de acero no es accesible.
+
+g) Masas eléctricas que, debido a sus dimensiones reducidas (aproximadamente 50 mm x 50 mm) oa su
+disposicién, no pueden ser fomadas o entrar en contacto con una parte importante del cuerpo humano
+y siempre que la conexién con un conductor de proteccion sea de dificil ejecucidn o que la misma sea
+poco confiable.
+
+Nota; Esto se aplica, por ejemplo, a pemos, remaches, placas de caracteristicas y abrazaderas de fijaciin del cable.
+
+A excepcion de los casos mencionados en la clausula anterior, todos los equipos, instalaciones y materiales
+eléctricos deben ser objeto de una o mas de las medidas de proteccién contra los contactos indirectos.
+
+Para la proteccién contra los contactos indirectos existen cinco medidas:
+
+a) Proteccién por desconexién automatica de la alimentacién,
+b) Proteccién per uso de equipos, materiales e instalaciones de Clase I! de aislacidn,
+c) Proteccién por ubicacién en un local no conductor (ver Capitulo 41 de esta Reglamentacion),
+
+d) Proteccién por conexiones equipotenciales locales no conectadas a tierra (ver Capitulo 41 de
+esta Reglamentacion) y
+
+@) Protecci6én por separacion eléctrica (ver Capitulo 41 de esta Reglarentacion).
+
+Toda instalaci6n o equipo eléctrico debe ser objeto de proteccién contra contactas directos e indirectos, sea por la
+medida descripta en 771.18.2, sea por la combinacién de lo indicado en 771,18.3 y 771.18.4.
+
+771,.18.2; Proteccion simultanea contra los contactos directos e indirectos
+Nota 1: Si sé requiriesen mas detalles puede consultarse la Parte 4, Capitulo 41, de esta Reglamentacion.
+
+La proteccién en forma simultanea contra los contactos directos y contra los contactos indirectos se puede lograr
+mediante el uso de fuentes y circuitos de Muy Baja Tensién Sin puesta a tierra (MBTS).
+
+La Muy Baja Tension Sin puesta a tierra (MBTS) no debe confundirse con la Muy Baja Tension Funcional (MBTF)
+que solamente comparte los valores de la tensién pero no el resto de los requisitos y que se utiliza en alimenta-
+cin de equipos {intercomunicadores, alarmas, etc.) que por sus caracteristicas constructivas requieren muy baja
+tension para su funcionamiento pero no por razones de seguridad.
+
+No se permite la utilizacién de circuitos MBTP [Muy Baja Tension de Proteccién (fuente de seguridad de muy baja
+
+tensién con un punto del circuito secundario puesto a tierra)], para la proteccién en forma simultanea contra los
+
+contactes directos y contra los contactos indirectos, por las dificultades que ofrece para garantizar una adecuada
+
+proteccion contra los contactos indirectos.
+
+Nota 2: MBTS (SELV): Muy Baja Tensién Sin puesta a tierra, En este esquema la tensidn no puede sobrepasar el valor de la MBT (24 V), ni
+an condiciones normales ni en condiciones de defecto, comprendiando los defectos a tierra de otros circuitos,
+
+Nota 3: MBTP (PELV): Muy Baja Tensién de Proteccién con un punto dal circuito secundario puesto a tierra, pero saltisfaciendotodas las
+otras condiciones de la MBTS. En este esquema la tension no puede sobrepasar el valor de la MBT (24 V), ni en condiciones mar-
+males ni en condiciones de defecto, can excepcién de los defectos a tierra en otros circuitos.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.18.3.1: Proteccién contra los contactos directos por aislacién de las partes activas
+
+Nota 1: Aislacién basica es, segiin el VEI 195-06-06, “La aislacién aplicada a las partes activas peligrosas, que proporciona la proteccidn
+basica (contra los choques eléctricos en ausencia de defecto). Este concepto no $e aplica a la aislacién empleada exclusiva-
+mente por razones funcionales”.
+
+Las partes activas estaran completamente recubiertas de una aislacién que no pueda ser removida por otro medio
+
+que no sea su destruccion. Esta aislacion debera ser durable, soportar las influencias eléctricas, mecanicas, qui-
+
+micas y térmicas. Si se emplea una aislacién basica solida, ella debe impedir todo contacto con partes activas
+peligrosas.
+
+Nota 2: En caso de instalaciones, redes, materiales y equipos de alta tensién, sobre la aislacién sélida puede existir tension por lo que
+pueden ser necesarias precauciones adicionales.
+
+Para los equipos y materiales armados en fabrica, la aislacian debe cumplir con las normas de producto referidas
+
+a éstos. No se considera aislacién (basica) suficiente para la proteccién contra los contactos directos a las pin-
+
+turas, los barnices, las lacas y los productos analogos, que, en cambio, son considerados adecuados cormno
+
+aislacién funcional.
+
+Nota 3: Cuando la aislacién sea aplicada en obra durante la instalacion o montaje, la calidad de aquella debe ser verificada por medio de
+ensayos andlogos a aquellos destinados 9 verificar la calidad de ta aislacidn de equipos similares montados en fabrica.
+
+Nota 4: Cuando la aislacion esté proporcionada por el aire, el acceso a las partes activas peligrosas o el ingreso a una zona peligrosa,
+cuando la Reglamentacian lo permita, sera impedido o evitado por obstéculos, barreras, envolturas o por colocacion fuera del
+alcance,
+
+771.18.3.2: Proteccién contra los contactos directos por medio de barreras o por medio de envolturas
+
+Nota 1: Barrera de proteccion (eléctrica) es segim el VEI 626-12-23 y el VE! 195-06-15 la “Parte que proporciona proteccién contra los
+contactos diractos en todas las diracciones habituales de acceso”,
+
+Nota 2: Envolvente o envoltura segdn el VEI 826-12-20 y el VE] 195-02-35 "Es un alojamiento que proporciona el tipo y grado de pro-
+teccidon apropiade para la aplicacion prevista". También se define en el VEI 4441-13-01 dedicado a Aparatos de maniobra, de
+comando y fusibles lo siguiente: “Envoltura (dea un conjunto). Parte da un conjunto que proparciona un grado de proteccidén
+especificade a los materiales o equipos contra cierlas influencias externas y un grado de proteccién especificado contra la
+proximidad o el contacto con las partes activas o contra el contacto con piezas en movimiento”.
+
+Nota 3: Envolvente o envoltura eléctrica es segdn el VEIL 826-12-21 y el VE) 195-06-13 la “Einvoltura que proporciona proteccidn contra
+los riesgos previsibles creados por la electricidad”.
+
+Mota 4: Envolvente o envoltura de proteccién (eléctrica) es segun el VEI 8926-12-22 y el VE! 195-06-14 la “Envoltura eléctrica que rodea
+las partes internas de los equipos o materiales para impedir el acceso a las partes activas peligrosas desde cualquier direccion’:
+Adema@s, una envoltura proporciona generalmente proteccién contra influencias |ntemas o externas, por ejemplo, Ingreso de
+polve o agua o una proteccidn contra dafios mecanicos. :
+
+Las barreras 0 envolturas estan destinadas a impedir todo contacto con las partes activas, aun no aisladas de la ins-
+talacion eléctrica. Las partes activas deben colocarse en el interior de envolventes o detras de barreras que posean por
+lo menos el grado de proteccién IP2X o IPXXB. Sin embargo, si sé producen aberturas mas grandes durante el re-
+empiazo de partes tales como: portalamparas, tomacorrientes o fusibles, o $i se requieren aberturas mas grandes para
+permitir e} buen funcionamiento de los equipos conforme con las normas aplicables a estos materiales:
+a) deberan adoptarse las precauciones adecuadas para impedir que personas o animales domésticos to-
+quen accidentalmente las partes activas, y
+
+b) debera garantizarse que, en la medida de !o posible, las personas sean conscientes del hecho de que las
+partes accesibles por la abertura son partes activas y no deben tocarse voluntariamente.
+
+771,.18.3.3:  Proteccién parcial contra los contactos directos por puesta fuera de alcance
+
+La puesta fuera de alcance esta destinada a impedir los contactos no intencionales con las partes activas. Las
+partes simultaneamente accesibles con potenciales diferentes no deben encontrarse dentro de una zona de
+accesibilidad (ver Figura 771,18.A).
+
+Cuando el espacio en el cual se encuentran y circulan normalmente las personas esta limitado en una direccidn
+horizontal por un obstaculo (par ejemplo una baranda de proteccion, alambrado o reja) que presente un grado de
+protecci6n inferior a IP2X o IPXXB, la zona o volumen de accesibilidad comienza a partir de este obstaculo. En
+direccién vertical, la zona de accesibilidad esta limitada a 2,50 m a partir de la superficie S sobre la que se en-
+cuentran o circulan personas, sin tener en cuenta los abstaculos interrmedios que presenten un grado de pro-
+teccién inferior a IP2X 0 IPXXB.
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.18.3.4: Proteccion parcial contra los contactos directos por medio de obstaculos
+
+Los obstaculos estan destinados a impedir los contactos no intencionales o fortuitos con las partes activas, pero
+no los contactos voluntarios por una tentativa deliberada de sortear el obstaculo comma en el caso de realizar una
+
+operacion de mantenimienta. Por lo expuesto, esta es una medida de proteccién parcial contra los contactos
+directos.
+
+Los obstaculos deben impedir:
+
+a) Une aproximacion fisica no intencional a las partes activas, o bien
+
+b)} Los contactos no intencionales con las partes activas durante operaciones de equipos bajo tensién en
+servicio normal.
+
+Los obstaculos pueden ser desmontables sin ayuda de una llave o herramienta, debiendo estar, de todos modas, .
+fijados de forma tal que se impida retirarlos involuntariamente.
+
+771.18.3.5: Protecci6n complementaria o adicional contra los contactos directos por interruptores di-
+ferenciales (dispositivos a corriente diferencial de fuga)
+
+Todos los circuitos terminales que se indican en el parrafo siquiente deberan estar protegidos contra los
+contactos directos, en forma complementaria, por un interruptor diferencial de /,, < 30 ma (alta sensibilidad),
+de actuacién no retardada (“instantanea").
+
+Especificamente: los circuitos de ituminacién de uso general (IUG) y especial (IUE), tomacorrientes de uso
+general (TUG) y especial (TUE) y los circuitos de uso especifico MBTF, ATE, APM, ACU, ITE y OCE deberan
+estar siempre protegidos contra los contactos directos, en forma complementaria, por interruptores diferenciales
+sin retardo o instantaneos, con sensibilidad maxima de 30 mA, que cumplan con las normas IRAM 2301, IEC
+61008 o IRAM NM IEC 61008 (en estudio) o con IEC 61009, En los casos de los dispositivos diferenciales que i
+
+responden a IEC 61008 y 61009 el tiempo maximo de actuacién a Ln debe ser el indicado en las mismas.
+
+No obstante fo anterior, en el caso de equipos en los que se demuestre fehacientemente que su funcionamiento «
+normal puede ser perturbado por la presencia de un interruptor diferencial de J, hasta 30 mA, en su circuito de
+
+alimentacién (por ejemplo un sistema de arranque estrella = triangulo en motores de potencias medias y eleva-
+das, en el cual, durante el proceso de conrmutacién, pueden existir picos transitorios de corriente que provoquen
+la actuaci6n del interruptor diferencial), se admitira prescindir del mismo (para la proteccién complementaria del
+contacto directo), curnpliendo estrictamente las siguientes condiciones:
+
+a) El circuito debe ser de alimentacién a carga Unica (ACU), el que por definicién no debe tener ningun
+tipo de derivacién.
+
+b) Se garantizara la protecci6n contra contactos directos ernpleando alguna de las dos (2) medidas de
+proteccién citadas en 771.18.3.1 y 771.18.3.2.
+
+c) Se garantizara la proteccidn contra e! riesgo de contacto indirecto de acuerdo con 771.18.4.
+
+El empleo de dispositivos diferenciales, en los que el valor de la corriente diferencial asignada de funcionamiento
+es inferior o iqual a 30 mA, es recanocido como medida de proteccién complementaria contra los contactos
+directos accidentales, producidos por falla de otras medidas de proteccion contra los contactos directos o im-
+prudencia de los usuarios.
+
+La utilizacién de estos dispositivos no esta reconocida como una medida de proteccién completa contra los
+contactos directos, sino que esta destinada slo a aumentar o complementar otras medidas de proteccion contra
+los contactos directos o choques eléctricos durante el servicio normal y, por lo tanto, no exime en modo alguna
+del empleo de por lo menos una del resto de las medidas de seguridad enunciadas, pues, por ejemplo, este
+
+método no evita los accidentes provocados por contacto simultaneo de dos partes conductoras activas de po-
+tenciales diferentes.
+
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.18.4.3: Proteccién contra los contactos indirectos por corte automatico de la alimentacion
+
+Gualquiera sea el esquema de conexién a tierra adoptado, la proteccién contra contacto indirecto por desco-
+nexion automatica de la alimentacion en circuitos terminales, debe realizarse en los tiempos maximos indicados
+en la tabla siguiente. Los valores adoptados fueron extraidos de las curvas de tensién maxima de contacto
+
+presunta (para 24 Vca) detalladas en el Capitulo 41 de AEA 90364 y para una tension de fase L’,.
+
+Tabla 771,.18.1 — Tiempos maximos de desconexion para la proteccian contra contacto indirecto por
+corte automatico de la alimentacion en circuitos terminales
+
+50F <U, 5 120F 120F <U, <= 230F]230F <U, = 400F
+Esquema
+ca cc ca cc ca cc
+™N O4s a) 0,25 5s 0,06 s 0,25
+TT 02s 0,06 s 02s 0,01 s 0,02 s
+
+IT Ver 771.3.3.3 y 77 1-H.5
+
+a} La desconexidn puede ser requerida por razones distinias @ la de la prolecedn contra les cheque:
+elécticos, |
+
+Nota 1: Para los circultos seccionales en esquemas TT, se admiten tiempos de desconexién menores oiguales a 1s, Para los esquemas TN,
+también para circuitos seccionales, se admiten tiempos de desconexidn menores o iguales a 5 s.
+En el esquema de conexidn a tierra TT, para la proteccién contra contactos indirectos por corte automatico de la
+alimentacion, sdlo se podran utilizar dispositivos de corriente diferencial, no permitiéndose el empleo de disposi-
+tivos de proteccién contra sobrecorrientes, ya que la proteccidén contra los contactos indirectos por medio de
+dispositivos de proteccién contra sobreintensidades serian solamente aplicables si las resistencias de las tomas
+de tierra R, del neutro de la alimentacion y R, de proteccién de la instalacién (que forman parte de la impedancia
+del lazo de falla) fueran muy bajas; debido a que los bajos valores de las mismas son de muy dificil obtencién y
+que no se puede garantizar la permanencia de su valor en el tiempo, la proteccién contra los contactos indirectos
+
+en el esquema TT, por corte automatico de la alimentacion, solo podra realizarse por medio de disposilivas
+diferenciales.
+
+Esta proteccion tiene por objeto la eliminacidn de la falla antes que pueda producirse un efecto fisiolégico peli-
+groso sobre las personas o los animales dornésticos o de cria, a raiz de la magnitud y duracion de la tensién de
+contacto (IEC TS 60479-1).
+
+En los esquemas TT, obligatorios para esta Reglamentacién para las instalaciones alimentadas desde la red
+
+publica de BT, la Gnica medida de proteccion aceptada para la proteccién contra los contactos indirectos por
+
+medio del corte automatico de la alimentacion es el empleo de dispasitivos diferenciales, no permitiéndose el
+empleo de dispositivos de proteccién contra sobrecorrientes como medida de proteccion contra los contactos
+indirectos.
+
+Nota 3: El corte automatico de la alimentacién, por medio de interruptores diferenciales, sirve también para evitar la generacién de un
+incendio por los efectos de la corriente de fuga a tierra (una corrente de fuga a tierra del orden de 300 a 500 mA puede generar un
+incendia).
+
+Para su correcta actuacion esta medida de proteccion necesita de la coordinacion entre las caracteristicas del
+
+sisterna de puesta a tierra, de los conductores de proteccién (ver 771.18.5) y de los dispositivas de proteccién por
+
+corriente diferencial de fuga, para lograr que fa tension limite de contacto no sea mayor que 24 V para locales
+secos, humedos y mojados.
+
+a) Partes de la instalacién protegidas en forma complementaria contra los contactos directos por interrup-
+
+tores diferenciales de J,, S30 mA:
+
+Cuando la instalaciOn o parte de ella este protegida contra los contactos directos por medio de interruptores
+diferenciales de /,, S30 m4 y se cumpla que el valor maximo permanente de la resistencia de puesta a
+tierra de protecci6n R, no sea mayor que 40 ©, se considera a la instalacion (o a parte de ella) protegida
+
+contra los contactos indirectos ya que la tension de contacto sera sensiblemente menor que los valores in-
+dicados en esta clausula.
+b)
+
+b.1)
+
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO FLORIDA
+
+Partes de la instalacién eventualmente no protegidas contra los contactos directos por dispositivas"dife-
+renciales de /,, =30 ma:
+
+Para viviendas, oficinas y locales (unitarios), sin la presencia de personal con capacidad BA4 o BAS.
+
+En aquellos casos en que, entre el tablero principal y el tablero seccional, o entre tableras seccionales, se
+utilice como proteccién para los contactos indirectos el corte automatico de la alimentacion, se efectuara la
+proteccién contra los contactos indirectos por la utilizacién de interruptores diferenciales can una J, como
+maximo de 300 mA, recomendandose que éstos sean selectivos con los interruptores diferenciales de 30
+mA instalados aguas abajo. Las normas IEC 61008 y 61009 obligan a los fabricantes a indicar la caracte-
+ristica de "selectivo" en el frente del aparato con el siguiente simbolo:
+
+5
+
+Cuando e! circuito este protegido contra los contactos indirectos par medio de interruptores diferenciales
+de /,, S300 mA y se cumpla que el valor maximo permanente de la resistencia de puesta a tlerra de
+
+proteccién R; no sea mayor que 40 ©, se considera al circuito protegido contra los contactos indirectos
+ya que la tensién de contacto sera menor que los 24 V indicados.
+
+Cuando pueda asegurarse la imposibilidad de contactos directos, podran utilizarse interruptores diferen-
+ciales con intensidades de fuga de hasta 300 mA para la proteccién contra los contactos indirectas en
+circuitos seccionales o en circuitos especificos de carga unica (ACU).
+
+La imposibilidad de los contactos directos se asegurara mediante el cumplimiento de alguna de las clau-
+sulas 7771.18.31 y 771.18.3.2.
+
+Se garantizara que el circuito asi protegido no posea derivaciones a bocas de tomecorrientes, luminarias o
+dispositivos de maniobra o proteccidn con puntos con tensién accesibles, La alimentacion de cualquiera de
+estos elementos corresponde a circuitas terminales que como tales deberan estar protegidos por inter-
+
+ruptores diferenciales con /,, maxima de 30 mA,
+
+Cuando el circuito esté protegido contra los contactos indirectos por medio de interruptores diferenciales
+de J,, £300 ma y se cumpla que el valor maximo permanente de la resistencia de puesta a tierra de
+
+proteccién no sea mayor que 40 ©, se considera al circuito protegido contra los contactos indirectos ya
+que la tensi6n de contacto sera menor que los 24 V indicados.,
+
+771,19.2: Proteccion de los conductores y cables contra las corrientes de sobrecarga y cortocircuito
+
+771.19.2.1: Proteccién contra las corrientes de sobrecarga
+
+En todas |as instalaciones, deben ser previstos dispositivos de proteccidn para interrumpir toda corriente de
+sobrecarga en los conductores de un circuito antes que ella pueda provocar un dafio por calentamiento a la
+aislacién, a las conexiones, a los terminales o al ambiente que rodea a los conductores.
+
+La caracteristica de funcionamiento u operacién de un dispositive de proteccién de un cable o un conductor contra
+las sobrecargas debe satisfacer las dos condiciones siguientes:
+
+1) J,<i,s1,
+
+2) i, = 1,451,
+donde:
+i, = Corriente de proyecto (intensidad proyectada de la corriente de carga o corriente de empleo para la
+
+cual el circuito fue disefiada).
+
+J, = |ntensidad de corriente admisible en regimen permanente por los cables o conductores a proteger.
+hermanos Lay Salle
+
+BUSCAMOS TU ROSTRO
+
+/, = Intensidad de corriente que asegure el efectivo funcionariento del dispositivo de proteccién en el
+
+tiempo convencional en las condiciones definidas; la intensidad de corriente J, que asegure el
+
+funcionamiento del dispositive de proteccién esta definida en la norma del producto o puede ser
+obtenida del fabricante.
+
+i, = Corriente asignada o nominal del dispositivo de proteccidn.
+
+a”
+
+Nota: Para los dispositives de proteccidn regulables, f, se debera tomar igual a la intensidad de corriente de la requiacién elegida I, \
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.19.2.2: Proteccion contra las corrientes de cortocircuito
+
+771.19.2.2.1: Generalidades
+
+Los dispositivos de proteccién estaran previstos para interrumpir toda corriente de cortocircuito antes que pueda
+
+producir dafios ténmicos y /o mecanicos en los conductores, sus conexiones y en el equipamiento de la instala-
+cidn.
+
+771,19.2.2.2: Corrientes de cortocircuito maximas en los dispositivos de maniobra y proteccion de
+los tableros
+
+La empresa distribuidora correspondiente proporcionara la intensidad de corriente maxima de cortocircuito en los
+bornes de entrada del medidor, (si este se encuentra en la linea municipal), y en bomes de toma primaria, [en el
+caso que el(los) medidores se encuentre(n) en el interior del inmueble}.
+
+La corriente presunta de cortocircuito sera determinada en los puntos de la instalacion donde se considere ne-
+
+cesaria. Esta determinacion podra ser efectuada por calculo o por medicion con instrumentos proyectados para
+tal fin.
+
+Las determinaciones de las corrientes maximas de cortocircuito pueden realizarse por aplicacion de los métodos
+recomendados por AEA 90909.
+
+Nota: También pueden utilizarse come guia de orientacién las tablas que figuran en el Anexo 77 1-H.
+
+Para cualquier método utilizado se debera redactar una memoria técnica que incluya los datos aportados por la
+
+empresa distribuidora, y donde por lo menos una copia quede en poder del proyectisla y otra en poder del co-
+mitente.
+
+Todo dispositive que asegure la proteccién contra los cortocircuitos, debe responder a las dos condiciones si-
+guientes:
+
+a) Regla del poder de corte
+
+La capacidad de ruptura del dispositive de proteccion (7... ), sera por lo menos igual a la maxima intensidad de
+
+corriente de cortocircuito presunta Uf, ) en el punto donde el! dispositive esta instalado.
+
+Pace 2 i,
+
+También sera admitida la instalacion de un dispositive con una capacidad de ruptura inferior, con la condicién que
+otro dispositive con la necesaria capacidad de ruptura sea instalado del lado "alimentacidn" o lado fuente. En este
+caso las caracteristicas de ambos dispositivos deben ser coordinadas de tal forma que la energia que ellos dejan
+
+pasar, no exceda la que puede soportar sin dafio el dispositivo ubicade en el lado “carga” y los conductores
+protegidos por estas dispositivos.
+
+Nota: En ausencia de reglas sobre la coordinacion entre dispositivos de proteccidn distintos, se deben solicilar las indicaciones
+necesarias alos fabricantes de los dispositivas.
+
+b) Regla del tiempo de corte
+
+Toda corriente causada por un cortocircuite que ocurra en cualquier punto del circuito debe ser interrumpida en
+un tiempo tal, que no exceda de aquél que lleva al conductor a su temperatura limite admisible.
+
+Para los corfocircuitos de duracién de entre 0,1 s hasta 5 s, el tiempo t, en el cual una corriente dada de corto-
+circuit llevara la temperatura del conductor desde su temperatura maxima admisible en servicio normal, hasta su
+temperatura limite admisible en cortocircuito, podra ser calculado aproximadamente por la siguiente expresién:
+
+vez Kk
+I
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+donde:
+
+f = Duracién de la interrupcién o tiempo de desconexion en segundos (valido entre 0,1 5 y 5s).
+
+S = Seccidn del conductor en mm?,
+
+/ = Intensidad de corriente de cortocircuito en amperios, expresada como valor eficaz.
+
+k& = Un factor que toma en cuenta la resistividad, el coeficiente de ternperatura y la capacidad térmica volu-
+
+meétrica del conductor, y las temperaturas inicial y final del mismo.
+
+Para cortocircuitos de muy corta duracién (< 0,1 $s}, donde la asimetria de la corriente es importante, y para los
+dispositivos de proteccién limitadores de la energia pasante, la formula anterior no es aplicable y en esos casos
+
+se debe verificar que k* S* debe ser mayor que el valor de energia especifica J* 1, integral de’ Joule para la
+
+duracién del cortocircuito en A’ s , que deja pasar el dispositive de proteccion, valor dado por el fabricante del _
+
+dispositivo, o sea que la formula esta mejor representada por:
+RS? (i'r)
+
+Para los cortocircuitos de duracién superior a algunos periodos, (tiempos entre 0,1 sy 5s)elvalorde /7¢ puede
+
+obtenerse suponiendo para J el valor eficaz en amperios, de la cortiente de cortocircuito, y para , la duracién en
+segundos del cortocircuito.
+
+771,19.2.2.3: Proteccién de los circuitos frente a las corrientes de cortocircuito maximas
+
+Para garantizar la proteccion de los conductores, sean de circuitos seccionales o de circuitos terminales, se
+debera cumplir alguna de las siguientes condiciones, dadas en funcidn del elemento de prateccidn seleccio-
+nado:
+
+1) Utilizando dispositivos limitadores de la corriente de cortocircuito, o con tiempos de apertura
+inferiores a 0,15.
+
+Considerando el empleo de dispasilivos de proteccién que presentan caracteristicas de limitacién de la co-
+rriente de cortocircuito, o con tiempos de apertura inferior a 0,1 s, la proteccién de los conductores queda
+asegurada si se cumple la siguiente expresion:
+
+MeSsre
+sienda:
+
+i? ¢ Maxima energia especifica pasante aguas abajo del dispositivo de proteccion. Este dato no es calculable
+por el proyectista o instalador, por ser un valor garantizado por el fabricante.
+
+La seccién nominal de los conductores, en milimetros cuadrados.
+
+ke Un factor qué toma en cuenta la resistividad, el coeficiente de temperatura y la capacidad térmica volumé-
+trica del conductor, y las temperaturas inicial y final del mismo. Para los conductores aislados con mate-
+riales de uso comin, los valores de & para los conductores de linea sé muestran en la Tabla 71.19.11.
+SOMOS
+ermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771.19.3: Pasos a seguir para la proteccién contra las sobrecargas y cortocircuitos
+
+Todo circuito, sea seccional o terminal, debera ser calculado de acuerdo con el procedimiento que se indica en
+esta subclausula.
+
+Nota: Una guia de aplicacion de orientacién se encuentra en el Anexo 77 1-H.
+a) Determinacién de la corriente de proyecto J,
+« Wer 777.9 “Carga total correspondiente a un inmueble".
+
+b) Eleccién de las canalizaciones y conductores y cables en funcién de las influencias externas de la ins-
+talacion.
+
+* Ver Tabla 771.12.1.
+
+c) Eleccién dela seccién 5S de los conductores y cables, y su correspondiente coriente maxima admisible
+J. teniendo en cuenta las condiciones de instalacion: .
+
+* Tipos de canalizacion (ver 771.12).
+«" Conductores aislados colocados en cafierias embutidas o a la vista.
+* Ver Tabla 771.1611 y Tabla 771.161
+
+* Cables enterrados directamente o en conductos.
+Ver Tabla 771.16.V y Tabla 771.16.VI
+
+« Cables preensamblados en lineas aéreas exteriores.
+* Ver Tabla 771.16. Vill
+
+« Cables en bandejas portacables.
+Ver Tabla 771.16.II
+
+« Otras formas de instalacién.
+* Ver Capitulo 52 de AEA 90364
+* Factores de correccién (Temperatura, agrupamiento, etc.)
+
+« Conductores aislados colocados en caferias embutidas o a la vista.
+“ Ver Tabla 771.16.lLa (Diferente temperatura ambiente)
+
+* Ver Tabla 771.16.ILb (Por agrupamiento en un mismo cafio)
+* Ver Tabla 771,16.IV (Por agrupamiento de cables en aire)
+
+= Cables enterrados directamente o en conductos.
+“ Ver Tabla 771.16.Vl a) (Diferente temperatura del terreno)
+
+¢ Ver Tabla 771.16.VIlc) (Por agrupamiento de cables directamente enterradas)
+* Ver Tabla 771,16.V/Il d) (Por agrupamiento de cables en conductos enterrados)
+Ver Tabla 771.16.VII b) (Diferente resistividad térmica del terreno)
+
+fermanos, La) <Salle
+
+BUSCAMOS TU ROSTRO FLORIDA
+
+= Cables preensamblados en lineas aéreas exteriores.
+“ Ver Tabla 771.16.1X (Diferente temperatura ambiente)
+® Ver Tabla 771.16. (Por agrupamiento de cables)
+
+= Cables en bandejas portacables.
+* Ver Tabla 771.16./| a) (Diferente temperatura ambiente)
++ Ver Tabla 771.16.1V (Por agrupamiento de cables)
+
+Con lo cual queda determinada la seccién § a partir de la corriente maxima admisible del conductor o
+cable elegida.
+
+I, 21,
+d) Eleccion de la corriente asignada del dispositive de proteccian J,
+
+I, <1, <1,
+
+r
+
+* Dispositivos para proteccién de circuitos seccionales o terminales:
+o Fusibles IEC 60269.
+© Interruptores automaticos: IRAM 2169; IEC 60898; IEC 60947-2; IEC 61009.
+
+Nota: Cuando en las viviendas y oficinas (unitarias) se prevea la ullizaclon de interruptores construldos segin IEC 60547 con
+Organos de disparo por sobrecarga ajustables, la intensidad de cortiente a utilizar para el dimensionamiento de los
+conductores sera, el valor mas alto de regulacién de la proteccién contra sobrecargas del relé instalade en el interruptor,
+independientemente del rango y ajuste de la misma. Esta restricclan no és aplicable a locales (unitarios) con presencia
+
+de personal BA4 o BAS. +
+
+Si el Organo de proteccién tuviera dispara magnético o electronico ajustable, los conductores deberan verificarse para el
+valor mas alto del rango ajustable. Esta restriccion no es aplicable a locales (unitarios) con presencia de personal BAd o
+
+BAS.
+e) Verificacién de la actuaci6n de la proteccidn elegida contra sobrecarga:
+
+I, $1451,
+
+« J, =Intensidad de corriente de operacién o disparo sequro de los pequefios interruptores au-
+tomaticos (PIA) conforme a IEC 60898:
+
+J, = 1,45/,, para J, < 63 A (tiempo convencional 1 hora)
+I, = 1,45 /,, para I, > 63 A (tiempo convencional 2 horas)
+
+* J, = Intensidad de corriente de operacién o disparo seguro de los interruptores automaticos
+conforme a IEC 60947-2:
+
+i, =1,3J/,, para J, = 63 A (tiempo convencional 1 hora)
+
+I, =1,3/,, para [, > 63 A (tiempo convencional 2 horas)
+hermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO FLORIDA
+
+« J, =Intensidad de corriente de fusidn de los fusibles gG, segun IEC 60269 para:
+
+I, s4A en tiempo convencional 60 minutos J, = 2,1 J,
+4A<I, £164 en tiempo convencional 60 minutos J, = 1,9 /,
+16A<TI, $634 en tiempo convencional 60 minutos J, = L6J,
+
+63A</], £1604 en tiempo convencional 120 minutos J, = 1,6 J,
+1604 <J, = 4004 en tiempo convencional 180 minutos J, = 1,6 J,
+I, = 400 4 en tiempo convencional 240 minutos J, = 1,6 /,
+
+771.19.7: Caidas de tensidn
+
+Las maximas caidas de tensién admisibles estan indicadas en la clausula 771.13.
+
+A los efectos del célculo de la caida de tension, los circuitos de tomacorrientes se consideran cargados en su
+extremo mas alejado del tablero seccional. Los circuitos de iluminacién se consideran con 66 % de la carga total
+en el extremo mas alejado del tablero seccional.
+
+Para su calculo se podra emplear alguno de los métodos indicados a continuacién:
+a) El calculo aproximado de la caida de tension en los conductores puede realizarse utilizando la expresion:
+
+AU=k.f.L(Rcosg + Xsen @) [volt]
+
+Donde:
+
+k = constante igual a 2 para sistemas monofasicos y bifasicos y V3 para sistemas trifasicos
+
+/ = intensidad de la corriente de linea en ampere.
+
+L = fongitud del circuito en kilémetros (. es la distancia que separa los dos puntos entre los que se
+calcula la caida de tensién y no debe confundirse con la longitud que totalizan los conductores in-
+yolucrados)
+
+R = resistencia eléctrica efectiva del conductor a la temperatura de servicio en ohm / km (1)
+
+X = reactancia de los conductores en ohm / km (2)
+
+@ = aéngulo de desfasaje entre la tensién y la corriente
+
+cos» = factor de potencia (3)
+
+(1) El valor de la resistencia eléctrica efectiva del conductor, teniendo en cuenta los incrementos por efecto
+pelicular, efecto proximidad y temperatura, puede obtenerse de las especificaciones técnicas del fabri-
+cante o aplicando los calculos recomendados por IEC 60287.
+
+(2) El valor de la reactancia de los conductores depende de su forma y disposicién geométrica entre ellos y
+puede obtenerse de las especificaciones técnicas del fabricante o aplicando los célculos recomendados
+por IEC 60287. ;
+
+(3) El denominado “factor de potencia’, en circuitos de las caracteristicas de los aqui utilizados, depende
+fundamentalmente dé la carga conectada. A falta de otros valores mas precisos pueden utilizarse los
+siguientes:
+
+a cos @= 0,85 ysen p= 0,53
+b. Durante el arranque de motores: cos » = 0,30 y sen » = 0,95
+b)
+
+SOMOS
+ermanosy
+ermanas
+
+BUSCAMOS TU ROSTRO
+
+cafierlas y para cos » = 0,80 y sen @ = 0,60, puede utilizarse la siguiente tabla:
+
+Para conductores unipolares en contacto, que curnplan con IRAM NM 247-3 o 62267, dispuestos en
+
+Tabla 771.19.IV — Caida de tensién en conductores aislados normas IRAM NM 247-3 y 62267
+
+(Tabla valida para lineas monofasicas)
+
+Seccién Caida de Seccion Caida de Seccion Caida de Seccidn | Caidade
+nominal tensién nominal tensién nominal tension nominal tensién
+mm* V/A km mrn* Via km mm* VIA km mm* VIA km
+1,5 26 6 6,5 25 1,6 70 0,6
+2,5 15 10 3,8 35 1,2 95 0,5
+4 40 16 2,4 _50 0,8 120 0,4
+
+¢)
+
+au =Gpc LE
+
+_@n volt
+
+También puede utilizarse para un calculo aproximada la siguiente expresion:
+
+Valida para conductores aislados segdin normas IRAM NM 247-3 y 62267 y para cables segiin normas
+IRAM 2178 y 62266 en caferias o conductos, en aire o enterrados o dispuestos en tresbolillo. No valida
+para cables dispuestos en plano separados un diametro.
+
+Donde
+
+2
+volt) . [rae
+GDC = Gradiente de caida en _Lvott} ram? |
+
+[amper}. [metro]
+
+/ = intensidad de la corriente de linea en ampere.
+£ = longitud del circuito en metros.
+§ = seccién nominal de los conductores en mm’,
+Gradiente de caida (GDC)
+Tipo de sistema Carga comin (cos ¢) = 0,8 (1)
+Cobre Aluminio ~
+Monofasicoa 0,040 0,063
+Trifasico 0,035 0,055
+
+SOMOS
+ermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+771-H.4; Ejemplos de calculo de circuitos con corrientes armonicas
+
+Como se ha dicho en 771.16.2.4, cuando se prevea el uso de aparatos utilizadores, monofasicos 0 trifasicos, que
+generen distorsién arménica en la forma de onda de la corriente, tales como bancos de iluminacion fluorescente,
+balastos electromagnéticos o electrénicos, fuentes de tensién continua conmutadas, etc., el conductor neutro de
+un sistema trifasico podria ser sobrecargado.
+
+De no contarse con datos aportados por los fabricantes de los equipos podran utilizarse a titulo de orientacién los
+valores de la Tabla 771-H.XIill siguiente:
+
+Tabla 771-H.XIll — Datos orientativos de contenido armdnico en equipos eléctricos
+
+Aparato conectado | % de3* armonica | %de5* armonica | % de 7* armonica | % de 9* armonica
+Balasto pasivo 20 --- --- ---
+_Balasto activo 50 1 --- 8
+
+Variador de velocidad 20 40 15 =
+
+Equipo informatico 85 65 40 20
+UPS 5 _— — ---
+
+Ejemplos de uso de la Tabla 771.16. XIll:
+Ejemplo 1:
+
+Se considera un circuito trifasico con neutro que alimenta a un tablero seccional desde el cual se alimentan tres
+cargas monofasicas iguales, cada una de las cuales tiene una potencia de 8 kW, un factor de potencia de 0,85 y
+un contenido de tercera armonica del 20 %. El circuito trifasico de alimentacion es entonces equilibrado.
+
+En estas condiciones la intensidad de corriente en cada conductor de linea del circuito trifasico de alimentacién
+es:
+
+iy - P 7 24000 W - 42954
+V3xUxcosp 3 x380V x 0,85
+
+De la Tabla 771.16.XIll, para 20 % de contenido de tercera armoénica se obtiene que la seleccién de la seccién se
+debe hacer en funcién de la corriente de linea y no de la de neutro y teniendo en cuenta un factor de reduccidn de
+la seccion (o de aumento de la corriente) de 0,86. En consecuencia:
+
+42,95 A
+If, = 22 = 49944
+Is 0,86
+
+De ta Tabla 771.16.III para cables multipolares con conductores de cobre, dispuestos en bandejas tipo escalera,
+
+vemos qué para una intensidad de corriente de 49,94 A corresponde una seccién nominal de las fases y del
+conductor neutro de 10 mm?.
+
+Ejemplo 2:
+El mismo ejemplo anterior, pero las cargas monofasicas tienen un contenido arménico del 40 %.
+
+En estas condiciones la intensidad de corriente en cada conductor de linea del circuito trifasico de alimentacion
+es:
+
+if = P = 000 = 47.95. 4
+V3 xU x cos V3 x 380 V x 0,85
+
+De la Tabla 771.16.XIll para 40 % de contenido de tercera armonica se obtiene que la seleccién de la seccion se
+debe hacer en funcién de Ia corriente de neutro y no en funcién de la corriente de linea, y teniendo en cuenta un
+factor de reduccion de la seccidén (0 de aumento de la corriente} de 0,86. En consecuencia:
+
+In = 42,95 Ax040x3 = 51,544
+
+Aplicando el factor de reduccién es:
+SOMOS
+ermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO FLORIDA
+
+De la Tabla 771.16.1l| para cables multipolares con conductores de cobre, dispuestos en bandejas tipo escalera,
+vemos que para una intensidad de corriente de 59,93 A corresponde una secci6n nominal de los conductores de
+linea y del conductor neutro de 16 mm’.
+
+Ejemplo 3:
+El mismo ejemplo anterior, pero las cargas monofasicas tienen un contenido arménico del 80 %.
+En estas condiciones la intensidad de corriente en cada conductor de linea del circuito trifasico de alimentacién
+es:
+P 24000 W
+
+if = = = 42,95 A
+i 43 xU xcosp V3 x 380 V x 0,85
+
+De la Tabla 771.16.XilIl para 80 % de contenido de tercera armonica se obtiene que la seleccién de la seccién se
+debe hacer en funcién de la corriente de neutro y no en funcién de la corriente de linea, y teniendo en cuenta un
+factor de reducci6n de la seccién (o de aumento de Ia corriente) de 1. En consecuencia:
+
+In = 42,95 A x0,80 x3 = 103,08 4
+Aplicando el factor de reduccién es:
+
+Ing = — = 103,08 A
+
+De la Tabla 771.16.II] para cables multipolares con conductores de cobre, dispuestos en bandejas tipo escalera,
+vemos que para una intensidad de corriente de 103,08 A corresponde una seccién nominal de las fases y del
+conductor neutro de 35 mm’.
+
+771-H.5: Consideraciones particulares de los esquemas de conexi6n a tierra IT
+Nota: Para el sequimiento de esta clausula, deben consultarse las Partes 4 y 5 de esta Reglamentacion.
+
+La Figura 771-H.A siguiente ilustra la situacion en la que la corriente del primer defecto esta limitada sélo por la
+impedancia Z ya que la impedancia de los conductores asociados es despreciable. En estas condiciones no
+aparece sobre la masa M tensién de contacto alguna y por ello no es necesario verificar }a condicién de la
+subcldusula 413.1.5.3. ,
+
+—— t
+
+| L3
+paneer aceerenepeereeaenee :
+' Id |
+re
+i
+
+z | !
+1 1
+H
+1 !
+1 1
+i ry?
+t !
+Lie eee ee J
+=
+Fiprstsvadieerertsered, Id
+
+rab |]
+
+Fig. 771-H.A Esquema IT en el que el punto neutro esta conectado a tierra a través de una impedancia
+Z y en el que los electrodos de tierra de la alimentacién (R,) y de las masas eléctricas de la instalacién
+(R,) estan unificados en uno (Rap)
+
+Cuando las masas son puestas a tierra por grupos o individualmente, las condiciones de proteccién son
+aquellas indicadas en 413.1.4 para el esquema tipo TT, con excepcidn de! segundo parrafo de 413.1.4.1 (que
+obliga a poner a tierra el neutro o un conductor de linea), que no es aplicable (ver Fiqura 771-H.B).
+SOMOS
+ermanos, Lay “Salle
+
+BUSCAMOS TU ROSTRO
+
+FLORIDA
+WAN cH Le
+LAVA . + | L3 a
+Sy 1
+: H+ PE ; a a PE
+rq} |i Laat
+H reoiky My
+| 1; i \
+\ i i | |
+iil alli ~~] rd!
+| 1 i | $3 |
+|
+|
+| A B
+a! tel
+R, =( = __ 8!
+
+Fig. 771-H.B Corriente de doble defecto en el esquema IT cuando las masas no estan conectadas a la
+
+misma toma de tierra. Este esquema no depende de Ia situacion de la alimentacion en relacién con la
+
+tierra (aislada o conectada a tierra por una impedancia). Ver 413.1.5.5 a) donde se indica que se apli-
+can los requerimientos del esquema TT
+
+Cuando las masas estan interconectadas por un conductor de proteccién puesto a tierra, lo que las pone a
+tierra colectivamente, se aplican los requerimientos dé un esquema TN en las condiciones indicadas en
+413.1.5.6 y 413.1.5.7 (ver Figura 771-H.C). La figura se aplica ya sea que el esquema IT esté aislado de tierra
+o conectado a tierra por una impedancia. Si el primer defecto no es eliminado y se produce un segundo defecto
+de aislacién que afecta a otro conductor activo, se establecera una corriente de doble defecto que es una
+corriente de cortocircuito entre fases (o entre fase y neutro) pero de valor sensiblemente inferior a aquélla
+corriente de cortocircuito de un solo circuito, afectando a dos circuitos como muestra la figura.
+
+La Reglamentacién para la Ejecucion de Instalaciones Eléctricas en Inmuebles no tiene en cuenta, por la baja
+probabilidad que ocurra una circunstancia tal, el riesgo de contacto simultaneo con dos masas en las cuales se
+produzcan dos defectos de aislacion relativos a fases diferentes.
+
+AN) = ae gp oer se uu
+baw . ¢ oH i2
+LY ! | La
+RE edo cae a a eel PE
+i} |t an
+i) \| |
+NK | |
+
+ie
+
+—_—-—— Gorriente de doble defecto (4)
+
+Fig. 771-H.C Corriente de doble defecto en el esquema IT cuando las masas estan conectadas a la
+- misma toma de tierra, Este esquema no depende de la situacién de la alimentacion en relacién con la
+tierra (aislada o conectada a tierra por una impedancia). Ver 413.1.5.5.b) donde se indica que se apli-
+can los requerimientos del esquema TN
+SOMOS
+
+BUSCAMOS TU ROSTRO
+
+RESUMEN DE SIMBOLOS Y DEFINICIONES
+
+ANEXO 771-K (Informativo)
+
+Simbolos usuales
+
+DE APARATOS DE MANIOBRA: INTERRUPCION Y SECCIONAMIENTO
+
+Sf .—
+
+Sf
+
+FUNCION
+CONEXION Y CONEXION,
+DESCONEXION SECCIONAMIENTO DESCONEXION
+DE CORRIENTES ¥ SECCIONAMIENTO
+Vela yaaa. SECCIONADOR INTERRUPTOR-SECCIONADOR
+VEI 441-44-12
+
+Sf o—
+
+COMBINADO-FUSIBLES (VEI 441-14-04)
+
+VEl 41-14-14
+
+a
+
+INTERRUPTOR CON FUSIBLES |
+
+SECCIONADOR CON FUSIBLES
+WEI 441-14-15
+
+Se
+
+INTERRUPTOR-SECCIONADOR
+CON FUSIBLES
+VEI441-14-16
+
+—/
+
+FUSIBLEANTERRUPTOR
+VEI 4441-14-17
+
+_ 4 ,
+
+FUSIBLE-SECCIONADOR
+VEI 441-14-18
+
+_4
+
+FUSIBLE
+INTERRUPTOR-SECCIONADOR
+VEI 441-14-19
+
+_ 4
+
+Nota 1: E] fusible puede estar sobre uno u otro de los lados de los contactos del aparato, o en posicidn fija con respecto al mismo.
+
+Nota 2: Todas los dispositivos pueden ser de interrupcién simple o de varios cortes.
+
+Nota 3: Las simbolos estan basados en la Norma IEC 60817.
+
+Nota 4: Los nimeros identifican las definiciones del Vocabulario Electrotécnico Internacional IEC 60050 Seccidn 444
+SOMOS
+ermanosy
+crmancs La) <Salle
+BUSCAMOS TU ROSTRO FLORIDA
+DESCRIPCION
+INTERRUPTOR AUTOMATICO PEQUENO INTERRUPTOR PEQUENO INTERRUPTOR
+VEI 441-14-20 TERMOMAGNETICO (PIA) TERMOMAGNETICO (PIA)
+SIMBOLO 1 SIMBOLO 2
+
+4
+
+i
+
+4
+
+INTERRUPTOR DIFERENCIAL
+QUE CUMPLE GON LA
+FUNCION DE SECCIONAMIENTO
+
+INTERRUPTOR DIFERENCIAL
+QUE NO CUMPLE CON LA
+FUNCION DE SECCIONAMIENTO
+
+CONTACTOR CON RELE TERMICO
+Y CONTACTOS AUXILIARES
+
+d
+
+JL
+—
+ie
+
+Simbologia empleada en la descripcidn de los
+esquemas de conexion a tierra
+
+Explicacion de simbolos de acuerdo con la Norma IEC 6061 7-11
+
+Conductor de linea (L)
+
+Conductor neutro (N)
+
+Conductor de proteccién (PE)
+
+NUOEN
+“a | Ky aN
+
+Conductor neutro y de proteccidn combinados (PEN)
+
