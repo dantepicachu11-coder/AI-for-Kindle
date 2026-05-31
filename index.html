@@ -14,28 +14,24 @@
     .msg-user { color: #004; border-left: 3px solid #000; background: #eef; margin-bottom: 3px; padding-left: 3px;}
     .msg-ai { color: #333; border-left: 3px solid #888; background: #fff; margin-bottom: 3px; padding-left: 3px;}
     #status { font-size: 12px; color: #444; margin-top: 2px; }
+    #apikey-section { margin-bottom: 10px; }
+    #ghtoken-section { margin-bottom: 10px; }
   </style>
 </head>
 <body>
-  <h2>AI Chat (Kindle)</h2>
+  <h2>AI Chat (Kindle)<br>
+      <span style="font-size:13px;">(No login, API key is built in)</span></h2>
 
-  <div class="section" id="login-panel">
-    <form id="loginform" onsubmit="return doLogin();">
-      <label>Username:</label>
-      <input id="username" name="username" autocomplete="username">
-      <label>Password:</label>
-      <input id="password" name="password" type="password" autocomplete="current-password">
-      <div id="login-status"></div>
-      <button type="submit">Sign In</button>
-    </form>
+  <div class="section" id="apikey-section" style="display:none">
+    <label>Groq API Key (readonly demo):</label>
+    <input id="apikey" type="text" readonly>
+  </div>
+  <div class="section" id="ghtoken-section" style="display:none">
+    <label>GitHub Token (readonly demo):</label>
+    <input id="ghtoken" type="text" readonly>
   </div>
 
-  <div class="section" id="chat-panel" style="display:none;">
-    <button onclick="doLogout()">Logout</button>
-    <div id="apikey-section" style="display:none;">
-      <label>Groq API Key:</label>
-      <input id="apikey" type="text" readonly>
-    </div>
+  <div class="section">
     <label>Type your message:</label>
     <textarea id="userinput" rows="2"></textarea>
     <button onclick="sendMessage()">Send</button>
@@ -45,71 +41,14 @@
   </div>
 
 <script type="text/javascript">
-// Declare users right in the JS
-var USERS = [
-  {
-    username: "alice",
-    password: "wonder",
-    apiKey: "gsk_123abc",
-    ghToken: "ghp_abc123"
-  },
-  {
-    username: "bob",
-    password: "builder",
-    apiKey: "gsk_456def",
-    ghToken: "ghp_def456"
-  }
-];
+var API_KEY = "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";
+var GH_TOKEN = "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";
 
-// Polyfill for localStorage for some Kindle browsers:
-window._storage = {};
-var localStorage = window.localStorage || {
-  setItem: function(k, v) { window._storage[k] = v; },
-  getItem: function(k) { return window._storage[k] || null; },
-  removeItem: function(k) { delete window._storage[k]; }
-};
-
-window.onload = function() {
-  var apikey = localStorage.getItem("groq_key");
-  if (apikey) showChatPanel(apikey);
-};
-
-function doLogin() {
-  var user = document.getElementById("username").value;
-  var pass = document.getElementById("password").value;
-  var loginStatus = document.getElementById("login-status");
-  loginStatus.innerHTML = "";
-  var found = null;
-  for (var i=0; i<USERS.length; ++i) {
-    if (USERS[i].username === user && USERS[i].password === pass) {
-      found = USERS[i];
-      break;
-    }
-  }
-  if (found) {
-    localStorage.setItem("groq_key", found.apiKey);
-    localStorage.setItem("gh_token", found.ghToken);
-    showChatPanel(found.apiKey);
-    return false;
-  } else {
-    loginStatus.innerHTML = "<span style='color:#a00;'>Wrong username or password.</span>";
-    return false;
-  }
-}
-
-function showChatPanel(apikey) {
-  document.getElementById("login-panel").style.display = "none";
-  document.getElementById("chat-panel").style.display = "";
-  document.getElementById("apikey-section").style.display = "";
-  document.getElementById("apikey").value = apikey || "";
-}
-
-function doLogout() {
-  localStorage.removeItem("groq_key");
-  localStorage.removeItem("gh_token");
-  document.getElementById("login-panel").style.display = "";
-  document.getElementById("chat-panel").style.display = "none";
-}
+// Uncomment below if you want them visible for debugging
+// window.onload = function() {
+//   document.getElementById("apikey").value = API_KEY;
+//   document.getElementById("ghtoken").value = GH_TOKEN;
+// };
 
 function sendMessage() {
   var input = document.getElementById("userinput").value;
@@ -118,12 +57,61 @@ function sendMessage() {
     return;
   }
   appendMessage("user", input);
-  setStatus("Thinking...");
-  // Demo: Echo result after 2 seconds.
-  setTimeout(function() {
-    appendMessage("ai", "This is a demo AI reply to: " + input);
-    setStatus("");
-  }, 2000);
+  setStatus("Talking to AI...");
+
+  // Prepare chat history (simple, one user, one AI per go)
+  var messages = [];
+  var chatDiv = document.getElementById("chat");
+  var divs = chatDiv.getElementsByTagName("div");
+  for (var i=0; i<divs.length; ++i) {
+    var txt = divs[i].innerText || divs[i].textContent;
+    if (divs[i].className.indexOf("msg-user") !== -1) {
+      messages.push({"role": "user", "content": txt.replace(/^You: /,"")});
+    } else if (divs[i].className.indexOf("msg-ai") !== -1) {
+      messages.push({"role": "assistant", "content": txt.replace(/^AI: /,"")});
+    }
+  }
+  // Add current user input
+  messages.push({"role": "user", "content": input});
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Authorization", "Bearer " + API_KEY);
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      setStatus("");
+      if (xhr.status === 200) {
+        try {
+          var resp = JSON.parse(xhr.responseText);
+          var reply = resp.choices && resp.choices[0] && resp.choices[0].message && resp.choices[0].message.content
+            ? resp.choices[0].message.content
+            : "[No AI reply]";
+          appendMessage("ai", reply);
+        } catch(e) {
+          appendMessage("ai", "[Parse error or unexpected response]");
+        }
+      } else {
+        var errMsg = "Error: " + xhr.status + " - ";
+        if (xhr.responseText) errMsg += xhr.responseText;
+        appendMessage("ai", errMsg);
+      }
+    }
+  };
+
+  // You may change the model to any supported by Groq (example: "llama-3-8b-8192")
+  var data = {
+    model: "llama-3-8b-8192", // or "llama-3.1-8b-instant"
+    messages: messages,
+    max_tokens: 128
+  };
+  try {
+    xhr.send(JSON.stringify(data));
+  } catch(e) {
+    setStatus("AJAX send error: " + e);
+  }
+
   document.getElementById("userinput").value = "";
 }
 
@@ -133,6 +121,9 @@ function clearChat() {
 
 function appendMessage(role, text) {
   var chat = document.getElementById("chat");
+  // remove placeholder if exists
+  if (chat.childNodes.length === 1 && chat.childNodes[0].nodeType === 1 && chat.childNodes[0].tagName === 'SPAN')
+    chat.innerHTML = "";
   var div = document.createElement("div");
   div.className = role === "user" ? "msg-user" : "msg-ai";
   div.innerHTML = (role === "user" ? "You: " : "AI: ") + escapeHtml(text);
