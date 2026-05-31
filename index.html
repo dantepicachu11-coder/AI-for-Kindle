@@ -1,565 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Chat</title>
-<style>
-  body {
-    font-family: Georgia, serif;
-    background: #fff;
-    color: #000;
-    margin: 0;
-    padding: 8px;
-    font-size: 16px;
-  }
-  h2 {
-    font-size: 18px;
-    margin: 4px 0 10px 0;
-    border-bottom: 2px solid #000;
-    padding-bottom: 4px;
-  }
-  .section {
-    border: 1px solid #000;
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-  .section label {
-    display: block;
-    font-size: 13px;
-    margin-bottom: 4px;
-    font-weight: bold;
-  }
-  input[type=password], input[type=text] {
-    width: 100%;
-    font-size: 13px;
-    padding: 4px;
-    box-sizing: border-box;
-    border: 1px solid #000;
-  }
-  .section-status {
-    font-size: 12px;
-    margin-top: 4px;
-    font-style: italic;
-  }
-  #instructions {
-    width: 100%;
-    height: 70px;
-    font-size: 14px;
-    font-family: Georgia, serif;
-    padding: 6px;
-    box-sizing: border-box;
-    border: 1px solid #000;
-    resize: none;
-  }
-  #file-list {
-    margin-top: 6px;
-    border: 1px solid #ccc;
-    padding: 4px;
-    min-height: 30px;
-    font-size: 13px;
-    background: #f9f9f9;
-  }
-  .file-item {
-    padding: 6px 4px;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-  }
-  .file-item.selected {
-    background: #000;
-    color: #fff;
-  }
-  .file-item:last-child {
-    border-bottom: none;
-  }
-  #loaded-files {
-    font-size: 12px;
-    margin-top: 4px;
-    font-style: italic;
-  }
-  #input-area {
-    border: 2px solid #000;
-    padding: 8px;
-    margin-bottom: 10px;
-    background: #f0f0f0;
-  }
-  #userinput {
-    width: 100%;
-    height: 60px;
-    font-size: 15px;
-    font-family: Georgia, serif;
-    padding: 6px;
-    box-sizing: border-box;
-    border: 1px solid #000;
-    resize: none;
-  }
-  #btn-row {
-    margin-top: 4px;
-  }
-  button {
-    font-size: 15px;
-    padding: 8px 16px;
-    margin-right: 6px;
-    margin-bottom: 4px;
-    border: 2px solid #000;
-    background: #fff;
-    cursor: pointer;
-    font-family: Georgia, serif;
-  }
-  .small-btn {
-    font-size: 12px;
-    padding: 4px 8px;
-  }
-  .toggle-on {
-    background: #000;
-    color: #fff;
-  }
-  #status {
-    font-size: 13px;
-    font-style: italic;
-    margin-top: 4px;
-    min-height: 16px;
-  }
-  .msg-user {
-    margin-bottom: 8px;
-    padding: 6px;
-    border-left: 3px solid #000;
-    background: #eee;
-  }
-  .msg-ai {
-    margin-bottom: 8px;
-    padding: 6px;
-    border-left: 3px solid #555;
-    background: #fff;
-  }
-  .msg-label {
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 3px;
-  }
-  .nav-row {
-    text-align: center;
-    padding: 8px 4px;
-    margin: 10px 0;
-    border-top: 1px dashed #888;
-    border-bottom: 1px dashed #888;
-    background: #f9f9f9;
-  }
-  .nav-row a {
-    display: inline-block;
-    padding: 8px 18px;
-    margin: 0 6px;
-    border: 2px solid #000;
-    background: #fff;
-    color: #000;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
-  }
-  #logout-btn {
-    float: right;
-    font-size: 12px;
-    padding: 2px 7px;
-    border: 1px solid #444;
-    background: #eee;
-    color: #222;
-    margin-top: -5px;
-    margin-right: 4px;
-    margin-bottom: 0;
-  }
-</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bcrypt.js/2.4.3/bcrypt.min.js"></script>
+  <meta charset="utf-8">
+  <title>AI Chat for Kindle</title>
+  <style>
+    body { font-family: serif; background: #fff; color: #000; font-size: 16px; margin: 0; padding: 5px; }
+    h2 { font-size: 18px; margin: 4px 0 8px 0; }
+    .section { border: 1px solid #000; padding: 8px; margin-bottom: 10px; }
+    label { display: block; font-size: 13px; margin-bottom: 2px; }
+    input, textarea { font-size: 14px; width: 98%; }
+    button { font-size: 16px; padding: 3px 10px; margin: 3px 4px 3px 0; }
+    #chat { border: 1px solid #888; min-height:30px; padding:5px; background:#fafafa; margin-bottom:5px;}
+    .msg-user { color: #004; border-left: 3px solid #000; background: #eef; margin-bottom: 3px; padding-left: 3px;}
+    .msg-ai { color: #333; border-left: 3px solid #888; background: #fff; margin-bottom: 3px; padding-left: 3px;}
+    #status { font-size: 12px; color: #444; margin-top: 2px; }
+  </style>
 </head>
 <body>
+  <h2>AI Chat (Kindle)</h2>
 
-<a name="top"></a>
-<h2>
-  AI Chat (Kindle)
-  <button id="logout-btn" onclick="logoutUser()" style="display:none;">Logout</button>
-</h2>
+  <div class="section" id="login-panel">
+    <form id="loginform" onsubmit="return doLogin();">
+      <label>Username:</label>
+      <input id="username" name="username" autocomplete="username">
+      <label>Password:</label>
+      <input id="password" name="password" type="password" autocomplete="current-password">
+      <div id="login-status"></div>
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
 
-<!-- LOGIN PANEL -->
-<div class="section" id="login-panel">
-  <label>Username:</label>
-  <input type="text" id="username" autocomplete="username" placeholder="Your username" />
-  <label>Password:</label>
-  <input type="password" id="password" autocomplete="current-password" placeholder="Your password" />
-  <div class="section-status" id="login-status"></div>
-  <button class="small-btn" onclick="loginUser()">Sign In</button>
-</div>
-
-<!-- API Key (read-only, just informational for session) -->
-<div class="section" id="apikey-panel" style="display:none;">
-  <label>Groq API Key:</label>
-  <input type="password" id="apikey" placeholder="gsk_..." disabled />
-  <div class="section-status" id="key-status"></div>
-</div>
-
-<!-- FILE LOADER -->
-<div class="section">
-  <label>Files from GitHub (docs/ folder):</label>
-  <button class="small-btn" onclick="loadFileList()">Refresh file list</button>
-  <div id="file-list"><span style="color:#777;">Tap Refresh to load files.</span></div>
-  <div id="loaded-files"></div>
-  <button class="small-btn" onclick="clearFiles()" style="margin-top:6px;">Clear selected files</button>
-</div>
-
-<!-- INSTRUCTIONS -->
-<div class="section">
-  <label>Instructions for the AI:</label>
-  <textarea id="instructions"></textarea>
-  <div class="section-status" id="instr-status"></div>
-  <button class="small-btn" onclick="saveInstructions()" style="margin-top:6px;">Save Instructions</button>
-  <button class="small-btn toggle-on" id="toggle-btn" onclick="toggleInstructions()" style="margin-top:6px;">Instructions: ON</button>
-  <button class="small-btn" onclick="resetInstructions()" style="margin-top:6px;">Reset to Default</button>
-</div>
-
-<!-- MESSAGE INPUT -->
-<div id="input-area">
-  <a name="input"></a>
-  <textarea id="userinput" placeholder="Type your message here..."></textarea>
-  <div id="btn-row">
+  <div class="section" id="chat-panel" style="display:none;">
+    <button onclick="doLogout()">Logout</button>
+    <div id="apikey-section" style="display:none;">
+      <label>Groq API Key:</label>
+      <input id="apikey" type="text" readonly>
+    </div>
+    <label>Type your message:</label>
+    <textarea id="userinput" rows="2"></textarea>
     <button onclick="sendMessage()">Send</button>
     <button onclick="clearChat()">Clear chat</button>
+    <div id="status"></div>
+    <div id="chat"><span style="color:#777;font-size:13px;">Messages will appear here.</span></div>
   </div>
-  <div id="status"></div>
-</div>
 
-<div id="chat"><span style="color:#777;font-size:13px;">Messages will appear here.</span></div>
-<a name="bottom"></a>
-
-<script>
-var chatHistory = [];
-var instructionsOn = true;
-var loadedFiles = {};
-var selectedFiles = [];
-
-var GITHUB_USER = "dantepicachu11-coder";
-var GITHUB_REPO = "AI-for-Kindle";
-var GITHUB_FOLDER = "docs";
-
-var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas técnicas, busca ser breve y directo.";
-
-window.onload = function() {
-  // Restore user session
-  var user = localStorage.getItem("ai_user");
-  var apiKey = localStorage.getItem("ai_api_key");
-
-  if (user && apiKey) {
-    document.getElementById("apikey").value = apiKey;
-    document.getElementById("apikey").disabled = true;
-    document.getElementById("login-panel").style.display = "none";
-    document.getElementById("apikey-panel").style.display = "block";
-    document.getElementById("logout-btn").style.display = "";
-  } else {
-    document.getElementById("login-panel").style.display = "block";
-    document.getElementById("apikey-panel").style.display = "none";
-    document.getElementById("logout-btn").style.display = "none";
+<script type="text/javascript">
+// Declare users right in the JS
+var USERS = [
+  {
+    username: "alice",
+    password: "wonder",
+    apiKey: "gsk_123abc",
+    ghToken: "ghp_abc123"
+  },
+  {
+    username: "bob",
+    password: "builder",
+    apiKey: "gsk_456def",
+    ghToken: "ghp_def456"
   }
+];
 
-  var instr = null;
-  try { instr = localStorage.getItem("groq_instructions"); } catch(e) {}
-  document.getElementById("instructions").value = (instr !== null) ? instr : DEFAULT_INSTRUCTIONS;
-
-  try {
-    var state = localStorage.getItem("groq_instructions_on");
-    instructionsOn = (state === null) ? true : (state === "1");
-  } catch(e) { instructionsOn = true; }
-  updateToggleButton();
+// Polyfill for localStorage for some Kindle browsers:
+window._storage = {};
+var localStorage = window.localStorage || {
+  setItem: function(k, v) { window._storage[k] = v; },
+  getItem: function(k) { return window._storage[k] || null; },
+  removeItem: function(k) { delete window._storage[k]; }
 };
 
-function fetchUserDb() {
-  // Adjust path to your actual users.json location if needed
-  return fetch('https://raw.githubusercontent.com/dantepicachu11-coder/AI-for-Kindle/main/users.json').then(r => r.json());
-}
+window.onload = function() {
+  var apikey = localStorage.getItem("groq_key");
+  if (apikey) showChatPanel(apikey);
+};
 
-async function loginUser() {
-  var username = document.getElementById("username").value.trim();
-  var password = document.getElementById("password").value;
-  var statusDiv = document.getElementById("login-status");
-  statusDiv.innerHTML = "Checking...";
-
-  try {
-    const users = await fetchUserDb();
-    const user = users.find(u => u.username === username);
-    if (!user) { statusDiv.innerHTML = "User not found."; return; }
-
-    // Validate password using bcrypt
-    const valid = await bcrypt.compare(password, user.password_hash);
-    if (!valid) { statusDiv.innerHTML = "Incorrect password."; return; }
-
-    // Derive key from password (PBKDF2, salt=username)
-    var key = CryptoJS.PBKDF2(password, username, { keySize: 256/32, iterations: 1000 }).toString();
-
-    // Decrypt API key and GitHub token
-    var apiKey = CryptoJS.AES.decrypt(user.api_key_encrypted, key).toString(CryptoJS.enc.Utf8);
-    if (!apiKey) { statusDiv.innerHTML = "API key decryption failed."; return; }
-
-    var ghToken = "";
-    if (user.gh_token_encrypted) {
-      ghToken = CryptoJS.AES.decrypt(user.gh_token_encrypted, key).toString(CryptoJS.enc.Utf8);
-      if (!ghToken) { statusDiv.innerHTML = "GitHub token decryption failed."; return; }
-      localStorage.setItem("gh_token", ghToken);
-    } else {
-      localStorage.removeItem("gh_token");
+function doLogin() {
+  var user = document.getElementById("username").value;
+  var pass = document.getElementById("password").value;
+  var loginStatus = document.getElementById("login-status");
+  loginStatus.innerHTML = "";
+  var found = null;
+  for (var i=0; i<USERS.length; ++i) {
+    if (USERS[i].username === user && USERS[i].password === pass) {
+      found = USERS[i];
+      break;
     }
-
-    localStorage.setItem("ai_user", username);
-    localStorage.setItem("ai_api_key", apiKey);
-
-    statusDiv.innerHTML = "Logged in! Ready to chat.";
-    document.getElementById("apikey").value = apiKey;
-    document.getElementById("apikey").disabled = true;
-    document.getElementById("login-panel").style.display = "none";
-    document.getElementById("apikey-panel").style.display = "block";
-    document.getElementById("logout-btn").style.display = "";
-  } catch (err) {
-    document.getElementById("login-status").innerHTML = "Login failed.";
+  }
+  if (found) {
+    localStorage.setItem("groq_key", found.apiKey);
+    localStorage.setItem("gh_token", found.ghToken);
+    showChatPanel(found.apiKey);
+    return false;
+  } else {
+    loginStatus.innerHTML = "<span style='color:#a00;'>Wrong username or password.</span>";
+    return false;
   }
 }
 
-function logoutUser() {
-  localStorage.removeItem("ai_user");
-  localStorage.removeItem("ai_api_key");
+function showChatPanel(apikey) {
+  document.getElementById("login-panel").style.display = "none";
+  document.getElementById("chat-panel").style.display = "";
+  document.getElementById("apikey-section").style.display = "";
+  document.getElementById("apikey").value = apikey || "";
+}
+
+function doLogout() {
+  localStorage.removeItem("groq_key");
   localStorage.removeItem("gh_token");
-  document.getElementById("apikey").value = "";
-  document.getElementById("apikey").disabled = false;
-  document.getElementById("login-panel").style.display = "block";
-  document.getElementById("apikey-panel").style.display = "none";
-  document.getElementById("logout-btn").style.display = "none";
+  document.getElementById("login-panel").style.display = "";
+  document.getElementById("chat-panel").style.display = "none";
 }
 
-function loadFileList() {
-  var token = localStorage.getItem("gh_token") || "";
-  var listDiv = document.getElementById("file-list");
-  listDiv.innerHTML = "Loading...";
-
-  var url = "https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FOLDER;
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
-  xhr.setRequestHeader("Accept", "application/vnd.github.v3+json");
-  if (token) { xhr.setRequestHeader("Authorization", "token " + token); }
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState !== 4) return;
-    if (xhr.status === 200) {
-      try {
-        var files = JSON.parse(xhr.responseText);
-        listDiv.innerHTML = "";
-        var count = 0;
-        for (var i = 0; i < files.length; i++) {
-          if (files[i].type === "file") {
-            count++;
-            (function(file) {
-              var item = document.createElement("div");
-              item.className = "file-item";
-              item.innerHTML = file.name;
-              item.setAttribute("data-name", file.name);
-              item.setAttribute("data-url", file.download_url);
-              item.onclick = function() { toggleFileSelection(item, file.name, file.download_url); };
-              listDiv.appendChild(item);
-            })(files[i]);
-          }
-        }
-        if (count === 0) {
-          listDiv.innerHTML = "<span style='color:#777;'>No files found in docs/ folder.</span>";
-        }
-      } catch(e) {
-        listDiv.innerHTML = "Parse error: " + e.message;
-      }
-    } else if (xhr.status === 404) {
-      listDiv.innerHTML = "docs/ folder not found. Create it in your GitHub repo first.";
-    } else {
-      listDiv.innerHTML = "Error " + xhr.status + ". Check your token.";
-    }
-  };
-  xhr.send();
-}
-
-function toggleFileSelection(item, name, url) {
-  var idx = selectedFiles.indexOf(name);
-  if (idx === -1) {
-    item.innerHTML = name + " (loading...)";
-    var token = localStorage.getItem("gh_token") || "";
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    if (token) { xhr.setRequestHeader("Authorization", "token " + token); }
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState !== 4) return;
-      if (xhr.status === 200) {
-        loadedFiles[name] = xhr.responseText;
-        selectedFiles[selectedFiles.length] = name;
-        item.className = "file-item selected";
-        item.innerHTML = name + " (loaded)";
-        updateLoadedFilesLabel();
-      } else {
-        item.innerHTML = name + " (error loading)";
-      }
-    };
-    xhr.send();
-  } else {
-    selectedFiles.splice(idx, 1);
-    delete loadedFiles[name];
-    item.className = "file-item";
-    item.innerHTML = name;
-    updateLoadedFilesLabel();
+function sendMessage() {
+  var input = document.getElementById("userinput").value;
+  if (!input) {
+    setStatus("Type something!");
+    return;
   }
+  appendMessage("user", input);
+  setStatus("Thinking...");
+  // Demo: Echo result after 2 seconds.
+  setTimeout(function() {
+    appendMessage("ai", "This is a demo AI reply to: " + input);
+    setStatus("");
+  }, 2000);
+  document.getElementById("userinput").value = "";
 }
 
-function updateLoadedFilesLabel() {
-  var div = document.getElementById("loaded-files");
-  if (selectedFiles.length === 0) {
-    div.innerHTML = "";
-  } else {
-    div.innerHTML = "Active files: " + selectedFiles.join(", ");
-  }
+function clearChat() {
+  document.getElementById("chat").innerHTML = "<span style='color:#777;font-size:13px;'>Messages will appear here.</span>";
 }
 
-function clearFiles() {
-  selectedFiles = [];
-  loadedFiles = {};
-  updateLoadedFilesLabel();
-  var items = document.getElementsByClassName("file-item");
-  for (var i = 0; i < items.length; i++) {
-    items[i].className = "file-item";
-    var name = items[i].getAttribute("data-name");
-    if (name) { items[i].innerHTML = name; }
-  }
-}
-
-function saveInstructions() {
-  var instr = document.getElementById("instructions").value;
-  try {
-    localStorage.setItem("groq_instructions", instr);
-    document.getElementById("instr-status").innerHTML = "Instructions saved.";
-  } catch(e) { document.getElementById("instr-status").innerHTML = "Could not save: " + e.message; }
-}
-function resetInstructions() {
-  document.getElementById("instructions").value = DEFAULT_INSTRUCTIONS;
-  try { localStorage.setItem("groq_instructions", DEFAULT_INSTRUCTIONS); } catch(e) {}
-  document.getElementById("instr-status").innerHTML = "Reset to default.";
-}
-function updateToggleButton() {
-  var btn = document.getElementById("toggle-btn");
-  if (instructionsOn) {
-    btn.innerHTML = "Instructions: ON";
-    btn.className = "small-btn toggle-on";
-  } else {
-    btn.innerHTML = "Instructions: OFF";
-    btn.className = "small-btn";
-  }
-}
-function toggleInstructions() {
-  instructionsOn = !instructionsOn;
-  try { localStorage.setItem("groq_instructions_on", instructionsOn ? "1" : "0"); } catch(e) {}
-  updateToggleButton();
-  document.getElementById("instr-status").innerHTML = instructionsOn ? "Instructions active." : "Instructions off.";
+function appendMessage(role, text) {
+  var chat = document.getElementById("chat");
+  var div = document.createElement("div");
+  div.className = role === "user" ? "msg-user" : "msg-ai";
+  div.innerHTML = (role === "user" ? "You: " : "AI: ") + escapeHtml(text);
+  chat.appendChild(div);
 }
 
 function setStatus(msg) {
   document.getElementById("status").innerHTML = msg;
 }
-function moveBottomAnchor() {
-  var bottom = document.getElementsByName("bottom")[0];
-  if (bottom) {
-    bottom.parentNode.removeChild(bottom);
-    document.body.appendChild(bottom);
-  }
-}
-function makeNavRow() {
-  var nav = document.createElement("div");
-  nav.className = "nav-row";
-  nav.innerHTML = '<a href="#input">&uarr; Write</a> <a href="#bottom">&darr; Latest</a>';
-  return nav;
-}
-function appendMessage(role, text) {
-  var chat = document.getElementById("chat");
-  var placeholder = chat.querySelector("span");
-  if (placeholder) { chat.removeChild(placeholder); }
-  var div = document.createElement("div");
-  div.className = role === "user" ? "msg-user" : "msg-ai";
-  var label = document.createElement("div");
-  label.className = "msg-label";
-  label.innerHTML = role === "user" ? "You" : "AI";
-  var content = document.createElement("div");
-  content.innerHTML = escapeHtml(text).replace(/\n/g, "<br>");
-  div.appendChild(label);
-  div.appendChild(content);
-  chat.appendChild(div);
-  chat.appendChild(makeNavRow());
-  moveBottomAnchor();
-}
-function escapeHtml(str) {
-  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
 
-function sendMessage() {
-  var apiKey = localStorage.getItem("ai_api_key");
-  if (!apiKey) { setStatus("You must sign in first."); return; }
-  var text = document.getElementById("userinput").value.trim();
-  if (!text) { setStatus("Please type a message."); return; }
-
-  var fullText = text;
-  if (selectedFiles.length > 0) {
-    var fileContext = "";
-    for (var i = 0; i < selectedFiles.length; i++) {
-      var fname = selectedFiles[i];
-      fileContext += "--- File: " + fname + " ---\n" + loadedFiles[fname] + "\n\n";
-    }
-    fullText = "The user has attached the following files as context:\n\n" + fileContext + "User message: " + text;
-  }
-
-  chatHistory[chatHistory.length] = { role: "user", content: fullText };
-  appendMessage("user", text);
-  document.getElementById("userinput").value = "";
-  setStatus("Thinking...");
-
-  var messagesToSend = [];
-  if (instructionsOn) {
-    var instr = document.getElementById("instructions").value.trim();
-    if (instr) { messagesToSend[0] = { role: "system", content: instr }; }
-  }
-  for (var i = 0; i < chatHistory.length; i++) {
-    messagesToSend[messagesToSend.length] = chatHistory[i];
-  }
-
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Authorization", "Bearer " + apiKey);
-
-  var payload = JSON.stringify({
-    model: "llama-3.1-8b-instant",
-    max_tokens: 1024,
-    messages: messagesToSend
-  });
-
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState !== 4) return;
-    if (xhr.status === 200) {
-      try {
-        var resp = JSON.parse(xhr.responseText);
-        var reply = resp.choices[0].message.content;
-        chatHistory[chatHistory.length] = { role: "assistant", content: reply };
-        appendMessage("ai", reply);
-        setStatus("");
-      } catch(e) { setStatus("Parse error: " + e.message); }
-    } else {
-      try {
-        var err = JSON.parse(xhr.responseText);
-        setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText));
-      } catch(e) { setStatus("Error " + xhr.status); }
-    }
-  };
-  xhr.send(payload);
-}
-
-function clearChat() {
-  chatHistory = [];
-  var chat = document.getElementById("chat");
-  chat.innerHTML = '<span style="color:#777;font-size:13px;">Messages will appear here.</span>';
-  setStatus("Chat cleared.");
+function escapeHtml(s) {
+  return (s+"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 </script>
 </body>
