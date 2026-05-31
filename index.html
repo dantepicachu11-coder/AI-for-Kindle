@@ -157,20 +157,45 @@
     font-size: 15px;
     font-weight: bold;
   }
+  #logout-btn {
+    float: right;
+    font-size: 12px;
+    padding: 2px 7px;
+    border: 1px solid #444;
+    background: #eee;
+    color: #222;
+    margin-top: -5px;
+    margin-right: 4px;
+    margin-bottom: 0;
+  }
 </style>
+<!-- Crypto libraries for password hash/check & decryption -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bcrypt.js/2.4.3/bcrypt.min.js"></script>
 </head>
 <body>
 
 <a name="top"></a>
-<h2>AI Chat (Kindle)</h2>
+<h2>
+  AI Chat (Kindle)
+  <button id="logout-btn" onclick="logoutUser()" style="display:none;">Logout</button>
+</h2>
 
-<!-- GROQ API KEY -->
-<div class="section">
+<!-- LOGIN PANEL -->
+<div class="section" id="login-panel">
+  <label>Username:</label>
+  <input type="text" id="username" autocomplete="username" placeholder="Your username" />
+  <label>Password:</label>
+  <input type="password" id="password" autocomplete="current-password" placeholder="Your password" />
+  <div class="section-status" id="login-status"></div>
+  <button class="small-btn" onclick="loginUser()">Sign In</button>
+</div>
+
+<!-- API Key input is now hidden; shown here for compatibility but disabled-->
+<div class="section" id="apikey-panel" style="display:none;">
   <label>Groq API Key:</label>
-  <input type="password" id="apikey" placeholder="gsk_..." />
+  <input type="password" id="apikey" placeholder="gsk_..." disabled />
   <div class="section-status" id="key-status"></div>
-  <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
-  <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
 </div>
 
 <!-- GITHUB TOKEN -->
@@ -225,18 +250,23 @@ var GITHUB_USER = "dantepicachu11-coder";
 var GITHUB_REPO = "AI-for-Kindle";
 var GITHUB_FOLDER = "docs";
 
-var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas matematicas: verifica todos los calculos paso a paso antes de dar el resultado final, y asegurate de que las operaciones sean correctas. Si un problema admite varios metodos, usa el mas confiable. Nunca des un numero sin haberlo comprobado. Para preguntas teoricas o conceptuales: responde como en un examen evaluativo, con informacion correcta, clara y bien estructurada. Da definiciones precisas y, cuando sea util, un ejemplo breve. Longitud de las respuestas: apunta a unas 4 oraciones en promedio. No respondas con frases demasiado cortas que omitan informacion importante, ni te extiendas innecesariamente. Prioriza la exactitud y la claridad sobre la cantidad. Si no estas seguro de un dato, indicalo honestamente en lugar de inventar.";
+var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas técnicas, busca ser breve y directo.";
 
 window.onload = function() {
-  try {
-    var saved = localStorage.getItem("groq_key");
-    if (saved) {
-      document.getElementById("apikey").value = saved;
-      document.getElementById("key-status").innerHTML = "Key loaded automatically.";
-    } else {
-      document.getElementById("key-status").innerHTML = "No key saved yet.";
-    }
-  } catch(e) {}
+  // If user already logged in, auto-fill api key and hide login
+  var user = localStorage.getItem("ai_user");
+  var apiKey = localStorage.getItem("ai_api_key");
+  if (user && apiKey) {
+    document.getElementById("apikey").value = apiKey;
+    document.getElementById("apikey").disabled = true; // Already authed
+    document.getElementById("login-panel").style.display = "none";
+    document.getElementById("apikey-panel").style.display = "block";
+    document.getElementById("logout-btn").style.display = "";
+  } else {
+    document.getElementById("login-panel").style.display = "block";
+    document.getElementById("apikey-panel").style.display = "none";
+    document.getElementById("logout-btn").style.display = "none";
+  }
 
   try {
     var ghsaved = localStorage.getItem("gh_token");
@@ -259,21 +289,63 @@ window.onload = function() {
   updateToggleButton();
 };
 
-function saveKey() {
-  var key = document.getElementById("apikey").value.trim();
-  if (!key) { document.getElementById("key-status").innerHTML = "Enter a key first."; return; }
-  try {
-    localStorage.setItem("groq_key", key);
-    document.getElementById("key-status").innerHTML = "Saved.";
-  } catch(e) { document.getElementById("key-status").innerHTML = "Could not save: " + e.message; }
+// -------- LOGIN SYSTEM ---------
+function fetchUserDb() {
+  // You must place users.json in your repo, e.g. https://raw.githubusercontent.com/<user>/<repo>/main/users.json
+  return fetch('https://raw.githubusercontent.com/dantepicachu11-coder/AI-for-Kindle/main/users.json')
+    .then(r => r.json());
 }
-function forgetKey() {
+
+async function loginUser() {
+  var username = document.getElementById("username").value.trim();
+  var password = document.getElementById("password").value;
+  var statusDiv = document.getElementById("login-status");
+  statusDiv.innerHTML = "Checking...";
+
   try {
-    localStorage.removeItem("groq_key");
-    document.getElementById("apikey").value = "";
-    document.getElementById("key-status").innerHTML = "Key removed.";
-  } catch(e) {}
+    const users = await fetchUserDb();
+    const user = users.find(u => u.username === username);
+    if (!user) { statusDiv.innerHTML = "User not found."; return; }
+
+    // Validate password using bcrypt
+    const valid = await bcrypt.compare(password, user.password_hash);
+    if (!valid) { statusDiv.innerHTML = "Incorrect password."; return; }
+
+    // Decrypt API key using password-derived key
+    try {
+      // Derive key from password (simple PBKDF2, salt=username)
+      var key = CryptoJS.PBKDF2(password, username, { keySize: 256/32, iterations: 1000 }).toString();
+      var bytes = CryptoJS.AES.decrypt(user.api_key_encrypted, key);
+      var apiKey = bytes.toString(CryptoJS.enc.Utf8);
+      if (!apiKey) throw new Error("Decryption failed");
+      // Save user session and API key locally
+      localStorage.setItem("ai_user", username);
+      localStorage.setItem("ai_api_key", apiKey);
+      statusDiv.innerHTML = "Logged in! Ready to chat.";
+      document.getElementById("apikey").value = apiKey;
+      document.getElementById("apikey").disabled = true;
+      document.getElementById("login-panel").style.display = "none";
+      document.getElementById("apikey-panel").style.display = "block";
+      document.getElementById("logout-btn").style.display = "";
+    } catch (e) {
+      statusDiv.innerHTML = "Error decrypting API key.";
+    }
+  } catch (err) {
+    statusDiv.innerHTML = "Login failed.";
+  }
 }
+
+function logoutUser() {
+  localStorage.removeItem("ai_user");
+  localStorage.removeItem("ai_api_key");
+  document.getElementById("apikey").value = "";
+  document.getElementById("apikey").disabled = false;
+  document.getElementById("login-panel").style.display = "block";
+  document.getElementById("apikey-panel").style.display = "none";
+  document.getElementById("logout-btn").style.display = "none";
+}
+
+// --------- REST OF ORIGINAL CODE ---------
 
 function saveGHToken() {
   var token = document.getElementById("ghtoken").value.trim();
@@ -455,9 +527,11 @@ function escapeHtml(str) {
 }
 
 function sendMessage() {
-  var key = document.getElementById("apikey").value.trim();
+  // Only let sendMessage happen if authed (api key present)
+  var apiKey = localStorage.getItem("ai_api_key");
+  if (!apiKey) { setStatus("You must sign in first."); return; }
+
   var text = document.getElementById("userinput").value.trim();
-  if (!key) { setStatus("Please enter your Groq API key."); return; }
   if (!text) { setStatus("Please type a message."); return; }
 
   var fullText = text;
@@ -493,7 +567,7 @@ function sendMessage() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Authorization", "Bearer " + key);
+  xhr.setRequestHeader("Authorization", "Bearer " + apiKey);
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
     if (xhr.status === 200) {
