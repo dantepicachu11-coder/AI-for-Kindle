@@ -1,6 +1,7 @@
-{
-  "username": "Test",
-  "password_hash": "$2b$10$oIMj2dZ.UqMxNZpCJu55YuB4gbz3feYkPHEpUrYLAOT4cDiFgIZR6",
-  "api_key_encrypted": "U2FsdGVkX1862vRerO+rkewxi4dAxhqvKjHtTZZtMwVOtO6628JCqaxrI5VjS4bVYS+RuEu+ezyQ4ijgwo+LOGpCN7e/bAFh/RRtak/VukA=",
-  "gh_token_encrypted": "U2FsdGVkX1+4yPrCGpoIUsrgHLYrqVMt0ITSm3exX+Tarn+Mibwx8vdA1IzhwvsFQhLAMOZL1GHd6okriIQauw=="
-}
+[
+  {
+    "username": "test",
+    "password": "1234567890",
+    "apiKey": "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", // This API keys are test use, they dont work
+    "ghToken": "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" // This token is for test use, they dont work
+  }
