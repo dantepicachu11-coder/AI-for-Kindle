@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>AI Chat for Kindle</title>
+  <title>AI for Kindle</title>
   <style>
     body { font-family: serif; background: #fff; color: #000; font-size: 16px; margin: 0; padding: 5px; }
     h2 { font-size: 18px; margin: 4px 0 8px 0; }
@@ -14,23 +14,40 @@
     .msg-user { color: #004; border-left: 3px solid #000; background: #eef; margin-bottom: 3px; padding-left: 3px;}
     .msg-ai { color: #333; border-left: 3px solid #888; background: #fff; margin-bottom: 3px; padding-left: 3px;}
     #status { font-size: 12px; color: #444; margin-top: 2px; }
-    #apikey-section { margin-bottom: 10px; }
-    #ghtoken-section { margin-bottom: 10px; }
+    #instructions { height: 60px; }
+    .file-item { background:#f5f5f5; cursor:pointer; padding:3px;border-bottom:1px solid #ddd;}
+    .file-item.selected  { background:#444; color:#fff; }
+    .file-controls { margin-bottom: 5px; }
+    .file-list { border: 1px solid #ccc; background:#fafafa;padding:5px;min-height:20px;}
+    .file-label { font-size:12px; color:#555; margin-bottom:3px; }
   </style>
 </head>
 <body>
-  <h2>AI Chat (Kindle)<br>
-      <span style="font-size:13px;">(No login, API key is built in)</span></h2>
+  <h2>AI Chat (Kindle)</h2>
 
-  <div class="section" id="apikey-section" style="display:none">
-    <label>Groq API Key (readonly demo):</label>
-    <input id="apikey" type="text" readonly>
-  </div>
-  <div class="section" id="ghtoken-section" style="display:none">
-    <label>GitHub Token (readonly demo):</label>
-    <input id="ghtoken" type="text" readonly>
+  <!-- Instructions Block -->
+  <div class="section">
+    <label>Instructions for the AI (saves automatically):</label>
+    <textarea id="instructions"></textarea>
+    <div>
+      <button onclick="toggleInstructions()" id="toggle-instr-btn">Instructions: ON</button>
+      <button onclick="resetInstructions()">Reset to Default</button>
+      <span id="instr-save-status"></span>
+    </div>
   </div>
 
+  <!-- .txt Attachments -->
+  <div class="section">
+    <span class="file-label">Attach .txt files (<b>docs/</b> folder in repo)</span>
+    <div class="file-controls">
+      <button onclick="loadFileList()">Refresh list</button>
+      <button onclick="clearFiles()">Clear selected</button>
+      <span id="loaded-files"></span>
+    </div>
+    <div id="file-list" class="file-list"><span style="color:#777;">Tap Refresh to load .txt files.</span></div>
+  </div>
+
+  <!-- Prompt Input and Chat -->
   <div class="section">
     <label>Type your message:</label>
     <textarea id="userinput" rows="2"></textarea>
@@ -41,38 +58,192 @@
   </div>
 
 <script type="text/javascript">
-var API_KEY = "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"; // This are test, non-working API
-var GH_TOKEN = "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"; // This are test, non-working API
+// ----------------- CONFIG -----------------
+var API_KEY = "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";
+var GH_TOKEN = "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";
+var GITHUB_USER = "dantepicachu11-coder";
+var GITHUB_REPO = "AI-for-Kindle";
+var GITHUB_FOLDER = "docs";
 
-// Uncomment below if you want them visible for debugging
-// window.onload = function() {
-//   document.getElementById("apikey").value = API_KEY;
-//   document.getElementById("ghtoken").value = GH_TOKEN;
-// };
+// Default ‘original style’ instructions, same as before
+var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas técnicas, busca ser breve y directo.";
+var instructionsOn = true;
+var loadedFiles = {}; // {filename: content}
+var selectedFiles = []; // order matters
 
+function escapeHtml(s) {
+  return (s+"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// ---------- INSTRUCTIONS STATE -----------
+window.onload = function() {
+  var instr = null;
+  try { instr = localStorage.getItem("ai_instructions"); } catch(e) {}
+  document.getElementById("instructions").value = (instr !== null) ? instr : DEFAULT_INSTRUCTIONS;
+  try {
+    var state = localStorage.getItem("ai_instructions_on");
+    instructionsOn = (state === null) ? true : (state === "1");
+  } catch(e) { instructionsOn = true; }
+  updateInstrToggleBtn();
+  updateLoadedFilesLabel();
+};
+
+function toggleInstructions() {
+  instructionsOn = !instructionsOn;
+  try { localStorage.setItem("ai_instructions_on", instructionsOn ? "1" : "0"); } catch(e) {}
+  updateInstrToggleBtn();
+  document.getElementById("instr-save-status").innerHTML = "";
+}
+function updateInstrToggleBtn() {
+  var btn = document.getElementById("toggle-instr-btn");
+  btn.innerHTML = instructionsOn ? "Instructions: ON" : "Instructions: OFF";
+  if (instructionsOn) {
+    btn.style.background = "#000"; btn.style.color = "#fff";
+  } else {
+    btn.style.background = "#eee"; btn.style.color = "#000";
+  }
+}
+function resetInstructions() {
+  document.getElementById("instructions").value = DEFAULT_INSTRUCTIONS;
+  try { localStorage.setItem("ai_instructions", DEFAULT_INSTRUCTIONS); } catch(e) {}
+  document.getElementById("instr-save-status").innerHTML = "Reset to default.";
+}
+document.getElementById("instructions").onchange = function() {
+  try { localStorage.setItem("ai_instructions", document.getElementById("instructions").value); } catch(e) {}
+  document.getElementById("instr-save-status").innerHTML = "Saved.";
+};
+
+// ----------------- .TXT FILES ---------------
+function loadFileList() {
+  var listDiv = document.getElementById("file-list");
+  listDiv.innerHTML = "Loading...";
+  var url = "https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FOLDER;
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+  xhr.setRequestHeader("Accept", "application/vnd.github.v3+json");
+  xhr.setRequestHeader("Authorization", "token " + GH_TOKEN);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== 4) return;
+    if (xhr.status === 200) {
+      try {
+        var files = eval('(' + xhr.responseText + ')');
+        listDiv.innerHTML = "";
+        var count = 0;
+        for (var i = 0; i < files.length; i++) {
+          var file = files[i];
+          var name = file.name;
+          // Only .txt
+          if (file.type === "file" && name.match(/\.txt$/i)) {
+            count++;
+            (function(file) {
+              var item = document.createElement("div");
+              item.className = "file-item";
+              item.innerHTML = file.name;
+              item.onclick = function() { toggleFileSelection(item, file.name, file.download_url); };
+              // Mark selected
+              if (selectedFiles.indexOf(file.name) !== -1)
+                item.className += " selected";
+              listDiv.appendChild(item);
+            })(file);
+          }
+        }
+        if (count === 0) {
+          listDiv.innerHTML = "<span style='color:#777;'>No .txt files found in docs/</span>";
+        }
+      } catch(e) {
+        listDiv.innerHTML = "Parse error: " + e.message;
+      }
+    } else if (xhr.status === 404) {
+      listDiv.innerHTML = "docs/ folder not found in your GitHub repo.";
+    } else {
+      listDiv.innerHTML = "GitHub error " + xhr.status;
+    }
+  };
+  xhr.send();
+}
+
+function toggleFileSelection(item, name, url) {
+  var idx = selectedFiles.indexOf(name);
+  if (idx === -1) {
+    // select and fetch
+    item.innerHTML = name + " (loading...)";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.setRequestHeader("Authorization", "token " + GH_TOKEN);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          loadedFiles[name] = xhr.responseText;
+          selectedFiles[selectedFiles.length] = name;
+          item.className = "file-item selected";
+          item.innerHTML = name + " (loaded)";
+          updateLoadedFilesLabel();
+        } else {
+          item.innerHTML = name + " (error)";
+        }
+      }
+    };
+    xhr.send();
+  } else {
+    // deselect
+    selectedFiles.splice(idx, 1);
+    delete loadedFiles[name];
+    item.className = "file-item";
+    item.innerHTML = name;
+    updateLoadedFilesLabel();
+  }
+}
+function clearFiles() {
+  selectedFiles = [];
+  loadedFiles = {};
+  // Reselect all .file-item divs
+  var items = document.getElementsByClassName("file-item");
+  for (var i=0; i<items.length; ++i) {
+    items[i].className = "file-item";
+    var name = items[i].innerHTML.split(" ")[0];
+    items[i].innerHTML = name;
+  }
+  updateLoadedFilesLabel();
+}
+function updateLoadedFilesLabel() {
+  var div = document.getElementById("loaded-files");
+  div.innerHTML = (selectedFiles.length === 0) ? "" : ("Files: " + selectedFiles.join(", "));
+}
+
+// ----------------- CHAT/UI -----------------
 function sendMessage() {
   var input = document.getElementById("userinput").value;
   if (!input) {
     setStatus("Type something!");
     return;
   }
-  appendMessage("user", input);
-  setStatus("Talking to AI...");
 
-  // Prepare chat history (simple, one user, one AI per go)
+  // Build AI message array:
+  /* Order:
+     - If instructions ON: as a {"role":"system","content": instructions }
+     - If files attached: {"role":"user","content": "File context: ..."}
+     - Finally: {"role":"user","content": user input }
+  */
   var messages = [];
-  var chatDiv = document.getElementById("chat");
-  var divs = chatDiv.getElementsByTagName("div");
-  for (var i=0; i<divs.length; ++i) {
-    var txt = divs[i].innerText || divs[i].textContent;
-    if (divs[i].className.indexOf("msg-user") !== -1) {
-      messages.push({"role": "user", "content": txt.replace(/^You: /,"")});
-    } else if (divs[i].className.indexOf("msg-ai") !== -1) {
-      messages.push({"role": "assistant", "content": txt.replace(/^AI: /,"")});
+  if (instructionsOn) {
+    var instr = document.getElementById("instructions").value;
+    if (instr && instr.replace(/^\s+|\s+$/g,"")) {
+      messages[messages.length] = {role: "system", content: instr};
     }
   }
-  // Add current user input
-  messages.push({"role": "user", "content": input});
+  for (var i=0; i<selectedFiles.length; ++i) {
+    var fname = selectedFiles[i];
+    if (loadedFiles[fname]) {
+      messages[messages.length] = {
+        role: "user",
+        content: "Archivo adjunto \"" + fname + "\":\n" + loadedFiles[fname]
+      };
+    }
+  }
+  messages[messages.length] = {role: "user", content: input};
+
+  appendMessage("user", input);
+  setStatus("Talking to AI...");
 
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
@@ -84,7 +255,7 @@ function sendMessage() {
       setStatus("");
       if (xhr.status === 200) {
         try {
-          var resp = JSON.parse(xhr.responseText);
+          var resp = eval('(' + xhr.responseText + ')');
           var reply = resp.choices && resp.choices[0] && resp.choices[0].message && resp.choices[0].message.content
             ? resp.choices[0].message.content
             : "[No AI reply]";
@@ -93,16 +264,15 @@ function sendMessage() {
           appendMessage("ai", "[Parse error or unexpected response]");
         }
       } else {
-        var errMsg = "Error: " + xhr.status + " - ";
-        if (xhr.responseText) errMsg += xhr.responseText;
+        var errMsg = "Error: " + xhr.status;
+        if (xhr.responseText) errMsg += " - " + escapeHtml(xhr.responseText);
         appendMessage("ai", errMsg);
       }
     }
   };
 
-  // You may change the model to any supported by Groq (example: "llama-3-8b-8192")
   var data = {
-    model: "llama-3-8b-8192", // or "llama-3.1-8b-instant"
+    model: "llama3-8b-8192",
     messages: messages,
     max_tokens: 128
   };
@@ -118,24 +288,17 @@ function sendMessage() {
 function clearChat() {
   document.getElementById("chat").innerHTML = "<span style='color:#777;font-size:13px;'>Messages will appear here.</span>";
 }
-
 function appendMessage(role, text) {
   var chat = document.getElementById("chat");
-  // remove placeholder if exists
-  if (chat.childNodes.length === 1 && chat.childNodes[0].nodeType === 1 && chat.childNodes[0].tagName === 'SPAN')
+  if (chat.childNodes.length === 1 && chat.childNodes[0].tagName === 'SPAN')
     chat.innerHTML = "";
   var div = document.createElement("div");
   div.className = role === "user" ? "msg-user" : "msg-ai";
   div.innerHTML = (role === "user" ? "You: " : "AI: ") + escapeHtml(text);
   chat.appendChild(div);
 }
-
 function setStatus(msg) {
   document.getElementById("status").innerHTML = msg;
-}
-
-function escapeHtml(s) {
-  return (s+"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 </script>
 </body>
