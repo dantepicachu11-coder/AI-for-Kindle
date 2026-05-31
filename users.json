@@ -1,7 +1,8 @@
-[
+var USERS = [
   {
-    "username": "test",
-    "password": "1234567890",
-    "apiKey": "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", // This API keys are test use, they dont work
-    "ghToken": "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" // This token is for test use, they dont work
+    username: "test",
+    password: "1234",
+    apiKey: "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", // This API keys are test use, they dont work
+    ghToken: "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" // This token is for test use, they dont work
   }
+];
