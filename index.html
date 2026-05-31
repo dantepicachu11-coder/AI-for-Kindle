@@ -190,20 +190,11 @@
   <button class="small-btn" onclick="loginUser()">Sign In</button>
 </div>
 
-<!-- API Key hidden but present for compatibility -->
+<!-- API Key (read-only, just informational for session) -->
 <div class="section" id="apikey-panel" style="display:none;">
   <label>Groq API Key:</label>
   <input type="password" id="apikey" placeholder="gsk_..." disabled />
   <div class="section-status" id="key-status"></div>
-</div>
-
-<!-- GITHUB TOKEN: now auto-filled at login if present -->
-<div class="section">
-  <label>GitHub Token:</label>
-  <input type="password" id="ghtoken" placeholder="ghp_..." />
-  <div class="section-status" id="gh-status"></div>
-  <button class="small-btn" onclick="saveGHToken()" style="margin-top:6px;">Save Token</button>
-  <button class="small-btn" onclick="forgetGHToken()" style="margin-top:6px;">Forget Token</button>
 </div>
 
 <!-- FILE LOADER -->
@@ -252,17 +243,13 @@ var GITHUB_FOLDER = "docs";
 var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas técnicas, busca ser breve y directo.";
 
 window.onload = function() {
-  // If user already logged in, auto-fill api key and gh token and hide login
+  // Restore user session
   var user = localStorage.getItem("ai_user");
   var apiKey = localStorage.getItem("ai_api_key");
-  var ghToken = localStorage.getItem("gh_token");
+
   if (user && apiKey) {
     document.getElementById("apikey").value = apiKey;
     document.getElementById("apikey").disabled = true;
-    if(ghToken){
-      document.getElementById("ghtoken").value = ghToken;
-      document.getElementById("ghtoken").disabled = true;
-    }
     document.getElementById("login-panel").style.display = "none";
     document.getElementById("apikey-panel").style.display = "block";
     document.getElementById("logout-btn").style.display = "";
@@ -270,18 +257,7 @@ window.onload = function() {
     document.getElementById("login-panel").style.display = "block";
     document.getElementById("apikey-panel").style.display = "none";
     document.getElementById("logout-btn").style.display = "none";
-    document.getElementById("ghtoken").disabled = false;
   }
-
-  try {
-    var ghsaved = localStorage.getItem("gh_token");
-    if (!user && ghsaved) { // Only show if not auto-set via login
-      document.getElementById("ghtoken").value = ghsaved;
-      document.getElementById("gh-status").innerHTML = "Token loaded automatically.";
-    } else if (!ghsaved) {
-      document.getElementById("gh-status").innerHTML = "No token saved yet.";
-    }
-  } catch(e) {}
 
   var instr = null;
   try { instr = localStorage.getItem("groq_instructions"); } catch(e) {}
@@ -325,20 +301,17 @@ async function loginUser() {
     if (user.gh_token_encrypted) {
       ghToken = CryptoJS.AES.decrypt(user.gh_token_encrypted, key).toString(CryptoJS.enc.Utf8);
       if (!ghToken) { statusDiv.innerHTML = "GitHub token decryption failed."; return; }
+      localStorage.setItem("gh_token", ghToken);
+    } else {
+      localStorage.removeItem("gh_token");
     }
 
-    // Save in localStorage for session use
     localStorage.setItem("ai_user", username);
     localStorage.setItem("ai_api_key", apiKey);
-    if (ghToken) localStorage.setItem("gh_token", ghToken);
 
     statusDiv.innerHTML = "Logged in! Ready to chat.";
     document.getElementById("apikey").value = apiKey;
     document.getElementById("apikey").disabled = true;
-    if (ghToken) {
-      document.getElementById("ghtoken").value = ghToken;
-      document.getElementById("ghtoken").disabled = true;
-    }
     document.getElementById("login-panel").style.display = "none";
     document.getElementById("apikey-panel").style.display = "block";
     document.getElementById("logout-btn").style.display = "";
@@ -346,40 +319,20 @@ async function loginUser() {
     document.getElementById("login-status").innerHTML = "Login failed.";
   }
 }
+
 function logoutUser() {
   localStorage.removeItem("ai_user");
   localStorage.removeItem("ai_api_key");
   localStorage.removeItem("gh_token");
   document.getElementById("apikey").value = "";
   document.getElementById("apikey").disabled = false;
-  document.getElementById("ghtoken").value = "";
-  document.getElementById("ghtoken").disabled = false;
   document.getElementById("login-panel").style.display = "block";
   document.getElementById("apikey-panel").style.display = "none";
   document.getElementById("logout-btn").style.display = "none";
 }
 
-// GitHub token manual save/forget still works for edge cases
-function saveGHToken() {
-  var token = document.getElementById("ghtoken").value.trim();
-  if (!token) { document.getElementById("gh-status").innerHTML = "Enter a token first."; return; }
-  try {
-    localStorage.setItem("gh_token", token);
-    document.getElementById("gh-status").innerHTML = "Saved.";
-    document.getElementById("ghtoken").disabled = true;
-  } catch(e) { document.getElementById("gh-status").innerHTML = "Could not save: " + e.message; }
-}
-function forgetGHToken() {
-  try {
-    localStorage.removeItem("gh_token");
-    document.getElementById("ghtoken").value = "";
-    document.getElementById("ghtoken").disabled = false;
-    document.getElementById("gh-status").innerHTML = "Token removed.";
-  } catch(e) {}
-}
-
 function loadFileList() {
-  var token = document.getElementById("ghtoken").value.trim();
+  var token = localStorage.getItem("gh_token") || "";
   var listDiv = document.getElementById("file-list");
   listDiv.innerHTML = "Loading...";
 
@@ -428,7 +381,7 @@ function toggleFileSelection(item, name, url) {
   var idx = selectedFiles.indexOf(name);
   if (idx === -1) {
     item.innerHTML = name + " (loading...)";
-    var token = document.getElementById("ghtoken").value.trim();
+    var token = localStorage.getItem("gh_token") || "";
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     if (token) { xhr.setRequestHeader("Authorization", "token " + token); }
@@ -571,16 +524,17 @@ function sendMessage() {
     messagesToSend[messagesToSend.length] = chatHistory[i];
   }
 
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Authorization", "Bearer " + apiKey);
+
   var payload = JSON.stringify({
     model: "llama-3.1-8b-instant",
     max_tokens: 1024,
     messages: messagesToSend
   });
 
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Authorization", "Bearer " + apiKey);
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
     if (xhr.status === 200) {
