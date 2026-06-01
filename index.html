@@ -5,158 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Chat</title>
 <style>
-  body {
-    font-family: Georgia, serif;
-    background: #fff;
-    color: #000;
-    margin: 0;
-    padding: 8px;
-    font-size: 16px;
-  }
-  h2 {
-    font-size: 18px;
-    margin: 4px 0 10px 0;
-    border-bottom: 2px solid #000;
-    padding-bottom: 4px;
-  }
-  .section {
-    border: 1px solid #000;
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-  .section label {
-    display: block;
-    font-size: 13px;
-    margin-bottom: 4px;
-    font-weight: bold;
-  }
-  input[type=password], input[type=text] {
-    width: 100%;
-    font-size: 13px;
-    padding: 4px;
-    box-sizing: border-box;
-    border: 1px solid #000;
-  }
-  .section-status {
-    font-size: 12px;
-    margin-top: 4px;
-    font-style: italic;
-  }
-  #instructions {
-    width: 100%;
-    height: 70px;
-    font-size: 14px;
-    font-family: Georgia, serif;
-    padding: 6px;
-    box-sizing: border-box;
-    border: 1px solid #000;
-    resize: none;
-  }
-  #file-list {
-    margin-top: 6px;
-    border: 1px solid #ccc;
-    padding: 4px;
-    min-height: 30px;
-    font-size: 13px;
-    background: #f9f9f9;
-  }
-  .file-item {
-    padding: 6px 4px;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-  }
-  .file-item.selected {
-    background: #000;
-    color: #fff;
-  }
-  .file-item:last-child {
-    border-bottom: none;
-  }
-  #loaded-files {
-    font-size: 12px;
-    margin-top: 4px;
-    font-style: italic;
-  }
-  #input-area {
-    border: 2px solid #000;
-    padding: 8px;
-    margin-bottom: 10px;
-    background: #f0f0f0;
-  }
-  #userinput {
-    width: 100%;
-    height: 60px;
-    font-size: 15px;
-    font-family: Georgia, serif;
-    padding: 6px;
-    box-sizing: border-box;
-    border: 1px solid #000;
-    resize: none;
-  }
+  body { font-family: Georgia, serif; background: #fff; color: #000; margin: 0; padding: 8px; font-size: 16px; }
+  h2 { font-size: 18px; margin: 4px 0 10px 0; border-bottom: 2px solid #000; padding-bottom: 4px; }
+  .section { border: 1px solid #000; padding: 8px; margin-bottom: 10px; }
+  .section label { display: block; font-size: 13px; margin-bottom: 4px; font-weight: bold; }
+  input[type=password], input[type=text] { width: 100%; font-size: 13px; padding: 4px; box-sizing: border-box; border: 1px solid #000; }
+  .section-status { font-size: 12px; margin-top: 4px; font-style: italic; }
+  #instructions { width: 100%; height: 70px; font-size: 14px; font-family: Georgia, serif; padding: 6px; box-sizing: border-box; border: 1px solid #000; resize: none; }
+  #file-list { margin-top: 6px; border: 1px solid #ccc; padding: 4px; min-height: 30px; font-size: 13px; background: #f9f9f9; }
+  .file-item { padding: 6px 4px; border-bottom: 1px solid #ddd; cursor: pointer; }
+  .file-item.selected { background: #000; color: #fff; }
+  .file-item:last-child { border-bottom: none; }
+  #loaded-files { font-size: 12px; margin-top: 4px; font-style: italic; }
+  #input-area { border: 2px solid #000; padding: 8px; margin-bottom: 10px; background: #f0f0f0; }
+  #userinput { width: 100%; height: 60px; font-size: 15px; font-family: Georgia, serif; padding: 6px; box-sizing: border-box; border: 1px solid #000; resize: none; }
   #btn-row { margin-top: 4px; }
-  button {
-    font-size: 15px;
-    padding: 8px 16px;
-    margin-right: 6px;
-    margin-bottom: 4px;
-    border: 2px solid #000;
-    background: #fff;
-    cursor: pointer;
-    font-family: Georgia, serif;
-  }
+  button { font-size: 15px; padding: 8px 16px; margin-right: 6px; margin-bottom: 4px; border: 2px solid #000; background: #fff; cursor: pointer; font-family: Georgia, serif; }
   .small-btn { font-size: 12px; padding: 4px 8px; }
   .toggle-on { background: #000; color: #fff; }
-  #status {
-    font-size: 13px;
-    font-style: italic;
-    margin-top: 4px;
-    min-height: 16px;
-  }
-  .msg-user {
-    margin-bottom: 8px;
-    padding: 6px;
-    border-left: 3px solid #000;
-    background: #eee;
-  }
-  .msg-ai {
-    margin-bottom: 8px;
-    padding: 6px;
-    border-left: 3px solid #555;
-    background: #fff;
-  }
-  .msg-label {
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 3px;
-  }
-  .nav-row {
-    text-align: center;
-    padding: 8px 4px;
-    margin: 10px 0;
-    border-top: 1px dashed #888;
-    border-bottom: 1px dashed #888;
-    background: #f9f9f9;
-  }
-  .nav-row a {
-    display: inline-block;
-    padding: 8px 18px;
-    margin: 0 6px;
-    border: 2px solid #000;
-    background: #fff;
-    color: #000;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
-  }
-  #ai-selector {
-    margin-bottom: 6px;
-  }
-  #ai-selector button {
-    font-size: 13px;
-    padding: 6px 14px;
-    margin-right: 6px;
-  }
+  #status { font-size: 13px; font-style: italic; margin-top: 4px; min-height: 16px; }
+  .msg-user { margin-bottom: 8px; padding: 6px; border-left: 3px solid #000; background: #eee; }
+  .msg-ai { margin-bottom: 8px; padding: 6px; border-left: 3px solid #555; background: #fff; }
+  .msg-label { font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 3px; }
+  .nav-row { text-align: center; padding: 8px 4px; margin: 10px 0; border-top: 1px dashed #888; border-bottom: 1px dashed #888; background: #f9f9f9; }
+  .nav-row a { display: inline-block; padding: 8px 18px; margin: 0 6px; border: 2px solid #000; background: #fff; color: #000; text-decoration: none; font-size: 15px; font-weight: bold; }
+  #ai-selector button { font-size: 13px; padding: 6px 12px; margin-right: 4px; margin-bottom: 4px; }
 </style>
 </head>
 <body>
@@ -168,13 +41,14 @@
 <div class="section">
   <label>Active AI:</label>
   <div id="ai-selector">
-    <button id="btn-groq" class="toggle-on" onclick="selectAI('groq')">Groq (Llama)</button>
+    <button id="btn-groq" class="toggle-on" onclick="selectAI('groq')">Groq</button>
     <button id="btn-gemini" onclick="selectAI('gemini')">Gemini</button>
+    <button id="btn-cohere" onclick="selectAI('cohere')">Cohere</button>
   </div>
   <div class="section-status" id="ai-status">Using Groq (Llama 3.1)</div>
 </div>
 
-<!-- GROQ API KEY -->
+<!-- GROQ KEY -->
 <div class="section">
   <label>Groq API Key (gsk_...):</label>
   <input type="password" id="apikey" placeholder="gsk_..." />
@@ -183,13 +57,22 @@
   <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
 </div>
 
-<!-- GEMINI API KEY -->
+<!-- GEMINI KEY -->
 <div class="section">
   <label>Gemini API Key (AIza...):</label>
   <input type="password" id="geminikey" placeholder="AIza..." />
   <div class="section-status" id="gemini-status"></div>
   <button class="small-btn" onclick="saveGeminiKey()" style="margin-top:6px;">Save Key</button>
   <button class="small-btn" onclick="forgetGeminiKey()" style="margin-top:6px;">Forget Key</button>
+</div>
+
+<!-- COHERE KEY -->
+<div class="section">
+  <label>Cohere API Key:</label>
+  <input type="password" id="coherekey" placeholder="..." />
+  <div class="section-status" id="cohere-status"></div>
+  <button class="small-btn" onclick="saveCohereKey()" style="margin-top:6px;">Save Key</button>
+  <button class="small-btn" onclick="forgetCohereKey()" style="margin-top:6px;">Forget Key</button>
 </div>
 
 <!-- GITHUB TOKEN -->
@@ -220,7 +103,7 @@
   <button class="small-btn" onclick="resetInstructions()" style="margin-top:6px;">Reset to Default</button>
 </div>
 
-<!-- MESSAGE INPUT -->
+<!-- INPUT -->
 <div id="input-area">
   <a name="input"></a>
   <textarea id="userinput" placeholder="Type your message here..."></textarea>
@@ -248,23 +131,10 @@ var GITHUB_FOLDER = "docs";
 var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas matematicas: verifica todos los calculos paso a paso antes de dar el resultado final, y asegurate de que las operaciones sean correctas. Si un problema admite varios metodos, usa el mas confiable. Nunca des un numero sin haberlo comprobado. Para preguntas teoricas o conceptuales: responde como en un examen evaluativo, con informacion correcta, clara y bien estructurada. Da definiciones precisas y, cuando sea util, un ejemplo breve. Longitud de las respuestas: apunta a unas 4 oraciones en promedio. No respondas con frases demasiado cortas que omitan informacion importante, ni te extiendas innecesariamente. Prioriza la exactitud y la claridad sobre la cantidad. Si no estas seguro de un dato, indicalo honestamente en lugar de inventar.";
 
 window.onload = function() {
-  try {
-    var saved = localStorage.getItem("groq_key");
-    if (saved) { document.getElementById("apikey").value = saved; document.getElementById("key-status").innerHTML = "Key loaded automatically."; }
-    else { document.getElementById("key-status").innerHTML = "No key saved yet."; }
-  } catch(e) {}
-
-  try {
-    var gsaved = localStorage.getItem("gemini_key");
-    if (gsaved) { document.getElementById("geminikey").value = gsaved; document.getElementById("gemini-status").innerHTML = "Key loaded automatically."; }
-    else { document.getElementById("gemini-status").innerHTML = "No key saved yet."; }
-  } catch(e) {}
-
-  try {
-    var ghsaved = localStorage.getItem("gh_token");
-    if (ghsaved) { document.getElementById("ghtoken").value = ghsaved; document.getElementById("gh-status").innerHTML = "Token loaded automatically."; }
-    else { document.getElementById("gh-status").innerHTML = "No token saved yet."; }
-  } catch(e) {}
+  loadFromStorage("groq_key", "apikey", "key-status");
+  loadFromStorage("gemini_key", "geminikey", "gemini-status");
+  loadFromStorage("cohere_key", "coherekey", "cohere-status");
+  loadFromStorage("gh_token", "ghtoken", "gh-status");
 
   var instr = null;
   try { instr = localStorage.getItem("groq_instructions"); } catch(e) {}
@@ -278,69 +148,62 @@ window.onload = function() {
 
   try {
     var ai = localStorage.getItem("active_ai");
-    if (ai === "gemini") { activeAI = "gemini"; }
+    if (ai === "gemini" || ai === "cohere") { activeAI = ai; }
   } catch(e) {}
   updateAIButtons();
 };
 
-// --- AI SELECTOR ---
+function loadFromStorage(storageKey, fieldId, statusId) {
+  try {
+    var val = localStorage.getItem(storageKey);
+    if (val) {
+      document.getElementById(fieldId).value = val;
+      document.getElementById(statusId).innerHTML = "Key loaded automatically.";
+    } else {
+      document.getElementById(statusId).innerHTML = "No key saved yet.";
+    }
+  } catch(e) {}
+}
+
 function selectAI(ai) {
   activeAI = ai;
   chatHistory = [];
-  var chat = document.getElementById("chat");
-  chat.innerHTML = '<span style="color:#777;font-size:13px;">Messages will appear here.</span>';
+  document.getElementById("chat").innerHTML = '<span style="color:#777;font-size:13px;">Messages will appear here.</span>';
   try { localStorage.setItem("active_ai", ai); } catch(e) {}
   updateAIButtons();
 }
 
 function updateAIButtons() {
-  var gb = document.getElementById("btn-groq");
-  var gem = document.getElementById("btn-gemini");
-  if (activeAI === "groq") {
-    gb.className = "toggle-on";
-    gem.className = "";
-    document.getElementById("ai-status").innerHTML = "Using Groq (Llama 3.1) — free tier";
-  } else {
-    gb.className = "";
-    gem.className = "toggle-on";
-    document.getElementById("ai-status").innerHTML = "Using Gemini 2.0 Flash";
+  var ids = ["btn-groq", "btn-gemini", "btn-cohere"];
+  var ais = ["groq", "gemini", "cohere"];
+  var labels = ["Using Groq (Llama 3.1) — free tier", "Using Gemini 2.5 Flash", "Using Cohere (Command R+)"];
+  for (var i = 0; i < ids.length; i++) {
+    document.getElementById(ids[i]).className = (activeAI === ais[i]) ? "toggle-on" : "";
+  }
+  for (var i = 0; i < ais.length; i++) {
+    if (activeAI === ais[i]) { document.getElementById("ai-status").innerHTML = labels[i]; }
   }
 }
 
-// --- GROQ KEY ---
-function saveKey() {
-  var key = document.getElementById("apikey").value.trim();
-  if (!key) { document.getElementById("key-status").innerHTML = "Enter a key first."; return; }
-  try { localStorage.setItem("groq_key", key); document.getElementById("key-status").innerHTML = "Saved."; }
-  catch(e) { document.getElementById("key-status").innerHTML = "Could not save: " + e.message; }
+function saveToStorage(storageKey, fieldId, statusId) {
+  var val = document.getElementById(fieldId).value.trim();
+  if (!val) { document.getElementById(statusId).innerHTML = "Enter a key first."; return; }
+  try { localStorage.setItem(storageKey, val); document.getElementById(statusId).innerHTML = "Saved."; }
+  catch(e) { document.getElementById(statusId).innerHTML = "Could not save: " + e.message; }
 }
-function forgetKey() {
-  try { localStorage.removeItem("groq_key"); document.getElementById("apikey").value = ""; document.getElementById("key-status").innerHTML = "Key removed."; } catch(e) {}
-}
-
-// --- GEMINI KEY ---
-function saveGeminiKey() {
-  var key = document.getElementById("geminikey").value.trim();
-  if (!key) { document.getElementById("gemini-status").innerHTML = "Enter a key first."; return; }
-  try { localStorage.setItem("gemini_key", key); document.getElementById("gemini-status").innerHTML = "Saved."; }
-  catch(e) { document.getElementById("gemini-status").innerHTML = "Could not save: " + e.message; }
-}
-function forgetGeminiKey() {
-  try { localStorage.removeItem("gemini_key"); document.getElementById("geminikey").value = ""; document.getElementById("gemini-status").innerHTML = "Key removed."; } catch(e) {}
+function forgetFromStorage(storageKey, fieldId, statusId) {
+  try { localStorage.removeItem(storageKey); document.getElementById(fieldId).value = ""; document.getElementById(statusId).innerHTML = "Key removed."; } catch(e) {}
 }
 
-// --- GITHUB TOKEN ---
-function saveGHToken() {
-  var token = document.getElementById("ghtoken").value.trim();
-  if (!token) { document.getElementById("gh-status").innerHTML = "Enter a token first."; return; }
-  try { localStorage.setItem("gh_token", token); document.getElementById("gh-status").innerHTML = "Saved."; }
-  catch(e) { document.getElementById("gh-status").innerHTML = "Could not save: " + e.message; }
-}
-function forgetGHToken() {
-  try { localStorage.removeItem("gh_token"); document.getElementById("ghtoken").value = ""; document.getElementById("gh-status").innerHTML = "Token removed."; } catch(e) {}
-}
+function saveKey() { saveToStorage("groq_key", "apikey", "key-status"); }
+function forgetKey() { forgetFromStorage("groq_key", "apikey", "key-status"); }
+function saveGeminiKey() { saveToStorage("gemini_key", "geminikey", "gemini-status"); }
+function forgetGeminiKey() { forgetFromStorage("gemini_key", "geminikey", "gemini-status"); }
+function saveCohereKey() { saveToStorage("cohere_key", "coherekey", "cohere-status"); }
+function forgetCohereKey() { forgetFromStorage("cohere_key", "coherekey", "cohere-status"); }
+function saveGHToken() { saveToStorage("gh_token", "ghtoken", "gh-status"); }
+function forgetGHToken() { forgetFromStorage("gh_token", "ghtoken", "gh-status"); }
 
-// --- FILE LOADER ---
 function loadFileList() {
   var token = document.getElementById("ghtoken").value.trim();
   var listDiv = document.getElementById("file-list");
@@ -427,7 +290,6 @@ function clearFiles() {
   }
 }
 
-// --- INSTRUCTIONS ---
 function saveInstructions() {
   var instr = document.getElementById("instructions").value;
   try { localStorage.setItem("groq_instructions", instr); document.getElementById("instr-status").innerHTML = "Instructions saved."; }
@@ -450,7 +312,6 @@ function toggleInstructions() {
   document.getElementById("instr-status").innerHTML = instructionsOn ? "Instructions active." : "Instructions off.";
 }
 
-// --- CHAT ---
 function setStatus(msg) { document.getElementById("status").innerHTML = msg; }
 function moveBottomAnchor() {
   var bottom = document.getElementsByName("bottom")[0];
@@ -482,50 +343,39 @@ function appendMessage(role, text) {
 function escapeHtml(str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
-
-function buildFileContext(text) {
+function getSystemPrompt() {
+  if (!instructionsOn) return "";
+  return document.getElementById("instructions").value.trim();
+}
+function buildFullText(text) {
   if (selectedFiles.length === 0) return text;
-  var fileContext = "";
+  var ctx = "";
   for (var i = 0; i < selectedFiles.length; i++) {
-    fileContext += "--- File: " + selectedFiles[i] + " ---\n" + loadedFiles[selectedFiles[i]] + "\n\n";
+    ctx += "--- File: " + selectedFiles[i] + " ---\n" + loadedFiles[selectedFiles[i]] + "\n\n";
   }
-  return "The user has attached the following files as context:\n\n" + fileContext + "User message: " + text;
+  return "The user has attached the following files as context:\n\n" + ctx + "User message: " + text;
 }
 
 function sendMessage() {
   var text = document.getElementById("userinput").value.trim();
   if (!text) { setStatus("Please type a message."); return; }
-
-  var fullText = buildFileContext(text);
+  var fullText = buildFullText(text);
   chatHistory[chatHistory.length] = { role: "user", content: fullText };
   appendMessage("user", text);
   document.getElementById("userinput").value = "";
   setStatus("Thinking...");
-
-  if (activeAI === "groq") {
-    sendGroq(fullText);
-  } else {
-    sendGemini(fullText);
-  }
+  if (activeAI === "groq") { sendGroq(); }
+  else if (activeAI === "gemini") { sendGemini(); }
+  else { sendCohere(); }
 }
 
-function getSystemPrompt() {
-  if (!instructionsOn) return "";
-  return document.getElementById("instructions").value.trim();
-}
-
-function sendGroq(fullText) {
+function sendGroq() {
   var key = document.getElementById("apikey").value.trim();
   if (!key) { setStatus("Enter your Groq API key first."); return; }
-
-  var messagesToSend = [];
+  var messages = [];
   var sys = getSystemPrompt();
-  if (sys) { messagesToSend[0] = { role: "system", content: sys }; }
-  for (var i = 0; i < chatHistory.length; i++) {
-    messagesToSend[messagesToSend.length] = chatHistory[i];
-  }
-
-  var payload = JSON.stringify({ model: "llama-3.1-8b-instant", max_tokens: 1024, messages: messagesToSend });
+  if (sys) { messages[0] = { role: "system", content: sys }; }
+  for (var i = 0; i < chatHistory.length; i++) { messages[messages.length] = chatHistory[i]; }
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -537,39 +387,29 @@ function sendGroq(fullText) {
         var resp = JSON.parse(xhr.responseText);
         var reply = resp.choices[0].message.content;
         chatHistory[chatHistory.length] = { role: "assistant", content: reply };
-        appendMessage("ai", reply);
-        setStatus("");
+        appendMessage("ai", reply); setStatus("");
       } catch(e) { setStatus("Parse error: " + e.message); }
     } else {
-      try {
-        var err = JSON.parse(xhr.responseText);
-        setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText));
-      } catch(e) { setStatus("Error " + xhr.status); }
+      try { var err = JSON.parse(xhr.responseText); setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText)); }
+      catch(e) { setStatus("Error " + xhr.status); }
     }
   };
-  xhr.send(payload);
+  xhr.send(JSON.stringify({ model: "llama-3.1-8b-instant", max_tokens: 1024, messages: messages }));
 }
 
-function sendGemini(fullText) {
+function sendGemini() {
   var key = document.getElementById("geminikey").value.trim();
   if (!key) { setStatus("Enter your Gemini API key first."); return; }
-
-  // Build Gemini history format
-  var geminiHistory = [];
   var sys = getSystemPrompt();
-
-  // Gemini doesn't have a system role — prepend to first user message
+  var contents = [];
   for (var i = 0; i < chatHistory.length; i++) {
     var role = chatHistory[i].role === "assistant" ? "model" : "user";
-    var msgText = chatHistory[i].content;
-    if (i === 0 && sys) { msgText = sys + "\n\n" + msgText; }
-    geminiHistory[geminiHistory.length] = { role: role, parts: [{ text: msgText }] };
+    var txt = chatHistory[i].content;
+    if (i === 0 && sys) { txt = sys + "\n\n" + txt; }
+    contents[contents.length] = { role: role, parts: [{ text: txt }] };
   }
-
-  var payload = JSON.stringify({ contents: geminiHistory });
-  var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + encodeURIComponent(key);
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
+  xhr.open("POST", "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + encodeURIComponent(key), true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
@@ -579,24 +419,52 @@ function sendGemini(fullText) {
         if (resp.candidates && resp.candidates[0] && resp.candidates[0].content && resp.candidates[0].content.parts[0]) {
           var reply = resp.candidates[0].content.parts[0].text;
           chatHistory[chatHistory.length] = { role: "assistant", content: reply };
-          appendMessage("ai", reply);
-          setStatus("");
+          appendMessage("ai", reply); setStatus("");
         } else { setStatus("Unexpected response from Gemini."); }
       } catch(e) { setStatus("Parse error: " + e.message); }
     } else {
-      try {
-        var err = JSON.parse(xhr.responseText);
-        setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText));
-      } catch(e) { setStatus("Error " + xhr.status); }
+      try { var err = JSON.parse(xhr.responseText); setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText)); }
+      catch(e) { setStatus("Error " + xhr.status); }
     }
   };
-  xhr.send(payload);
+  xhr.send(JSON.stringify({ contents: contents }));
+}
+
+function sendCohere() {
+  var key = document.getElementById("coherekey").value.trim();
+  if (!key) { setStatus("Enter your Cohere API key first."); return; }
+  var sys = getSystemPrompt();
+  var messages = [];
+  if (sys) { messages[0] = { role: "system", content: sys }; }
+  for (var i = 0; i < chatHistory.length; i++) {
+    messages[messages.length] = { role: chatHistory[i].role === "assistant" ? "assistant" : "user", content: chatHistory[i].content };
+  }
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://api.cohere.com/v2/chat", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Authorization", "Bearer " + key);
+  xhr.setRequestHeader("X-Client-Name", "kindle-chat");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== 4) return;
+    if (xhr.status === 200) {
+      try {
+        var resp = JSON.parse(xhr.responseText);
+        var reply = resp.message && resp.message.content && resp.message.content[0] ? resp.message.content[0].text : "";
+        if (!reply) { setStatus("Unexpected response from Cohere."); return; }
+        chatHistory[chatHistory.length] = { role: "assistant", content: reply };
+        appendMessage("ai", reply); setStatus("");
+      } catch(e) { setStatus("Parse error: " + e.message); }
+    } else {
+      try { var err = JSON.parse(xhr.responseText); setStatus("Error " + xhr.status + ": " + (err.message ? err.message : xhr.responseText)); }
+      catch(e) { setStatus("Error " + xhr.status); }
+    }
+  };
+  xhr.send(JSON.stringify({ model: "command-r-plus-08-2024", messages: messages }));
 }
 
 function clearChat() {
   chatHistory = [];
-  var chat = document.getElementById("chat");
-  chat.innerHTML = '<span style="color:#777;font-size:13px;">Messages will appear here.</span>';
+  document.getElementById("chat").innerHTML = '<span style="color:#777;font-size:13px;">Messages will appear here.</span>';
   setStatus("Chat cleared.");
 }
 </script>
