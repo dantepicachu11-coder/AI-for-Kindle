@@ -23,7 +23,7 @@
   button { font-size: 15px; padding: 8px 16px; margin-right: 6px; margin-bottom: 4px; border: 2px solid #000; background: #fff; cursor: pointer; font-family: Georgia, serif; }
   .small-btn { font-size: 12px; padding: 4px 8px; }
   .toggle-on { background: #000; color: #fff; }
-  #status { font-size: 13px; font-style: italic; margin-top: 4px; min-height: 16px; }
+  #status { font-size: 13px; font-style: italic; mafilrgin-top: 4px; min-height: 16px; }
   .msg-user { margin-bottom: 8px; padding: 6px; border-left: 3px solid #000; background: #eee; }
   .msg-ai { margin-bottom: 8px; padding: 6px; border-left: 3px solid #555; background: #fff; }
   .msg-label { font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 3px; }
@@ -249,20 +249,8 @@ function toggleFileSelection(item, name, url) {
   var idx = selectedFiles.indexOf(name);
   if (idx === -1) {
     item.innerHTML = name + " (loading...)";
-    var token = document.getElementById("ghtoken").value.trim();
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
-    if (token) { xhr.setRequestHeader("Authorization", "token " + token); }
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState !== 4) return;
-      if (xhr.status === 200) {
-        loadedFiles[name] = xhr.responseText;
-        selectedFiles[selectedFiles.length] = name;
-        item.className = "file-item selected";
-        item.innerHTML = name + " (loaded)";
-        updateLoadedFilesLabel();
-      } else { item.innerHTML = name + " (error loading)"; }
-    };
     xhr.send();
   } else {
     selectedFiles.splice(idx, 1);
