@@ -249,8 +249,28 @@ function toggleFileSelection(item, name, url) {
   var idx = selectedFiles.indexOf(name);
   if (idx === -1) {
     item.innerHTML = name + " (loading...)";
+    var token = document.getElementById("ghtoken").value.trim();
+    // Use GitHub API contents endpoint instead of raw URL
+    var apiUrl = "https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FOLDER + "/" + encodeURIComponent(name);
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
+    xhr.open("GET", apiUrl, true);
+    xhr.setRequestHeader("Accept", "application/vnd.github.v3+json");
+    if (token) { xhr.setRequestHeader("Authorization", "token " + token); }
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status === 200) {
+        try {
+          var resp = JSON.parse(xhr.responseText);
+          // Content comes base64 encoded — decode it
+          var decoded = atob(resp.content.replace(/\n/g, ""));
+          loadedFiles[name] = decoded;
+          selectedFiles[selectedFiles.length] = name;
+          item.className = "file-item selected";
+          item.innerHTML = name + " (loaded)";
+          updateLoadedFilesLabel();
+        } catch(e) { item.innerHTML = name + " (parse error: " + e.message + ")"; }
+      } else { item.innerHTML = name + " (error " + xhr.status + ")"; }
+    };
     xhr.send();
   } else {
     selectedFiles.splice(idx, 1);
