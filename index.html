@@ -23,7 +23,7 @@
   button { font-size: 15px; padding: 8px 16px; margin-right: 6px; margin-bottom: 4px; border: 2px solid #000; background: #fff; cursor: pointer; font-family: Georgia, serif; }
   .small-btn { font-size: 12px; padding: 4px 8px; }
   .toggle-on { background: #000; color: #fff; }
-  #status { font-size: 13px; font-style: italic; mafilrgin-top: 4px; min-height: 16px; }
+  #status { font-size: 13px; font-style: italic; margin-top: 4px; min-height: 16px; }
   .msg-user { margin-bottom: 8px; padding: 6px; border-left: 3px solid #000; background: #eee; }
   .msg-ai { margin-bottom: 8px; padding: 6px; border-left: 3px solid #555; background: #fff; }
   .msg-label { font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 3px; }
@@ -36,6 +36,13 @@
 
 <a name="top"></a>
 <h2>AI Chat (Kindle)</h2>
+
+<!-- BOOKMARK HELPER -->
+<div class="section">
+  <label>Bookmark URL (save this as a bookmark in Kindle):</label>
+  <div id="bookmark-url" style="font-size:11px;padding:4px;border:1px solid #000;background:#f9f9f9;word-break:break-all;">Loading...</div>
+  <div class="section-status">Open this URL or save it as a bookmark. Keys load automatically on every visit.</div>
+</div>
 
 <!-- AI SELECTOR -->
 <div class="section">
@@ -53,8 +60,6 @@
   <label>Groq API Key (gsk_...):</label>
   <input type="password" id="apikey" placeholder="gsk_..." />
   <div class="section-status" id="key-status"></div>
-  <button class="small-btn" onclick="saveKey()" style="margin-top:6px;">Save Key</button>
-  <button class="small-btn" onclick="forgetKey()" style="margin-top:6px;">Forget Key</button>
 </div>
 
 <!-- GEMINI KEY -->
@@ -62,8 +67,6 @@
   <label>Gemini API Key (AIza...):</label>
   <input type="password" id="geminikey" placeholder="AIza..." />
   <div class="section-status" id="gemini-status"></div>
-  <button class="small-btn" onclick="saveGeminiKey()" style="margin-top:6px;">Save Key</button>
-  <button class="small-btn" onclick="forgetGeminiKey()" style="margin-top:6px;">Forget Key</button>
 </div>
 
 <!-- COHERE KEY -->
@@ -71,8 +74,6 @@
   <label>Cohere API Key:</label>
   <input type="password" id="coherekey" placeholder="..." />
   <div class="section-status" id="cohere-status"></div>
-  <button class="small-btn" onclick="saveCohereKey()" style="margin-top:6px;">Save Key</button>
-  <button class="small-btn" onclick="forgetCohereKey()" style="margin-top:6px;">Forget Key</button>
 </div>
 
 <!-- GITHUB TOKEN -->
@@ -80,8 +81,13 @@
   <label>GitHub Token (ghp_...):</label>
   <input type="password" id="ghtoken" placeholder="ghp_..." />
   <div class="section-status" id="gh-status"></div>
-  <button class="small-btn" onclick="saveGHToken()" style="margin-top:6px;">Save Token</button>
-  <button class="small-btn" onclick="forgetGHToken()" style="margin-top:6px;">Forget Token</button>
+</div>
+
+<!-- UPDATE BOOKMARK BUTTON -->
+<div class="section">
+  <label>After entering keys above, update your bookmark URL:</label>
+  <button onclick="updateBookmarkUrl()">Generate Bookmark URL</button>
+  <div class="section-status" id="bookmark-status"></div>
 </div>
 
 <!-- FILE LOADER -->
@@ -130,11 +136,55 @@ var GITHUB_FOLDER = "docs";
 
 var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas matematicas: verifica todos los calculos paso a paso antes de dar el resultado final, y asegurate de que las operaciones sean correctas. Si un problema admite varios metodos, usa el mas confiable. Nunca des un numero sin haberlo comprobado. Para preguntas teoricas o conceptuales: responde como en un examen evaluativo, con informacion correcta, clara y bien estructurada. Da definiciones precisas y, cuando sea util, un ejemplo breve. Longitud de las respuestas: apunta a unas 4 oraciones en promedio. No respondas con frases demasiado cortas que omitan informacion importante, ni te extiendas innecesariamente. Prioriza la exactitud y la claridad sobre la cantidad. Si no estas seguro de un dato, indicalo honestamente en lugar de inventar.";
 
+function getParam(name) {
+  var search = window.location.search;
+  if (!search) return "";
+  var pairs = search.substring(1).split("&");
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i].split("=");
+    if (decodeURIComponent(pair[0]) === name) {
+      return pair[1] ? decodeURIComponent(pair[1]) : "";
+    }
+  }
+  return "";
+}
+
+function updateBookmarkUrl() {
+  var gk = document.getElementById("apikey").value.trim();
+  var gem = document.getElementById("geminikey").value.trim();
+  var co = document.getElementById("coherekey").value.trim();
+  var gh = document.getElementById("ghtoken").value.trim();
+  var base = window.location.href.split("?")[0].split("#")[0];
+  var params = [];
+  if (gk) { params[params.length] = "gk=" + encodeURIComponent(gk); }
+  if (gem) { params[params.length] = "gem=" + encodeURIComponent(gem); }
+  if (co) { params[params.length] = "co=" + encodeURIComponent(co); }
+  if (gh) { params[params.length] = "gh=" + encodeURIComponent(gh); }
+  params[params.length] = "ai=" + encodeURIComponent(activeAI);
+  var url = base + (params.length > 0 ? "?" + params.join("&") : "");
+  document.getElementById("bookmark-url").innerHTML = url;
+  if (document.getElementById("bookmark-status")) {
+    document.getElementById("bookmark-status").innerHTML = "Done! Save this URL as a bookmark in your Kindle browser.";
+  }
+}
+
 window.onload = function() {
-  loadFromStorage("groq_key", "apikey", "key-status");
-  loadFromStorage("gemini_key", "geminikey", "gemini-status");
-  loadFromStorage("cohere_key", "coherekey", "cohere-status");
-  loadFromStorage("gh_token", "ghtoken", "gh-status");
+  var gk = getParam("gk");
+  var gem = getParam("gem");
+  var co = getParam("co");
+  var gh = getParam("gh");
+  var ai = getParam("ai");
+
+  if (gk) { document.getElementById("apikey").value = gk; document.getElementById("key-status").innerHTML = "Key loaded from bookmark."; }
+  if (gem) { document.getElementById("geminikey").value = gem; document.getElementById("gemini-status").innerHTML = "Key loaded from bookmark."; }
+  if (co) { document.getElementById("coherekey").value = co; document.getElementById("cohere-status").innerHTML = "Key loaded from bookmark."; }
+  if (gh) { document.getElementById("ghtoken").value = gh; document.getElementById("gh-status").innerHTML = "Token loaded from bookmark."; }
+  if (ai === "gemini" || ai === "cohere") { activeAI = ai; }
+
+  if (!gk) { tryLoadStorage("groq_key", "apikey", "key-status"); }
+  if (!gem) { tryLoadStorage("gemini_key", "geminikey", "gemini-status"); }
+  if (!co) { tryLoadStorage("cohere_key", "coherekey", "cohere-status"); }
+  if (!gh) { tryLoadStorage("gh_token", "ghtoken", "gh-status"); }
 
   var instr = null;
   try { instr = localStorage.getItem("groq_instructions"); } catch(e) {}
@@ -145,24 +195,16 @@ window.onload = function() {
     instructionsOn = (state === null) ? true : (state === "1");
   } catch(e) { instructionsOn = true; }
   updateToggleButton();
-
-  try {
-    var ai = localStorage.getItem("active_ai");
-    if (ai === "gemini" || ai === "cohere") { activeAI = ai; }
-  } catch(e) {}
   updateAIButtons();
+  updateBookmarkUrl();
 };
 
-function loadFromStorage(storageKey, fieldId, statusId) {
+function tryLoadStorage(storageKey, fieldId, statusId) {
   try {
     var val = localStorage.getItem(storageKey);
-    if (val) {
-      document.getElementById(fieldId).value = val;
-      document.getElementById(statusId).innerHTML = "Key loaded automatically.";
-    } else {
-      document.getElementById(statusId).innerHTML = "No key saved yet.";
-    }
-  } catch(e) {}
+    if (val) { document.getElementById(fieldId).value = val; document.getElementById(statusId).innerHTML = "Key loaded from storage."; }
+    else { document.getElementById(statusId).innerHTML = "No key found."; }
+  } catch(e) { document.getElementById(statusId).innerHTML = "No key found."; }
 }
 
 function selectAI(ai) {
@@ -171,6 +213,7 @@ function selectAI(ai) {
   document.getElementById("chat").innerHTML = '<span style="color:#777;font-size:13px;">Messages will appear here.</span>';
   try { localStorage.setItem("active_ai", ai); } catch(e) {}
   updateAIButtons();
+  updateBookmarkUrl();
 }
 
 function updateAIButtons() {
@@ -184,25 +227,6 @@ function updateAIButtons() {
     if (activeAI === ais[i]) { document.getElementById("ai-status").innerHTML = labels[i]; }
   }
 }
-
-function saveToStorage(storageKey, fieldId, statusId) {
-  var val = document.getElementById(fieldId).value.trim();
-  if (!val) { document.getElementById(statusId).innerHTML = "Enter a key first."; return; }
-  try { localStorage.setItem(storageKey, val); document.getElementById(statusId).innerHTML = "Saved."; }
-  catch(e) { document.getElementById(statusId).innerHTML = "Could not save: " + e.message; }
-}
-function forgetFromStorage(storageKey, fieldId, statusId) {
-  try { localStorage.removeItem(storageKey); document.getElementById(fieldId).value = ""; document.getElementById(statusId).innerHTML = "Key removed."; } catch(e) {}
-}
-
-function saveKey() { saveToStorage("groq_key", "apikey", "key-status"); }
-function forgetKey() { forgetFromStorage("groq_key", "apikey", "key-status"); }
-function saveGeminiKey() { saveToStorage("gemini_key", "geminikey", "gemini-status"); }
-function forgetGeminiKey() { forgetFromStorage("gemini_key", "geminikey", "gemini-status"); }
-function saveCohereKey() { saveToStorage("cohere_key", "coherekey", "cohere-status"); }
-function forgetCohereKey() { forgetFromStorage("cohere_key", "coherekey", "cohere-status"); }
-function saveGHToken() { saveToStorage("gh_token", "ghtoken", "gh-status"); }
-function forgetGHToken() { forgetFromStorage("gh_token", "ghtoken", "gh-status"); }
 
 function loadFileList() {
   var token = document.getElementById("ghtoken").value.trim();
@@ -228,8 +252,7 @@ function loadFileList() {
               item.className = "file-item";
               item.innerHTML = file.name;
               item.setAttribute("data-name", file.name);
-              item.setAttribute("data-url", file.download_url);
-              item.onclick = function() { toggleFileSelection(item, file.name, file.download_url); };
+              item.onclick = function() { toggleFileSelection(item, file.name); };
               listDiv.appendChild(item);
             })(files[i]);
           }
@@ -245,12 +268,11 @@ function loadFileList() {
   xhr.send();
 }
 
-function toggleFileSelection(item, name, url) {
+function toggleFileSelection(item, name) {
   var idx = selectedFiles.indexOf(name);
   if (idx === -1) {
     item.innerHTML = name + " (loading...)";
     var token = document.getElementById("ghtoken").value.trim();
-    // Use GitHub API contents endpoint instead of raw URL
     var apiUrl = "https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FOLDER + "/" + encodeURIComponent(name);
     var xhr = new XMLHttpRequest();
     xhr.open("GET", apiUrl, true);
@@ -261,7 +283,6 @@ function toggleFileSelection(item, name, url) {
       if (xhr.status === 200) {
         try {
           var resp = JSON.parse(xhr.responseText);
-          // Content comes base64 encoded — decode it
           var decoded = atob(resp.content.replace(/\n/g, ""));
           loadedFiles[name] = decoded;
           selectedFiles[selectedFiles.length] = name;
