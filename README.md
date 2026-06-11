@@ -1,174 +1,177 @@
 # AI Chat for Kindle Paperwhite
 
-Una aplicación web de chat con IA diseñada específicamente para el navegador antiguo del Kindle Paperwhite 7ª generación (2015). Compatible también con navegadores modernos.
+A web-based chat application with AI designed specifically for the old browser of the Kindle Paperwhite 7th generation (2015). Also compatible with modern browsers.
 
-## Características
+## Features
 
-- **3 modelos de IA a elegir**: Groq (Llama 3.1), Google Gemini 2.5 Flash, Cohere Command R+
-- **Carga de documentos desde GitHub**: Sube archivos `.txt` a la carpeta `docs/` de tu repo y cárgatelos como contexto en el chat
-- **Sistema de instrucciones personalizadas**: Define cómo debe comportarse la IA (por defecto, configuración educativa/evaluativa)
-- **Persistencia vía URL**: Guarda tus keys de API en un marcador del Kindle — se cargan automáticamente en cada visita
-- **Compatible con Kindle 7ª gen**: Funciona con el navegador WebKit antiguo del Kindle — sin `fetch()`, sin ES6, sin flexbox
+- **3 AI models to choose from**: Groq (Llama 3.1), Google Gemini 2.5 Flash, Cohere Command R+
+- **Document loading from GitHub**: Upload `.txt` files to the `docs/` folder of your repo and load them as context in the chat
+- **Custom instructions system**: Define how the AI should behave (default is educational/exam-style configuration)
+- **URL-based persistence**: Save your API keys in a Kindle bookmark — they load automatically on every visit
+- **Kindle 7th gen compatible**: Works with Kindle's old WebKit browser — no `fetch()`, no ES6, no flexbox
 
-## Requisitos
+## Requirements
 
-Necesitas **al menos una key de API** de:
+You need **at least one API key** from:
 
-1. **Groq** (recomendado — gratuito, tier libre): https://console.groq.com
-   - Llama 3.1 8B Instant, hasta 14,400 requests/día gratis
-   - Key comienza con `gsk_`
+1. **Groq** (recommended — free tier): https://console.groq.com
+   - Llama 3.1 8B Instant, up to 14,400 requests/day free
+   - Key begins with `gsk_`
 
-2. **Google Gemini** (gratis con Google AI Studio): https://aistudio.google.com
+2. **Google Gemini** (free with Google AI Studio): https://aistudio.google.com
    - Gemini 2.5 Flash
-   - Key comienza con `AIza`
+   - Key begins with `AIza`
 
-3. **Cohere** (gratuito): https://dashboard.cohere.com
+3. **Cohere** (free): https://dashboard.cohere.com
    - Command R+ model
-   - Key personalizada
+   - Custom key format
 
-Además necesitas:
+Also optional but recommended:
 
-- **GitHub token** (opcional pero recomendado para cargar documentos): https://github.com/settings/tokens
-  - Marca solo `public_repo` scope
-  - Key comienza con `ghp_`
+- **GitHub token**: https://github.com/settings/tokens
+  - Mark only `public_repo` scope
+  - Key begins with `ghp_`
 
-## Instalación
+## Installation
 
-1. Clona o haz fork de este repositorio
-2. GitHub Pages debe estar habilitado en tu repo (Settings → Pages → Deploy from main)
-3. El archivo debe llamarse `index.html` en la raíz
+1. Clone or fork this repository
+2. Enable GitHub Pages in your repo settings (Settings → Pages → Deploy from main)
+3. Make sure the file is named `index.html` in the root
 
-## Primeros pasos
+## Getting Started
 
-### Opción A: Vía marcador (recomendado para Kindle)
+### Option A: Via Bookmark (recommended for Kindle)
 
-1. Abre la página en cualquier navegador: `https://tuusuario.github.io/turepository/`
-2. Rellena los campos con tus keys
-3. Toca **Generate Bookmark URL**
-4. Copia la URL larga que aparece
-5. En el Kindle, guarda esa URL como marcador
-6. La próxima vez que abras el marcador, las keys cargan automáticamente
+1. Open the page in any browser: `https://yourusername.github.io/yourrepository/`
+2. Fill in the fields with your API keys
+3. Click **Generate Bookmark URL**
+4. Copy the long URL that appears
+5. On your Kindle, save that URL as a bookmark
+6. Next time you open the bookmark, your keys load automatically
 
-**URL de ejemplo:**
+**Example URL:**
 ```
-https://tuusuario.github.io/turepository/?gk=TU_GROQ_KEY&gem=TU_GEMINI_KEY&gh=TU_GITHUB_TOKEN&ai=groq
+https://yourusername.github.io/yourrepository/?gk=YOUR_GROQ_KEY&gem=YOUR_GEMINI_KEY&gh=YOUR_GITHUB_TOKEN&ai=groq
 ```
 
-Parámetros:
+Parameters:
 - `gk=` → Groq key
 - `gem=` → Gemini key  
 - `co=` → Cohere key
 - `gh=` → GitHub token
-- `ai=` → IA por defecto (`groq`, `gemini`, o `cohere`)
+- `ai=` → Default AI (`groq`, `gemini`, or `cohere`)
 
-### Opción B: Escribir las keys en cada sesión
+### Option B: Enter keys each session
 
-1. Abre la página
-2. Escribe las keys en los campos
-3. Chatea libremente
-4. Al cerrar el navegador, las keys se pierden (limitación del Kindle)
+1. Open the page
+2. Type your keys in the fields
+3. Chat freely
+4. When you close the browser, keys are lost (Kindle limitation)
 
-## Cargador de documentos
+## Document Loader
 
-1. Crea una carpeta `docs/` en tu repo
-2. Sube archivos `.txt` (archivos de texto plano)
-3. Dentro de la app, toca **Refresh file list**
-4. Selecciona los archivos que quieres usar
-5. El contenido se envía al chat como contexto
+1. Create a `docs/` folder in your repo
+2. Upload `.txt` files (plain text files)
+3. Inside the app, click **Refresh file list**
+4. Select the files you want to use
+5. The content is sent to the chat as context
 
-**Ejemplo:** Si tienes `apuntes.txt` en `docs/`, puedes cargar ese archivo y hacer preguntas basadas en su contenido.
+**Example:** If you have `notes.txt` in `docs/`, you can load that file and ask questions based on its content.
 
-## Instrucciones personalizadas
+## Custom Instructions
 
-El campo **Instructions for the AI** controla el comportamiento de la IA.
+The **Instructions for the AI** field controls AI behavior.
 
-**Instrucciones por defecto** (educativas, evaluativas):
-- Responde en el idioma del usuario
-- Para matemática: verifica cálculos paso a paso
-- Para teoría: responde como en un examen
-- Longitud: ~4 oraciones por respuesta
+**Default instructions** (educational, exam-style):
+- Respond in the user's language
+- For math: verify calculations step by step
+- For theory: answer as in an exam
+- Length: ~4 sentences per response
 
-Puedes cambiarlas en cualquier momento. El botón **Reset to Default** las restaura.
+You can change them anytime. The **Reset to Default** button restores the originals.
 
-Las instrucciones se guardan en localStorage del navegador (sin URL, solo durante la sesión).
+Instructions are saved in browser localStorage (in-session only, not persisted to URL).
 
-## Limitaciones del Kindle Paperwhite 7ª gen
+## Kindle Paperwhite 7th Gen Limitations
 
-- **No localStorage persistente**: Los datos se pierden al cerrar el navegador (por eso usamos URL)
-- **Sin position:fixed**: El layout se adapta al scroll natural de la página
-- **Sin flexbox**: CSS básico solamente
-- **Sin fetch() API**: Usa XMLHttpRequest en su lugar
-- **Sin ES6**: Solo JavaScript clásico (`var`, sin arrow functions)
-- **Sin CORS en raw.githubusercontent.com**: Por eso cargamos archivos vía GitHub API
+- **No persistent localStorage**: Data is lost when closing the browser (that's why we use URLs)
+- **No position:fixed**: Layout adapts to natural page scrolling
+- **No flexbox**: Basic CSS only
+- **No fetch() API**: Uses XMLHttpRequest instead
+- **No ES6**: Classic JavaScript only (`var`, no arrow functions)
+- **No CORS on raw.githubusercontent.com**: Files are loaded via GitHub API instead
 
-## Estructura del repositorio
+## Repository Structure
 
 ```
 your-repo/
-├── index.html              # La aplicación web
-├── docs/                   # Carpeta de documentos (crea si no existe)
-│   ├── apuntes.txt
-│   ├── resumen.txt
+├── index.html              # The web application
+├── docs/                   # Documents folder (create if doesn't exist)
+│   ├── notes.txt
+│   ├── summary.txt
 │   └── ...
-└── README.md              # Este archivo
+└── README.md              # This file
 ```
 
-## Solución de problemas
+## Troubleshooting
 
-### Error 401 al usar Gemini
-La key no es válida o está asociada a un proyecto con restricciones. Intenta generarla desde **aistudio.google.com** (no Google Cloud Console).
+### Error 401 when using Gemini
+The key is invalid or associated with a restricted project. Try generating it from **aistudio.google.com** (not Google Cloud Console).
 
-### "error loading" al cargar documentos
-Asegúrate de:
-- Tener la carpeta `docs/` en el repo
-- Tener un GitHub token válido (opcional pero útil)
-- Los archivos sean `.txt` (texto plano)
+### "error loading" when loading documents
+Make sure:
+- The `docs/` folder exists in your repo
+- You have a valid GitHub token (optional but helpful)
+- Files are `.txt` (plain text)
 
-### Las keys no se guardan en el Kindle
-Es una limitación del navegador Kindle con localStorage en dominios externos. Usa la opción de URL con marcador en su lugar.
+### Keys don't save on Kindle
+It's a Kindle browser limitation with localStorage on external domains. Use the bookmark URL option instead.
 
-### El chat se ve pequeño/cortado en el Kindle
-Zoom en el navegador del Kindle (pinch-to-zoom o menú). La página está optimizada para leer.
+### Chat looks small/cut off on Kindle
+Zoom in your Kindle browser (pinch-to-zoom or menu). The page is optimized for readability.
 
-## Rendimiento
+## Performance
 
-- **Groq Llama 3.1**: Muy rápido (~1-2 seg), respuestas cortas (1024 tokens)
-- **Gemini 2.5 Flash**: Rápido (~2-3 seg), respuestas largas
-- **Cohere Command R+**: Moderado (~2-3 seg), muy detallado
+- **Groq Llama 3.1**: Very fast (~1-2 sec), short responses (1024 tokens)
+- **Gemini 2.5 Flash**: Fast (~2-3 sec), longer responses
+- **Cohere Command R+**: Moderate (~2-3 sec), very detailed
 
-Los tokens de Groq son limitados (14,400/día gratis). Gemini y Cohere tienen límites distintos según tu plan.
+Groq tokens are limited (14,400/day free). Gemini and Cohere have different limits based on your plan.
 
-## Privacidad y seguridad
+## Privacy & Security
 
-- Las keys se almacenan en la URL del marcador o en localStorage del navegador
-- **Recomendación**: Si alguien tiene acceso físico a tu Kindle, puede ver tus keys
-- No compartas URLs públicamente con tus keys incluidas
-- Si revocas una key, actualiza el marcador
+- Keys are stored in the bookmark URL or browser localStorage
+- **Warning**: If someone has physical access to your Kindle, they can see your keys
+- Don't share URLs publicly with keys included
+- If you revoke a key, update your bookmark
 
-## Créditos y licencia
+## Credits & APIs
 
-Desarrollado para funcionar con hardware antiguo (Kindle Paperwhite 7ª gen).
+Built to work with old hardware (Kindle Paperwhite 7th gen).
 
-Utilizados:
+Uses:
 - Groq API (https://groq.com)
 - Google Gemini API (https://ai.google.dev)
 - Cohere API (https://cohere.com)
-- GitHub API (https://docs.github.com/es/rest)
+- GitHub API (https://docs.github.com)
 
-## Preguntas frecuentes
+## FAQ
 
-**¿Funciona en otros navegadores?**
-Sí, en navegadores modernos funciona igual. Las limitaciones del Kindle no afectan a otros dispositivos.
+**Does it work on other browsers?**
+Yes, it works the same on modern browsers. Kindle limitations don't affect other devices.
 
-**¿Puedo usar otros modelos de IA?**
-Claro. El código es modificable. Solo añade una nueva función `sendOtraIA()` siguiendo el patrón de Groq/Gemini/Cohere.
+**Can I use other AI models?**
+Sure. The code is customizable. Just add a new `sendOtherAI()` function following the Groq/Gemini/Cohere pattern.
 
-**¿Qué pasa si se agotan los tokens?**
-Recibirás un error de la API (401, 429, etc.). Espera al siguiente período de facturación o usa otra IA.
+**What happens if I run out of tokens?**
+You'll get an API error (401, 429, etc.). Wait for your next billing period or use a different AI.
 
-**¿Puedo guardar el chat?**
-No automáticamente. Puedes copiar la conversación manualmente desde el navegador.
+**Can I save the chat?**
+Not automatically. You can copy the conversation manually from the browser.
+
+**Can I host this on a different platform?**
+Yes. Any static hosting (GitHub Pages, Vercel, Netlify, etc.) works. Just update the `GITHUB_USER` and `GITHUB_REPO` variables in the code if needed.
 
 ---
 
-**Última actualización**: Junio 2026
+**Last updated**: June 2026
