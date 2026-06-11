@@ -20,7 +20,7 @@ You need **at least one API key** from:
 
 2. **Google Gemini** (free with Google AI Studio): https://aistudio.google.com
    - Gemini 2.5 Flash
-   - Key begins with `AIza`
+   - Key begins with `AQ`
 
 3. **Cohere** (free): https://dashboard.cohere.com
    - Command R+ model
