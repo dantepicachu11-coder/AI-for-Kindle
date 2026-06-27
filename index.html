@@ -423,7 +423,7 @@ function sendGroq() {
       catch(e) { setStatus("Error " + xhr.status); }
     }
   };
-  xhr.send(JSON.stringify({ model: "llama-3.1-8b-instant", max_tokens: 1024, messages: messages }));
+  xhr.send(JSON.stringify({ model: "openai/gpt-oss-120b", max_tokens: 1024, messages: messages }));
 }
 
 function sendGemini() {
