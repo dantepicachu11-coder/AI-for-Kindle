@@ -37,60 +37,59 @@
 <a name="top"></a>
 <h2>AI Chat (Kindle)</h2>
 
-<!-- BOOKMARK HELPER -->
 <div class="section">
   <label>Bookmark URL (save this as a bookmark in Kindle):</label>
   <div id="bookmark-url" style="font-size:11px;padding:4px;border:1px solid #000;background:#f9f9f9;word-break:break-all;">Loading...</div>
   <div class="section-status">Open this URL or save it as a bookmark. Keys load automatically on every visit.</div>
 </div>
 
-<!-- AI SELECTOR -->
 <div class="section">
   <label>Active AI:</label>
   <div id="ai-selector">
     <button id="btn-groq" class="toggle-on" onclick="selectAI('groq')">Groq</button>
     <button id="btn-gemini" onclick="selectAI('gemini')">Gemini</button>
     <button id="btn-cohere" onclick="selectAI('cohere')">Cohere</button>
+    <button id="btn-nvidia" onclick="selectAI('nvidia')">NVIDIA</button>
   </div>
   <div class="section-status" id="ai-status">Using Groq (Llama 3.1)</div>
 </div>
 
-<!-- GROQ KEY -->
 <div class="section">
   <label>Groq API Key (gsk_...):</label>
   <input type="password" id="apikey" placeholder="gsk_..." />
   <div class="section-status" id="key-status"></div>
 </div>
 
-<!-- GEMINI KEY -->
 <div class="section">
   <label>Gemini API Key (AIza...):</label>
   <input type="password" id="geminikey" placeholder="AIza..." />
   <div class="section-status" id="gemini-status"></div>
 </div>
 
-<!-- COHERE KEY -->
 <div class="section">
   <label>Cohere API Key:</label>
   <input type="password" id="coherekey" placeholder="..." />
   <div class="section-status" id="cohere-status"></div>
 </div>
 
-<!-- GITHUB TOKEN -->
+<div class="section">
+  <label>NVIDIA API Key (nvapi-...):</label>
+  <input type="password" id="nvidiakey" placeholder="nvapi-..." />
+  <div class="section-status" id="nvidia-status"></div>
+</div>
+
 <div class="section">
   <label>GitHub Token (ghp_...):</label>
   <input type="password" id="ghtoken" placeholder="ghp_..." />
   <div class="section-status" id="gh-status"></div>
 </div>
 
-<!-- UPDATE BOOKMARK BUTTON -->
 <div class="section">
   <label>After entering keys above, update your bookmark URL:</label>
   <button onclick="updateBookmarkUrl()">Generate Bookmark URL</button>
   <div class="section-status" id="bookmark-status"></div>
 </div>
 
-<!-- FILE LOADER -->
 <div class="section">
   <label>Files from GitHub (docs/ folder):</label>
   <button class="small-btn" onclick="loadFileList()">Refresh file list</button>
@@ -99,7 +98,6 @@
   <button class="small-btn" onclick="clearFiles()" style="margin-top:6px;">Clear selected files</button>
 </div>
 
-<!-- INSTRUCTIONS -->
 <div class="section">
   <label>Instructions for the AI:</label>
   <textarea id="instructions"></textarea>
@@ -109,7 +107,6 @@
   <button class="small-btn" onclick="resetInstructions()" style="margin-top:6px;">Reset to Default</button>
 </div>
 
-<!-- INPUT -->
 <div id="input-area">
   <a name="input"></a>
   <textarea id="userinput" placeholder="Type your message here..."></textarea>
@@ -153,12 +150,14 @@ function updateBookmarkUrl() {
   var gk = document.getElementById("apikey").value.trim();
   var gem = document.getElementById("geminikey").value.trim();
   var co = document.getElementById("coherekey").value.trim();
+  var nv = document.getElementById("nvidiakey").value.trim();
   var gh = document.getElementById("ghtoken").value.trim();
   var base = window.location.href.split("?")[0].split("#")[0];
   var params = [];
   if (gk) { params[params.length] = "gk=" + encodeURIComponent(gk); }
   if (gem) { params[params.length] = "gem=" + encodeURIComponent(gem); }
   if (co) { params[params.length] = "co=" + encodeURIComponent(co); }
+  if (nv) { params[params.length] = "nv=" + encodeURIComponent(nv); }
   if (gh) { params[params.length] = "gh=" + encodeURIComponent(gh); }
   params[params.length] = "ai=" + encodeURIComponent(activeAI);
   var url = base + (params.length > 0 ? "?" + params.join("&") : "");
@@ -172,18 +171,21 @@ window.onload = function() {
   var gk = getParam("gk");
   var gem = getParam("gem");
   var co = getParam("co");
+  var nv = getParam("nv");
   var gh = getParam("gh");
   var ai = getParam("ai");
 
   if (gk) { document.getElementById("apikey").value = gk; document.getElementById("key-status").innerHTML = "Key loaded from bookmark."; }
   if (gem) { document.getElementById("geminikey").value = gem; document.getElementById("gemini-status").innerHTML = "Key loaded from bookmark."; }
   if (co) { document.getElementById("coherekey").value = co; document.getElementById("cohere-status").innerHTML = "Key loaded from bookmark."; }
+  if (nv) { document.getElementById("nvidiakey").value = nv; document.getElementById("nvidia-status").innerHTML = "Key loaded from bookmark."; }
   if (gh) { document.getElementById("ghtoken").value = gh; document.getElementById("gh-status").innerHTML = "Token loaded from bookmark."; }
-  if (ai === "gemini" || ai === "cohere") { activeAI = ai; }
+  if (ai === "gemini" || ai === "cohere" || ai === "nvidia") { activeAI = ai; }
 
   if (!gk) { tryLoadStorage("groq_key", "apikey", "key-status"); }
   if (!gem) { tryLoadStorage("gemini_key", "geminikey", "gemini-status"); }
   if (!co) { tryLoadStorage("cohere_key", "coherekey", "cohere-status"); }
+  if (!nv) { tryLoadStorage("nvidia_key", "nvidiakey", "nvidia-status"); }
   if (!gh) { tryLoadStorage("gh_token", "ghtoken", "gh-status"); }
 
   var instr = null;
@@ -217,9 +219,14 @@ function selectAI(ai) {
 }
 
 function updateAIButtons() {
-  var ids = ["btn-groq", "btn-gemini", "btn-cohere"];
-  var ais = ["groq", "gemini", "cohere"];
-  var labels = ["Using Groq (Llama 3.1) — free tier", "Using Gemini 2.5 Flash", "Using Cohere (Command R+)"];
+  var ids = ["btn-groq", "btn-gemini", "btn-cohere", "btn-nvidia"];
+  var ais = ["groq", "gemini", "cohere", "nvidia"];
+  var labels = [
+    "Using Groq (Llama 3.1)", 
+    "Using Gemini 2.5 Flash", 
+    "Using Cohere (Command R+)",
+    "Using NVIDIA (Llama 3.1 70B)"
+  ];
   for (var i = 0; i < ids.length; i++) {
     document.getElementById(ids[i]).className = (activeAI === ais[i]) ? "toggle-on" : "";
   }
@@ -395,7 +402,8 @@ function sendMessage() {
   setStatus("Thinking...");
   if (activeAI === "groq") { sendGroq(); }
   else if (activeAI === "gemini") { sendGemini(); }
-  else { sendCohere(); }
+  else if (activeAI === "cohere") { sendCohere(); }
+  else { sendNvidia(); }
 }
 
 function sendGroq() {
@@ -424,6 +432,37 @@ function sendGroq() {
     }
   };
   xhr.send(JSON.stringify({ model: "openai/gpt-oss-120b", max_tokens: 1024, messages: messages }));
+}
+
+function sendNvidia() {
+  var key = document.getElementById("nvidiakey").value.trim();
+  if (!key) { setStatus("Enter your NVIDIA API key first (starts with nvapi-)."); return; }
+  var messages = [];
+  var sys = getSystemPrompt();
+  if (sys) { messages[0] = { role: "system", content: sys }; }
+  for (var i = 0; i < chatHistory.length; i++) { messages[messages.length] = chatHistory[i]; }
+  var xhr = new XMLHttpRequest();
+  
+  // NVIDIA NIM uses an OpenAI-compatible endpoint
+  xhr.open("POST", "https://integrate.api.nvidia.com/v1/chat/completions", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Authorization", "Bearer " + key);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== 4) return;
+    if (xhr.status === 200) {
+      try {
+        var resp = JSON.parse(xhr.responseText);
+        var reply = resp.choices[0].message.content;
+        chatHistory[chatHistory.length] = { role: "assistant", content: reply };
+        appendMessage("ai", reply); setStatus("");
+      } catch(e) { setStatus("Parse error: " + e.message); }
+    } else {
+      try { var err = JSON.parse(xhr.responseText); setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText)); }
+      catch(e) { setStatus("Error " + xhr.status); }
+    }
+  };
+  // Aquí puedes cambiar el modelo si lo prefieres, por ejemplo a "nvidia/nemotron-4-340b-instruct"
+  xhr.send(JSON.stringify({ model: "meta/llama-3.1-70b-instruct", max_tokens: 1024, messages: messages }));
 }
 
 function sendGemini() {
