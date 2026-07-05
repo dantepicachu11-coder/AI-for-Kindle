@@ -5,29 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Chat</title>
 <style>
-  body { font-family: Georgia, serif; background: #fff; color: #000; margin: 0; padding: 8px; font-size: 16px; }
+  /* Optimizacion E-ink: Solo Blanco y Negro puro, bordes solidos */
+  body { font-family: Georgia, serif; background: #ffffff; color: #000000; margin: 0; padding: 8px; font-size: 16px; }
   h2 { font-size: 18px; margin: 4px 0 10px 0; border-bottom: 2px solid #000; padding-bottom: 4px; }
-  .section { border: 1px solid #000; padding: 8px; margin-bottom: 10px; }
+  .section { border: 2px solid #000; padding: 8px; margin-bottom: 10px; background: #ffffff; }
   .section label { display: block; font-size: 13px; margin-bottom: 4px; font-weight: bold; }
-  input[type=password], input[type=text] { width: 100%; font-size: 13px; padding: 4px; box-sizing: border-box; border: 1px solid #000; }
+  input[type=password], input[type=text] { width: 100%; font-size: 13px; padding: 4px; box-sizing: border-box; border: 2px solid #000; }
   .section-status { font-size: 12px; margin-top: 4px; font-style: italic; }
-  #instructions { width: 100%; height: 70px; font-size: 14px; font-family: Georgia, serif; padding: 6px; box-sizing: border-box; border: 1px solid #000; resize: none; }
-  #file-list { margin-top: 6px; border: 1px solid #ccc; padding: 4px; min-height: 30px; font-size: 13px; background: #f9f9f9; }
-  .file-item { padding: 6px 4px; border-bottom: 1px solid #ddd; cursor: pointer; }
+  #instructions { width: 100%; height: 70px; font-size: 14px; font-family: Georgia, serif; padding: 6px; box-sizing: border-box; border: 2px solid #000; resize: none; }
+  #file-list { margin-top: 6px; border: 2px solid #000; padding: 4px; min-height: 30px; font-size: 13px; }
+  .file-item { padding: 6px 4px; border-bottom: 1px solid #000; cursor: pointer; }
   .file-item.selected { background: #000; color: #fff; }
   .file-item:last-child { border-bottom: none; }
-  #loaded-files { font-size: 12px; margin-top: 4px; font-style: italic; }
-  #input-area { border: 2px solid #000; padding: 8px; margin-bottom: 10px; background: #f0f0f0; }
-  #userinput { width: 100%; height: 60px; font-size: 15px; font-family: Georgia, serif; padding: 6px; box-sizing: border-box; border: 1px solid #000; resize: none; }
+  #loaded-files { font-size: 12px; margin-top: 4px; font-style: italic; font-weight: bold; }
+  #input-area { border: 3px solid #000; padding: 8px; margin-bottom: 10px; }
+  #userinput { width: 100%; height: 60px; font-size: 15px; font-family: Georgia, serif; padding: 6px; box-sizing: border-box; border: 2px solid #000; resize: none; }
   #btn-row { margin-top: 4px; }
-  button { font-size: 15px; padding: 8px 16px; margin-right: 6px; margin-bottom: 4px; border: 2px solid #000; background: #fff; cursor: pointer; font-family: Georgia, serif; }
+  button { font-size: 15px; padding: 8px 16px; margin-right: 6px; margin-bottom: 4px; border: 2px solid #000; background: #fff; color: #000; cursor: pointer; font-family: Georgia, serif; font-weight: bold; }
   .small-btn { font-size: 12px; padding: 4px 8px; }
   .toggle-on { background: #000; color: #fff; }
-  #status { font-size: 13px; font-style: italic; margin-top: 4px; min-height: 16px; }
-  .msg-user { margin-bottom: 8px; padding: 6px; border-left: 3px solid #000; background: #eee; }
-  .msg-ai { margin-bottom: 8px; padding: 6px; border-left: 3px solid #555; background: #fff; }
+  #status { font-size: 13px; font-style: italic; margin-top: 4px; min-height: 16px; font-weight: bold; }
+  .msg-user { margin-bottom: 8px; padding: 6px; border: 2px solid #000; }
+  .msg-ai { margin-bottom: 8px; padding: 6px; border: 2px solid #000; border-left: 6px solid #000; }
   .msg-label { font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 3px; }
-  .nav-row { text-align: center; padding: 8px 4px; margin: 10px 0; border-top: 1px dashed #888; border-bottom: 1px dashed #888; background: #f9f9f9; }
+  .nav-row { text-align: center; padding: 8px 4px; margin: 10px 0; border-top: 2px solid #000; border-bottom: 2px solid #000; }
   .nav-row a { display: inline-block; padding: 8px 18px; margin: 0 6px; border: 2px solid #000; background: #fff; color: #000; text-decoration: none; font-size: 15px; font-weight: bold; }
   #ai-selector button { font-size: 13px; padding: 6px 12px; margin-right: 4px; margin-bottom: 4px; }
 </style>
@@ -35,89 +36,59 @@
 <body>
 
 <a name="top"></a>
-<h2>AI Chat (Kindle)</h2>
+<h2>AI Chat Kindle (Optimizado)</h2>
 
 <div class="section">
-  <label>Bookmark URL (save this as a bookmark in Kindle):</label>
-  <div id="bookmark-url" style="font-size:11px;padding:4px;border:1px solid #000;background:#f9f9f9;word-break:break-all;">Loading...</div>
-  <div class="section-status">Open this URL or save it as a bookmark. Keys load automatically on every visit.</div>
+  <label>URL de Guardado (Marca páginas):</label>
+  <div id="bookmark-url" style="font-size:11px;padding:4px;border:1px solid #000;word-break:break-all;">Cargando...</div>
 </div>
 
 <div class="section">
-  <label>Active AI:</label>
+  <label>IA Activa:</label>
   <div id="ai-selector">
     <button id="btn-groq" class="toggle-on" onclick="selectAI('groq')">Groq</button>
     <button id="btn-gemini" onclick="selectAI('gemini')">Gemini</button>
-    <button id="btn-cohere" onclick="selectAI('cohere')">Cohere</button>
     <button id="btn-nvidia" onclick="selectAI('nvidia')">NVIDIA</button>
   </div>
-  <div class="section-status" id="ai-status">Using Groq (Llama 3.1)</div>
+  <div class="section-status" id="ai-status">Usando Groq</div>
 </div>
 
 <div class="section">
-  <label>Groq API Key (gsk_...):</label>
+  <label>Groq API Key:</label>
   <input type="password" id="apikey" placeholder="gsk_..." />
-  <div class="section-status" id="key-status"></div>
-</div>
-
-<div class="section">
-  <label>Gemini API Key (AIza...):</label>
+  <label style="margin-top:8px;">Gemini API Key:</label>
   <input type="password" id="geminikey" placeholder="AIza..." />
-  <div class="section-status" id="gemini-status"></div>
-</div>
-
-<div class="section">
-  <label>Cohere API Key:</label>
-  <input type="password" id="coherekey" placeholder="..." />
-  <div class="section-status" id="cohere-status"></div>
-</div>
-
-<div class="section">
-  <label>NVIDIA API Key (nvapi-...):</label>
+  <label style="margin-top:8px;">NVIDIA API Key:</label>
   <input type="password" id="nvidiakey" placeholder="nvapi-..." />
-  <div class="section-status" id="nvidia-status"></div>
-</div>
-
-<div class="section">
-  <label>GitHub Token (ghp_...):</label>
+  <label style="margin-top:8px;">GitHub Token (Opcional):</label>
   <input type="password" id="ghtoken" placeholder="ghp_..." />
-  <div class="section-status" id="gh-status"></div>
+  <button class="small-btn" onclick="updateBookmarkUrl()" style="margin-top:8px;">Actualizar Marca páginas</button>
 </div>
 
 <div class="section">
-  <label>After entering keys above, update your bookmark URL:</label>
-  <button onclick="updateBookmarkUrl()">Generate Bookmark URL</button>
-  <div class="section-status" id="bookmark-status"></div>
-</div>
-
-<div class="section">
-  <label>Files from GitHub (docs/ folder):</label>
-  <button class="small-btn" onclick="loadFileList()">Refresh file list</button>
-  <div id="file-list"><span style="color:#777;">Tap Refresh to load files.</span></div>
+  <label>Archivos GitHub (docs/):</label>
+  <button class="small-btn" onclick="loadFileList()">Cargar archivos</button>
+  <div id="file-list">Toca para cargar.</div>
   <div id="loaded-files"></div>
-  <button class="small-btn" onclick="clearFiles()" style="margin-top:6px;">Clear selected files</button>
 </div>
 
 <div class="section">
-  <label>Instructions for the AI:</label>
+  <label>Instrucciones de la IA:</label>
   <textarea id="instructions"></textarea>
-  <div class="section-status" id="instr-status"></div>
-  <button class="small-btn" onclick="saveInstructions()" style="margin-top:6px;">Save Instructions</button>
-  <button class="small-btn toggle-on" id="toggle-btn" onclick="toggleInstructions()" style="margin-top:6px;">Instructions: ON</button>
-  <button class="small-btn" onclick="resetInstructions()" style="margin-top:6px;">Reset to Default</button>
+  <button class="small-btn toggle-on" id="toggle-btn" onclick="toggleInstructions()" style="margin-top:6px;">Instrucciones: ON</button>
 </div>
 
 <div id="input-area">
   <a name="input"></a>
-  <textarea id="userinput" placeholder="Type your message here..."></textarea>
+  <textarea id="userinput" placeholder="Escribe aquí..."></textarea>
   <div id="btn-row">
-    <button onclick="sendMessage()">Send</button>
-    <button onclick="clearChat()">Clear chat</button>
+    <button onclick="sendMessage()">Enviar</button>
+    <button onclick="clearChat()">Limpiar</button>
   </div>
   <div id="status"></div>
 </div>
 
-<div id="chat"><span style="color:#777;font-size:13px;">Messages will appear here.</span></div>
+<div id="chat">Historial...</div>
 <a name="bottom"></a>
 
 <script>
@@ -131,7 +102,10 @@ var GITHUB_USER = "dantepicachu11-coder";
 var GITHUB_REPO = "AI-for-Kindle";
 var GITHUB_FOLDER = "docs";
 
-var DEFAULT_INSTRUCTIONS = "Eres un asistente educativo preciso y riguroso. Responde siempre en el mismo idioma en el que te escribe el usuario, detectandolo automaticamente en cada mensaje. Para preguntas matematicas: verifica todos los calculos paso a paso antes de dar el resultado final, y asegurate de que las operaciones sean correctas. Si un problema admite varios metodos, usa el mas confiable. Nunca des un numero sin haberlo comprobado. Para preguntas teoricas o conceptuales: responde como en un examen evaluativo, con informacion correcta, clara y bien estructurada. Da definiciones precisas y, cuando sea util, un ejemplo breve. Longitud de las respuestas: apunta a unas 4 oraciones en promedio. No respondas con frases demasiado cortas que omitan informacion importante, ni te extiendas innecesariamente. Prioriza la exactitud y la claridad sobre la cantidad. Si no estas seguro de un dato, indicalo honestamente en lugar de inventar.";
+var DEFAULT_INSTRUCTIONS = "Eres un asistente util. Responde corto y directo para ser leido en una pantalla pequeña de Kindle.";
+
+// URL Proxy para evitar el Error 0 (CORS) sin crear cuentas
+var PROXY_URL = "https://corsproxy.io/?"; 
 
 function getParam(name) {
   var search = window.location.search;
@@ -139,9 +113,7 @@ function getParam(name) {
   var pairs = search.substring(1).split("&");
   for (var i = 0; i < pairs.length; i++) {
     var pair = pairs[i].split("=");
-    if (decodeURIComponent(pair[0]) === name) {
-      return pair[1] ? decodeURIComponent(pair[1]) : "";
-    }
+    if (decodeURIComponent(pair[0]) === name) return pair[1] ? decodeURIComponent(pair[1]) : "";
   }
   return "";
 }
@@ -149,128 +121,64 @@ function getParam(name) {
 function updateBookmarkUrl() {
   var gk = document.getElementById("apikey").value.trim();
   var gem = document.getElementById("geminikey").value.trim();
-  var co = document.getElementById("coherekey").value.trim();
   var nv = document.getElementById("nvidiakey").value.trim();
   var gh = document.getElementById("ghtoken").value.trim();
   var base = window.location.href.split("?")[0].split("#")[0];
   var params = [];
-  if (gk) { params[params.length] = "gk=" + encodeURIComponent(gk); }
-  if (gem) { params[params.length] = "gem=" + encodeURIComponent(gem); }
-  if (co) { params[params.length] = "co=" + encodeURIComponent(co); }
-  if (nv) { params[params.length] = "nv=" + encodeURIComponent(nv); }
-  if (gh) { params[params.length] = "gh=" + encodeURIComponent(gh); }
+  if (gk) params[params.length] = "gk=" + encodeURIComponent(gk);
+  if (gem) params[params.length] = "gem=" + encodeURIComponent(gem);
+  if (nv) params[params.length] = "nv=" + encodeURIComponent(nv);
+  if (gh) params[params.length] = "gh=" + encodeURIComponent(gh);
   params[params.length] = "ai=" + encodeURIComponent(activeAI);
-  var url = base + (params.length > 0 ? "?" + params.join("&") : "");
-  document.getElementById("bookmark-url").innerHTML = url;
-  if (document.getElementById("bookmark-status")) {
-    document.getElementById("bookmark-status").innerHTML = "Done! Save this URL as a bookmark in your Kindle browser.";
-  }
+  document.getElementById("bookmark-url").innerHTML = base + (params.length > 0 ? "?" + params.join("&") : "");
 }
 
 window.onload = function() {
-  var gk = getParam("gk");
-  var gem = getParam("gem");
-  var co = getParam("co");
-  var nv = getParam("nv");
-  var gh = getParam("gh");
-  var ai = getParam("ai");
-
-  if (gk) { document.getElementById("apikey").value = gk; document.getElementById("key-status").innerHTML = "Key loaded from bookmark."; }
-  if (gem) { document.getElementById("geminikey").value = gem; document.getElementById("gemini-status").innerHTML = "Key loaded from bookmark."; }
-  if (co) { document.getElementById("coherekey").value = co; document.getElementById("cohere-status").innerHTML = "Key loaded from bookmark."; }
-  if (nv) { document.getElementById("nvidiakey").value = nv; document.getElementById("nvidia-status").innerHTML = "Key loaded from bookmark."; }
-  if (gh) { document.getElementById("ghtoken").value = gh; document.getElementById("gh-status").innerHTML = "Token loaded from bookmark."; }
-  if (ai === "gemini" || ai === "cohere" || ai === "nvidia") { activeAI = ai; }
-
-  if (!gk) { tryLoadStorage("groq_key", "apikey", "key-status"); }
-  if (!gem) { tryLoadStorage("gemini_key", "geminikey", "gemini-status"); }
-  if (!co) { tryLoadStorage("cohere_key", "coherekey", "cohere-status"); }
-  if (!nv) { tryLoadStorage("nvidia_key", "nvidiakey", "nvidia-status"); }
-  if (!gh) { tryLoadStorage("gh_token", "ghtoken", "gh-status"); }
-
-  var instr = null;
-  try { instr = localStorage.getItem("groq_instructions"); } catch(e) {}
-  document.getElementById("instructions").value = (instr !== null) ? instr : DEFAULT_INSTRUCTIONS;
-
-  try {
-    var state = localStorage.getItem("groq_instructions_on");
-    instructionsOn = (state === null) ? true : (state === "1");
-  } catch(e) { instructionsOn = true; }
-  updateToggleButton();
+  var gk = getParam("gk"); var gem = getParam("gem"); var nv = getParam("nv"); var gh = getParam("gh"); var ai = getParam("ai");
+  if (gk) document.getElementById("apikey").value = gk;
+  if (gem) document.getElementById("geminikey").value = gem;
+  if (nv) document.getElementById("nvidiakey").value = nv;
+  if (gh) document.getElementById("ghtoken").value = gh;
+  if (ai === "gemini" || ai === "nvidia") activeAI = ai;
+  document.getElementById("instructions").value = DEFAULT_INSTRUCTIONS;
   updateAIButtons();
   updateBookmarkUrl();
 };
 
-function tryLoadStorage(storageKey, fieldId, statusId) {
-  try {
-    var val = localStorage.getItem(storageKey);
-    if (val) { document.getElementById(fieldId).value = val; document.getElementById(statusId).innerHTML = "Key loaded from storage."; }
-    else { document.getElementById(statusId).innerHTML = "No key found."; }
-  } catch(e) { document.getElementById(statusId).innerHTML = "No key found."; }
-}
-
 function selectAI(ai) {
-  activeAI = ai;
-  chatHistory = [];
-  document.getElementById("chat").innerHTML = '<span style="color:#777;font-size:13px;">Messages will appear here.</span>';
-  try { localStorage.setItem("active_ai", ai); } catch(e) {}
-  updateAIButtons();
-  updateBookmarkUrl();
+  activeAI = ai; chatHistory = []; document.getElementById("chat").innerHTML = '';
+  updateAIButtons(); updateBookmarkUrl();
 }
 
 function updateAIButtons() {
-  var ids = ["btn-groq", "btn-gemini", "btn-cohere", "btn-nvidia"];
-  var ais = ["groq", "gemini", "cohere", "nvidia"];
-  var labels = [
-    "Using Groq (Llama 3.1)", 
-    "Using Gemini 2.5 Flash", 
-    "Using Cohere (Command R+)",
-    "Using NVIDIA (Llama 3.1 70B)"
-  ];
-  for (var i = 0; i < ids.length; i++) {
-    document.getElementById(ids[i]).className = (activeAI === ais[i]) ? "toggle-on" : "";
-  }
-  for (var i = 0; i < ais.length; i++) {
-    if (activeAI === ais[i]) { document.getElementById("ai-status").innerHTML = labels[i]; }
-  }
+  var ids = ["btn-groq", "btn-gemini", "btn-nvidia"];
+  var ais = ["groq", "gemini", "nvidia"];
+  for (var i = 0; i < ids.length; i++) document.getElementById(ids[i]).className = (activeAI === ais[i]) ? "toggle-on" : "";
+  document.getElementById("ai-status").innerHTML = "Usando " + activeAI.toUpperCase();
 }
 
 function loadFileList() {
   var token = document.getElementById("ghtoken").value.trim();
   var listDiv = document.getElementById("file-list");
-  listDiv.innerHTML = "Loading...";
-  var url = "https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FOLDER;
+  listDiv.innerHTML = "Cargando...";
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
+  xhr.open("GET", "https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FOLDER, true);
   xhr.setRequestHeader("Accept", "application/vnd.github.v3+json");
-  if (token) { xhr.setRequestHeader("Authorization", "token " + token); }
+  if (token) xhr.setRequestHeader("Authorization", "token " + token);
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
     if (xhr.status === 200) {
-      try {
-        var files = JSON.parse(xhr.responseText);
-        listDiv.innerHTML = "";
-        var count = 0;
-        for (var i = 0; i < files.length; i++) {
-          if (files[i].type === "file") {
-            count++;
-            (function(file) {
-              var item = document.createElement("div");
-              item.className = "file-item";
-              item.innerHTML = file.name;
-              item.setAttribute("data-name", file.name);
-              item.onclick = function() { toggleFileSelection(item, file.name); };
-              listDiv.appendChild(item);
-            })(files[i]);
-          }
+      var files = JSON.parse(xhr.responseText);
+      listDiv.innerHTML = "";
+      for (var i = 0; i < files.length; i++) {
+        if (files[i].type === "file") {
+          var item = document.createElement("div");
+          item.className = "file-item"; item.innerHTML = files[i].name; item.setAttribute("data-name", files[i].name);
+          item.onclick = (function(f) { return function() { toggleFileSelection(this, f.name); }; })(files[i]);
+          listDiv.appendChild(item);
         }
-        if (count === 0) { listDiv.innerHTML = "<span style='color:#777;'>No files found in docs/ folder.</span>"; }
-      } catch(e) { listDiv.innerHTML = "Parse error: " + e.message; }
-    } else if (xhr.status === 404) {
-      listDiv.innerHTML = "docs/ folder not found.";
-    } else {
-      listDiv.innerHTML = "Error " + xhr.status + ". Check your token.";
-    }
+      }
+    } else { listDiv.innerHTML = "Error " + xhr.status; }
   };
   xhr.send();
 }
@@ -278,263 +186,149 @@ function loadFileList() {
 function toggleFileSelection(item, name) {
   var idx = selectedFiles.indexOf(name);
   if (idx === -1) {
-    item.innerHTML = name + " (loading...)";
+    item.innerHTML = name + " (cargando...)";
     var token = document.getElementById("ghtoken").value.trim();
-    var apiUrl = "https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FOLDER + "/" + encodeURIComponent(name);
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", apiUrl, true);
+    xhr.open("GET", "https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FOLDER + "/" + encodeURIComponent(name), true);
     xhr.setRequestHeader("Accept", "application/vnd.github.v3+json");
-    if (token) { xhr.setRequestHeader("Authorization", "token " + token); }
+    if (token) xhr.setRequestHeader("Authorization", "token " + token);
     xhr.onreadystatechange = function() {
       if (xhr.readyState !== 4) return;
       if (xhr.status === 200) {
-        try {
-          var resp = JSON.parse(xhr.responseText);
-          var decoded = atob(resp.content.replace(/\n/g, ""));
-          loadedFiles[name] = decoded;
-          selectedFiles[selectedFiles.length] = name;
-          item.className = "file-item selected";
-          item.innerHTML = name + " (loaded)";
-          updateLoadedFilesLabel();
-        } catch(e) { item.innerHTML = name + " (parse error: " + e.message + ")"; }
-      } else { item.innerHTML = name + " (error " + xhr.status + ")"; }
+        var resp = JSON.parse(xhr.responseText);
+        loadedFiles[name] = atob(resp.content.replace(/\n/g, ""));
+        selectedFiles[selectedFiles.length] = name;
+        item.className = "file-item selected"; item.innerHTML = name + " (listo)";
+        document.getElementById("loaded-files").innerHTML = "Archivos: " + selectedFiles.join(", ");
+      } else { item.innerHTML = name + " (error)"; }
     };
     xhr.send();
   } else {
-    selectedFiles.splice(idx, 1);
-    delete loadedFiles[name];
-    item.className = "file-item";
-    item.innerHTML = name;
-    updateLoadedFilesLabel();
+    selectedFiles.splice(idx, 1); delete loadedFiles[name];
+    item.className = "file-item"; item.innerHTML = name;
+    document.getElementById("loaded-files").innerHTML = selectedFiles.length > 0 ? "Archivos: " + selectedFiles.join(", ") : "";
   }
 }
 
-function updateLoadedFilesLabel() {
-  var div = document.getElementById("loaded-files");
-  div.innerHTML = selectedFiles.length === 0 ? "" : "Active files: " + selectedFiles.join(", ");
-}
-
-function clearFiles() {
-  selectedFiles = [];
-  loadedFiles = {};
-  updateLoadedFilesLabel();
-  var items = document.getElementsByClassName("file-item");
-  for (var i = 0; i < items.length; i++) {
-    items[i].className = "file-item";
-    var name = items[i].getAttribute("data-name");
-    if (name) { items[i].innerHTML = name; }
-  }
-}
-
-function saveInstructions() {
-  var instr = document.getElementById("instructions").value;
-  try { localStorage.setItem("groq_instructions", instr); document.getElementById("instr-status").innerHTML = "Instructions saved."; }
-  catch(e) { document.getElementById("instr-status").innerHTML = "Could not save: " + e.message; }
-}
-function resetInstructions() {
-  document.getElementById("instructions").value = DEFAULT_INSTRUCTIONS;
-  try { localStorage.setItem("groq_instructions", DEFAULT_INSTRUCTIONS); } catch(e) {}
-  document.getElementById("instr-status").innerHTML = "Reset to default.";
-}
-function updateToggleButton() {
-  var btn = document.getElementById("toggle-btn");
-  if (instructionsOn) { btn.innerHTML = "Instructions: ON"; btn.className = "small-btn toggle-on"; }
-  else { btn.innerHTML = "Instructions: OFF"; btn.className = "small-btn"; }
-}
 function toggleInstructions() {
   instructionsOn = !instructionsOn;
-  try { localStorage.setItem("groq_instructions_on", instructionsOn ? "1" : "0"); } catch(e) {}
-  updateToggleButton();
-  document.getElementById("instr-status").innerHTML = instructionsOn ? "Instructions active." : "Instructions off.";
+  var btn = document.getElementById("toggle-btn");
+  if (instructionsOn) { btn.innerHTML = "Instrucciones: ON"; btn.className = "small-btn toggle-on"; }
+  else { btn.innerHTML = "Instrucciones: OFF"; btn.className = "small-btn"; }
 }
 
 function setStatus(msg) { document.getElementById("status").innerHTML = msg; }
-function moveBottomAnchor() {
-  var bottom = document.getElementsByName("bottom")[0];
-  if (bottom) { bottom.parentNode.removeChild(bottom); document.body.appendChild(bottom); }
-}
-function makeNavRow() {
-  var nav = document.createElement("div");
-  nav.className = "nav-row";
-  nav.innerHTML = '<a href="#input">&uarr; Write</a> <a href="#bottom">&darr; Latest</a>';
-  return nav;
-}
+function moveBottom() { var b = document.getElementsByName("bottom")[0]; if(b){b.parentNode.removeChild(b); document.body.appendChild(b);} }
+
 function appendMessage(role, text) {
   var chat = document.getElementById("chat");
-  var placeholder = chat.querySelector("span");
-  if (placeholder) { chat.removeChild(placeholder); }
   var div = document.createElement("div");
   div.className = role === "user" ? "msg-user" : "msg-ai";
-  var label = document.createElement("div");
-  label.className = "msg-label";
-  label.innerHTML = role === "user" ? "You" : "AI";
-  var content = document.createElement("div");
-  content.innerHTML = escapeHtml(text).replace(/\n/g, "<br>");
-  div.appendChild(label);
-  div.appendChild(content);
+  div.innerHTML = "<div class='msg-label'>" + (role === "user" ? "Tú" : "IA") + "</div><div>" + text.replace(/</g, "&lt;").replace(/\n/g, "<br>") + "</div>";
   chat.appendChild(div);
-  chat.appendChild(makeNavRow());
-  moveBottomAnchor();
+  
+  // Limite DOM: Solo mantiene los ultimos 10 elementos visuales (5 turnos de chat)
+  while(chat.childNodes.length > 10) { chat.removeChild(chat.firstChild); }
+  moveBottom();
 }
-function escapeHtml(str) {
-  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
+
 function getSystemPrompt() {
-  if (!instructionsOn) return "";
-  return document.getElementById("instructions").value.trim();
-}
-function buildFullText(text) {
-  if (selectedFiles.length === 0) return text;
-  var ctx = "";
-  for (var i = 0; i < selectedFiles.length; i++) {
-    ctx += "--- File: " + selectedFiles[i] + " ---\n" + loadedFiles[selectedFiles[i]] + "\n\n";
+  var sys = instructionsOn ? document.getElementById("instructions").value.trim() : "";
+  if (selectedFiles.length > 0) {
+    sys += "\n\nCONTEXTO DE ARCHIVOS ADJUNTOS:\n";
+    for (var i = 0; i < selectedFiles.length; i++) sys += "Archivo [" + selectedFiles[i] + "]:\n" + loadedFiles[selectedFiles[i]] + "\n\n";
+    sys += "Usa este contexto para responder si es necesario.";
   }
-  return "The user has attached the following files as context:\n\n" + ctx + "User message: " + text;
+  return sys;
+}
+
+// Limite RAM: Corta el historial para recordar solo ultimos 6 mensajes
+function pruneHistory() {
+  if (chatHistory.length > 6) { chatHistory = chatHistory.slice(chatHistory.length - 6); }
 }
 
 function sendMessage() {
   var text = document.getElementById("userinput").value.trim();
-  if (!text) { setStatus("Please type a message."); return; }
-  var fullText = buildFullText(text);
-  chatHistory[chatHistory.length] = { role: "user", content: fullText };
+  if (!text) return;
+  chatHistory[chatHistory.length] = { role: "user", content: text };
   appendMessage("user", text);
   document.getElementById("userinput").value = "";
-  setStatus("Thinking...");
-  if (activeAI === "groq") { sendGroq(); }
-  else if (activeAI === "gemini") { sendGemini(); }
-  else if (activeAI === "cohere") { sendCohere(); }
-  else { sendNvidia(); }
+  setStatus("Enviando (Proxy)...");
+  pruneHistory();
+  
+  if (activeAI === "groq") sendGroq();
+  else if (activeAI === "gemini") sendGemini();
+  else if (activeAI === "nvidia") sendNvidia();
 }
 
 function sendGroq() {
   var key = document.getElementById("apikey").value.trim();
-  if (!key) { setStatus("Enter your Groq API key first."); return; }
-  var messages = [];
-  var sys = getSystemPrompt();
-  if (sys) { messages[0] = { role: "system", content: sys }; }
-  for (var i = 0; i < chatHistory.length; i++) { messages[messages.length] = chatHistory[i]; }
+  if (!key) { setStatus("Falta llave Groq"); return; }
+  var msgs = []; var sys = getSystemPrompt(); if (sys) msgs[0] = { role: "system", content: sys };
+  for (var i = 0; i < chatHistory.length; i++) msgs[msgs.length] = chatHistory[i];
+  
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
+  xhr.open("POST", PROXY_URL + encodeURIComponent("https://api.groq.com/openai/v1/chat/completions"), true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Authorization", "Bearer " + key);
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
     if (xhr.status === 200) {
-      try {
-        var resp = JSON.parse(xhr.responseText);
-        var reply = resp.choices[0].message.content;
-        chatHistory[chatHistory.length] = { role: "assistant", content: reply };
-        appendMessage("ai", reply); setStatus("");
-      } catch(e) { setStatus("Parse error: " + e.message); }
-    } else {
-      try { var err = JSON.parse(xhr.responseText); setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText)); }
-      catch(e) { setStatus("Error " + xhr.status); }
-    }
+      var reply = JSON.parse(xhr.responseText).choices[0].message.content;
+      chatHistory[chatHistory.length] = { role: "assistant", content: reply };
+      appendMessage("ai", reply); setStatus("");
+    } else { setStatus("Error " + xhr.status + " (Revisa tu conexion)"); }
   };
-  xhr.send(JSON.stringify({ model: "openai/gpt-oss-120b", max_tokens: 1024, messages: messages }));
+  xhr.send(JSON.stringify({ model: "llama-3.1-70b-versatile", messages: msgs }));
 }
 
 function sendNvidia() {
   var key = document.getElementById("nvidiakey").value.trim();
-  if (!key) { setStatus("Enter your NVIDIA API key first (starts with nvapi-)."); return; }
-  var messages = [];
-  var sys = getSystemPrompt();
-  if (sys) { messages[0] = { role: "system", content: sys }; }
-  for (var i = 0; i < chatHistory.length; i++) { messages[messages.length] = chatHistory[i]; }
-  var xhr = new XMLHttpRequest();
+  if (!key) { setStatus("Falta llave NVIDIA"); return; }
+  var msgs = []; var sys = getSystemPrompt(); if (sys) msgs[0] = { role: "system", content: sys };
+  for (var i = 0; i < chatHistory.length; i++) msgs[msgs.length] = chatHistory[i];
   
-  // NVIDIA NIM uses an OpenAI-compatible endpoint
-  xhr.open("POST", "https://integrate.api.nvidia.com/v1/chat/completions", true);
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", PROXY_URL + encodeURIComponent("https://integrate.api.nvidia.com/v1/chat/completions"), true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Authorization", "Bearer " + key);
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
     if (xhr.status === 200) {
-      try {
-        var resp = JSON.parse(xhr.responseText);
-        var reply = resp.choices[0].message.content;
-        chatHistory[chatHistory.length] = { role: "assistant", content: reply };
-        appendMessage("ai", reply); setStatus("");
-      } catch(e) { setStatus("Parse error: " + e.message); }
-    } else {
-      try { var err = JSON.parse(xhr.responseText); setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText)); }
-      catch(e) { setStatus("Error " + xhr.status); }
-    }
+      var reply = JSON.parse(xhr.responseText).choices[0].message.content;
+      chatHistory[chatHistory.length] = { role: "assistant", content: reply };
+      appendMessage("ai", reply); setStatus("");
+    } else { setStatus("Error " + xhr.status + " (CORS Proxy/API)"); }
   };
-  // Aquí puedes cambiar el modelo si lo prefieres, por ejemplo a "nvidia/nemotron-4-340b-instruct"
-  xhr.send(JSON.stringify({ model: "meta/llama-3.1-70b-instruct", max_tokens: 1024, messages: messages }));
+  xhr.send(JSON.stringify({ model: "meta/llama-3.1-70b-instruct", max_tokens: 1024, messages: msgs }));
 }
 
 function sendGemini() {
   var key = document.getElementById("geminikey").value.trim();
-  if (!key) { setStatus("Enter your Gemini API key first."); return; }
-  var sys = getSystemPrompt();
-  var contents = [];
+  if (!key) { setStatus("Falta llave Gemini"); return; }
+  var sys = getSystemPrompt(); var contents = [];
   for (var i = 0; i < chatHistory.length; i++) {
-    var role = chatHistory[i].role === "assistant" ? "model" : "user";
     var txt = chatHistory[i].content;
-    if (i === 0 && sys) { txt = sys + "\n\n" + txt; }
-    contents[contents.length] = { role: role, parts: [{ text: txt }] };
+    if (i === 0 && sys) txt = sys + "\n\n" + txt;
+    contents[contents.length] = { role: chatHistory[i].role === "assistant" ? "model" : "user", parts: [{ text: txt }] };
   }
+  
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + encodeURIComponent(key), true);
+  var targetUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + key;
+  xhr.open("POST", PROXY_URL + encodeURIComponent(targetUrl), true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return;
     if (xhr.status === 200) {
-      try {
-        var resp = JSON.parse(xhr.responseText);
-        if (resp.candidates && resp.candidates[0] && resp.candidates[0].content && resp.candidates[0].content.parts[0]) {
-          var reply = resp.candidates[0].content.parts[0].text;
-          chatHistory[chatHistory.length] = { role: "assistant", content: reply };
-          appendMessage("ai", reply); setStatus("");
-        } else { setStatus("Unexpected response from Gemini."); }
-      } catch(e) { setStatus("Parse error: " + e.message); }
-    } else {
-      try { var err = JSON.parse(xhr.responseText); setStatus("Error " + xhr.status + ": " + (err.error && err.error.message ? err.error.message : xhr.responseText)); }
-      catch(e) { setStatus("Error " + xhr.status); }
-    }
+      var reply = JSON.parse(xhr.responseText).candidates[0].content.parts[0].text;
+      chatHistory[chatHistory.length] = { role: "assistant", content: reply };
+      appendMessage("ai", reply); setStatus("");
+    } else { setStatus("Error " + xhr.status); }
   };
   xhr.send(JSON.stringify({ contents: contents }));
 }
 
-function sendCohere() {
-  var key = document.getElementById("coherekey").value.trim();
-  if (!key) { setStatus("Enter your Cohere API key first."); return; }
-  var sys = getSystemPrompt();
-  var messages = [];
-  if (sys) { messages[0] = { role: "system", content: sys }; }
-  for (var i = 0; i < chatHistory.length; i++) {
-    messages[messages.length] = { role: chatHistory[i].role === "assistant" ? "assistant" : "user", content: chatHistory[i].content };
-  }
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://api.cohere.com/v2/chat", true);
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Authorization", "Bearer " + key);
-  xhr.setRequestHeader("X-Client-Name", "kindle-chat");
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState !== 4) return;
-    if (xhr.status === 200) {
-      try {
-        var resp = JSON.parse(xhr.responseText);
-        var reply = resp.message && resp.message.content && resp.message.content[0] ? resp.message.content[0].text : "";
-        if (!reply) { setStatus("Unexpected response from Cohere."); return; }
-        chatHistory[chatHistory.length] = { role: "assistant", content: reply };
-        appendMessage("ai", reply); setStatus("");
-      } catch(e) { setStatus("Parse error: " + e.message); }
-    } else {
-      try { var err = JSON.parse(xhr.responseText); setStatus("Error " + xhr.status + ": " + (err.message ? err.message : xhr.responseText)); }
-      catch(e) { setStatus("Error " + xhr.status); }
-    }
-  };
-  xhr.send(JSON.stringify({ model: "command-r-plus-08-2024", messages: messages }));
-}
-
-function clearChat() {
-  chatHistory = [];
-  document.getElementById("chat").innerHTML = '<span style="color:#777;font-size:13px;">Messages will appear here.</span>';
-  setStatus("Chat cleared.");
-}
+function clearChat() { chatHistory = []; document.getElementById("chat").innerHTML = ''; setStatus("Limpio."); }
 </script>
 </body>
 </html>
