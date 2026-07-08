@@ -37,14 +37,12 @@
 <a name="top"></a>
 <h2>AI Chat (Kindle)</h2>
 
-<!-- BOOKMARK HELPER -->
 <div class="section">
   <label>Bookmark URL (save this as a bookmark in Kindle):</label>
   <div id="bookmark-url" style="font-size:11px;padding:4px;border:1px solid #000;background:#f9f9f9;word-break:break-all;">Loading...</div>
   <div class="section-status">Open this URL or save it as a bookmark. Keys load automatically on every visit.</div>
 </div>
 
-<!-- AI SELECTOR -->
 <div class="section">
   <label>Active AI:</label>
   <div id="ai-selector">
@@ -55,42 +53,36 @@
   <div class="section-status" id="ai-status">Using Groq (Llama 3.1)</div>
 </div>
 
-<!-- GROQ KEY -->
 <div class="section">
   <label>Groq API Key (gsk_...):</label>
   <input type="password" id="apikey" placeholder="gsk_..." />
   <div class="section-status" id="key-status"></div>
 </div>
 
-<!-- GEMINI KEY -->
 <div class="section">
   <label>Gemini API Key (AIza...):</label>
   <input type="password" id="geminikey" placeholder="AIza..." />
   <div class="section-status" id="gemini-status"></div>
 </div>
 
-<!-- COHERE KEY -->
 <div class="section">
   <label>Cohere API Key:</label>
   <input type="password" id="coherekey" placeholder="..." />
   <div class="section-status" id="cohere-status"></div>
 </div>
 
-<!-- GITHUB TOKEN -->
 <div class="section">
   <label>GitHub Token (ghp_...):</label>
   <input type="password" id="ghtoken" placeholder="ghp_..." />
   <div class="section-status" id="gh-status"></div>
 </div>
 
-<!-- UPDATE BOOKMARK BUTTON -->
 <div class="section">
   <label>After entering keys above, update your bookmark URL:</label>
   <button onclick="updateBookmarkUrl()">Generate Bookmark URL</button>
   <div class="section-status" id="bookmark-status"></div>
 </div>
 
-<!-- FILE LOADER -->
 <div class="section">
   <label>Files from GitHub (docs/ folder):</label>
   <button class="small-btn" onclick="loadFileList()">Refresh file list</button>
@@ -99,7 +91,6 @@
   <button class="small-btn" onclick="clearFiles()" style="margin-top:6px;">Clear selected files</button>
 </div>
 
-<!-- INSTRUCTIONS -->
 <div class="section">
   <label>Instructions for the AI:</label>
   <textarea id="instructions"></textarea>
@@ -109,7 +100,6 @@
   <button class="small-btn" onclick="resetInstructions()" style="margin-top:6px;">Reset to Default</button>
 </div>
 
-<!-- INPUT -->
 <div id="input-area">
   <a name="input"></a>
   <textarea id="userinput" placeholder="Type your message here..."></textarea>
@@ -163,8 +153,10 @@ function updateBookmarkUrl() {
   params[params.length] = "ai=" + encodeURIComponent(activeAI);
   var url = base + (params.length > 0 ? "?" + params.join("&") : "");
   document.getElementById("bookmark-url").innerHTML = url;
-  if (document.getElementById("bookmark-status")) {
-    document.getElementById("bookmark-status").innerHTML = "Done! Save this URL as a bookmark in your Kindle browser.";
+  
+  var bmStatus = document.getElementById("bookmark-status");
+  if (bmStatus) {
+    bmStatus.innerHTML = "Done! Save this URL as a bookmark in your Kindle browser.";
   }
 }
 
@@ -194,6 +186,7 @@ window.onload = function() {
     var state = localStorage.getItem("groq_instructions_on");
     instructionsOn = (state === null) ? true : (state === "1");
   } catch(e) { instructionsOn = true; }
+  
   updateToggleButton();
   updateAIButtons();
   updateBookmarkUrl();
@@ -202,8 +195,13 @@ window.onload = function() {
 function tryLoadStorage(storageKey, fieldId, statusId) {
   try {
     var val = localStorage.getItem(storageKey);
-    if (val) { document.getElementById(fieldId).value = val; document.getElementById(statusId).innerHTML = "Key loaded from storage."; }
-    else { document.getElementById(statusId).innerHTML = "No key found."; }
+    var statusElem = document.getElementById(statusId);
+    if (val) { 
+      document.getElementById(fieldId).value = val; 
+      statusElem.innerHTML = "Key loaded from storage."; 
+    } else { 
+      statusElem.innerHTML = "No key found."; 
+    }
   } catch(e) { document.getElementById(statusId).innerHTML = "No key found."; }
 }
 
@@ -220,11 +218,16 @@ function updateAIButtons() {
   var ids = ["btn-groq", "btn-gemini", "btn-cohere"];
   var ais = ["groq", "gemini", "cohere"];
   var labels = ["Using Groq (Llama 3.1) — free tier", "Using Gemini 2.5 Flash", "Using Cohere (Command R+)"];
+  var aiStatusElem = document.getElementById("ai-status");
+  
   for (var i = 0; i < ids.length; i++) {
-    document.getElementById(ids[i]).className = (activeAI === ais[i]) ? "toggle-on" : "";
-  }
-  for (var i = 0; i < ais.length; i++) {
-    if (activeAI === ais[i]) { document.getElementById("ai-status").innerHTML = labels[i]; }
+    var btn = document.getElementById(ids[i]);
+    if (activeAI === ais[i]) {
+      btn.className = "toggle-on";
+      aiStatusElem.innerHTML = labels[i];
+    } else {
+      btn.className = "";
+    }
   }
 }
 
@@ -244,6 +247,8 @@ function loadFileList() {
         var files = JSON.parse(xhr.responseText);
         listDiv.innerHTML = "";
         var count = 0;
+        var fragment = document.createDocumentFragment();
+        
         for (var i = 0; i < files.length; i++) {
           if (files[i].type === "file") {
             count++;
@@ -253,11 +258,16 @@ function loadFileList() {
               item.innerHTML = file.name;
               item.setAttribute("data-name", file.name);
               item.onclick = function() { toggleFileSelection(item, file.name); };
-              listDiv.appendChild(item);
+              fragment.appendChild(item);
             })(files[i]);
           }
         }
-        if (count === 0) { listDiv.innerHTML = "<span style='color:#777;'>No files found in docs/ folder.</span>"; }
+        
+        if (count === 0) { 
+          listDiv.innerHTML = "<span style='color:#777;'>No files found in docs/ folder.</span>"; 
+        } else {
+          listDiv.appendChild(fragment);
+        }
       } catch(e) { listDiv.innerHTML = "Parse error: " + e.message; }
     } else if (xhr.status === 404) {
       listDiv.innerHTML = "docs/ folder not found.";
@@ -321,19 +331,31 @@ function clearFiles() {
 
 function saveInstructions() {
   var instr = document.getElementById("instructions").value;
-  try { localStorage.setItem("groq_instructions", instr); document.getElementById("instr-status").innerHTML = "Instructions saved."; }
-  catch(e) { document.getElementById("instr-status").innerHTML = "Could not save: " + e.message; }
+  var statusElem = document.getElementById("instr-status");
+  try { 
+    localStorage.setItem("groq_instructions", instr); 
+    statusElem.innerHTML = "Instructions saved."; 
+  }
+  catch(e) { statusElem.innerHTML = "Could not save: " + e.message; }
 }
+
 function resetInstructions() {
   document.getElementById("instructions").value = DEFAULT_INSTRUCTIONS;
   try { localStorage.setItem("groq_instructions", DEFAULT_INSTRUCTIONS); } catch(e) {}
   document.getElementById("instr-status").innerHTML = "Reset to default.";
 }
+
 function updateToggleButton() {
   var btn = document.getElementById("toggle-btn");
-  if (instructionsOn) { btn.innerHTML = "Instructions: ON"; btn.className = "small-btn toggle-on"; }
-  else { btn.innerHTML = "Instructions: OFF"; btn.className = "small-btn"; }
+  if (instructionsOn) { 
+    btn.innerHTML = "Instructions: ON"; 
+    btn.className = "small-btn toggle-on"; 
+  } else { 
+    btn.innerHTML = "Instructions: OFF"; 
+    btn.className = "small-btn"; 
+  }
 }
+
 function toggleInstructions() {
   instructionsOn = !instructionsOn;
   try { localStorage.setItem("groq_instructions_on", instructionsOn ? "1" : "0"); } catch(e) {}
@@ -342,57 +364,78 @@ function toggleInstructions() {
 }
 
 function setStatus(msg) { document.getElementById("status").innerHTML = msg; }
+
 function moveBottomAnchor() {
   var bottom = document.getElementsByName("bottom")[0];
-  if (bottom) { bottom.parentNode.removeChild(bottom); document.body.appendChild(bottom); }
+  if (bottom) { 
+    bottom.parentNode.removeChild(bottom); 
+    document.body.appendChild(bottom); 
+  }
 }
+
 function makeNavRow() {
   var nav = document.createElement("div");
   nav.className = "nav-row";
   nav.innerHTML = '<a href="#input">&uarr; Write</a> <a href="#bottom">&darr; Latest</a>';
   return nav;
 }
+
 function appendMessage(role, text) {
   var chat = document.getElementById("chat");
   var placeholder = chat.querySelector("span");
   if (placeholder) { chat.removeChild(placeholder); }
+  
+  var fragment = document.createDocumentFragment();
+  
   var div = document.createElement("div");
   div.className = role === "user" ? "msg-user" : "msg-ai";
+  
   var label = document.createElement("div");
   label.className = "msg-label";
   label.innerHTML = role === "user" ? "You" : "AI";
+  
   var content = document.createElement("div");
   content.innerHTML = escapeHtml(text).replace(/\n/g, "<br>");
+  
   div.appendChild(label);
   div.appendChild(content);
-  chat.appendChild(div);
-  chat.appendChild(makeNavRow());
+  
+  fragment.appendChild(div);
+  fragment.appendChild(makeNavRow());
+  
+  chat.appendChild(fragment);
   moveBottomAnchor();
 }
+
 function escapeHtml(str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
+
 function getSystemPrompt() {
   if (!instructionsOn) return "";
   return document.getElementById("instructions").value.trim();
 }
+
 function buildFullText(text) {
   if (selectedFiles.length === 0) return text;
-  var ctx = "";
+  var ctxArray = [];
   for (var i = 0; i < selectedFiles.length; i++) {
-    ctx += "--- File: " + selectedFiles[i] + " ---\n" + loadedFiles[selectedFiles[i]] + "\n\n";
+    ctxArray[ctxArray.length] = "--- File: " + selectedFiles[i] + " ---\n" + loadedFiles[selectedFiles[i]] + "\n\n";
   }
-  return "The user has attached the following files as context:\n\n" + ctx + "User message: " + text;
+  return "The user has attached the following files as context:\n\n" + ctxArray.join("") + "User message: " + text;
 }
 
 function sendMessage() {
-  var text = document.getElementById("userinput").value.trim();
+  var textElem = document.getElementById("userinput");
+  var text = textElem.value.trim();
   if (!text) { setStatus("Please type a message."); return; }
+  
   var fullText = buildFullText(text);
   chatHistory[chatHistory.length] = { role: "user", content: fullText };
   appendMessage("user", text);
-  document.getElementById("userinput").value = "";
+  textElem.value = "";
   setStatus("Thinking...");
+  
   if (activeAI === "groq") { sendGroq(); }
   else if (activeAI === "gemini") { sendGemini(); }
   else { sendCohere(); }
@@ -405,6 +448,7 @@ function sendGroq() {
   var sys = getSystemPrompt();
   if (sys) { messages[0] = { role: "system", content: sys }; }
   for (var i = 0; i < chatHistory.length; i++) { messages[messages.length] = chatHistory[i]; }
+  
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://api.groq.com/openai/v1/chat/completions", true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -431,12 +475,14 @@ function sendGemini() {
   if (!key) { setStatus("Enter your Gemini API key first."); return; }
   var sys = getSystemPrompt();
   var contents = [];
+  
   for (var i = 0; i < chatHistory.length; i++) {
     var role = chatHistory[i].role === "assistant" ? "model" : "user";
     var txt = chatHistory[i].content;
     if (i === 0 && sys) { txt = sys + "\n\n" + txt; }
     contents[contents.length] = { role: role, parts: [{ text: txt }] };
   }
+  
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + encodeURIComponent(key), true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -465,9 +511,11 @@ function sendCohere() {
   var sys = getSystemPrompt();
   var messages = [];
   if (sys) { messages[0] = { role: "system", content: sys }; }
+  
   for (var i = 0; i < chatHistory.length; i++) {
     messages[messages.length] = { role: chatHistory[i].role === "assistant" ? "assistant" : "user", content: chatHistory[i].content };
   }
+  
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://api.cohere.com/v2/chat", true);
   xhr.setRequestHeader("Content-Type", "application/json");
