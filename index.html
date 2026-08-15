@@ -50,7 +50,7 @@
     <button id="btn-gemini" onclick="selectAI('gemini')">Gemini</button>
     <button id="btn-cohere" onclick="selectAI('cohere')">Cohere</button>
   </div>
-  <div class="section-status" id="ai-status">Using Groq (Llama 3.1)</div>
+  <div class="section-status" id="ai-status">Using Groq (GPT OSS 20B)</div>
 </div>
 
 <div class="section">
@@ -217,7 +217,7 @@ function selectAI(ai) {
 function updateAIButtons() {
   var ids = ["btn-groq", "btn-gemini", "btn-cohere"];
   var ais = ["groq", "gemini", "cohere"];
-  var labels = ["Using Groq (Llama 3.1) — free tier", "Using Gemini 2.5 Flash", "Using Cohere (Command R+)"];
+  var labels = ["Using Groq (GPT OSS 20B) — free tier", "Using Gemini 2.5 Flash", "Using Cohere (Command R+)"];
   var aiStatusElem = document.getElementById("ai-status");
   
   for (var i = 0; i < ids.length; i++) {
